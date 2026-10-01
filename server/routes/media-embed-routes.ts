@@ -1,8 +1,17 @@
 import type { Connect } from 'vite'
 import { spawn, type ChildProcess } from 'node:child_process'
+import path from 'node:path'
 import { requireApiToken } from '../cc-auth.js'
 import { sendJson } from '../middleware/http.js'
+import { describeFailure, raiseAlert } from '../alerts.js'
 import { resolvePython } from '../launch-runtime.js'
+import { LAUNCH_CATALOG } from '../launch/catalog.js'
+
+function toolFolder(id: string): string {
+  const tool = LAUNCH_CATALOG.find((t) => t.id === id)
+  if (!tool) throw new Error(`Unknown tool ${id}`)
+  return tool.path
+}
 
 /**
  * Runs the Video Metadata Stripper, Picture Metadata Stripper and Discord Video Drop Python backends
@@ -12,7 +21,8 @@ import { resolvePython } from '../launch-runtime.js'
 
 type Backend = {
   id: 'stripper' | 'discord' | 'pictures'
-  cwd: string
+  /** Backend folder, taken from the tool catalog so folder changes apply. */
+  cwd: () => string
   args: string[]
   port: number
   child: ChildProcess | null
@@ -24,7 +34,7 @@ type Backend = {
 const BACKENDS: Record<Backend['id'], Backend> = {
   stripper: {
     id: 'stripper',
-    cwd: String.raw`D:\jaukumas\promo-vids\metadata-stripper`,
+    cwd: () => path.join(toolFolder('video_metadata_stripper'), 'metadata-stripper'),
     args: ['stripper.py', '--no-browser', '--port', '8770'],
     port: 8770,
     child: null,
@@ -32,7 +42,7 @@ const BACKENDS: Record<Backend['id'], Backend> = {
   },
   pictures: {
     id: 'pictures',
-    cwd: String.raw`D:\picture stripper metadata`,
+    cwd: () => toolFolder('picture_metadata_stripper'),
     args: ['server.py'],
     port: 8790,
     child: null,
@@ -40,7 +50,7 @@ const BACKENDS: Record<Backend['id'], Backend> = {
   },
   discord: {
     id: 'discord',
-    cwd: String.raw`C:\Users\kajus\Desktop\ripper\discord-uploader`,
+    cwd: () => toolFolder('discord_uploader'),
     args: ['server.py'],
     port: 8787,
     child: null,
@@ -76,9 +86,10 @@ async function ensureBackend(b: Backend): Promise<void> {
   }
   if (b.starting) return b.starting
   b.starting = (async () => {
-    const python = resolvePython(b.cwd)
+    const cwd = b.cwd()
+    const python = resolvePython(cwd)
     const child = spawn(python, b.args, {
-      cwd: b.cwd,
+      cwd,
       stdio: 'ignore',
       windowsHide: true,
       detached: false,
@@ -164,6 +175,8 @@ export function attachMediaEmbedRoutes(middlewares: Connect.Server) {
       }
       res.end(Buffer.from(await upstream.arrayBuffer()))
     } catch (err) {
+      const name = backend.id === 'stripper' ? 'Video Metadata Stripper' : backend.id === 'pictures' ? 'Picture Metadata Stripper' : 'Discord Video Drop'
+      raiseAlert(`${name} is not responding`, describeFailure(err, `${name} did not answer`), { source: backend.id })
       sendJson(res, 502, { ok: false, message: err instanceof Error ? err.message : String(err), error: err instanceof Error ? err.message : String(err) })
     }
   })

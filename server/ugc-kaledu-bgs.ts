@@ -1,3 +1,4 @@
+import { dirPath } from './paths-config.js'
 import fs from 'node:fs'
 import path from 'node:path'
 import zlib from 'node:zlib'
@@ -14,7 +15,11 @@ export const KALEDU_BG_CATEGORIES = [
 
 export type KaleduBgCategory = (typeof KALEDU_BG_CATEGORIES)[number]
 
-export const KALEDU_BGS_DIR = String.raw`D:\jaukumas\ugc pics`
+/** Kalėdų background folder (default D:\jaukumas\ugc pics; change under More → Folders). */
+export function kaleduBgsDir(): string {
+  return dirPath('kaleduBackgrounds')
+}
+export const KALEDU_BGS_DIR = kaleduBgsDir()
 
 const BG_COLORS: Record<KaleduBgCategory, [number, number, number]> = {
   COZY_HOME: [120, 72, 48],
@@ -92,7 +97,7 @@ function walkImageRelPaths(dir: string, root = dir): string[] {
   return out.sort((a, b) => a.localeCompare(b))
 }
 
-export function ensureKaleduBgFallbacks(dir = KALEDU_BGS_DIR): void {
+export function ensureKaleduBgFallbacks(dir = kaleduBgsDir()): void {
   fs.mkdirSync(dir, { recursive: true })
   if (walkImageRelPaths(dir).length > 0) return
   for (const cat of KALEDU_BG_CATEGORIES) {
@@ -105,14 +110,14 @@ export function ensureKaleduBgFallbacks(dir = KALEDU_BGS_DIR): void {
   }
 }
 
-export function listKaleduBackgroundRelPaths(dir = KALEDU_BGS_DIR): string[] {
+export function listKaleduBackgroundRelPaths(dir = kaleduBgsDir()): string[] {
   ensureKaleduBgFallbacks(dir)
   return walkImageRelPaths(dir)
 }
 
 export function listKaleduBackgroundsInCategory(
   category: string,
-  dir = KALEDU_BGS_DIR,
+  dir = kaleduBgsDir(),
 ): string[] {
   ensureKaleduBgFallbacks(dir)
   const key = KALEDU_BG_CATEGORIES.includes(category as KaleduBgCategory)

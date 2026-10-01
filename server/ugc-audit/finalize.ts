@@ -1,5 +1,6 @@
 /** Finalising and validating audited UGC batch posts. (Split out of ugc-batch-audit.ts.) */
 
+import { dirPath } from '../paths-config.js'
 import { AsyncLocalStorage } from 'node:async_hooks'
 import fs from 'node:fs'
 import path from 'node:path'
@@ -27,7 +28,7 @@ import { isSeasonalUgcTheme, UGC_SEASON_ECHO_RE } from '../ugc-season-context.js
 
 
 /** Capture root on D: — agent-readable vision dump for fortress review. */
-export const UGC_VISION_ROOT = process.env.UGC_VISION_ROOT?.trim() || 'D:\\ugc-batch-vision'
+export const UGC_VISION_ROOT = dirPath('ugcVisionRoot')
 
 
 

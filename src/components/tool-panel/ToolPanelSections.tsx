@@ -1,3 +1,6 @@
+import { useEffect, useState } from 'react'
+import { FolderField } from '../FolderField'
+import { fetchPaths, updatePath, type ToolFolder } from '../../lib/paths'
 import { ToolIcon } from '../../data/icons'
 import { readableToolAccent } from '../../lib/appearance'
 import {
@@ -550,6 +553,31 @@ export function ToolProfilesCard({ vm }: { vm: ToolPanelVm }) {
   )
 }
 
+/** Editable folder for one tool (stored in paths.json; launch uses it immediately). */
+function ToolFolderEditor({ toolId, fallbackPath }: { toolId: string; fallbackPath: string }) {
+  const [entry, setEntry] = useState<ToolFolder | null>(null)
+  useEffect(() => {
+    fetchPaths()
+      .then((snap) => setEntry(snap.tools.find((t) => t.id === toolId) || null))
+      .catch(() => setEntry(null))
+  }, [toolId])
+  const apply = (snap: { tools: ToolFolder[] }) => setEntry(snap.tools.find((t) => t.id === toolId) || null)
+  if (!entry) {
+    return <code className="block break-all font-mono text-xs leading-relaxed text-mist">{fallbackPath}</code>
+  }
+  return (
+    <FolderField
+      label="Tool folder"
+      path={entry.path}
+      defaultPath={entry.defaultPath}
+      overridden={entry.overridden}
+      exists={entry.exists}
+      onSave={async (p) => apply(await updatePath({ action: 'set-tool', id: toolId, path: p }))}
+      onReset={async () => apply(await updatePath({ action: 'reset-tool', id: toolId }))}
+    />
+  )
+}
+
 export function ToolPathsCard({ vm }: { vm: ToolPanelVm }) {
   const { copied, copyPath, launchOptionId, tool } = vm
   return (
@@ -567,9 +595,7 @@ export function ToolPathsCard({ vm }: { vm: ToolPanelVm }) {
               {copied ? 'Copied' : 'Copy'}
             </button>
           </div>
-          <code className="block break-all font-mono text-xs leading-relaxed text-mist">
-            {tool.path}
-          </code>
+          <ToolFolderEditor toolId={tool.id} fallbackPath={tool.path} />
         </div>
         <div className="rounded-2xl border border-lineStrong bg-raised shadow-card p-4">
           <div className="mb-2 font-mono text-[10px] uppercase tracking-[0.16em] text-mist">

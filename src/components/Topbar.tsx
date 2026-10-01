@@ -23,6 +23,7 @@ interface TopbarProps {
   onHome: () => void
   onOpenPalette: () => void
   onOpenVault: () => void
+  onOpenFolders?: () => void
   onOpenLogs: () => void
   onStopAll: () => void
   stopAllBusy?: boolean
@@ -52,6 +53,7 @@ export function Topbar({
   onHome,
   onOpenPalette,
   onOpenVault,
+  onOpenFolders,
   onOpenLogs,
   onStopAll,
   stopAllBusy,
@@ -227,6 +229,7 @@ export function Topbar({
             <button type="button" onClick={() => menuAction(onOpenLogs)} className="w-full rounded-lg px-3 py-2 text-left text-sm text-mist hover:bg-lift min-[1100px]:hidden">Live logs</button>
             {marketsOpen && onMarketsRefresh && <button type="button" onClick={() => menuAction(onMarketsRefresh)} disabled={marketsRefreshing} className="w-full rounded-lg px-3 py-2 text-left text-sm text-brass hover:bg-lift disabled:opacity-40 min-[1100px]:hidden">{marketsRefreshing ? 'Refreshing…' : 'Refresh Markets'}</button>}
             <button type="button" onClick={() => menuAction(onOpenVault)} className="w-full rounded-lg px-3 py-2 text-left text-sm text-mist hover:bg-lift">Credentials vault</button>
+            {onOpenFolders ? <button type="button" onClick={() => menuAction(onOpenFolders)} className="w-full rounded-lg px-3 py-2 text-left text-sm text-mist hover:bg-lift">Folders</button> : null}
             <button type="button" onClick={() => menuAction(onBackup)} disabled={backupBusy} className="w-full rounded-lg px-3 py-2 text-left text-sm text-mist hover:bg-lift disabled:opacity-40">{backupBusy ? 'Backing up…' : 'Back up workspace'}</button>
             <button type="button" onClick={() => menuAction(onStopAll)} disabled={stopAllBusy || bridgeOk === false} className="w-full rounded-lg px-3 py-2 text-left text-sm text-ember hover:bg-ember/10 disabled:opacity-40 min-[1100px]:hidden">{stopAllBusy ? 'Stopping…' : 'Stop all tools'}</button>
             <div className="mt-1 border-t border-line px-3 py-2 font-mono text-[10px] text-fog">{clock}</div>

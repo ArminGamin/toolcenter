@@ -112,8 +112,8 @@ async function releaseUgcOllamaModel(): Promise<void> {
 }
 
 /** Load model onto GPU before batch — keeps VRAM warm between posts. */
-export async function warmUgcOllamaModel(): Promise<void> {
-  await ollamaWarmModel({
+export async function warmUgcOllamaModel(): Promise<{ failed?: boolean; warmRequestMs: number }> {
+  return ollamaWarmModel({
     model: resolveUgcOllamaModel(),
     numGpu: resolveUgcOllamaNumGpu(),
     numCtx: resolveUgcOllamaNumCtxBatch(),

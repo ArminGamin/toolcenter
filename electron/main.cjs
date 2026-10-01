@@ -266,6 +266,28 @@ function notify(title, body) {
   n.show()
 }
 
+const seenAlerts = new Set()
+let alertsPrimed = false
+
+/** Desktop notification for each new "something failed" alert from the bridge. */
+async function notifyNewAlerts(token) {
+  const res = await fetch(`${BASE}/api/alerts`, {
+    headers: token ? { 'X-CC-Token': token } : {},
+    signal: AbortSignal.timeout(5000),
+  })
+  if (!res.ok) return
+  const { alerts = [] } = await res.json()
+  for (const a of alerts) {
+    const key = `${a.id}:${a.count}`
+    if (seenAlerts.has(key)) continue
+    seenAlerts.add(key)
+    // On the first poll, only announce failures from the last two minutes.
+    if (!alertsPrimed && Date.now() - Date.parse(a.at) > 120_000) continue
+    notify(`Something failed: ${a.title}`, a.detail || 'Open the Control Center for details.')
+  }
+  alertsPrimed = true
+}
+
 const ACTIVE = new Set(['running', 'waiting_login', 'paused', 'waiting', 'sending'])
 let lastStatus = new Map()
 
@@ -294,6 +316,7 @@ async function watchJobs() {
       lastStatus = next
       updateTray([...next.values()].filter((v) => v.live).map((v) => v.label))
     }
+    await notifyNewAlerts(token)
   } catch {
     /* bridge restarting */
   }

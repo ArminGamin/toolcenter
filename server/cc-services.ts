@@ -4,6 +4,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
 import { readVaultFile, writeEncryptedVault } from './vault-crypto.js'
+import { raiseAlert } from './alerts.js'
 import {
   BUSINESS_PROFILES_DIR,
   GLOBAL_CC_DATA,
@@ -304,6 +305,10 @@ export function fireNotify(
   toolId?: string,
   opts?: { pingEveryone?: boolean },
 ) {
+  // Errors also go to the in-app "something failed" banner and desktop notification.
+  if (kind === 'err' || kind === 'critical') {
+    raiseAlert(title, description, { level: kind === 'critical' ? 'critical' : 'error', source: toolId })
+  }
   void notifyDiscord({
     title,
     description,

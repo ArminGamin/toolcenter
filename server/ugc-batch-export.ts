@@ -1,10 +1,11 @@
+import { dirPath } from './paths-config.js'
 import fs from 'node:fs'
 import path from 'node:path'
 import { TOOLSAI_ROOT } from './cc-services.js'
 
 /** Agent vision dump — always allowed as batch output. */
 export const UGC_VISION_BATCH_ROOT = path.join(
-  process.env.UGC_VISION_ROOT?.trim() || 'D:\\ugc-batch-vision',
+  dirPath('ugcVisionRoot'),
   'batch',
 )
 
@@ -33,12 +34,12 @@ export function resolveBatchOutputRoot(userPath?: string): string {
   const resolved = path.isAbsolute(trimmed) ? trimmed : path.resolve(TOOLSAI_ROOT, trimmed)
   const normalized = path.resolve(resolved)
   const toolsaiRoot = path.resolve(TOOLSAI_ROOT)
-  const visionRoot = path.resolve(process.env.UGC_VISION_ROOT?.trim() || 'D:\\ugc-batch-vision')
+  const visionRoot = path.resolve(dirPath('ugcVisionRoot'))
 
   const underToolsai = normalized === toolsaiRoot || normalized.startsWith(toolsaiRoot + path.sep)
   const underVision = normalized === visionRoot || normalized.startsWith(visionRoot + path.sep)
   if (!underToolsai && !underVision) {
-    throw new Error('Output path must be under toolsai or D:\\ugc-batch-vision')
+    throw new Error(`Output path must be under toolsai or ${dirPath('ugcVisionRoot')}`)
   }
   return normalized
 }

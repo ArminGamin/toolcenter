@@ -7,7 +7,8 @@ import {
   currentBusinessProfile,
 } from './business-profiles.js'
 import { TOOLSAI_ROOT } from './cc-services.js'
-import { KALEDU_BGS_DIR } from './ugc-kaledu-bgs.js'
+import { kaleduBgsDir } from './ugc-kaledu-bgs.js'
+import { dirPath } from './paths-config.js'
 import { KALEDU_DEFAULT_CAPTION_CTA, KALEDU_DEFAULT_CTA, KALEDU_WEBSITE } from './ugc-kaledu-cta.js'
 
 export type ProfileNiche = 'weight-loss' | 'christmas-gifts'
@@ -49,7 +50,6 @@ const JAUKUMAS_PROMO = path.join(
 )
 
 const TAVO_GROUPS_IMAGES = path.join(TOOLSAI_ROOT, 'facebook-group-poster', 'images')
-const TAVO_UGC_IMAGES = String.raw`D:\new-pics`
 const TAVO_PROMO = path.join(TOOLSAI_ROOT, 'newsletter-sender', 'promo-email.html')
 
 const BRANDS: Record<string, ProfileBrand> = {
@@ -61,7 +61,9 @@ const BRANDS: Record<string, ProfileBrand> = {
     siteHost: 'tavoknyga.com',
     storeRoot: TAVO_EBOOK,
     groupsImagesDir: TAVO_GROUPS_IMAGES,
-    ugcImagesDir: TAVO_UGC_IMAGES,
+    get ugcImagesDir() {
+      return dirPath('ugcImages')
+    },
     outreachPromoHtml: TAVO_PROMO,
     seoSiteRoot: TAVO_EBOOK,
     seoUsesEbookGenerator: true,
@@ -78,7 +80,9 @@ const BRANDS: Record<string, ProfileBrand> = {
     siteHost: KALEDU_WEBSITE,
     storeRoot: JAUKUMAS_ROOT,
     groupsImagesDir: JAUKUMAS_PRODUCTS,
-    ugcImagesDir: KALEDU_BGS_DIR,
+    get ugcImagesDir() {
+      return kaleduBgsDir()
+    },
     productCatalogFile: JAUKUMAS_CATALOG,
     outreachPromoHtml: JAUKUMAS_PROMO,
     seoSiteRoot: JAUKUMAS_ROOT,

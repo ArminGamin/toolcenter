@@ -1,3 +1,4 @@
+import { describeFailure, raiseAlert } from './alerts.js'
 import fs from 'node:fs'
 import path from 'node:path'
 import { CC_DATA, loadVault, TOOLSAI_ROOT } from './cc-services.js'
@@ -641,7 +642,7 @@ export async function ollamaWarmModel(options?: {
   numCtx?: number
   keepAlive?: number | string
   unloadOthers?: boolean
-}): Promise<{ skipped: boolean; warmRequestMs: number; loadDurationNs?: number; evalDurationNs?: number }> {
+}): Promise<{ skipped: boolean; warmRequestMs: number; loadDurationNs?: number; evalDurationNs?: number; failed?: boolean }> {
   const started = Date.now()
   try {
     const model = (options?.model || '').trim() || resolveOllamaModel()
@@ -679,9 +680,20 @@ export async function ollamaWarmModel(options?: {
     console.log(
       `Warm done ${warmRequestMs}ms load_duration=${data.load_duration ?? 0}ns eval_duration=${data.eval_duration ?? 0}ns`,
     )
+    if (!res.ok) {
+      raiseAlert('Ollama warm-up failed', `HTTP ${res.status} while loading ${options?.model || resolveOllamaModel()}`, { source: 'ollama' })
+      return { skipped: false, warmRequestMs, failed: true }
+    }
     return { skipped: false, warmRequestMs, loadDurationNs: data.load_duration, evalDurationNs: data.eval_duration }
-  } catch {
-    return { skipped: false, warmRequestMs: Date.now() - started }
+  } catch (err) {
+    const model = (options?.model || '').trim() || resolveOllamaModel()
+    // Never fail silently: a hung load used to just eat 3 minutes with no message.
+    raiseAlert(
+      'Ollama warm-up failed',
+      `${describeFailure(err, `${model} did not load within 3 minutes`)}. Is Ollama running, and is the GPU free?`,
+      { source: 'ollama' },
+    )
+    return { skipped: false, warmRequestMs: Date.now() - started, failed: true }
   }
 }
 

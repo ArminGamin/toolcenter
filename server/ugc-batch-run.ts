@@ -463,7 +463,12 @@ async function runBatchLoop(
 
     touch(batch, id, 'Loading Ollama model onto GPU…', 0.08)
     step(batch, id, 'Warming ugc-lt-gpu…')
-    await warmUgcOllamaModel()
+    const warm = await warmUgcOllamaModel()
+    if (warm.failed) {
+      step(batch, id, `Ollama warm-up failed after ${Math.round(warm.warmRequestMs / 1000)}s — check the alert banner. Continuing.`)
+    } else if (warm.warmRequestMs > 5000) {
+      step(batch, id, `Model loaded in ${Math.round(warm.warmRequestMs / 1000)}s`)
+    }
     let deploy = await verifyUgcModelDeploy(true)
     if (!deploy.systemHashMatch) {
       step(batch, id, 'Syncing ugc-lt-gpu SYSTEM prompt from code…')

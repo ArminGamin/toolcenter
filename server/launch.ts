@@ -40,6 +40,7 @@ import { attachGroupPosterRoutes } from './routes/group-poster-routes.js'
 import { attachHubRoutes } from './routes/hub-routes.js'
 import { attachMarketsRoutes } from './routes/markets-routes.js'
 import { attachMediaEmbedRoutes } from './routes/media-embed-routes.js'
+import { attachPathsRoutes } from './routes/paths-routes.js'
 import { attachNotesRoutes } from './routes/notes-routes.js'
 import { attachOneShotRoutes } from './routes/one-shot-routes.js'
 import { attachOutreachRoutes } from './routes/outreach-routes.js'
@@ -312,6 +313,7 @@ export function attachLaunchMiddleware(middlewares: Connect.Server) {
   attachUgcSlidesRoutes(middlewares)
   attachOneShotRoutes(middlewares)
   attachMediaEmbedRoutes(middlewares)
+  attachPathsRoutes(middlewares)
 
   middlewares.use('/api/launch', async (req, res) => {
     if (req.method === 'OPTIONS') {

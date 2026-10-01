@@ -6,11 +6,13 @@ import { Rail } from './components/Rail'
 import { BridgeBlocker } from './components/BridgeBlocker'
 import { Topbar } from './components/Topbar'
 import { VaultModal } from './components/VaultModal'
+import { FoldersModal } from './components/FoldersModal'
 import { usePersistedTools } from './hooks/usePersistedTools'
 import { useRailOrder } from './hooks/useRailOrder'
 import { useAppNavigation, type AppModule } from './hooks/useAppNavigation'
 import { createBackup, fetchRuntimeStatus, launchTool, stopAllTools } from './lib/launch'
-import { fetchHubSummary, railRunningFromHub } from './lib/hub'
+import { fetchHubSummary, railRunningFromHub, type HubModuleSnapshot } from './lib/hub'
+import { AlertBanner } from './components/AlertBanner'
 import { buildQuickActions, runQuickAction } from './lib/quick-actions'
 import { setNavTarget } from './lib/nav-target'
 import type { UnifiedSearchHit } from './lib/unified-search'
@@ -87,6 +89,7 @@ export default function App() {
   const [pipelineDue, setPipelineDue] = useState(0)
   const [paletteOpen, setPaletteOpen] = useState(false)
   const [vaultOpen, setVaultOpen] = useState(false)
+  const [foldersOpen, setFoldersOpen] = useState(false)
   const [logsOpen, setLogsOpen] = useState(false)
   const [logsTab, setLogsTab] = useState<'live' | 'outreach' | 'failures' | 'screenshots' | null>(
     null,
@@ -97,6 +100,7 @@ export default function App() {
   const [ollamaOk, setOllamaOk] = useState<boolean | null>(null)
   const [onlineMap, setOnlineMap] = useState<Record<string, boolean>>({})
   const [hubRunning, setHubRunning] = useState<Record<string, boolean>>({})
+  const [hubModules, setHubModules] = useState<HubModuleSnapshot[]>([])
   const [toast, setToast] = useState<string | null>(null)
   const marketsRefreshRef = useRef<(() => Promise<void>) | null>(null)
   const [marketsRefreshing, setMarketsRefreshing] = useState(false)
@@ -107,6 +111,7 @@ export default function App() {
     const onProfileChanged = () => {
       setOnlineMap({})
       setHubRunning({})
+      setHubModules([])
       setQuickActions([])
       setPipelineDue(0)
       setProfileRevision((value) => value + 1)
@@ -123,6 +128,7 @@ export default function App() {
       setQuickActions(buildQuickActions(summary.modules))
       setPipelineDue(summary.followUpsDue ?? 0)
       setHubRunning(railRunningFromHub(summary.modules))
+      setHubModules(summary.modules)
     }
     void tick()
     const id = window.setInterval(() => void tick(), paletteOpen ? 2000 : 12000)
@@ -342,7 +348,7 @@ export default function App() {
 
   return (
     <div className="app-noise flex h-screen w-screen max-[860px]:flex-col">
-      <div className="contents" inert={paletteOpen || vaultOpen || logsOpen}>
+      <div className="contents" inert={paletteOpen || vaultOpen || logsOpen || foldersOpen}>
       <Rail
         order={railOrder}
         reorder={reorderRail}
@@ -399,6 +405,7 @@ export default function App() {
           onHome={nav.goHome}
           onOpenPalette={() => setPaletteOpen(true)}
           onOpenVault={() => setVaultOpen(true)}
+          onOpenFolders={() => setFoldersOpen(true)}
           onOpenLogs={() => {
             setLogsTab(null)
             setLogsOpen(true)
@@ -417,6 +424,7 @@ export default function App() {
           marketsRefreshing={marketsRefreshing}
           marketsRefreshLabel={marketsRefreshLabel}
         />
+        <AlertBanner modules={hubModules} />
 
         <main key={profileRevision} className="relative flex min-h-0 flex-1 flex-col overflow-hidden">
           <section
@@ -672,6 +680,7 @@ export default function App() {
       />
 
       <VaultModal open={vaultOpen} onClose={() => setVaultOpen(false)} />
+      <FoldersModal open={foldersOpen} onClose={() => setFoldersOpen(false)} tools={tools} />
 
       <GlobalLogsModal
         open={logsOpen}

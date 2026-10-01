@@ -3,10 +3,11 @@
  * post cannot recycle the same opener, lead noun, or seasonal filler.
  */
 
+import { dirPath } from './paths-config.js'
 import fs from 'node:fs'
 import path from 'node:path'
 
-const LEDGER_ROOT = process.env.UGC_VISION_ROOT?.trim() || 'D:\\ugc-batch-vision'
+const LEDGER_ROOT = dirPath('ugcVisionRoot')
 const LEDGER_PATH = path.join(LEDGER_ROOT, 'variety-ledger.json')
 
 /** How many recent posts stay in the banned set. */

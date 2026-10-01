@@ -2,8 +2,24 @@ import type { Connect } from 'vite'
 import { listAutomationFailures, readAutomationFailure } from '../automation-failures.js'
 import { getHubSummary, stopHubModule } from '../hub-summary.js'
 import { readJsonBody, sendJson } from '../middleware/http.js'
+import { dismissAlert, dismissAllAlerts, listAlerts } from '../alerts.js'
 
 export function attachHubRoutes(middlewares: Connect.Server) {
+  middlewares.use('/api/alerts', async (req, res) => {
+    if (req.method === 'GET') {
+      sendJson(res, 200, { ok: true, alerts: listAlerts() })
+      return
+    }
+    if (req.method === 'POST') {
+      const body = await readJsonBody(req)
+      if (body.action === 'dismiss-all') dismissAllAlerts()
+      else if (body.action === 'dismiss') dismissAlert(String(body.id || ''))
+      sendJson(res, 200, { ok: true, alerts: listAlerts() })
+      return
+    }
+    sendJson(res, 405, { ok: false, message: 'GET or POST only' })
+  })
+
   middlewares.use('/api/hub-summary', async (req, res) => {
     if (req.method === 'OPTIONS') {
       res.statusCode = 204
