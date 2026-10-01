@@ -67,7 +67,6 @@ export function OrbitView({ tools, onlineMap, onSelect, onLaunch, onAddToRail, i
   const visible = useMemo(() => tools.filter((t) => !t.removed), [tools])
   const live = visible.filter((t) => onlineMap[t.id]).length
   const stageRef = useRef<HTMLDivElement>(null)
-  const [videoOpen, setVideoOpen] = useState(false)
   const [layout, setLayout] = useState<StageLayout | null>(null)
 
   function handleOrbitContextMenu(e: MouseEvent, toolId: string) {
@@ -299,40 +298,7 @@ export function OrbitView({ tools, onlineMap, onSelect, onLaunch, onAddToRail, i
         )}
       </div>
 
-      <footer className="flex shrink-0 w-full max-w-[900px] items-center justify-between gap-2 px-2 pb-1 pt-1 max-[860px]:flex-col max-[860px]:items-stretch max-[860px]:gap-2">
-        <button
-          type="button"
-          onClick={() => setVideoOpen((open) => !open)}
-          aria-pressed={videoOpen}
-          className={[
-            'min-h-[44px] rounded-lg border px-3 py-1.5 text-[11.5px] transition',
-            videoOpen
-              ? 'border-brass/40 bg-brass/15 text-brass'
-              : 'border-lineStrong bg-panel text-mist hover:text-snow',
-          ].join(' ')}
-        >
-          {videoOpen ? 'Hide video' : 'Video'}
-        </button>
-        <span className="hidden w-16 sm:block" aria-hidden />
-      </footer>
 
-      {videoOpen && (
-        <aside className="absolute bottom-12 left-3 z-[5] w-[min(340px,38vw)] max-[860px]:left-2 max-[860px]:w-[min(300px,78vw)]">
-          <div className="overflow-hidden rounded-xl border border-brass/20 bg-well shadow-panel">
-            <video
-              className="aspect-[9/16] max-h-[min(48vh,440px)] w-full bg-ink object-cover"
-              src="/media/home-side.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              controls
-              aria-label="Home side video"
-            />
-          </div>
-        </aside>
-      )}
     </section>
   )
 }
