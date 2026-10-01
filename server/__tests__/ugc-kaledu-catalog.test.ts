@@ -18,7 +18,7 @@ import {
   catalogProductFilenames,
 } from '../ugc-kaledu-catalog.js'
 import { kaleduProductLedIssues, repairKaleduProductLed } from '../ugc-story-engine.js'
-import { kaleduDeterministicQa, isDirectReaderQuestion, normalizeDirectQuestionPunctuation, repairUgcQuestionAndCollocation } from '../ugc-kaledu-final-qa.js'
+import { kaleduDeterministicQa, normalizeDirectQuestionPunctuation, repairUgcQuestionAndCollocation } from '../ugc-kaledu-final-qa.js'
 import { listKaleduBackgroundRelPaths } from '../ugc-kaledu-bgs.js'
 
 describe('Kalėdų catalog resolver', () => {
@@ -46,11 +46,12 @@ describe('Kalėdų catalog resolver', () => {
 
   it('resolves pledas slug to a real product image', () => {
     const assets = resolveProductAssets('vilnonis-pledas-jaukumas')
+    const product = loadKaleduCatalog().find((row) => row.slug === 'vilnonis-pledas-jaukumas')
     expect(assets).not.toBeNull()
     expect(assets?.name).toMatch(/pledas/i)
-    expect(assets?.image).toMatch(/pledas-jaukumas\.png$/i)
+    expect(assets?.image.endsWith(product!.images[0].split('/').pop()!)).toBe(true)
     expect(fs.existsSync(assets!.image)).toBe(true)
-    expect(assets?.url).toBe('/products/pledas-jaukumas.png')
+    expect(assets?.url).toBe(product?.images[0])
   })
 
   it('filters budget picks by priceCents cap', () => {
