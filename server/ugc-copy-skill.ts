@@ -158,14 +158,6 @@ export const UGC_LT_STORY_EDITOR_SKILL = `ISTORIJA: prieš grąžindamas karusel
 Kiekviena skaidrė atsako „Kokią naują mintį prideda ši skaidrė?". Jei tik kartoja ankstesnę mintį — perrašyk.
 Visas skaidrių tekstas iš eilės turi skambėti kaip viena pastraipa.`
 
-const UGC_LT_SELF_CHECK = `PRIEŠ GRĄŽINDAMAS JSON, PATIKRINK TYLIAI:
-1. Ar kiekvienas sakinys skamba natūraliai lietuviškai?
-2. Ar nėra išgalvoto žodžio ar keistos kolokacijos?
-3. Ar kiekvienas slide prideda naują mintį?
-4. Ar tekstas trumpas ir aiškus?
-5. Ar CTA ir svetainė yra tik close cta lauke?
-Jei ne — pataisyk prieš JSON. Šio sąrašo nerašyk.`
-
 export const UGC_LT_NATIVE_REWRITE_SYSTEM = `${UGC_LT_NATIVE_EDITOR_SKILL}
 
 Tu perrašai jau parašytą „Tavo knyga" UGC tekstą. NEKEISK prasmės, skaidrės rolės ar CTA.

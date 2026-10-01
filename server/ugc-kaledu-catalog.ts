@@ -17,9 +17,9 @@ export type KaleduCatalogProduct = {
   priceCents: number
   recipients: string[]
   vibes: string[]
-  benefits?: string[]
-  ugcFamily?: string
-  ugcUseCases?: string[]
+  benefits?: string[] | undefined
+  ugcFamily?: string | undefined
+  ugcUseCases?: string[] | undefined
   images: string[]
   inStock: boolean
 }
@@ -220,7 +220,7 @@ function extractBool(block: string, key: string): boolean {
 
 export function parseKaleduCatalogText(text: string): KaleduCatalogProduct[] {
   return extractProductBlocks(text)
-    .map((block) => {
+    .map((block): KaleduCatalogProduct | null => {
       const slug = extractString(block, 'slug')
       if (!slug) return null
       return {

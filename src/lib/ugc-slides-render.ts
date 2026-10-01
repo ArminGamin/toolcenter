@@ -498,10 +498,20 @@ export function resolveProductSlidePaint<T>(opts: {
   }
 }
 
+/** Product-visual outcome for Kalėdų slides (audited by the batch QA). */
+export type RenderedSlideProduct = {
+  expected: boolean
+  rendered: boolean
+  productId?: string
+  bounds?: LayoutRect | null
+  reason?: string
+  cause?: string
+}
+
 export function renderUgcSlide(
   canvas: HTMLCanvasElement,
   input: RenderSlideInput,
-): { overflow: boolean } {
+): { overflow: boolean; product?: RenderedSlideProduct } {
   const ctx = canvas.getContext('2d')
   if (!ctx) throw new Error('Canvas 2D unavailable')
 

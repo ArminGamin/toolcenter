@@ -419,7 +419,7 @@
       {
         "theme": "Moteriškas kalėdinis megztinis su eglutėmis",
         "hook": "Kai norisi, kad megztinis iš tiesų atrodytų kalėdiškai.",
-        "body": "Šis raudonas, baltas ir žalias megztinis turi eglučių, elnių ir snaigių raštą.",
+        "body": "Šis raudonas, baltas ir žalias megztinis turi eglučių ir elnių raštą.",
         "kind": "product",
         "modeHint": "product_led",
         "productHints": [
@@ -429,7 +429,7 @@
       {
         "theme": "Derantys kalėdiniai megztiniai visai šeimai",
         "hook": "Šeimos nuotraukoje derantys megztiniai iškart kuria šventinę nuotaiką.",
-        "body": "Vyro, moters ir vaiko megztiniai turi Kalėdų Senelio ir snaigių raštą bei raudonus ir žalius akcentus.",
+        "body": "Vyro, moters ir vaiko megztiniai turi raudoną Kalėdų Senelio ir snaigių raštą.",
         "kind": "product",
         "modeHint": "product_led",
         "productHints": [

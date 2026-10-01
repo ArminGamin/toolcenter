@@ -459,7 +459,7 @@ Notes is a local-first workspace opened from the rail. It supports multiple note
 | OKX public copy-lead trades | Guaranteed-profit claims |
 | Multi-venue L/S & funding | Bypassing compliance filters |
 
-**Form 4, SEC 13F, OKX copy-leads, and on-chain whale flow are confirmation-only** (lagged, survivorship-biased, or incomplete-labelled context). They cannot arm a ticket alone — primary triggers are multi-venue flow (crypto) or Yahoo options / momentum (stocks). See `STOCK_PRINTER_LAWS` / `MONEY_PRINTER_LAWS` and `AUDIT-FIXES.md`.
+**Form 4, SEC 13F, OKX copy-leads, and on-chain whale flow are confirmation-only** (lagged, survivorship-biased, or incomplete-labelled context). They cannot arm a ticket alone — primary triggers are multi-venue flow (crypto) or Yahoo options / momentum (stocks). See `STOCK_PRINTER_LAWS` / `MONEY_PRINTER_LAWS`.
 
 **Size naming:** the UI label **Size** displays the playbook's `sizeHint` string. It is not a second numeric position-size field: it states the intended percentage of account equity at risk. Portfolio risk parses that text only when valid; a missing or malformed `sizeHint` receives a 7.5% fail-closed risk charge and cannot quietly receive the normal 0.75% target.
 
@@ -471,7 +471,6 @@ Desk copy always frames signals as **not a profit guarantee**. Strict mode means
 
 ### Related docs
 - Full feature guide: [`FEATURES.md`](./FEATURES.md)
-- Audit / integrity pass: [`AUDIT-FIXES.md`](./AUDIT-FIXES.md)
 
 ---
 

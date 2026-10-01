@@ -83,6 +83,23 @@ const NATIVE_SEMANTIC_CODES = new Set<KaleduQaCode>([
   'statement_shaped_question',
 ])
 
+type NativeSemanticBucketCode = Extract<
+  KaleduQaCode,
+  | 'valid_word_wrong_context'
+  | 'incomplete_complement'
+  | 'semantic_comparison_mismatch'
+  | 'awkward_collocation'
+  | 'awkward_nominalization'
+  | 'translated_sounding_lt'
+  | 'vague_metaphor'
+  | 'weak_product_story_bridge'
+  | 'statement_shaped_question'
+>
+
+function isNativeSemanticCode(code: KaleduQaCode): code is NativeSemanticBucketCode {
+  return NATIVE_SEMANTIC_CODES.has(code)
+}
+
 /** Audit bucket per code, so the audit shows which layer is doing the work. */
 export function kaleduQaCategory(code: KaleduQaCode): KaleduQaCategory {
   if (
@@ -94,7 +111,7 @@ export function kaleduQaCategory(code: KaleduQaCode): KaleduQaCategory {
   ) {
     return 'grammar_qa'
   }
-  if (NATIVE_SEMANTIC_CODES.has(code)) return code
+  if (isNativeSemanticCode(code)) return code
   if (code === 'spell_hard_fail' || code === 'spell_note' || code === 'register_violation') return code
   if (code === 'product_truth' || code === 'contamination') return 'structural'
   return 'grammar_qa'
@@ -852,9 +869,6 @@ const TEMPORAL_CIAUP_RE =
   /(?:kalėd\p{L}*|švent(?:ė|ės|ėms|es)|šventinis\s+laikotarp\p{L}*|gruodžio\s+pabaig\p{L}*)[^!?.]{0,48}(?:jau\s+)?(?:visai\s+)?čiaup\p{L}*/iu
 const TIME_BLINK_RE = /(?<!\p{L})laikas\s+blyk[sš]t\p{L}*/iu
 const GIFT_TILT_RE = /(?<!\p{L})dovan\p{L}*\s+atloj\p{L}*/iu
-const FEELING_PASSAGE_RE =
-  /ar\s+žinai\s+tą\s+jausmą,\s*kai\s+kalėdos\s+jau\s+čiaup\p{L}*\??\s*visada\s+lieka\s+tiek\s+daug\s+nepadaryt\p{L}*\??/iu
-
 const FEELING_REPAIR =
   'Ar žinai tą jausmą, kai Kalėdos jau visai čia pat, o dar tiek daug nepadaryta?'
 

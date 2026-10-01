@@ -25,7 +25,6 @@ import {
   scaleFindCapsForTarget,
   scaledFindMaxRounds,
 } from './find-scaling.js'
-import { dbgLog } from './debug-log.js'
 
 export function listLeadFinderExportFiles(limit = 12): {
   name: string
@@ -203,7 +202,6 @@ export async function runHeadlessFind(
   rt.findSpawnLock = true
   try {
   // Always wipe stray headless_run trees before spawn — orphans cause send-while-find.
-  const beforeOrphans = countHeadlessFindRuns()
   if (rt.findChild && !rt.findChild.killed) {
     try {
       rt.findChild.kill()
@@ -216,19 +214,9 @@ export async function runHeadlessFind(
   } else {
     rt.findChild = null
   }
-  const cleared = killLeftoverHeadlessFinders()
+  killLeftoverHeadlessFinders()
   sleepSync(200)
   let afterOrphans = countHeadlessFindRuns()
-  // #region agent log
-  dbgLog('A', 'outreach.ts:runHeadlessFind:pre-spawn', 'orphan state before spawn', {
-    runId: runId.slice(0, 8),
-    epoch,
-    findEpoch: rt.findEpoch,
-    beforeOrphans,
-    cleared,
-    afterOrphans,
-  })
-  // #endregion
   if (afterOrphans > 0) {
     appendLog('error', 'find', `Still ${afterOrphans} Lead Finder process(es) after cleanup — forcing again`)
     killLeftoverHeadlessFinders()
@@ -307,13 +295,6 @@ export async function runHeadlessFind(
     'find',
     `Starting Lead Finder · profile=${activeProfileSlug(settings)} · mode=${fastMode ? 'fast' : 'original'} · pages=${maxPages} urls=${maxUrls} queries=${maxQueries} · find=${leadTarget} send-need=${sendsNeeded} score=${minScore} rounds=${maxRounds}${scaleNote} · exclude=${excludeEmails.length}`,
   )
-  // #region agent log
-  dbgLog('C', 'outreach.ts:runHeadlessFind:config', 'find config exclude/target', {
-    leadTarget,
-    excludeCount: excludeEmails.length,
-    profile: activeProfileSlug(settings),
-  })
-  // #endregion
 
   return new Promise((resolve, reject) => {
     if (epoch !== rt.findEpoch) {
@@ -328,13 +309,6 @@ export async function runHeadlessFind(
     })
     rt.findChild = child
     syncOutreachRuntime()
-    // #region agent log
-    dbgLog('A', 'outreach.ts:runHeadlessFind:spawned', 'spawned headless', {
-      pid: child.pid,
-      epoch,
-      liveHeadless: countHeadlessFindRuns(),
-    })
-    // #endregion
     let stdoutTail = ''
     let stdoutBuf = ''
     let stderr = ''
@@ -438,15 +412,6 @@ export async function runHeadlessFind(
         rt.findChild = null
         syncOutreachRuntime()
       }
-      // #region agent log
-      dbgLog('A', 'outreach.ts:runHeadlessFind:close', 'headless closed', {
-        code,
-        epoch,
-        findEpoch: liveFindEpoch(),
-        liveHeadless: countHeadlessFindRuns(),
-        outputPath: Boolean(outputPath),
-      })
-      // #endregion
       if (rt.leadPersistTimer) {
         clearTimeout(rt.leadPersistTimer)
         rt.leadPersistTimer = null

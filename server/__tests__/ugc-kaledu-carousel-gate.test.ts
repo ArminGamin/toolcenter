@@ -82,14 +82,14 @@ describe('Kalėdų carousel gates', () => {
         role: 'close',
         title: '',
         body: 'Pasikliauk intuicija ir padovanok šviesą bei jaukumą.',
-      }).map((issue) => issue.code),
+      }, { giftNiche: true }).map((issue) => issue.code),
     ).toContain('empty_poetic_payoff')
     expect(
       detectKaleduNativeIssues({
         role: 'close',
         title: '',
         body: 'Net maža dovana gali būti gera, jei ji išrinkta galvojant apie žmogų.',
-      }).some((issue) => issue.code === 'empty_poetic_payoff'),
+      }, { giftNiche: true }).some((issue) => issue.code === 'empty_poetic_payoff'),
     ).toBe(false)
     expect(normalizeTerminalEmojiPunctuation('šilumos ✨.')).toBe('šilumos. ✨')
     expect(normalizeTerminalEmojiPunctuation('šilumos. ✨')).toBe('šilumos. ✨')

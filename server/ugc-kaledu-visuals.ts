@@ -68,7 +68,7 @@ export function checkProductVisual(input: {
     return { ...base, reason: 'product_visual_missing', cause: 'product_bounds_invalid' }
   }
   if (input.rendered === false) return { ...base, reason: 'product_visual_missing', cause: 'renderer_did_not_draw_product' }
-  return { ...base, rendered: input.rendered !== false }
+  return { ...base, rendered: true }
 }
 
 export type ProductVisualPick = {

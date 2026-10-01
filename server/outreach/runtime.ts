@@ -8,7 +8,6 @@ import type { OutreachCampaignHealth, OutreachLeadEvidence, OutreachRun, Outreac
 import { getOutreachSettings, saveOutreachSettings, resolveSendProfileName, readSendProfiles, profileKeyId } from './settings.js'
 import { readPermanentBlacklist } from './blacklist.js'
 import { sentFilePath, rejectedFilePath } from './profile-data.js'
-import { dbgLog } from './debug-log.js'
 import { countHeadlessFindRuns } from './find-process.js'
 import { cleanEmails } from './clean.js'
 import { bindCurrentProfile, currentBusinessProfile } from '../business-profiles.js'
@@ -631,15 +630,6 @@ export function loadCurrentFromDisk() {
   const liveOs = countHeadlessFindRuns()
   if (raw.status === 'sending' || raw.status === 'running') {
     if (liveChild || liveOs > 0) {
-      // #region agent log
-      dbgLog('H', 'outreach.ts:loadCurrentFromDisk', 'HMR keep running — no kill', {
-        status: raw.status,
-        stage: raw.stage,
-        liveChild,
-        liveOs,
-        findChildPid: rt.findChild?.pid ?? null,
-      })
-      // #endregion
       // The in-memory owner is authoritative while work is live. Disk can lag by
       // the 900ms lead debounce and must not erase fresh progress during HMR.
       if (rt.currentRun.id === raw.id) {
@@ -708,17 +698,6 @@ export function restoreOutreachRuntimeFromGlobal(): boolean {
   rt.chainEmptyStreak = snap.chainEmptyStreak ?? 0
   rt.chainStartedAt = snap.chainStartedAt ?? null
   rt.chainFinishedAt = snap.chainFinishedAt ?? null
-  // #region agent log
-  dbgLog('H', 'outreach.ts:restoreOutreachRuntime', 'HMR restored runtime', {
-    stage: rt.currentRun.stage,
-    status: rt.currentRun.status,
-    findChildPid: rt.findChild?.pid ?? null,
-    findChildAlive: Boolean(rt.findChild && !rt.findChild.killed),
-    findEpoch: rt.findEpoch,
-    chainSessionActive: rt.chainSessionActive,
-    liveOs: countHeadlessFindRuns(),
-  })
-  // #endregion
   return true
 }
 

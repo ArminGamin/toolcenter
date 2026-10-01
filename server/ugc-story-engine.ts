@@ -131,11 +131,8 @@ import {
   UGC_LT_COPY_SKILL,
   UGC_LT_NATIVE_REWRITE_SYSTEM,
   UGC_KALEDU_NATIVE_REWRITE_SYSTEM,
-  ugcActiveNativeRewriteSystem,
   ugcActiveCopySkill,
   ugcActiveOllamaSystemPrompt,
-  ugcActiveCloseCtaContext,
-  ugcActiveAngleHints,
   buildUgcAuditPromptSnapshot,
   stripEnglishCopyLabels,
   buildJsonRetryReminder,
@@ -1317,7 +1314,7 @@ export function parseStoryBatchPayload(
       throw new Error(`Expected ${roles.length} slides, got ${slideRows.length}`)
     }
   }
-  const out = [] as StoryBatchItems
+  const out = [] as unknown as StoryBatchItems
   const emptyRows: StoryBatchItems['emptyRows'] = []
   for (let i = 0; i < slideRows.length; i++) {
     const row = slideRows[i]
@@ -1445,7 +1442,11 @@ function slidesFromItems(
   allowProgrammaticRescue = false,
   seasonalTheme = false,
   themeSeed: { hook: string; body: string } = { hook: '', body: '' },
-): { slides: UgcStorySlide[]; processed: number } {
+): {
+  slides: UgcStorySlide[]
+  processed: number
+  rejected: Array<{ requestedIndex: number; role: string; reason: string }>
+} {
   const used = collectUsedPhrases(prior)
   const built: UgcStorySlide[] = []
   const priorText: Array<{ text: string }> = [...prior]
@@ -3733,7 +3734,6 @@ export async function generateUgcBatchStory(body: {
         let requestSize = chunkRoles.length
         const plannedRequestSize = chunkRoles.length
         let chunkSlides: UgcStorySlide[] = []
-        let chunkProcessed = 0
         let lastChunkError: Error | null = null
         let lastQualityAttempts = 2
         let timeoutShrinkUsed = false
@@ -3829,7 +3829,6 @@ export async function generateUgcBatchStory(body: {
                 )
               }
               chunkSlides = built.slides
-              chunkProcessed = built.processed
               if (productContract && isChristmasGiftsNiche()) {
                 const stamped = applyReservedProductResolution(
                   chunkSlides,
@@ -3939,7 +3938,6 @@ export async function generateUgcBatchStory(body: {
             defaultCta,
             prior: priorRaw,
           })
-          chunkProcessed = chunkSlides.length
           rescuedSlides += chunkSlides.length
           auditLog('chunk_programmatic_fallback', {
             start: start + 1,

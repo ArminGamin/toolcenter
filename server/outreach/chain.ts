@@ -18,7 +18,6 @@ import {
   delegateStartOutreachSend,
   delegateLoadOutreachSendProfile,
 } from './delegates.js'
-import { dbgLog } from './debug-log.js'
 import { chainDurationExceeded } from './reliability-policy.js'
 import { getRemainingQuota } from './quota.js'
 
@@ -157,14 +156,6 @@ export async function refillCurrentChainProfile(
   if (!rt.chainSessionActive || rt.chainAdvanceInFlight) return
   // Never start a refill while a find/send wave is still marked active
   if (rt.currentRun.status === 'running' || rt.currentRun.status === 'sending') {
-    // #region agent log
-    dbgLog('B', 'outreach.ts:refillCurrentChainProfile:blocked', 'refill blocked — wave active', {
-      reason,
-      stage: rt.currentRun.stage,
-      status: rt.currentRun.status,
-      liveHeadless: countHeadlessFindRuns(),
-    })
-    // #endregion
     return
   }
   if (rt.findChild && !rt.findChild.killed) return
@@ -190,18 +181,6 @@ export async function refillCurrentChainProfile(
       'ok',
       'outreach',
     )
-    // #region agent log
-    dbgLog('A', 'outreach.ts:refillCurrentChainProfile', 'chain refill starting', {
-      reason,
-      remaining: q.remaining,
-      sent: q.sent,
-      cap: q.cap,
-      lastFound: rt.currentRun.found?.length ?? 0,
-      lastSent: rt.currentRun.sent?.length ?? 0,
-      emptyStreak: rt.chainEmptyStreak,
-      profile: name,
-    })
-    // #endregion
     // Kill any leftover finds before starting the next wave (prevents send/find overlap)
     hardStopAllFinds(`chain refill: ${reason}`)
     if (countHeadlessFindRuns() > 0) {

@@ -4,7 +4,6 @@ import path from 'node:path'
 import { loadVault, TOOLSAI_ROOT } from '../cc-services.js'
 import { appendLog } from './log.js'
 import { LEAD_FINDER } from './paths.js'
-import { dbgLog } from './debug-log.js'
 import { rt, gOutreach, pullOutreachRuntime, releaseFindSpawnLock, childProcessRunning, syncOutreachRuntime, liveFindChild } from './runtime.js'
 
 export function resolvePython(cwd: string): string {
@@ -172,7 +171,7 @@ export function forceKillPidTree(pid: number | undefined | null): void {
  * Instant find kill for Abort — no sleep loops, no 8s lock_clear wait on the request path.
  * Stray cleanup runs in the background.
  */
-export function forceAbortFindsInstant(reason: string): { killedChild: boolean; pid: number | null } {
+export function forceAbortFindsInstant(_reason: string): { killedChild: boolean; pid: number | null } {
   pullOutreachRuntime()
   rt.findEpoch++
   const child = liveFindChild() || rt.findChild
@@ -190,19 +189,11 @@ export function forceAbortFindsInstant(reason: string): { killedChild: boolean; 
   syncOutreachRuntime()
   // The captured PID tree was stopped above. A delayed kill-all can kill a
   // replacement worker already started by checkpoint recovery.
-  // #region agent log
-  dbgLog('A', 'outreach.ts:forceAbortFindsInstant', 'instant force abort finds', {
-    reason,
-    killedChild,
-    pid,
-    findEpoch: rt.findEpoch,
-  })
-  // #endregion
   return { killedChild, pid }
 }
 
 /** Stop tracked child + every stray headless_run before starting a new find/send/refill. */
-export function hardStopAllFinds(reason: string): { killedChild: boolean; cleared: number; remaining: number } {
+export function hardStopAllFinds(_reason: string): { killedChild: boolean; cleared: number; remaining: number } {
   pullOutreachRuntime()
   rt.findEpoch++
   // Prefer HMR-surviving child — module `let` can be null while the bag still owns the process.
@@ -227,15 +218,6 @@ export function hardStopAllFinds(reason: string): { killedChild: boolean; cleare
   const remaining = countHeadlessFindRuns()
   releaseFindSpawnLock()
   syncOutreachRuntime()
-  // #region agent log
-  dbgLog('A', 'outreach.ts:hardStopAllFinds', 'hard-stop finds', {
-    reason,
-    killedChild,
-    cleared,
-    remaining,
-    findEpoch: rt.findEpoch,
-  })
-  // #endregion
   return { killedChild, cleared, remaining }
 }
 

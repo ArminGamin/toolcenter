@@ -63,7 +63,6 @@ import { startOutreachSend } from './outreach/send-run.js'
 export { startOutreachSend, startOutreachLiveSend, testOutreachSend } from './outreach/send-run.js'
 import { configuredFindLeadTarget } from './outreach/find-scaling.js'
 import { registerOutreachDelegates } from './outreach/delegates.js'
-import { dbgLog } from './outreach/debug-log.js'
 import {
   listLeadFinderExportFiles,
   exportEmailsToLeadFinder,
@@ -545,10 +544,7 @@ export function clearScrapeCache(): { ok: boolean; message: string; details?: Re
   pullOutreachRuntime()
   // Stop an active find so DBs aren't locked
   rt.sendAbort = true
-  const stop = hardStopAllFinds('clear scrape cache')
-  // #region agent log
-  dbgLog('C', 'outreach.ts:clearScrapeCache', 'clear scrape after hard-stop', stop)
-  // #endregion
+  hardStopAllFinds('clear scrape cache')
 
   const script = path.join(LEAD_FINDER, 'clear_scrape_cache.py')
   if (!fs.existsSync(script)) {
@@ -589,16 +585,6 @@ export function clearScrapeCache(): { ok: boolean; message: string; details?: Re
         `Sent history cleared (${sentBefore}) for “${slug}” — rejected kept (${rejectedKept}), permanent blacklist kept (${blacklistKept})`,
       )
     }
-    // #region agent log
-    dbgLog('C', 'outreach.ts:clearScrapeCache:sent', parsed.ok ? 'sent cleared, exclusions kept' : 'clear failed, histories kept', {
-      ok: Boolean(parsed.ok),
-      profile: slug,
-      sentBefore,
-      sentAfter: readEmailSet(sentFile()).size,
-      rejectedKept,
-      blacklistKept,
-    })
-    // #endregion
 
     const message =
       (parsed.message || (parsed.ok ? 'Scrape cache cleared' : 'Clear failed')) +
@@ -606,13 +592,6 @@ export function clearScrapeCache(): { ok: boolean; message: string; details?: Re
         ? ` — sent reset; rejected (${rejectedKept}) + blacklist (${blacklistKept}) kept`
         : ' — sent/rejected/blacklist unchanged') +
       ` [profile ${slug}]`
-    // #region agent log
-    dbgLog('C', 'outreach.ts:clearScrapeCache:result', 'clear scrape result', {
-      ok: Boolean(parsed.ok),
-      profile: slug,
-      details: parsed.details || {},
-    })
-    // #endregion
     appendLog(parsed.ok ? 'info' : 'error', 'find', message)
     return {
       ok: Boolean(parsed.ok),

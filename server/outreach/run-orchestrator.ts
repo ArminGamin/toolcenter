@@ -33,7 +33,6 @@ import {
 import { delegateLoadOutreachSendProfile, delegateStartOutreachSend } from './delegates.js'
 import { rejectedFile, getRemainingQuota } from './quota.js'
 import { getOutreachSettings, saveOutreachSettings } from './settings.js'
-import { dbgLog } from './debug-log.js'
 
 export function applyCleanToFound(emails: string[], settings: OutreachSettings): OutreachRun {
   const { keep, drop } = cleanEmails(emails, settings.clean, {
@@ -151,15 +150,6 @@ export async function startOutreachRun(body?: {
     sleepSync(300)
   }
   const strayAfter = countHeadlessFindRuns()
-  // #region agent log
-  dbgLog('A', 'outreach.ts:startOutreachRun', 'start gate', {
-    chainAdvance: Boolean(body?.chainAdvance),
-    strayBefore,
-    strayAfter,
-    status: rt.currentRun.status,
-    stage: rt.currentRun.stage,
-  })
-  // #endregion
   if (strayAfter > 0) {
     return {
       ok: false,
@@ -436,13 +426,6 @@ export async function startOutreachRun(body?: {
         const emails = await runHeadlessFind(settingsNow, id, epoch, { resume: resuming })
         if (epoch !== rt.findEpoch || rt.currentRun.id !== id) return
         appendLog('info', 'find', `Headless found ${emails.length} emails`)
-        // #region agent log
-        dbgLog('A', 'outreach.ts:find-complete', 'headless find returned', {
-          found: emails.length,
-          chain: isChainMode(),
-          remaining: getRemainingQuota(settingsNow.send.dailyCap, settingsNow).remaining,
-        })
-        // #endregion
         // Discover mode is seed-URL only — 0 emails is success, not a Find failure
         if (!emails.length && settingsNow.find.runMode === 'discover') {
           touchRun({
@@ -482,11 +465,6 @@ export async function startOutreachRun(body?: {
         if (epoch !== rt.findEpoch || rt.currentRun.id !== id) return
         const message = err instanceof Error ? err.message : String(err)
         if (/^aborted$/i.test(message.trim()) || isBenignFindAbort(message)) {
-          // #region agent log
-          dbgLog('B', 'outreach.ts:find-catch', 'benign abort — no chain refill', {
-            message: message.slice(0, 120),
-          })
-          // #endregion
           return
         }
         const short = summarizeFindError(message)

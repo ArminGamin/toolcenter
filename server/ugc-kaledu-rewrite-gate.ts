@@ -99,7 +99,7 @@ export function validateRewrittenSlide(opts: {
 
 export function commitRewrittenSlide<T extends RewriteSlide>(
   original: T,
-  candidate: RewriteSlide,
+  _candidate: RewriteSlide,
   validation: RewriteValidation,
 ): T {
   if (!validation.ok || !validation.normalizedSlide) return original

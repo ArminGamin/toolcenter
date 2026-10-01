@@ -22,7 +22,6 @@ import {
   parseResendDailyUsedHeader,
 } from './quota.js'
 import { isChainMode, continueOrAdvanceChain } from './chain.js'
-import { dbgLog } from './debug-log.js'
 import { shouldOpenSendCircuit } from './reliability-policy.js'
 import { writeSendOutcome } from './send-ledger.js'
 import { isPlaceholderContact } from './personal-rules.js'
@@ -133,16 +132,6 @@ export async function startOutreachSend(opts: { live?: boolean } = {}): Promise<
   if (rt.sendLoopActive) {
     return { ok: true, message: 'Send loop already active', run: rt.currentRun }
   }
-  // #region agent log
-  dbgLog('B', 'outreach.ts:startOutreachSend', 'send requested', {
-    findChildAlive: Boolean(rt.findChild && !rt.findChild.killed),
-    findChildPid: rt.findChild?.pid ?? null,
-    liveHeadless: countHeadlessFindRuns(),
-    stage: rt.currentRun.stage,
-    status: rt.currentRun.status,
-    pending: rt.currentRun.pendingSend.length,
-  })
-  // #endregion
   // Regular sending waits for discovery; live sending deliberately shares the finder.
   if (!live && childProcessRunning(liveFindChild())) {
     return {
@@ -155,13 +144,6 @@ export async function startOutreachSend(opts: { live?: boolean } = {}): Promise<
   if (!live && stray > 0) {
     const n = killLeftoverHeadlessFinders()
     appendLog('info', 'send', `Cleared ${n} leftover finder(s) before send`)
-    // #region agent log
-    dbgLog('A', 'outreach.ts:startOutreachSend:cleared', 'cleared strays before send', {
-      stray,
-      cleared: n,
-      remaining: countHeadlessFindRuns(),
-    })
-    // #endregion
   }
   // Allow restart after abort/pause when a queue still exists
   const canSend = live
