@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "role": "build",
+      "text": "Praėjusi vasara praėjo be planavimo – dabar jaučiuosi apkrautas ir noriu pataisyti situaciją.\nŠiais metais aš ruošiasi rudeniui su aišku savaitės mitybos planas.",
+      "title": "",
+      "cta": ""
+    },
+    {
+      "role": "close",
+      "text": "Reguliarus maitinimas leidžia kepenims atpalaiduoti ir efektyviau dirbti.\nŠtai kaip tu gali pradėti jaustis geriau – su struktūruotu savaitės planu.",
+      "title": "",
+      "cta": "Apsilankyk tavoknyga.com ir pradėk 5 min. testą! 🤩"
+    }
+  ],
+  "roles": [
+    "build",
+    "close"
+  ]
+}

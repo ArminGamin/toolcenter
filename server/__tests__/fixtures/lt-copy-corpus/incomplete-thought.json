@@ -1,0 +1,8 @@
+[
+  {
+    "input": "Žinai, kad daiktas tik žmogui.",
+    "reason": "incomplete_thought",
+    "expect": "fail",
+    "valid": ["Žinai, kad išrinkai daiktą, kuris tam žmogui tikrai tinka."]
+  }
+]

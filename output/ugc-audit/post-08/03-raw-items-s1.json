@@ -1,0 +1,27 @@
+{
+  "items": [
+    {
+      "role": "hook",
+      "text": "PCOS dažnai sukelia hormonų disbalansą.\nTai gali daryti įtakos insulino jautrumui.",
+      "title": "Ar žinai, kodėl svoris krenta ir vėl grįžta?",
+      "cta": ""
+    },
+    {
+      "role": "context",
+      "text": "Insulinrezistencija lėtina medžiukų apykaitą.\nTai gali lemti nuovargį ir sunkumų svorio reguliavimo iššūkius.",
+      "title": "Kuo tai kenkia tau?",
+      "cta": ""
+    },
+    {
+      "role": "build",
+      "text": "Dabar, kai vasara dar tebetruksminga, svarbu susitvarkyti.\nSu „Tavo knyga“ randu pastovesnę kasdienę rutinos pusiausvyrę.",
+      "title": "Koks tavo planas rugpjūtį?",
+      "cta": ""
+    }
+  ],
+  "roles": [
+    "hook",
+    "context",
+    "build"
+  ]
+}

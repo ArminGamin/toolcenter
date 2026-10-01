@@ -1,0 +1,18 @@
+{
+  "postId": "post-02",
+  "ok": true,
+  "durationMs": 74063,
+  "ollamaCalls": 2,
+  "arcName": "Story opener hook · Contrarian",
+  "hookStyle": "Story opener",
+  "storyArc": "Contrarian",
+  "topic": "Kepenų sveikata. Struktūruotas savaitės planas padeda valgyti pastoviau, kai reikia mažiau chaotiškų sprendimų.",
+  "slideCount": 5,
+  "error": null,
+  "extra": {
+    "theme": "fatty liver diet support",
+    "themeHook": "Kepenų sveikata",
+    "category": "Random theme"
+  },
+  "at": "2026-08-05T21:04:26.396Z"
+}

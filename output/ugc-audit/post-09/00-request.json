@@ -1,0 +1,16 @@
+{
+  "postId": "post-09",
+  "slot": 9,
+  "target": 10,
+  "at": "2026-08-05T21:17:58.139Z",
+  "theme": "herbs full use",
+  "themeHook": "Žolelės iki galo",
+  "themeBody": "Produktai naudojami keliuose patiekaluose, o ne lieka vienam receptui.",
+  "category": "Random theme",
+  "slideCount": 4,
+  "seed": 9,
+  "topic": "Žolelės iki galo. Produktai naudojami keliuose patiekaluose, o ne lieka vienam receptui.",
+  "model": "ugc-lt-gpu",
+  "numCtx": 4096,
+  "numGpu": 32
+}

@@ -1,0 +1,901 @@
+{
+  "version": 1,
+  "product": "Kalėdų Kampelis",
+  "language": "lt",
+  "format": "ugc-slides",
+  "total": 123,
+  "categories": {
+    "Dovanų idėjos": [
+      {
+        "theme": "Kalėdinė dovana, kai nežinai, ką pirkti",
+        "hook": "Nežinai, ką padovanoti Kalėdoms.",
+        "body": "Pradėk nuo to, kaip žmogus leidžia vakarus, o ne nuo lentynos su daiktais."
+      },
+      {
+        "theme": "Dovana porai, kurią naudos kartu",
+        "hook": "Porai nereikia dar vieno daikto į stalčių.",
+        "body": "Geriau tai, ką naudos kartu — pledas, žaidimas ar prisiminimų knyga."
+      },
+      {
+        "theme": "Praktiška dovana tėčiui",
+        "hook": "Tėčiui sunku parinkti dovaną, nes jis sako, kad nieko nereikia.",
+        "body": "Praktiški daiktai, kuriuos naudos kasdien, laimi dažniau nei staigmenos dėl staigmenos."
+      },
+      {
+        "theme": "Dovana mamai, kuri atrodo apgalvota",
+        "hook": "Mamai norisi dovanos, kurią ji išpakuos ir iškart pajus.",
+        "body": "Jaukus namų daiktas ar kvapas dažnai pasako daugiau nei dar viena kosmetikos dėžutė."
+      },
+      {
+        "theme": "Maža dovana, kuri atrodo daug prabangiau.",
+        "hook": "Nebūtina išleisti daug, kad dovana atrodytų ypatinga.",
+        "body": "Rinkis jaukų ir estetišką daiktą, kurį malonu ir dovanoti, ir gauti."
+      },
+      {
+        "theme": "Kalėdinė dovana žmogui, kuris viską turi.",
+        "hook": "Ką dovanoti žmogui, kuris sako, kad jam nieko nereikia?",
+        "body": "Tokiam žmogui geriausiai tinka jaukūs ir praktiški daiktai, kuriuos galima naudoti kasdien."
+      },
+      {
+        "theme": "Dovana, kuri nenugulės stalčiuje.",
+        "hook": "Blogiausia dovana yra ta, kurios žmogus nė karto nepanaudoja.",
+        "body": "Ieškok daikto, kuris turi aiškią paskirtį ir natūraliai įsilieja į kasdienybę."
+      },
+      {
+        "theme": "Dovana jaukiam vakarui namuose.",
+        "hook": "Kartais geriausia dovana yra tiesiog jaukesnis vakaras.",
+        "body": "Pledas, žvakė ar žaidimas gali tapti mažo žiemos ritualo dalimi."
+      },
+      {
+        "theme": "Kalėdinė dovana žmogui iš kito miesto.",
+        "hook": "Kai žmogus gyvena toli, norisi nusiųsti kažką šiltesnio už žinutę.",
+        "body": "Rinkis dovaną, kuri primena apie tave ir tinka jaukiam vakarui namuose."
+      },
+      {
+        "theme": "Dovana be dydžių ir sudėtingo pasirinkimo.",
+        "hook": "Nenori spėlioti dydžio, spalvos ar skonio?",
+        "body": "Namų jaukumą kuriančios dovanos dažnai yra paprastesnis pasirinkimas, kai gerai nežinai žmogaus pomėgių."
+      },
+      {
+        "theme": "Dovana žmogui, kuris vertina ramybę.",
+        "hook": "Ne kiekvienam reikia ryškios ar įspūdingos dovanos.",
+        "body": "Kartais daug maloniau gauti daiktą, kuris padeda susikurti ramesnį ir jaukesnį vakarą."
+      },
+      {
+        "theme": "Dovana, kuri tinka visai žiemai.",
+        "hook": "Kodėl dovana turėtų tikti tik Kalėdoms?",
+        "body": "Rinkis daiktą, kuris išlieka praktiškas ir jaukus visą žiemą."
+      }
+    ],
+    "Gavėjai": [
+      {
+        "theme": "Kalėdinės dovanos vyrui",
+        "hook": "Ieškai dovanos vyrui ir vis sukiesi ratu.",
+        "body": "Pagalvok, ar jis nori praktiško daikto, ar kažko, kas namuose atrodo šventei."
+      },
+      {
+        "theme": "Kalėdinės dovanos moteriai",
+        "hook": "Dovana jai nebūtinai turi būti kvepalai.",
+        "body": "Jei ji mėgsta namus, jaukus pledas ar žvakė dažnai tinka geriau."
+      },
+      {
+        "theme": "Dovana draugei, kai biudžetas nedidelis",
+        "hook": "Gera Kalėdų dovana nebūtinai brangi.",
+        "body": "Svarbiau, kad ji atrodytų paruošta dovanai ir tiktų tam žmogui."
+      },
+      {
+        "theme": "Dovana kolegai ar Slaptajam Seneliui",
+        "hook": "Slaptasis Senelis visada palieka per mažai laiko.",
+        "body": "Rinkis universalų, gražiai supakuotą daiktą, kurio nereikia spėlioti pagal skonį."
+      },
+      {
+        "theme": "Kalėdinė dovana paaugliui be spėliojimo.",
+        "hook": "Paaugliui parinkti dovaną kartais sunkiau negu suaugusiajam.",
+        "body": "Ieškok praktiško ir šiuolaikiško daikto, kurį paauglys iš tikrųjų naudotų."
+      },
+      {
+        "theme": "Jauki dovana močiutei žiemos vakarams.",
+        "hook": "Močiutei dažnai svarbiau jaukumas negu dar viena dekoracija.",
+        "body": "Pagalvok apie dovaną, kuri pravers geriant arbatą, skaitant knygą ar leidžiant ramų vakarą namuose."
+      },
+      {
+        "theme": "Praktiška dovana seneliui be nereikalingų smulkmenų.",
+        "hook": "Nesinori seneliui dovanoti dar vieno daikto vien todėl, kad reikia kažką dovanoti?",
+        "body": "Geriau rinktis paprastą ir praktišką daiktą, kurį jis galės naudoti kasdien."
+      },
+      {
+        "theme": "Dovana seseriai jaukiai žiemai.",
+        "hook": "Nebenori seseriai dovanoti dar vienos kosmetikos smulkmenos?",
+        "body": "Jaukus daiktas namams gali būti ir gražus, ir praktiškas pasirinkimas."
+      },
+      {
+        "theme": "Dovana broliui, kai nežinai jo norų.",
+        "hook": "Brolis į klausimą apie dovaną vėl atsakė „nežinau“?",
+        "body": "Rinkis universalų daiktą, kuris pravers namuose, kelionėje ar kasdienybėje."
+      },
+      {
+        "theme": "Dovana draugui, gyvenančiam užsienyje.",
+        "hook": "Kai per Kalėdas negalite būti kartu, dovana tampa dar svarbesnė.",
+        "body": "Jaukus daiktas gali priminti namus ir parodyti, kad apie jį galvoji."
+      },
+      {
+        "theme": "Nedidelė dovana visam biuro kolektyvui.",
+        "hook": "Biure norisi kažko malonaus, bet ne per daug asmeniško.",
+        "body": "Universalios jaukios dovanos padeda išvengti spėliojimo, kas kam patiks."
+      },
+      {
+        "theme": "Kalėdinė dovana naujam pažįstamam žmogui.",
+        "hook": "Ką dovanoti, kai žmogų pažįsti visai neilgai?",
+        "body": "Rinkis neutralią ir praktišką dovaną, kuri neatrodo nei per daug asmeniška, nei atsitiktinė."
+      }
+    ],
+    "Biudžetas": [
+      {
+        "theme": "Kalėdinės dovanos iki 20 eurų",
+        "hook": "Iki 20 eurų vis dar galima padovanoti gražiai.",
+        "body": "Svarbu pakuotė ir tai, kad daiktas atrodo paruoštas, o ne paimtas paskutinę minutę."
+      },
+      {
+        "theme": "Kalėdinės dovanos iki 50 eurų",
+        "hook": "Iki 50 eurų jau telpa dovana, kurią žmogus naudos visą žiemą.",
+        "body": "Pledas, termosas ar žvakės rinkinys dažnai atrodo brangiau, nei kainuoja."
+      },
+      {
+        "theme": "Paskutinės minutės Kalėdų dovanos",
+        "hook": "Kalėdos jau čia, o dovanos dar nėra.",
+        "body": "Rinkis tai, kas jau supakuota ir keliauja greitai, o ne tai, ką dar reikės ieškoti."
+      },
+      {
+        "theme": "Kalėdinė dovana iki 30 eurų.",
+        "hook": "Iki 30 eurų tikrai galima rasti dovaną, kuri neatrodo pigi.",
+        "body": "Svarbiausia ne kaina, o tai, ar daiktas atrodo jaukus, praktiškas ir apgalvotas."
+      },
+      {
+        "theme": "Kalėdinė dovana iki 40 eurų.",
+        "hook": "Gali išleisti iki 40 eurų ir nori kažko solidesnio?",
+        "body": "Tokio biudžeto dažnai pakanka praktiškai dovanai, kuri tiks ir artimam žmogui."
+      },
+      {
+        "theme": "Kaip neišleisti per daug dovanoms.",
+        "hook": "Kalėdinės išlaidos labai greitai išauga, kai dovanas perki daugeliui žmonių.",
+        "body": "Iš anksto nusistatyk sumą kiekvienam žmogui ir tik tada pradėk rinktis."
+      },
+      {
+        "theme": "Viena gera dovana vietoje kelių smulkmenų.",
+        "hook": "Kartais trys atsitiktinės smulkmenos kainuoja daugiau negu viena gera dovana.",
+        "body": "Geriau rinktis vieną daiktą, kuris atrodo apgalvotas ir turi aiškią paskirtį."
+      },
+      {
+        "theme": "Nebrangios dovanos, kurios atrodo apgalvotos.",
+        "hook": "Mažas biudžetas nereiškia, kad dovana turi atrodyti atsitiktinė.",
+        "body": "Pakuotė, jaukumas ir praktiškumas dažnai palieka didesnį įspūdį negu dovanos kaina."
+      },
+      {
+        "theme": "Kaip paskirstyti kalėdinių dovanų biudžetą.",
+        "hook": "Kai dovanų sąraše dešimt žmonių, išlaidos pradeda gąsdinti.",
+        "body": "Suskirstyk gavėjus pagal artumą, kiekvienai grupei skirk atskirą sumą ir venk impulsyvių pirkinių be aiškaus plano."
+      },
+      {
+        "theme": "Dovana porai vietoje dviejų atskirų.",
+        "hook": "Dvi atskiros dovanos ne visada yra geriausias sprendimas biudžetui.",
+        "body": "Bendra dovana namams gali būti praktiškesnė ir malonesnė abiem."
+      },
+      {
+        "theme": "Kaip sutaupyti neperkant bet ko.",
+        "hook": "Pigiausias daiktas nėra taupus pasirinkimas, jei jo niekas nenaudos.",
+        "body": "Geriau mažiau dovanų, bet tokių, kurios turi aiškią paskirtį ir išlieka naudingos."
+      }
+    ],
+    "Apsipirkimo skausmas": [
+      {
+        "theme": "Nežinojau, ką pirkti, kol pamačiau",
+        "hook": "Ilgai sukausi ratu, kol pamačiau vieną daiktą ir viskas stojo.",
+        "body": "Kartais dovaną išrenka ne ilgas sąrašas, o vienas aiškus vaizdas."
+      },
+      {
+        "theme": "Kalėdinio apsipirkimo chaosas",
+        "hook": "Kalėdų pirkinių sąrašas vis ilgėja, o laiko mažėja.",
+        "body": "Sutrauk jį iki kelių jaukių, universalių dovanų ir baigsi greičiau."
+      },
+      {
+        "theme": "Dovana, kurią atidarysi Kalėdų rytą",
+        "hook": "Kalėdų rytas geriausias tada, kai pakuotė jau paruošta.",
+        "body": "Dovana, kurią tereikia padėti po eglute, sutaupo visą gruodžio vakarą."
+      },
+      {
+        "theme": "Baimė, kad dovana žmogui nepatiks.",
+        "hook": "Prieš perkant dažnai kyla klausimas: o kas, jei žmogui visai nepatiks?",
+        "body": "Kai abejoji, rinkis universalų ir praktišką daiktą, o ne pernelyg specifinį."
+      },
+      {
+        "theme": "Kai jau atrodo per vėlu užsisakyti.",
+        "hook": "Kai apie dovanas prisimeni paskutinę minutę, pirmiausia tikrini, ar dar spės atvykti?",
+        "body": "Prieš užsakant patikrink pristatymo terminus ir svarbiausių dovanų nepalik paskutinei dienai."
+      },
+      {
+        "theme": "Kalėdinių siuntų laukimo stresas.",
+        "hook": "Blogiausia prieš Kalėdas yra nežinoti, ar dovana atvyks laiku.",
+        "body": "Užsisakyk anksčiau ir palik kelių dienų atsargą galimiems vėlavimams."
+      },
+      {
+        "theme": "Dovanų pakavimas paskutinį vakarą.",
+        "hook": "Gruodžio 24-osios vakaras nėra geriausias laikas prisiminti, kad dar nieko nesupakavai.",
+        "body": "Pakuok dovanas iškart, kai tik jos atkeliauja, ir prieš šventes turėsi vienu rūpesčiu mažiau."
+      },
+      {
+        "theme": "Kai nežinai, ar dovaną galima grąžinti.",
+        "hook": "Perkant dovaną kitam žmogui visada kirba mintis: o jeigu netiks?",
+        "body": "Prieš užsakant patikrink grąžinimo sąlygas, ypač jei dar abejoji dėl pasirinkimo."
+      },
+      {
+        "theme": "Per daug pasirinkimų ir nė vieno sprendimo.",
+        "hook": "Atidarai dešimt parduotuvių ir po valandos vis dar nieko neišsirinkai?",
+        "body": "Pirmiausia nuspręsk, kam pirksi, kiek gali išleisti ir kokios rūšies dovanos ieškai. Tada pasirinkimas tampa daug paprastesnis."
+      },
+      {
+        "theme": "Kai reikia dovanų keliems žmonėms vienu metu.",
+        "hook": "Penki gavėjai reiškia penkis skirtingus galvos skausmus?",
+        "body": "Susirašyk gavėjus ir prie kiekvieno iškart pasižymėk biudžetą bei vieną pagrindinę idėją."
+      },
+      {
+        "theme": "Kaip nepasiklysti tarp kalėdinių nuolaidų.",
+        "hook": "Per akcijas lengva prisipirkti visko, tik ne to, ko iš tikrųjų reikia.",
+        "body": "Turėk konkretų dovanų sąrašą ir tikrink, ar kiekvienas pirkinys jame turi savo gavėją."
+      }
+    ],
+    "Jauki Kalėdų nuotaika": [
+      {
+        "theme": "Jauki Kalėdų atmosfera namuose",
+        "hook": "Kalėdos namuose prasideda ne nuo eglutės, o nuo šviesos ir kvapo.",
+        "body": "Žvakė, pledas ir girlianda padaro kambarį šventišką be didelio triukšmo."
+      },
+      {
+        "theme": "Kalėdinės dekoracijos, kurios lieka gražios",
+        "hook": "Dekoracijų nereikia viso kambario.",
+        "body": "Keli gerai parinkti daiktai atrodo ramiau nei pilna dėžė blizgučių."
+      },
+      {
+        "theme": "Kalėdų atgalinis skaičiavimas",
+        "hook": "Iki Kalėdų beliko mažiau dienų, nei atrodo.",
+        "body": "Dovanas geriau susidėlioti dabar, kol dar nesi paskutinėje eilėje."
+      },
+      {
+        "theme": "Dovanos išpakavimas ir reakcija",
+        "hook": "Geriausia Kalėdų dalis — kai žmogus atidaro dėžutę ir nustoja kalbėti.",
+        "body": "Tokią reakciją dažniau duoda jaukus, apgalvotas daiktas, o ne atsitiktinis daiktas."
+      },
+      {
+        "theme": "Lėtas žiemos vakaras be telefono.",
+        "hook": "Kada paskutinį kartą praleidai vakarą be telefono ir be skubėjimo?",
+        "body": "Šilta arbata, pledas ir pritemdyta šviesa kartais sukuria daugiau šventinės nuotaikos negu bet kuri dekoracija."
+      },
+      {
+        "theme": "Mažas Kalėdų vakaro ritualas namuose.",
+        "hook": "Šventinė nuotaika dažnai prasideda ne nuo datos, o nuo mažų ritualų.",
+        "body": "Uždek žvakę, pasidaryk šilto gėrimo ir bent pusvalandžiui sulėtink tempą."
+      },
+      {
+        "theme": "Jaukus filmų vakaras prieš Kalėdas.",
+        "hook": "Kartais Kalėdų nuotaikai trūksta tik vieno gero vakaro namuose.",
+        "body": "Pledas, mėgstamas filmas ir šiltas gėrimas yra paprastas būdas susikurti mažą žiemos tradiciją."
+      },
+      {
+        "theme": "Namų kampelis žiemos vakarams.",
+        "hook": "Nebūtina dekoruoti visų namų, kad jie atrodytų jaukiau.",
+        "body": "Vienas minkštas pledas, šilta šviesa ir keli sezoniniai akcentai gali visiškai pakeisti kambario nuotaiką."
+      },
+      {
+        "theme": "Kalėdinis vakaras dviese be didelių planų.",
+        "hook": "Jaukiam vakarui nebūtina rezervacija ar sudėtingas planas.",
+        "body": "Žaidimas, šiltas gėrimas ir neskubus pokalbis gali tapti geriausia šventinio laikotarpio dalimi."
+      },
+      {
+        "theme": "Kaip namus padaryti šiltesnius ir jaukesnius.",
+        "hook": "Kai lauke tamsu jau popietę, namų jaukumas tampa dar svarbesnis.",
+        "body": "Minkšti audiniai, šilta šviesa ir nedideli dekoratyviniai akcentai padeda sukurti malonesnę atmosferą."
+      },
+      {
+        "theme": "Sekmadienio vakaras prieš šventinę savaitę.",
+        "hook": "Prieš kalėdinį chaosą verta turėti bent vieną visiškai ramų vakarą.",
+        "body": "Pasidaryk arbatos, įsisuk į pledą ir skirk laiko sau arba artimam žmogui."
+      },
+      {
+        "theme": "Jaukus vakaras su šeima be ekranų.",
+        "hook": "Kalėdų laukimas nebūtinai turi vykti kiekvienam žiūrint į savo ekraną.",
+        "body": "Stalo žaidimas ar tiesiog ilgesnis pokalbis gali tapti vakaru, kurį prisiminsi daug ilgiau."
+      }
+    ],
+    "Prekės": [
+      {
+        "theme": "Vilnonis pledas kaip Kalėdų dovana",
+        "hook": "Pledas yra dovana, su kuria sunku suklysti.",
+        "body": "Jį naudos filmų vakarais, o pakuotė jau atrodo kaip dovana."
+      },
+      {
+        "theme": "Žvakė Kalėdų vakarui",
+        "hook": "Kvapo dovana namams lieka ilgiau nei saldainių dėžutė.",
+        "body": "Žvakė su mediniu dagčiu ir dėžute tinka mamai, kolegei ar kaimynei."
+      },
+      {
+        "theme": "Dovana, kurią pora naudos namuose",
+        "hook": "Porai geriau tai, ką naudos kartu, o ne du atskiri daiktai.",
+        "body": "Žaidimas, pledas ar knyga klausimų vakarienei veikia geriau nei dar vienas puodelis."
+      },
+      {
+        "theme": "Termosas kelionėms žiemą",
+        "hook": "Žiemą termosas tampa dovaną, kurią žmogus ima kasdien.",
+        "body": "Tinka tam, kas važiuoja į darbą, į mišką ar tiesiog nori šiltos arbatos."
+      },
+      {
+        "theme": "Pledas kaip dovana šaltam žiemos vakarui.",
+        "hook": "Yra dovanų, kurių paskirtį žmogus supranta vos jas išpakavęs.",
+        "body": "Minkštas pledas iškart kviečia įsitaisyti ant sofos ir susikurti jaukesnį vakarą."
+      },
+      {
+        "theme": "Termosas žmogui, kuris visur skuba.",
+        "hook": "Pažįsti žmogų, kurio kava visada atšąla, dar nespėjus jos išgerti?",
+        "body": "Termosas gali tapti praktiška dovana darbui, kelionei ar žiemos pasivaikščiojimui."
+      },
+      {
+        "theme": "Žvakė kaip maža, bet jauki dovana.",
+        "hook": "Kai nenori dovanoti didelio daikto, bet ir ateiti tuščiomis rankomis nesinori.",
+        "body": "Žvakė – paprastas būdas padovanoti šiek tiek jaukumo ir sukurti šiltesnę vakaro atmosferą."
+      },
+      {
+        "theme": "Stalo žaidimas šeimos Kalėdų vakarui.",
+        "hook": "Geriausia dovana kartais atsiskleidžia tik tada, kai visi susėda prie stalo.",
+        "body": "Žaidimas gali tapti ne tik daiktu, bet ir priežastimi daugiau laiko praleisti kartu."
+      },
+      {
+        "theme": "Dekoracija kaip dovana naujiems namams.",
+        "hook": "Kai žmogus neseniai įsikėlė į naują būstą, dovanos namams tampa daug prasmingesnės.",
+        "body": "Subtili dekoracija gali papildyti erdvę ir kartu priminti apie šventinį laikotarpį."
+      },
+      {
+        "theme": "Dovanų rinkinys, kai sunku išsirinkti vieną daiktą.",
+        "hook": "Kartais viena dovana atrodo per maža, o kelių atskirų rinktis nesinori.",
+        "body": "Gerai suderintas rinkinys atrodo kaip pilnesnė ir labiau apgalvota dovana."
+      },
+      {
+        "theme": "Pledas ir žvakė vienam jaukiam vakarui.",
+        "hook": "Jei dovana galėtų būti visas vakaras, ji tikriausiai atrodytų būtent taip.",
+        "body": "Pledas suteikia šilumos, o žvakė padeda sukurti ramesnę ir jaukesnę atmosferą."
+      },
+      {
+        "theme": "Termosas žiemos pasivaikščiojimams ir kelionėms.",
+        "hook": "Šaltą dieną karštas gėrimas kuprinėje gali išgelbėti visą išvyką.",
+        "body": "Tai praktiškas daiktas žmogui, kuris mėgsta būti lauke, keliauti arba daug laiko leidžia kelyje."
+      },
+      {
+        "theme": "Megztinis kaip Kalėdų dovana",
+        "hook": "Megztinis yra dovana, kurią užsimauna ir nebenori nusiimti.",
+        "body": "Oversize merino megztinis tinka ir jam, ir jai, o dėžutė jau paruošta po eglute.",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "megztinis-kasdienis-siltis"
+        ]
+      },
+      {
+        "theme": "Džemperis su gobtuvu žiemai",
+        "hook": "Užsegamas džemperis yra dovana, kurią dėvi kasdien.",
+        "body": "Fliso džemperis su gobtuvu tinka namie ir trumpam išbėgus.",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "dzemperis-siltas-uztrauktukas"
+        ]
+      },
+      {
+        "theme": "Kardiganas mamai",
+        "hook": "Kardiganą užsimeti ryte ir palieki iki vakaro.",
+        "body": "Storai megztas kardiganas su medinėmis sagomis yra dovana, kurią mama dėvės kasdien.",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "kardiganas-atviras-siltis"
+        ]
+      },
+      {
+        "theme": "Pižama visai šeimai Kalėdoms",
+        "hook": "Šventinę pižamą užsisako ne vieną, o visiems namams.",
+        "body": "Megzta pižama su bordo kanteliu tinka Kūčių vakarui ir kiekvienai šaltai nakčiai.",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "pizama-vakaro-komplektas"
+        ]
+      },
+      {
+        "theme": "Plonas golfas žiemai",
+        "hook": "Plonas golfas dingsta iš sandėlio greičiau nei storesni drabužiai.",
+        "body": "Merino golfas dėvimas vienas namie arba kaip papildomas šiltas sluoksnis.",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "golfas-aukstas-kaklas"
+        ]
+      },
+      {
+        "theme": "Aromaterapijos žvakė „Žvakių vakaras“",
+        "hook": "Kedro, gintaro, cinamono kvapas namams",
+        "body": "Iki 45 val. degimo laiko",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "aromaterapijos-zvake-zvakiu-vakaras"
+        ]
+      },
+      {
+        "theme": "Vilnonis pledas „Žiemos šiluma“",
+        "hook": "Storas merinoso vilnos pledas filmų vakarams prie židinio",
+        "body": "Tikra merinoso vilna — kvėpuojanti ir šilta",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "vilnonis-pledas-jaukumas"
+        ]
+      },
+      {
+        "theme": "Šilkinis miego rinkinys „Saldūs sapnai“",
+        "hook": "Šilko miego kaukė su scrunchie poilsiui",
+        "body": "100 % mulberry šilkas, 22 momme",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "silkinis-miego-rinkinys-miegas"
+        ]
+      },
+      {
+        "theme": "Viskio rinkinys „Vakaro ritualas“",
+        "hook": "Granito akmenys su sunkiais stiklais lėtam vakarui",
+        "body": "Natūralus granitas — vėsina nepraskiedęs",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "viskio-akmenu-ir-stiklo-rinkinys"
+        ]
+      },
+      {
+        "theme": "Mini sodas „Žalioji oazė“",
+        "hook": "Langų sodas: bazilikas, mėtos, rozmarinas",
+        "body": "Sudygsta per 7–14 dienų",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "vaistazoliu-auginimo-rinkinys"
+        ]
+      },
+      {
+        "theme": "Poros knyga „Mūsų akimirkos“",
+        "hook": "Užpildoma knyga dviem — jūsų bendra istorija",
+        "body": "150 klausimų porai",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "poros-knyga-musu-istorija"
+        ]
+      },
+      {
+        "theme": "Kvapo difuzorius „Jaukūs namai“",
+        "hook": "Namų aromatas be liepsnos: lazdelių difuzorius",
+        "body": "Veikia 10–12 savaičių",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "kvapo-difuzorius-lazdelemis"
+        ]
+      },
+      {
+        "theme": "Vilnonės kojinės „Šilta žiema“",
+        "hook": "Trys poros storų vilnonių kojinių — saugi dovana",
+        "body": "3 poros viename rinkinyje",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "vilnones-kojines-ziemos-jaukumas"
+        ]
+      },
+      {
+        "theme": "Termosas „Žiemos kelionė“",
+        "hook": "12 valandų karšta arbata: 500 ml termosas kelionėms",
+        "body": "Karšta — 12 val., šalta — 24 val.",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "termosas-kelionemis-500ml"
+        ]
+      },
+      {
+        "theme": "Žaidimų rinkinys „Jaukus vakaras“",
+        "hook": "Kortų žaidimai, užduotys, klausimai vakarui prie stalo",
+        "body": "3 žaidimai viename dėkle",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "zaidimu-vakaro-rinkinys"
+        ]
+      },
+      {
+        "theme": "Namų kino projektorius „Kino vakaras“",
+        "hook": "Filmai ant sienos — dovana, kuri nustebina vos išėmus iš dėžės",
+        "body": "Iki 120 colių vaizdas ant sienos",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "namu-kino-projektorius"
+        ]
+      },
+      {
+        "theme": "Keramikos arbatos rinkinys „Arbatos metas“",
+        "hook": "Rankų darbo arbatos rinkinys su arbatinuku, puodeliu ir filtrėliu",
+        "body": "Rankų darbo keramika",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "keramikos-arbatos-rinkinys-po-vakara"
+        ]
+      },
+      {
+        "theme": "Vonios rinkinys „Ramybės vakaras“",
+        "hook": "Aliejus, muilas ir džiovintos gėlės mamai ar draugei",
+        "body": "Paruošta dovanoti iškart",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "sventinis-vonios-rinkinys"
+        ]
+      },
+      {
+        "theme": "Stikliniai eglutės žaisliukai „Šventinis spindesys“",
+        "hook": "Rankų pūsto stiklo rutuliukai eglutei",
+        "body": "6 žaisliukai komplekte",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "egluciu-zaisliukai-stiklas"
+        ]
+      },
+      {
+        "theme": "Puodelis „Karšta kakava“",
+        "hook": "Kreminis puodelis karštam šokoladui ir arbatai",
+        "body": "Didelis, 350 ml",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "kaledinis-puodelis-kakava"
+        ]
+      },
+      {
+        "theme": "Odinis kortelių dėklas „Elegancija“",
+        "hook": "Plonas odinis dėklas vaikinui, tėčiui, kolegai",
+        "body": "Natūrali oda",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "odinis-korteliu-deklas"
+        ]
+      },
+      {
+        "theme": "LED girlianda „Šilta šviesa“",
+        "hook": "Šilta šviesa eglutei, lentynai ar langui",
+        "body": "5 m, 50 lempučių",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "led-girlianda-siltas"
+        ]
+      },
+      {
+        "theme": "Užrašinė „Auksiniai puslapiai“",
+        "hook": "Lininiai viršeliai ir auksiniai lapų kraštai kolegei",
+        "body": "Lininiai viršeliai",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "uzrasine-aukso-krastu"
+        ]
+      },
+      {
+        "theme": "Belaidis įkroviklis „Natūrali elegancija“",
+        "hook": "Medinis stovas telefonui vaikinui ir tėčiui",
+        "body": "Medinė apdaila",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "belaidis-ikroviklis-medis"
+        ]
+      },
+      {
+        "theme": "Vaikų žaidimas „Šventės paslaptis“",
+        "hook": "Medinis žaidimas „Šventės paslaptis“ vaikams prie eglutės",
+        "body": "Medis, ne plastikas",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "vaiku-kaledinis-zaidimas"
+        ]
+      },
+      {
+        "theme": "Žvakių lempa „Vakaro šviesa“",
+        "hook": "Kvepia be liepsnos: lempa su laikmačiu ir pritemdymu",
+        "body": "Be liepsnos — saugu palikti kambaryje",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "zvakiu-sildymo-lempa"
+        ]
+      },
+      {
+        "theme": "Rožė stikliniame gaubte „Amžina rožė“",
+        "hook": "LED rožė gaubte — dovana, kuri nestovi vazoje",
+        "body": "Šilta LED šviesa pagrinde",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "amzinoji-roze-gaubte"
+        ]
+      },
+      {
+        "theme": "Mėnulio lempa „Mėnulio šviesa“",
+        "hook": "Paliečiamas mėnulis naktinei šviesai ir lentynai",
+        "body": "Tikroviškas mėnulio reljefas",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "menulio-lempa-3d"
+        ]
+      },
+      {
+        "theme": "Saulėlydžio lempa „Auksinis vakaras“",
+        "hook": "Šilta saulėlydžio šviesa ant sienos per kelias sekundes",
+        "body": "USB — jungiasi prie powerbanko",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "saulelydzio-lempa"
+        ]
+      },
+      {
+        "theme": "Drėkintuvas „Lietaus debesis“",
+        "hook": "Drėkina orą, kvepia ir žavi krintančiais lašeliais",
+        "body": "300 ml — iki 8–12 val. veikimo",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "lietaus-debesies-drekinuvas"
+        ]
+      },
+      {
+        "theme": "Megzta šildyklė „Lovos šiluma“",
+        "hook": "Klasikinė 2 l šildyklė su megztu užvalkalu",
+        "body": "2 l — šyla ilgai",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "megzta-sildykle-2l"
+        ]
+      },
+      {
+        "theme": "Galaktikos projektorius „Žvaigždžių kelionė“",
+        "hook": "Žvaigždėtas lubų dangus vaikų kambariui ir porai",
+        "body": "Žvaigždės ir ūkas ant lubų",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "galaktikos-projektorius-zvaigzdziu-kelione"
+        ]
+      },
+      {
+        "theme": "Pieno plakiklis „Kreminės putos“",
+        "hook": "USB plakiklis kakavai, latte ir matchai per 20 sek",
+        "body": "USB įkrovimas, be baterijų",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "pieno-plakiklis-usb"
+        ]
+      },
+      {
+        "theme": "Mini masažuoklis „Akimirka sau“",
+        "hook": "Kompaktiškas masažuoklis kaklui ir nugarai",
+        "body": "4 galvutės skirtingoms zonoms",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "mini-masazo-pistoletas"
+        ]
+      },
+      {
+        "theme": "Šilkinis pagalvės užvalkalas „Švelni naktis“",
+        "hook": "Mulberry šilkas plaukams ir odai — 50×70 cm",
+        "body": "Mulberry šilkas, 19 momme",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "silkinis-pagalves-uzvalkalas"
+        ]
+      },
+      {
+        "theme": "Gua Sha rinkinys „Rožinė ramybė“",
+        "hook": "Volas ir gua sha akmuo veidui, dėžutėje dovanai",
+        "body": "Volas + gua sha komplekte",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "gua-sha-rinkinys-roze"
+        ]
+      },
+      {
+        "theme": "Kilimas „Žiemos jaukumas“",
+        "hook": "Skalbiamas šventinis kilimas su eglutėmis ir snaigėmis",
+        "body": "Šiaurietiškas Kalėdų raštas",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "kilimas-silta-grindys"
+        ]
+      },
+      {
+        "theme": "Raktų pakabukas „Mažoji eglutė“",
+        "hook": "Odinis pakabukas su žalvario eglute — Kalėdų dovana iki 10 €",
+        "body": "Oda ir žalvario eglutė",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "raktu-pakabukas-namai"
+        ]
+      },
+      {
+        "theme": "Išorinė baterija „Visada su savimi“",
+        "hook": "Kišeninis powerbank telefonui — kelionei ir kasdienai",
+        "body": "10000 mAh",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "isoreine-baterija-kelione"
+        ]
+      },
+      {
+        "theme": "Belaidės ausinės „Kasdienė muzika“",
+        "hook": "Belaidės ausinės su dėklu — dovana, kurią išpakuos iš karto",
+        "body": "Belaidės, su dėklu",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "ausines-kisenines"
+        ]
+      },
+      {
+        "theme": "Šlepetės „Debesų minkštumas“",
+        "hook": "Atminties putos namų šlepetės — žiemos klasika",
+        "body": "Atminties putos pade",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "slepetes-minksta-peda"
+        ]
+      },
+      {
+        "theme": "Telefono stovas „Patogus kampelis“",
+        "hook": "Stalo laikiklis filmams, receptams ir vaizdo skambučiams",
+        "body": "Stačiai ir gulsčiai",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "telefono-stovas-stalas"
+        ]
+      },
+      {
+        "theme": "Nuotraukų rėmelis „Akimirka“",
+        "hook": "Medinis rėmelis mėgstamiausiai nuotraukai namuose",
+        "body": "Medis, ne plastikas",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "nuotrauku-remelis-akimirka"
+        ]
+      },
+      {
+        "theme": "Dovanų pakavimo rinkinys „Šventinė pakuotė“",
+        "hook": "Popierius, juostelės ir kortelės visoms Kalėdų dovanoms",
+        "body": "Popierius, juostelės ir kortelės viename",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "dovanu-pakavimas-sventine"
+        ]
+      },
+      {
+        "theme": "Medinė serviravimo lenta „Vakarienė dviese“",
+        "hook": "Ąžuolo lenta sūriams, duonai ir vakarienei dviese",
+        "body": "Masyvus ąžuolas, ne fanera",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "serviravimo-lenta-vakariene"
+        ]
+      },
+      {
+        "theme": "Kambario kvapo purškiklis „Jaukūs namai“",
+        "hook": "Namų kvapas vienu purskštelėjimu — vanilė ir kedras",
+        "body": "Kvapas per kelias sekundes",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "kvapo-purskiklis-namai"
+        ]
+      },
+      {
+        "theme": "Advento kalendorius „24 dienos“",
+        "hook": "24 mažos staigmenos gruodžio rytams iki Kalėdų",
+        "body": "24 langeliai, visos staigmenos viduje",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "advento-kalendorius-24"
+        ]
+      },
+      {
+        "theme": "Kalėdų dovanų kojinė „Šventinė staigmena“",
+        "hook": "Megzta kojinė dovanoms po eglute — iki 15 €",
+        "body": "Megzta, ne plonas poliesteris",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "kaledu-dovanu-kojine-staigmena"
+        ]
+      },
+      {
+        "theme": "Sniego gaublys „Žiemos pasaka“",
+        "hook": "Stiklinis gaublys su miniatiūrine eglute ir nameliu",
+        "body": "Stiklas ir medis, ne plastikas",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "sniego-gaublys-ziemos-pasaka"
+        ]
+      },
+      {
+        "theme": "Šventinis stalo takelis „Šiaurės raštas“",
+        "hook": "Kreminis ir bordo takelis šventiniam stalui",
+        "body": "180 × 35 cm — ilgam stalui",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "stalo-takelis-siaures-rastas"
+        ]
+      },
+      {
+        "theme": "Medinis riešutų spaudiklis „Sargybinis“",
+        "hook": "Klasikinis medinis sargybinis — dekoras ir ritualas",
+        "body": "Medis, dažytas rankomis",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "riesutu-spaudiklis-sargybinis"
+        ]
+      },
+      {
+        "theme": "Eglės sijonas „Šventinis ratas“",
+        "hook": "Aksominis eglės sijonas — paslepia stovą ir dovanas",
+        "body": "Aksomas, minkštas liesti",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "egles-sijonas-sventinis-ratas"
+        ]
+      },
+      {
+        "theme": "Keramikinis žibintas „Žiemos namelis“",
+        "hook": "Šviečiantis keramikinis namelis vakaro jaukumui",
+        "body": "Keramika su šiltu LED švytėjimu",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "keramikinis-zibintas-ziemos-namelis"
+        ]
+      }
+    ]
+  }
+}

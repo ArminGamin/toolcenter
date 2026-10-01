@@ -1,0 +1,8 @@
+[
+  {
+    "input": "Termosas išsaugojimo šilumai - puikus sprendimas.",
+    "reason": "broken_nominalization",
+    "expect": "fail",
+    "valid": ["Termosas padeda ilgiau išlaikyti gėrimą karštą."]
+  }
+]

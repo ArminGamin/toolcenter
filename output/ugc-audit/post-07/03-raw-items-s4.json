@@ -1,0 +1,27 @@
+{
+  "items": [
+    {
+      "role": "build",
+      "text": "Rugpjūčio karštis vis dar juntamas, bet jaučiuosi besiruošdama rudeniui.\nAnksčiau rūpinimasis maistu buvo tarsi papildoma našta.",
+      "title": "",
+      "cta": ""
+    },
+    {
+      "role": "build",
+      "text": "Pajutau, kad nuolatinis kalorijų skaičiavimas tik didina nerimą.\nSprendžiau - metas atsiriboti nuo to ir pradėti gyventi paprasčiau.",
+      "title": "",
+      "cta": ""
+    },
+    {
+      "role": "build",
+      "text": "Dabar tiesiog renkuosi patikusius receptus su jau paruoštomis porcijomis.\nTai leidžia mėgautis vasara be papildomo streso ir rūpesčių.",
+      "title": "",
+      "cta": ""
+    }
+  ],
+  "roles": [
+    "build",
+    "build",
+    "build"
+  ]
+}

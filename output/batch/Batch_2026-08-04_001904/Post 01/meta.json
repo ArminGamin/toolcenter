@@ -1,0 +1,44 @@
+{
+  "theme": "gout friendly eating",
+  "hook": "Podagros dieta",
+  "body": "Receptai ir porcijos suderinti pagal tavo tikslus, kai reikia vengti tam tikrų produktų grupių.",
+  "category": "Random theme",
+  "slide_count": 5,
+  "template": "headline_body",
+  "placement": "center",
+  "exportSizeId": "tiktok_reels",
+  "background_image": "c8231a23cc2cf235c3cd40ec7e94b89a.jpg",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "title": "Svarbu atkreipti dėmesį...",
+      "body": "Mūsų kainos 10 € vieną kartą, be prenumeratos ir pasikartojančių mokėjimų. Prieš pristatant knygą, Jums reikia užpildyti ~30 klausimų testą.",
+      "role": "hook"
+    },
+    {
+      "id": "slide-2",
+      "title": "",
+      "body": "Pristatymas el. paštu vyksta per 24 valandas po to, kai Jūs užpildysite testą. Naudokitės savo privačiu elektroniniu pašto adresu.",
+      "role": "value"
+    },
+    {
+      "id": "slide-3",
+      "title": "",
+      "body": "Iki po 24 valandų, Jūs galėsite peržiūrėti savo knygą ir prasidedite jau pirmos dienos mitybinius planus. Visi duomenys atvažiuojant į Jūsų el. pašto adresą.",
+      "role": "value"
+    },
+    {
+      "id": "slide-4",
+      "title": "",
+      "body": "Tavo knyga yra asmeninė, iki 150 puslapių PDF mitybos ir maisto planavimo knyga. Knygos turinys sudarytas pagal Jūsų atsakymus testą.",
+      "role": "value"
+    },
+    {
+      "id": "slide-5",
+      "title": "",
+      "body": "Šiandien pradėkite savo mitybinę dieną! Atkreipkite dėmesį, kad knyga yra tik vienas kartas prašymas ir jei Jums tenka kokybiška darbovietė, gali būti pateikiamos kitokios rekomendacijos.",
+      "cta": "Pradėk 5 min. testą",
+      "role": "close"
+    }
+  ]
+}

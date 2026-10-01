@@ -1,0 +1,12 @@
+{"t":"2026-08-05T21:17:58.139Z","ms":0,"event":"begin","slot":9,"theme":"herbs full use"}
+{"t":"2026-08-05T21:17:58.140Z","ms":1,"event":"write","filename":"00b-plan.json"}
+{"t":"2026-08-05T21:17:58.140Z","ms":1,"event":"chunk_attempt","start":1,"requestSize":3,"attempt":0,"roles":["hook","context","build"],"temp":0.40900000000000003,"promptChars":1825}
+{"t":"2026-08-05T21:18:34.791Z","ms":36652,"event":"ollama_call","callIndex":1,"durationMs":36648,"responseChars":639,"error":null}
+{"t":"2026-08-05T21:18:34.791Z","ms":36652,"event":"write","filename":"03-raw-items-s1.json"}
+{"t":"2026-08-05T21:18:34.795Z","ms":36656,"event":"chunk_attempt","start":4,"requestSize":1,"attempt":0,"roles":["close"],"temp":0.40900000000000003,"promptChars":2343}
+{"t":"2026-08-05T21:18:58.938Z","ms":60799,"event":"ollama_call","callIndex":2,"durationMs":24141,"responseChars":297,"error":null}
+{"t":"2026-08-05T21:18:58.939Z","ms":60800,"event":"write","filename":"03-raw-items-s4.json"}
+{"t":"2026-08-05T21:18:58.977Z","ms":60838,"event":"write","filename":"03-chunks.json"}
+{"t":"2026-08-05T21:18:58.978Z","ms":60839,"event":"write","filename":"05-normalized-before-finalize.json"}
+{"t":"2026-08-05T21:18:58.983Z","ms":60844,"event":"finalize","ok":true,"ollamaCalls":2}
+{"t":"2026-08-05T21:22:22.627Z","event":"export_attach","ok":true}

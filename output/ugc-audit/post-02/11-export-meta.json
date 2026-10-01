@@ -1,0 +1,49 @@
+{
+  "theme": "fatty liver diet support",
+  "hook": "Kepenų sveikata",
+  "body": "Struktūruotas savaitės planas padeda valgyti pastoviau, kai reikia mažiau chaotiškų sprendimų.",
+  "category": "Random theme",
+  "slide_count": 5,
+  "template": "headline_body",
+  "placement": "center",
+  "exportSizeId": "tiktok_reels",
+  "background_image": "900ac802984d0b3ae34daee6df343e1b.jpg, 1eb25d36b975b8d3d8b02878eeb4ce5a.jpg, 9bf8b33feb2ce41f85cb6057ceac114c.jpg, f5b5bed59162dfbcce0a23f66a8cc2d9.jpg, 3deea7b3fd25960c2e6de6ab13af600e.jpg",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Ar kepenys kenčia nuo vasaros karščio",
+      "body": "Rugpjūčio šiluma dažnai verčiasi į netinkamus mitybos pasirinkimus. Jaučiuosi varginantis prisiminti, ką valgyti sveikai."
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Nuolatinis chaotiškas maitinimas apkrauna kepenų darbą. Tai gali lemti nuovargį ir virškinimo problemų."
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Struktūruotas planavimas atpalaiduoja mintis. Tuomet lengviau pasirinkti sveiką maistą kasdien."
+    },
+    {
+      "id": "slide-4",
+      "role": "build",
+      "title": "",
+      "body": "Praėjusi vasara praėjo be planavimo. Dabar jaučiuosi apkrautas ir noriu pataisyti situaciją. Šiais metais aš ruošiasi rudeniui su aišku savaitės mitybos planas."
+    },
+    {
+      "id": "slide-5",
+      "role": "close",
+      "title": "",
+      "body": "Reguliarus maitinimas leidžia kepenims atpalaiduoti ir efektyviau dirbti. Štai kaip tu gali pradėti jaustis geriau.",
+      "cta": "Apsilankyk tavoknyga.com ir pradėk 5 min. testą! 🤩"
+    }
+  ],
+  "arc_name": "Story opener hook · Contrarian",
+  "hook_style": "Story opener",
+  "story_arc": "Contrarian",
+  "auditId": "post-02",
+  "caption_preview": "📌 Atkreipk dėmesį:\n\nAr jauti, kad savaitės planas vis tiek trukdo kasdienybei?\n\nStruktūruotas savaitės planas padeda valgyti pastoviau, kai reikia mažiau chaotiškų sprendimų.\n\nSužinok, ko tau iš tikrųjų trūksta - apsilankyk tavoknyga.com ir pradėk 5 min. testą! 😊\n•\n•\n•\n#tavoknyga #maistas #lithuania #disciplina #lietuva"
+}

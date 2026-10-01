@@ -1,0 +1,12 @@
+{"t":"2026-08-05T21:03:12.332Z","ms":0,"event":"begin","slot":2,"theme":"fatty liver diet support"}
+{"t":"2026-08-05T21:03:12.335Z","ms":3,"event":"write","filename":"00b-plan.json"}
+{"t":"2026-08-05T21:03:12.335Z","ms":3,"event":"chunk_attempt","start":1,"requestSize":3,"attempt":0,"roles":["hook","context","build"],"temp":0.402,"promptChars":1877}
+{"t":"2026-08-05T21:03:50.355Z","ms":38023,"event":"ollama_call","callIndex":1,"durationMs":38018,"responseChars":603,"error":null}
+{"t":"2026-08-05T21:03:50.356Z","ms":38024,"event":"write","filename":"03-raw-items-s1.json"}
+{"t":"2026-08-05T21:03:50.362Z","ms":38030,"event":"chunk_attempt","start":4,"requestSize":2,"attempt":0,"roles":["build","close"],"temp":0.402,"promptChars":2574}
+{"t":"2026-08-05T21:04:26.384Z","ms":74052,"event":"ollama_call","callIndex":2,"durationMs":36020,"responseChars":562,"error":null}
+{"t":"2026-08-05T21:04:26.386Z","ms":74054,"event":"write","filename":"03-raw-items-s4.json"}
+{"t":"2026-08-05T21:04:26.389Z","ms":74057,"event":"write","filename":"03-chunks.json"}
+{"t":"2026-08-05T21:04:26.391Z","ms":74059,"event":"write","filename":"05-normalized-before-finalize.json"}
+{"t":"2026-08-05T21:04:26.397Z","ms":74065,"event":"finalize","ok":true,"ollamaCalls":2}
+{"t":"2026-08-05T21:22:22.380Z","event":"export_attach","ok":true}

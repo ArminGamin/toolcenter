@@ -1,0 +1,78 @@
+{
+  "slides": [
+    {
+      "index": 1,
+      "role": "hook",
+      "title": "Ar ruošiesi rudeniui",
+      "body": "Rugpjūčio karštis dar įkvepia vasaros gardesnių patiekalų, tačiau jau reikia pagalvoti apie naują savaitės meniu. Ką gi tau leidžiama valgyti?",
+      "issues": [],
+      "charCounts": {
+        "title": 20,
+        "body": 142,
+        "cta": 0
+      }
+    },
+    {
+      "index": 2,
+      "role": "context",
+      "title": "",
+      "body": "Dažnai tenka varginti save su sudėtingais receptais ir ingredientų sąrašu. Tavo kūrybiškumas susiduria su ribojimais, o laiko vis tiek trūgsta.",
+      "issues": [],
+      "charCounts": {
+        "title": 0,
+        "body": 143,
+        "cta": 0
+      }
+    },
+    {
+      "index": 3,
+      "role": "build",
+      "title": "",
+      "body": "Tavo knyga filtruoja produktus pagal tavo duomenis. Tau nereikia ranka kurti meniu. Mes pritaikome ingredientų pasirinkimą, kad tu galėtum mėgautis maistu be rūpesčių.",
+      "issues": [],
+      "charCounts": {
+        "title": 0,
+        "body": 167,
+        "cta": 0
+      }
+    },
+    {
+      "index": 4,
+      "role": "build",
+      "title": "",
+      "body": "Štai kada jauti vasaros karštis, norisi tiesiog mėgautis maistu. Bet dažnai atsiranda apribojimų dėl alergijų ar kitų reikalavimų.",
+      "issues": [],
+      "charCounts": {
+        "title": 0,
+        "body": 130,
+        "cta": 0
+      }
+    },
+    {
+      "index": 5,
+      "role": "build",
+      "title": "",
+      "body": "Kiekvieną savaitę susiduri su sudėtingu ingredientų rinkimu? Pasijauti tarsi virėjys, o ne žmogus, besimauginantis savo kūną.",
+      "issues": [],
+      "charCounts": {
+        "title": 0,
+        "body": 125,
+        "cta": 0
+      }
+    },
+    {
+      "index": 6,
+      "role": "close",
+      "title": "",
+      "body": "Tavo knyga parinks maistą atsižvelgiant į viską. Pamiršk rankų darbo meniu ir pasimėgauk lengvu pasirinkimu!",
+      "cta": "Apsilankyk tavoknyga.com ir pradėk 5 min. testą! 🤩",
+      "issues": [],
+      "charCounts": {
+        "title": 0,
+        "body": 108,
+        "cta": 51
+      }
+    }
+  ],
+  "caption": null
+}

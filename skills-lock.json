@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "skills": {
+    "content-quality-auditor": {
+      "source": "aaron-he-zhu/aaron-marketing-skills",
+      "sourceType": "github",
+      "skillPath": "seo-geo/tune/content-quality-auditor/SKILL.md",
+      "computedHash": "d211b6d5d0041c59eafe62387fd1dd06bd663ef74b05bddd2db6eccec4dd3f72"
+    },
+    "copy-editing": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "skillPath": "skills/copy-editing/SKILL.md",
+      "computedHash": "b70d360d6d7e49adf84d595c62103583787008e16acb7b4b4b9c449dbbb768d9"
+    },
+    "prompt-engineer": {
+      "source": "davila7/claude-code-templates",
+      "sourceType": "github",
+      "skillPath": "cli-tool/components/skills/ai-research/prompt-engineer/SKILL.md",
+      "computedHash": "8fdaa14384b7a83271e1a03bf0828627dd78525aa3c65ccb2566519623ad96ae"
+    }
+  }
+}

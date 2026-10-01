@@ -1,0 +1,78 @@
+{
+  "slides": [
+    {
+      "index": 1,
+      "role": "hook",
+      "title": "Ar žinai, kodėl svoris krenta ir vėl grįžta",
+      "body": "PCOS dažnai sukelia hormonų disbalansą. Tai gali daryti įtakos insulino jautrumui.",
+      "issues": [],
+      "charCounts": {
+        "title": 43,
+        "body": 82,
+        "cta": 0
+      }
+    },
+    {
+      "index": 2,
+      "role": "context",
+      "title": "",
+      "body": "Insulinrezistencija lėtina medžiukų apykaitą. Tai gali lemti nuovargį ir sunkumų svorio reguliavimo iššūkius.",
+      "issues": [],
+      "charCounts": {
+        "title": 0,
+        "body": 109,
+        "cta": 0
+      }
+    },
+    {
+      "index": 3,
+      "role": "build",
+      "title": "",
+      "body": "Dabar, kai vasara dar tebetruksminga, svarbu susitvarkyti. Su „Tavo knyga“ randu pastovesnę kasdienę rutinos pusiausvyrę.",
+      "issues": [],
+      "charCounts": {
+        "title": 0,
+        "body": 121,
+        "cta": 0
+      }
+    },
+    {
+      "index": 4,
+      "role": "build",
+      "title": "",
+      "body": "Rugsėjo vėjai jau artėja, o vasaros karštis dar įkvepia keistus pojūčius. Stengiesi maitintis sveikai, bet rezultatai vis nepastovi?",
+      "issues": [],
+      "charCounts": {
+        "title": 0,
+        "body": 132,
+        "cta": 0
+      }
+    },
+    {
+      "index": 5,
+      "role": "build",
+      "title": "",
+      "body": "Kiekvienas iš mūsų susiduria su insulino jautrumo klausimu skirtingai. Tavo kūno reakcija į maistą gali skirtis nuo kitų.",
+      "issues": [],
+      "charCounts": {
+        "title": 0,
+        "body": 121,
+        "cta": 0
+      }
+    },
+    {
+      "index": 6,
+      "role": "close",
+      "title": "",
+      "body": "Suprask savo kūną ir rask balansą, kad pajustum energiją.",
+      "cta": "Apsilankyk tavoknyga.com ir pradėk 5 min. testą! 🤩",
+      "issues": [],
+      "charCounts": {
+        "title": 0,
+        "body": 57,
+        "cta": 51
+      }
+    }
+  ],
+  "caption": null
+}

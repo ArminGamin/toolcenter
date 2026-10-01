@@ -1,0 +1,16 @@
+{
+  "postId": "post-02",
+  "slot": 2,
+  "target": 10,
+  "at": "2026-08-05T21:03:12.332Z",
+  "theme": "fatty liver diet support",
+  "themeHook": "Kepenų sveikata",
+  "themeBody": "Struktūruotas savaitės planas padeda valgyti pastoviau, kai reikia mažiau chaotiškų sprendimų.",
+  "category": "Random theme",
+  "slideCount": 5,
+  "seed": 2,
+  "topic": "Kepenų sveikata. Struktūruotas savaitės planas padeda valgyti pastoviau, kai reikia mažiau chaotiškų sprendimų.",
+  "model": "ugc-lt-gpu",
+  "numCtx": 4096,
+  "numGpu": 32
+}

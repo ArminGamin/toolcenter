@@ -1,0 +1,27 @@
+{
+  "topic": "Virškinimo ramybė. \"Tavo knyga\" parenka patiekalus pagal tavo pageidavimus ir apribojimus.",
+  "slideCount": 6,
+  "seed": 6,
+  "hookStyle": "Empathy mirror",
+  "storyArc": "Question",
+  "arcName": "Empathy mirror hook · Question",
+  "roles": [
+    "hook",
+    "context",
+    "build",
+    "build",
+    "build",
+    "close"
+  ],
+  "targets": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+  ],
+  "storyAngle": "Vieta ar scena: virtuvė vakare, parduotuvė, šaldytuvas — susieti su tema",
+  "defaultCta": "Pradėk 5 min. testą",
+  "chunkSize": 3
+}

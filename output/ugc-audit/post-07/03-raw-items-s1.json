@@ -1,0 +1,27 @@
+{
+  "items": [
+    {
+      "role": "hook",
+      "text": "Jaučiuosi tarsi įstrigusi tarp noro džiaugtis paskutinėmis vasaros dienomis ir nuovokio, kad ruduo jau vos ne už durų.\nStengiuosi atsipalaiduoti, bet galvoju apie visus darbus.",
+      "title": "Ar vasaros karštis tavęs išvargina?",
+      "cta": ""
+    },
+    {
+      "role": "context",
+      "text": "Anksčiau skaičiavau kalorijas ir stebėdavau kiekvieną kąsnį,\nsaugiau jaučiausi kontroliuodama savo svorį, bet tai tik didino stresą.",
+      "title": "",
+      "cta": ""
+    },
+    {
+      "role": "build",
+      "text": "Dabar ruošdamasis rudeniui tiesiog pasirenku skanius ir sveikus receptus.\nMaisto porcijos jau yra suplanuotos, todėl nereikia nieko papildomai skačiuoti.",
+      "title": "",
+      "cta": ""
+    }
+  ],
+  "roles": [
+    "hook",
+    "context",
+    "build"
+  ]
+}

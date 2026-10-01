@@ -1,0 +1,53 @@
+{
+  "theme": "retirement healthy cooking",
+  "hook": "Po pensijos",
+  "body": "Savaitės planas supaprastina sprendimus, kai norisi daugiau laiko, bet mažiau chaoso virtuvėje.",
+  "category": "Random theme",
+  "slide_count": 6,
+  "template": "headline_body",
+  "placement": "center",
+  "exportSizeId": "tiktok_reels",
+  "background_image": "449d4ae4a2d5e5b2efd5dbacaf5b1039.jpg, d2419f3bbfc773de1f35111477797813.jpg, 72cad48ec0c8069d308c77df9f1abb9a.jpg, e84537a09e6670b708c380bb0f40eec8.jpg, 4abfd6cd384d9da63885735610a8cbcd.jpg, bb49af5cdf25fa399e2121f24992a4aa.jpg",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Ar jauti kaip aklavogė virtuvėje?",
+      "body": "Kiekvienas vakarų ruošimas. Tikras iššūkis? Jauti, kad laiko trūksta, o energijos visai ne."
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Pensija turėjo būti ramybės metas. Tačiau kasdienis virimas tampa stresu ir nuovargiu."
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Dabar įsivaizduok savaitę be streso. Tavo savaitės planas padeda sutaupyti laiko ir susidoroti su virtuve paprastai."
+    },
+    {
+      "id": "slide-1",
+      "role": "build",
+      "title": "",
+      "body": "Pradėjai pensoją, svajojai apie ramų gyvenimą. Tačiau kasdienis maisto ruošimas vis dar užima per daug laiko ir jėgų."
+    },
+    {
+      "id": "slide-2",
+      "role": "build",
+      "title": "",
+      "body": "Kaskart nusprendus ką gaminsi, jaučiasi spaudimas ir nuovargis. Planas gali atlaisvinti tau laiką mėgstamiausioms užduotims."
+    },
+    {
+      "id": "slide-3",
+      "role": "close",
+      "title": "",
+      "body": "Dabar žinai, kad virimo planas. Tai ne tik valgio paruošimas, bet ir tavo ramybės puoselėjimas. Išlaisvink save nuo kasdienio streso - pradėk savo savaitės planą dabar!",
+      "cta": "Sužinok daugiau apie savaitės planus."
+    }
+  ],
+  "arc_name": "Question hook · Two-beat punch",
+  "hook_style": "Question",
+  "story_arc": "Two-beat punch"
+}

@@ -1,0 +1,8 @@
+[
+  {
+    "input": "Žinai tą jausmą, kai jautiesi visiškai panika.",
+    "reason": "unnatural_collocation",
+    "expect": "fail",
+    "valid": ["Žinai tą jausmą, kai paskutinę minutę apima panika?"]
+  }
+]

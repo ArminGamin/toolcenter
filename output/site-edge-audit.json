@@ -1,0 +1,12 @@
+{
+  "test": "Malformed encoded CSRF cookie is rejected without server failure",
+  "route": "http://127.0.0.1:3000/api/newsletter",
+  "method": "POST",
+  "headers": {"content-type":"application/json","cookie":"kk_csrf=%ZZ","x-csrf-token":"x"},
+  "body": "{}",
+  "expected": "controlled 4xx rejection",
+  "actualStatus": 500,
+  "actualBody": "Internal Server Error",
+  "pass": false,
+  "externalMessagesSent": false
+}

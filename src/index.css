@@ -1,0 +1,702 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Atkinson Hyperlegible Next';
+  src: url('/fonts/atkinson/AtkinsonHyperlegibleNext.ttf') format('truetype');
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Atkinson Hyperlegible Mono';
+  src: url('/fonts/atkinson/AtkinsonHyperlegibleMono.ttf') format('truetype');
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TikTok Sans';
+  src: url('/fonts/tiktok-sans/TikTokSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'TikTok Sans';
+  src: url('/fonts/tiktok-sans/TikTokSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter/Inter-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+:root {
+  --surface-page: 243 244 247;
+  --surface-panel: 252 252 253;
+  --surface-card: 248 249 251;
+  --surface-lift: 238 240 244;
+  --surface-input: 252 252 253;
+  --text-primary: 17 24 39;
+  --text-secondary: 51 65 85;
+  --text-muted: 75 85 99;
+  --accent-brass: 29 78 216;
+  --accent-success: 4 120 87;
+  --accent-danger: 185 28 28;
+  --accent-violet: 109 40 217;
+  --on-accent: 248 250 252;
+  --tool-contrast: 17 24 39;
+  --tool-accent-share: 45%;
+  --border-color: 100 116 139;
+  --shadow-color: 15 23 42;
+  --reading-scale: 1;
+  --bg-page: rgb(var(--surface-page));
+  --bg-panel: rgb(var(--surface-panel));
+  --bg-card: rgb(var(--surface-card));
+  --bg-lift: rgb(var(--surface-lift));
+  --bg-input: rgb(var(--surface-input));
+  --border-subtle: rgb(var(--border-color) / 0.2);
+  --border-strong: rgb(var(--border-color) / 0.4);
+  color-scheme: light;
+}
+
+:root[data-color-theme='slate'] {
+  color-scheme: dark;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    -webkit-tap-highlight-color: transparent;
+    background: var(--bg-page);
+    color: rgb(var(--text-primary));
+    font-family: 'Atkinson Hyperlegible Next', 'Segoe UI', system-ui, sans-serif;
+    font-size: calc(0.9375rem * var(--reading-scale));
+    font-weight: 550;
+    line-height: 1.6;
+    overflow: hidden;
+  }
+
+  :focus-visible {
+    outline: 3px solid rgb(var(--accent-brass) / 0.7);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  input:not([type='checkbox']):not([type='radio']):not([type='file']):not([type='range']):not([type='color']),
+  textarea,
+  select {
+    line-height: 1.55;
+    font-weight: 600;
+    border-width: 2px;
+    color-scheme: inherit;
+    background-color: var(--bg-input);
+    color: rgb(var(--text-primary));
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: rgb(var(--text-muted));
+    opacity: 1;
+  }
+
+  select option,
+  select optgroup {
+    background-color: var(--bg-panel);
+    color: rgb(var(--text-primary));
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    -webkit-text-fill-color: rgb(var(--text-primary));
+    caret-color: rgb(var(--text-primary));
+    box-shadow: 0 0 0 1000px var(--bg-input) inset;
+    transition: background-color 99999s ease-out;
+  }
+
+  input[type='checkbox'], input[type='radio'] {
+    min-width: 20px;
+    min-height: 20px;
+    accent-color: rgb(var(--accent-brass));
+  }
+
+  button, summary, label, legend {
+    font-weight: 600;
+  }
+
+  * {
+    scrollbar-color: rgb(var(--text-muted) / 0.8) var(--bg-card);
+  }
+}
+
+@layer components {
+  /* Reusable surface roles — prefer these over inventing new shades */
+  .surface-page {
+    background-color: var(--bg-page);
+  }
+  .surface-panel {
+    background-color: var(--bg-panel);
+    border-color: var(--border-strong);
+    box-shadow: 0 2px 12px rgb(var(--shadow-color) / 0.1);
+  }
+  .surface-card {
+    background-color: var(--bg-card);
+    border-color: var(--border-subtle);
+    box-shadow: 0 1px 4px rgb(var(--shadow-color) / 0.08);
+  }
+  .surface-input {
+    background-color: var(--bg-input);
+    color: rgb(var(--text-primary));
+    border: 2px solid var(--border-strong);
+  }
+  .surface-input:focus {
+    border-color: rgb(var(--accent-brass));
+  }
+  .surface-input::placeholder {
+    color: rgb(var(--text-muted));
+    opacity: 1;
+  }
+  .surface-hover:hover {
+    background-color: var(--bg-lift);
+  }
+}
+
+@layer utilities {
+  .app-noise {
+    background-image: none;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+    font-weight: 650;
+  }
+
+  .uppercase {
+    text-transform: none;
+    letter-spacing: 0.015em;
+  }
+
+  .uppercase[class*='tracking-'] { letter-spacing: 0.015em; }
+  .font-normal { font-weight: 500; }
+  .font-medium { font-weight: 600; }
+  .font-semibold { font-weight: 650; }
+  .font-bold { font-weight: 750; }
+
+  [class*='text-[6px]'], [class*='text-[7px]'],
+  [class*='text-[8px]'], [class*='text-[9px]'],
+  [class*='text-[10px]'], [class*='text-[10.5px]'],
+  [class*='text-[11px]'], [class*='text-[11.5px]'],
+  [class*='text-[12px]'], [class*='text-[12.5px]'],
+  [class*='text-[13px]'], [class*='text-[14px]'],
+  [class*='text-[15px]'], [class*='text-[16px]'] {
+    font-size: calc(0.8125rem * var(--reading-scale)) !important;
+    line-height: 1.5 !important;
+  }
+
+  .leading-tight {
+    line-height: 1.35 !important;
+  }
+  .leading-snug {
+    line-height: 1.45 !important;
+  }
+  .leading-relaxed {
+    line-height: 1.6 !important;
+  }
+
+  .font-mono {
+    line-height: 1.55;
+    font-weight: 600;
+  }
+
+  .text-fog\/70,
+  .text-fog\/80 {
+    color: rgb(var(--text-muted)) !important;
+  }
+  .text-mist\/70,
+  .text-mist\/80 {
+    color: rgb(var(--text-secondary)) !important;
+  }
+
+  .disabled\:opacity-40:disabled,
+  .disabled\:opacity-50:disabled,
+  .disabled\:opacity-60:disabled {
+    opacity: 0.75;
+    cursor: not-allowed;
+  }
+
+  .py-0\.5 {
+    padding-top: 0.3rem !important;
+    padding-bottom: 0.3rem !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.tool-workspace {
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  max-width: none;
+  margin-inline: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scrollbar-gutter: stable;
+  padding: 4px 12px 32px 4px;
+}
+
+.tool-workspace > * {
+  flex-shrink: 0;
+}
+
+.tool-save-footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  box-shadow: 0 -6px 16px rgb(var(--shadow-color) / 0.1);
+  @apply border-brass/40 bg-panel;
+}
+
+.tool-workspace-body {
+  flex: 0 0 auto;
+  min-width: 0;
+  min-height: auto;
+  overflow: visible;
+}
+
+.tool-settings-grid {
+  display: grid;
+  align-items: start;
+  gap: 24px;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.notes-workspace {
+  grid-template-columns: 200px 260px minmax(0, 1fr);
+}
+
+@media (max-width: 1179px) {
+  .notes-workspace {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: 260px minmax(540px, 1fr);
+    overflow-y: auto;
+  }
+
+  .notes-workspace > section:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 639px) {
+  .notes-workspace {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 220px 260px minmax(540px, 1fr);
+  }
+}
+
+@media (min-width: 1180px) {
+  .tool-settings-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .tool-preview,
+  .tool-companion {
+    position: sticky;
+    top: 4px;
+    align-self: start;
+  }
+}
+
+@media (max-width: 860px) {
+  .tool-workspace {
+    padding-inline: 0 4px;
+  }
+}
+
+.appearance-popover {
+  max-height: calc(100dvh - 160px);
+  overflow-y: auto;
+}
+
+@media (max-width: 600px) {
+  .appearance-popover {
+    position: fixed;
+    inset: 100px 16px auto;
+    width: auto;
+    max-height: calc(100dvh - 190px);
+    overflow-y: auto;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Shared tab bar (tool panels)
+   ------------------------------------------------------------------ */
+.cc-tabs {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  max-width: 100%;
+  padding: 4px;
+  border-radius: 14px;
+  background: var(--bg-lift);
+  border: 1px solid var(--border-subtle);
+}
+
+.cc-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 42px;
+  padding: 0.45rem 1.25rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-family: 'Atkinson Hyperlegible Next', 'Segoe UI', system-ui, sans-serif;
+  font-size: calc(0.9375rem * var(--reading-scale));
+  font-weight: 650;
+  letter-spacing: 0;
+  color: rgb(var(--text-secondary));
+  white-space: nowrap;
+  transition: background-color 120ms ease, color 120ms ease, box-shadow 120ms ease;
+}
+
+.cc-tab:hover {
+  color: rgb(var(--text-primary));
+  background: rgb(var(--surface-panel) / 0.6);
+}
+
+.cc-tab[aria-selected='true'] {
+  color: rgb(var(--accent-brass));
+  background: var(--bg-panel);
+  border-color: var(--border-subtle);
+  box-shadow: 0 1px 3px rgb(var(--shadow-color) / 0.12);
+}
+
+/* ------------------------------------------------------------------
+   Tool workspace design layer
+   Gives the inside of every tool more breathing room and readable
+   controls. Anything inside `.settings-preserve` (the tools' Settings
+   tabs) is deliberately excluded so those screens keep their layout.
+   ------------------------------------------------------------------ */
+.tool-workspace {
+  padding: 12px 28px 56px 24px;
+}
+
+.tool-workspace.gap-6 {
+  gap: 1.75rem;
+}
+
+/* Buttons: sentence-case sans text, comfortable hit area */
+:is(.tool-workspace, .tool-page) button:not(.cc-tab):not(.settings-preserve *) {
+  letter-spacing: 0;
+}
+
+:is(.tool-workspace, .tool-page) button.font-mono:not(.cc-tab):not(.settings-preserve *) {
+  font-family: 'Atkinson Hyperlegible Next', 'Segoe UI', system-ui, sans-serif;
+  font-weight: 650;
+}
+
+:is(.tool-workspace, .tool-page) button:is(.px-2, .px-2\.5, .px-3):not(.settings-preserve *) {
+  padding-inline: 1rem;
+}
+
+:is(.tool-workspace, .tool-page) button:is(.py-1, .py-1\.5, .py-0\.5):not(.settings-preserve *) {
+  padding-block: 0.5rem !important;
+}
+
+:is(.tool-workspace, .tool-page) button:is(.min-h-\[28px\], .min-h-\[30px\], .min-h-\[32px\], .min-h-\[34px\], .min-h-\[36px\]):not(.settings-preserve *) {
+  min-height: 40px;
+}
+
+/* Rows of controls: more space between items */
+:is(.tool-workspace, .tool-page) .flex-wrap:is(.gap-1, .gap-1\.5, .gap-2):not(.settings-preserve *) {
+  gap: 0.75rem;
+}
+
+:is(.tool-workspace, .tool-page) .grid:is(.gap-2, .gap-2\.5, .gap-3):not(.settings-preserve *) {
+  gap: 1rem;
+}
+
+:is(.tool-workspace, .tool-page) .grid:is(.gap-4, .gap-5):not(.settings-preserve *) {
+  gap: 1.5rem;
+}
+
+/* Vertical rhythm inside cards */
+:is(.tool-workspace, .tool-page) .space-y-1\.5:not(.settings-preserve *) > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 0.625rem;
+}
+:is(.tool-workspace, .tool-page) .space-y-2:not(.settings-preserve *) > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 0.875rem;
+}
+:is(.tool-workspace, .tool-page) .space-y-3:not(.settings-preserve *) > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 1.125rem;
+}
+:is(.tool-workspace, .tool-page) .space-y-4:not(.settings-preserve *) > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 1.375rem;
+}
+
+/* Bordered boxes: roomier padding */
+:is(.tool-workspace, .tool-page) :is(.rounded-lg, .rounded-xl).border:is(.p-2, .p-2\.5, .p-3):not(button):not(.settings-preserve *) {
+  padding: 1rem;
+}
+
+:is(.tool-workspace, .tool-page) :is(.rounded-xl, .rounded-2xl).border.p-4:not(button):not(.settings-preserve *) {
+  padding: 1.375rem;
+}
+
+:is(.tool-workspace, .tool-page) :is(.rounded-lg, .rounded-xl).border:is(.px-3, .px-4):is(.py-2, .py-2\.5, .py-3):not(button):not(.settings-preserve *) {
+  padding: 0.875rem 1.125rem;
+}
+
+@media (min-width: 640px) {
+  :is(.tool-workspace, .tool-page) .rounded-2xl.border:is(.p-5, .sm\:p-6):not(.settings-preserve *):not(.settings-preserve) {
+    padding: 1.75rem;
+  }
+}
+
+/* Boxes nested inside cards: lighter borders, fewer heavy outlines */
+:is(.tool-workspace, .tool-page) :is(.rounded-xl, .rounded-2xl).border :is(.rounded-lg, .rounded-xl).border-lineStrong:not(button):not(input):not(select):not(textarea):not(.settings-preserve *) {
+  border-color: var(--border-subtle);
+}
+
+/* Monospace is for data; labels use the reading font */
+:is(.tool-workspace, .tool-page) :is(.font-mono.uppercase, label.font-mono, label > span.font-mono, legend.font-mono, h2.font-mono, h3.font-mono):not(.settings-preserve *) {
+  font-family: 'Atkinson Hyperlegible Next', 'Segoe UI', system-ui, sans-serif;
+  letter-spacing: 0;
+}
+
+/* Small headings inside tools */
+:is(.tool-workspace, .tool-page) h1:not(.settings-preserve *) {
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 860px) {
+  .tool-workspace {
+    padding: 8px 12px 40px 8px;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Fit-to-screen layout helpers
+   .fit-stack  : stacked cards flow into 2 columns when the container is
+                 wide enough (>= ~2 x 26rem), otherwise stay 1 column.
+   .fit-stack-3: same, up to 3 columns (used where there is no side panel).
+   .fit-side   : side panel (logs, activity, preview) fills the screen
+                 height and scrolls inside instead of growing the page.
+   ------------------------------------------------------------------ */
+.fit-stack,
+.fit-stack-3 {
+  display: block !important;
+  column-gap: 1.5rem;
+}
+.fit-stack { columns: 26rem 2; }
+.fit-stack-3 { columns: 24rem 3; }
+
+.fit-stack > *,
+.fit-stack-3 > * {
+  break-inside: avoid;
+  margin: 0 0 1.5rem !important;
+}
+.fit-stack > :last-child,
+.fit-stack-3 > :last-child {
+  margin-bottom: 0 !important;
+}
+
+@media (min-width: 1180px) {
+  .fit-side {
+    position: sticky;
+    top: 4px;
+    align-self: start;
+    max-height: calc(100dvh - 8.5rem) !important;
+    overflow-y: auto;
+  }
+  .fit-side.flex-col {
+    overflow-y: hidden;
+  }
+}
+
+/* Section deck: vertical section list + one visible section */
+.fit-deck {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+  min-width: 0;
+}
+
+.fit-deck-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 14px;
+  background: var(--bg-lift);
+  border: 1px solid var(--border-subtle);
+  align-self: start;
+}
+
+.fit-deck-tab {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  text-align: left;
+  font-family: 'Atkinson Hyperlegible Next', 'Segoe UI', system-ui, sans-serif;
+  font-size: calc(0.9375rem * var(--reading-scale));
+  font-weight: 650;
+  color: rgb(var(--text-secondary));
+  transition: background-color 120ms ease, color 120ms ease;
+}
+.fit-deck-tab:hover {
+  color: rgb(var(--text-primary));
+  background: rgb(var(--surface-panel) / 0.6);
+}
+.fit-deck-tab[aria-selected='true'] {
+  color: rgb(var(--accent-brass));
+  background: var(--bg-panel);
+  border-color: var(--border-subtle);
+  box-shadow: 0 1px 3px rgb(var(--shadow-color) / 0.12);
+}
+.fit-deck-badge {
+  min-width: 1.75rem;
+  padding: 0 0.5rem;
+  border-radius: 999px;
+  background: rgb(var(--text-muted) / 0.12);
+  color: rgb(var(--text-secondary));
+  font-size: calc(0.8125rem * var(--reading-scale));
+  text-align: center;
+}
+
+.fit-pane[hidden] {
+  display: none !important;
+}
+
+@media (min-width: 1180px) {
+  .tool-workspace {
+    padding-bottom: 20px;
+  }
+
+  /* Body that fills the rest of the screen; its children scroll inside. */
+  .tool-workspace > .fit-body:not(.hidden),
+  .fit-body:not(.hidden) {
+    flex: 1 1 0;
+    min-height: 360px;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr);
+    align-items: stretch;
+  }
+  .fit-body > * {
+    min-height: 0;
+    max-height: 100%;
+  }
+  .fit-body > .fit-side {
+    position: static;
+    max-height: 100% !important;
+    height: 100%;
+  }
+
+  .fit-deck {
+    grid-template-columns: 220px minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+    height: 100%;
+  }
+  .fit-deck-nav {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  .fit-deck > .fit-pane {
+    grid-column: 2;
+    grid-row: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-right: 6px;
+  }
+}
+
+@media (min-width: 1180px) {
+  .tool-workspace > .fit-column:not(.hidden) {
+    flex: 1 1 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .fit-column > * {
+    flex-shrink: 0;
+  }
+  .fit-column > .fit-body {
+    flex: 1 1 0;
+  }
+}
+
+@media (min-width: 1180px) {
+  .fit-body > .fit-scroll,
+  .fit-scroll {
+    max-height: 100%;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .fit-body > .self-stretch {
+    height: 100%;
+  }
+}
+
+@media (min-width: 1180px) {
+  .fit-body > .fit-scroll,
+  .fit-scroll {
+    max-height: 100%;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .fit-body > .self-stretch {
+    height: 100%;
+  }
+}
+
+@media (min-width: 1180px) and (max-width: 1399px) {
+  .fit-deck {
+    grid-template-columns: 170px minmax(0, 1fr);
+  }
+}

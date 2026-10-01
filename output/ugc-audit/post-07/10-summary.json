@@ -1,0 +1,18 @@
+{
+  "postId": "post-07",
+  "ok": true,
+  "durationMs": 122239,
+  "ollamaCalls": 3,
+  "arcName": "Pattern interrupt hook · Two-beat punch",
+  "hookStyle": "Pattern interrupt",
+  "storyArc": "Two-beat punch",
+  "topic": "Be macro streso. Porcijos jau suplanuotos receptuose, o ne skaičiuojamos programėlėje.",
+  "slideCount": 7,
+  "error": null,
+  "extra": {
+    "theme": "macro counting alternative",
+    "themeHook": "Be macro streso",
+    "category": "Random theme"
+  },
+  "at": "2026-08-05T21:14:50.535Z"
+}

@@ -1,0 +1,27 @@
+{
+  "items": [
+    {
+      "role": "hook",
+      "text": "Rugpjūčio kaitra primena paskutines vasaros dienas.\nGalbūt jau ruošiesi rudeniui, bet norisi pasimėgauti skaniais patiekalimis.",
+      "title": "Ar vasara vis dar karšta?",
+      "cta": ""
+    },
+    {
+      "role": "context",
+      "text": "Dažnai susiduri su dilema – ką gaminti visai šeimai?\nNorisi kažko asmeniško, bet kartu ir įdomaus visiems.",
+      "title": "Ką pasirinkti vakarienei?",
+      "cta": ""
+    },
+    {
+      "role": "build",
+      "text": "Dabar gali gauti meniu, pritaikytą tau.\nVakarėlius pasidaryk maloniais visai šeimai! Apsilankyk tavoknyga.com ir pradėk 5 min. testą! 🤩",
+      "title": "Meniu pagal tavo skonį.",
+      "cta": ""
+    }
+  ],
+  "roles": [
+    "hook",
+    "context",
+    "build"
+  ]
+}

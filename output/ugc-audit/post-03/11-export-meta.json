@@ -1,0 +1,55 @@
+{
+  "theme": "multiple food intolerances",
+  "hook": "Keli apribojimai",
+  "body": "\"Tavo knyga\" filtruoja ingredientus pagal tavo duomenis, o ne reikalauja ranka kurti meniu.",
+  "category": "Random theme",
+  "slide_count": 6,
+  "template": "headline_body",
+  "placement": "center",
+  "exportSizeId": "tiktok_reels",
+  "background_image": "ffaa0bb460a589326121a026870e6746.jpg, fa627e0676a01e62657893ba03649630.jpg, 5b02bef61fdfb064abcd57e357c6cc1a.jpg, 6154fad4fa225495bb1c3ff8bcde5cbc.jpg, 07e4194188cb8ddb8bca75e114ae04fe.jpg, 449d4ae4a2d5e5b2efd5dbacaf5b1039.jpg",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Ar ruošiesi rudeniui",
+      "body": "Rugpjūčio karštis dar įkvepia vasaros gardesnių patiekalų, tačiau jau reikia pagalvoti apie naują savaitės meniu. Ką gi tau leidžiama valgyti?"
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Dažnai tenka varginti save su sudėtingais receptais ir ingredientų sąrašu. Tavo kūrybiškumas susiduria su ribojimais, o laiko vis tiek trūgsta."
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Tavo knyga filtruoja produktus pagal tavo duomenis. Tau nereikia ranka kurti meniu. Mes pritaikome ingredientų pasirinkimą, kad tu galėtum mėgautis maistu be rūpesčių."
+    },
+    {
+      "id": "slide-4",
+      "role": "build",
+      "title": "",
+      "body": "Štai kada jauti vasaros karštis, norisi tiesiog mėgautis maistu. Bet dažnai atsiranda apribojimų dėl alergijų ar kitų reikalavimų."
+    },
+    {
+      "id": "slide-5",
+      "role": "build",
+      "title": "",
+      "body": "Kiekvieną savaitę susiduri su sudėtingu ingredientų rinkimu? Pasijauti tarsi virėjys, o ne žmogus, besimauginantis savo kūną."
+    },
+    {
+      "id": "slide-6",
+      "role": "close",
+      "title": "",
+      "body": "Tavo knyga parinks maistą atsižvelgiant į viską. Pamiršk rankų darbo meniu ir pasimėgauk lengvu pasirinkimu!",
+      "cta": "Apsilankyk tavoknyga.com ir pradėk 5 min. testą! 🤩"
+    }
+  ],
+  "arc_name": "Bold claim hook · Confession",
+  "hook_style": "Bold claim",
+  "story_arc": "Confession",
+  "auditId": "post-03",
+  "caption_preview": "📌 Skaityk lėtai:\n\nAr jauti, kad savaitės planas vis tiek trukdo kasdienybei?\n\n\"Tavo knyga\" filtruoja ingredientus pagal tavo duomenis, o ne reikalauja ranka kurti meniu.\n\nSužinok, ko tau iš tikrųjų trūksta - apsilankyk tavoknyga.com ir pradėk 5 min. testą! 😊\n•\n•\n•\n#tavoknyga #maistas #lithuania #disciplina #lietuva"
+}

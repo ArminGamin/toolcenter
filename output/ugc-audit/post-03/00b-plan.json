@@ -1,0 +1,27 @@
+{
+  "topic": "Keli apribojimai. \"Tavo knyga\" filtruoja ingredientus pagal tavo duomenis, o ne reikalauja ranka kurti meniu.",
+  "slideCount": 6,
+  "seed": 3,
+  "hookStyle": "Bold claim",
+  "storyArc": "Confession",
+  "arcName": "Bold claim hook · Confession",
+  "roles": [
+    "hook",
+    "context",
+    "build",
+    "build",
+    "build",
+    "close"
+  ],
+  "targets": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+  ],
+  "storyAngle": "Nejaukus veidrodis — vienas įprotis, kuris tave demaskuoja",
+  "defaultCta": "Pradėk 5 min. testą",
+  "chunkSize": 3
+}

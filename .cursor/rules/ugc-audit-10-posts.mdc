@@ -1,0 +1,18 @@
+---
+description: After UGC 5-post vision capture completes, mine D:\ugc-batch-vision
+globs: 
+alwaysApply: false
+---
+
+# UGC batch vision follow-up
+
+Vision root: `D:\ugc-batch-vision\`
+
+When `D:\ugc-batch-vision\audit\COMPLETE.md` exists or `SESSION.json` has `completed >= 5` / `active: false`:
+
+1. Read every `audit/post-NN/` folder: timeline, ollama calls, chunks, finals, caption, quality-scan, errors.
+2. Read matching `batch/Batch_*/Post NN/` PNGs + meta.json + caption.txt.
+3. Read `pc-logs/server.jsonl` for the full event stream.
+4. Cluster issues and propose fortress fixes (file-level).
+
+Logging auto-stops after 5 posts.

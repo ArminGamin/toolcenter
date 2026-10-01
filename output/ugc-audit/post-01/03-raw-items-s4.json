@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "role": "build",
+      "text": "Vyras prisijungė ir dabar tau skiriamas asmeninis patiekalų planas.\nŠeima mėgsta įvairovę, tad pasiūlysime variantus visiems.",
+      "title": "",
+      "cta": ""
+    },
+    {
+      "role": "close",
+      "text": "Džiaukis individualizuotu maisto planu, tinkamu visai tavo kompanijai.\nŠtai puikus būdas pasidaryti skanių ir lengvų vakaro pietus.",
+      "title": "",
+      "cta": "Apsilankyk tavoknyga.com ir pradėk 5 min. testą! 🤩"
+    }
+  ],
+  "roles": [
+    "build",
+    "close"
+  ]
+}

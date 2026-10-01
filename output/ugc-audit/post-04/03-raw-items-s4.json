@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "role": "build",
+      "text": "Rugsėjis artėja, o planai vis dar tik galvos sprendimai.\nŠtai kada reikia kažko lengvesnio nei griežtas režinas.",
+      "title": "",
+      "cta": ""
+    },
+    {
+      "role": "close",
+      "text": "Tavo planas turi būti kaip šviesa – ramesnis, o ne uždusiantis.\nPasitikėk savo intuicija ir pradėk kurti tai, kas tau telpa.",
+      "title": "",
+      "cta": "Apsilankyk tavoknyga.com ir pradėk 5 min. testą! 🤩"
+    }
+  ],
+  "roles": [
+    "build",
+    "close"
+  ]
+}

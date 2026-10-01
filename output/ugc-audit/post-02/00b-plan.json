@@ -1,0 +1,25 @@
+{
+  "topic": "Kepenų sveikata. Struktūruotas savaitės planas padeda valgyti pastoviau, kai reikia mažiau chaotiškų sprendimų.",
+  "slideCount": 5,
+  "seed": 2,
+  "hookStyle": "Story opener",
+  "storyArc": "Contrarian",
+  "arcName": "Story opener hook · Contrarian",
+  "roles": [
+    "hook",
+    "context",
+    "build",
+    "build",
+    "close"
+  ],
+  "targets": [
+    2,
+    2,
+    2,
+    2,
+    2
+  ],
+  "storyAngle": "Melas, kurį sau pasakojai praėjusiais metais apie temą",
+  "defaultCta": "Pradėk 5 min. testą",
+  "chunkSize": 3
+}

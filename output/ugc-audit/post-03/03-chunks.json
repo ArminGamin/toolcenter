@@ -1,0 +1,65 @@
+[
+  {
+    "start": 1,
+    "attempts": [
+      {
+        "requestSize": 3,
+        "attempt": 0,
+        "ok": true,
+        "got": 3
+      }
+    ],
+    "slides": [
+      {
+        "id": "slide-1",
+        "role": "hook",
+        "title": "Ar ruošiesi rudeniui",
+        "body": "Rugpjūčio karštis dar įkvepia vasaros gardesnių patiekalų, tačiau jau reikia pagalvoti apie naują savaitės meniu. Ką gi tau leidžiama valgyti?"
+      },
+      {
+        "id": "slide-2",
+        "role": "context",
+        "title": "",
+        "body": "Dažnai tenka varginti save su sudėtingais receptais ir ingredientų sąrašu. Tavo kūrybiškumas susiduria su ribojimais, o laiko vis tiek trūgsta."
+      },
+      {
+        "id": "slide-3",
+        "role": "build",
+        "title": "",
+        "body": "Tavo knyga filtruoja produktus pagal tavo duomenis. Tau nereikia ranka kurti meniu. Mes pritaikome ingredientų pasirinkimą, kad tu galėtum mėgautis maistu be rūpesčių."
+      }
+    ]
+  },
+  {
+    "start": 4,
+    "attempts": [
+      {
+        "requestSize": 3,
+        "attempt": 0,
+        "ok": true,
+        "got": 3
+      }
+    ],
+    "slides": [
+      {
+        "id": "slide-4",
+        "role": "build",
+        "title": "",
+        "body": "Štai kada jauti vasaros karštis, norisi tiesiog mėgautis maistu. Bet dažnai atsiranda apribojimų dėl alergijų ar kitų reikalavimų."
+      },
+      {
+        "id": "slide-5",
+        "role": "build",
+        "title": "",
+        "body": "Kiekvieną savaitę susiduri su sudėtingu ingredientų rinkimu? Pasijauti tarsi virėjys, o ne žmogus, besimauginantis savo kūną."
+      },
+      {
+        "id": "slide-6",
+        "role": "close",
+        "title": "",
+        "body": "Tavo knyga parinks maistą atsižvelgiant į viską. Pamiršk rankų darbo meniu ir pasimėgauk lengvu pasirinkimu!",
+        "cta": "Apsilankyk tavoknyga.com ir pradėk 5 min. testą! 🤩"
+      }
+    ]
+  }
+]

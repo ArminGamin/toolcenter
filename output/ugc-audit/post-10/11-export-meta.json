@@ -1,0 +1,55 @@
+{
+  "theme": "low carb weeknight dinners",
+  "hook": "Mažai angliavandenių",
+  "body": "Savaitės meniu su aiškiais ingredientais, kad nereikėtų skaičiuoti kiekvieno patiekalo ranka.",
+  "category": "Random theme",
+  "slide_count": 6,
+  "template": "headline_body",
+  "placement": "center",
+  "exportSizeId": "tiktok_reels",
+  "background_image": "30a4612401721a9980b714a34a7e4a9b.jpg, 95705d951558b381dd19dc621c2d6a13.jpg, d32811f85af8447749ab9d2199b0421e.jpg, 6fe1b965d27e5a569507d72967efd004.jpg, c8ae349bd2a91985f71cbec212c9ba44.jpg, cb4b765f50addcd4aa840d9bb533eca1.jpg",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Ar esi įstrigęs vasaros karščio rutinoje",
+      "body": "Jaučiuosi lėtas ir pavargęs, nors dienos dar ilgai trunka. Galbūt tavo savaitės meniu slepia daugiau nei tik maisto pasirinkimą?"
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Nuolatinis skaičiavimas atima energiją ir laiko. Rutina tampa įtikinimu, o ne sprendimų erdve."
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Aišus savaitės meniu leidžia susikoncentruoti ties svarbiais dalykais. Štai kaip įveikti rugpjūčio nuovargį ir pasirengti rudeniui."
+    },
+    {
+      "id": "slide-4",
+      "role": "build",
+      "title": "",
+      "body": "Vasara dažnai primena begalę gardžių, bet ne visada sveikų pasirinkimų. Stengiame mėgautis kiekvienu momentu, tačiau kartais tai atsiliepia savijauta."
+    },
+    {
+      "id": "slide-5",
+      "role": "build",
+      "title": "",
+      "body": "Atsisakymas nuo didelių anglies hidratų gali padėti reguliuoti energijos lygį. Tai leidžia jaustis gyvesnis ir produktyvus, net rugpjūčio karščio metu."
+    },
+    {
+      "id": "slide-6",
+      "role": "close",
+      "title": "",
+      "body": "Apgalvotas savaitinis planas atveria erdvę svarbiausioms užduotims ir malonumams. Maistas tampa ne tik pranašumu, bet ir įrankiu pasiekti savo tikslus.",
+      "cta": "Apsilankyk tavoknyga.com ir pradėk 5 min. testą! 🤩"
+    }
+  ],
+  "arc_name": "Contrarian hook · Bold claim",
+  "hook_style": "Contrarian",
+  "story_arc": "Bold claim",
+  "auditId": "post-10",
+  "caption_preview": "📌 Priminimas:\n\nAr jauti, kad savaitės planas vis tiek trukdo kasdienybei?\n\nSavaitės meniu su aiškiais ingredientais, kad nereikėtų skaičiuoti kiekvieno patiekalo ranka.\n\nSužinok, ko tau iš tikrųjų trūksta - apsilankyk tavoknyga.com ir pradėk 5 min. testą! 😊\n•\n•\n•\n#tavoknyga #maistas #lithuania #disciplina #lietuva"
+}

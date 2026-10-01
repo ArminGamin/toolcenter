@@ -1,0 +1,18 @@
+{
+  "postId": "post-08",
+  "ok": true,
+  "durationMs": 76823,
+  "ollamaCalls": 2,
+  "arcName": "Challenge hook · Contrarian",
+  "hookStyle": "Challenge",
+  "storyArc": "Contrarian",
+  "topic": "PCOS ir insulinas. Naudoju \"Tavo knyga\", ir pastovesnis valgymas per dieną.",
+  "slideCount": 6,
+  "error": null,
+  "extra": {
+    "theme": "PCOS insulin",
+    "themeHook": "PCOS ir insulinas",
+    "category": "Random theme"
+  },
+  "at": "2026-08-05T21:17:02.775Z"
+}

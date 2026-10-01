@@ -1,0 +1,41 @@
+{
+  "theme": "half onion left",
+  "hook": "Svogūnas iki galo",
+  "body": "Kiekvienas produktas naudojamas keliuose patiekaluose, kad neliktų likučių.",
+  "category": "Random theme",
+  "slide_count": 4,
+  "template": "headline_body",
+  "placement": "center",
+  "exportSizeId": "tiktok_reels",
+  "background_image": "b99dd3afa7424c56d8201c5691ec5d2f.jpg, ae2071f3d999cbaa2cc11fd7e89dfd22.jpg, 5f0872d89a29295872041d7216e4ef5b.jpg, e84537a09e6670b708c380bb0f40eec8.jpg",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Kiekvienas produktas naudojamas keliuose",
+      "body": "Dabartinėje situacijoje dažniai būna tokia problema - tikrai ne taip turi turėti. Pavykstant suprasti šią problemą ir jai pasitraukti, gali sukeltis stiprus atsigavimas."
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Kiekvienas produktas naudojamas keliuose patiekaluose - tai nemaža problema. Vis dėlto yra paprastų sprendimų ir gudrių šablonų, kurie padeda sumažinti likučius. Pavykstant suprasti šią problemą ir jai pasitraukti, tiks 5 min. testas."
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Vadinasi tokia problema nėra nei nauja, bei nėrai sunki - dauguma žmonių šią problemą išgyvena ir yra įsibriedusi jiems tiko. Nepaisant to viskas atrodo taip: kiekvienas produktas naudojamas keliose patiekaluose..."
+    },
+    {
+      "id": "slide-4",
+      "role": "close",
+      "title": "",
+      "body": "Atsisakykite tokės problemos ir pasiruoškite 5 min. testui, kuris padeda sumažinti likučius. testui, kuris padeda sumažinti likučius.",
+      "cta": "Pradėk 5 min. testą"
+    }
+  ],
+  "arc_name": "Question hook · Two-beat punch",
+  "hook_style": "Question",
+  "story_arc": "Two-beat punch"
+}

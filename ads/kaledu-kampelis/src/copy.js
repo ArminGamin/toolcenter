@@ -1,0 +1,21 @@
+export const copy = {
+  hook: ['Dar neišrinkai', 'kalėdinių', 'dovanų?'],
+  overwhelm: ['Idėjų daug.', 'Išsirinkti – ', 'sunkiau.'],
+  labels: ['Mamai', 'Jam', 'Jai', 'Porai', 'Kolegai'],
+  solution: ['Dovanų idėjos', 'vienoje vietoje.'],
+  calm: 'Tau lieka tik išsirinkti.',
+  url: 'kaledukampelis.com',
+  kicker: 'Kam ieškote dovanos?',
+  brand: ['KALĖDŲ', 'KAMPELIS'],
+  ctaLead: 'Rask dovaną –',
+  ctaUrl: 'kaledukampelis.com 🎁',
+  cards: [
+    { title: 'Mamai', note: 'Namų jaukumas', icon: 'box', variant: 'v1' },
+    { title: 'Jam', note: 'Ramus vakaras', icon: 'seal', variant: 'v2' },
+    { title: 'Jai', note: 'Šiluma ir kvapas', icon: 'box', variant: 'v3' },
+    { title: 'Porai', note: 'Vakaras dviese', icon: 'box', variant: 'v1' },
+    { title: 'Kolegai', note: 'Skoninga dovana', icon: 'seal', variant: 'v2' },
+    { title: 'Šeimai', note: 'Bendras vakaras', icon: 'box', variant: 'v3' },
+    { title: 'Draugei', note: 'Maža prabanga', icon: 'box', variant: 'v1' },
+  ],
+}

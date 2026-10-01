@@ -1,0 +1,2149 @@
+{
+  "version": 3,
+  "product": "tavoknyga.com",
+  "language": "lt-LT",
+  "format": "hook_body",
+  "total": 422,
+  "categories": {
+    "Body & weight goals": [
+      {
+        "theme": "sustainable weight loss",
+        "hook": "Sveikesnės porcijos",
+        "body": "\"Tavo knyga\" sudaro asmeninį savaitės planą su tiksliais porcijomis, kad valgytum sotiai, bet neper daug kiekvieną dieną."
+      },
+      {
+        "theme": "losing weight without strict dieting",
+        "hook": "Be griežtų dietų",
+        "body": "Po 30 klausimų testo \"Tavo knyga\" parenka receptus pagal tavo tikslus, o ne vieną universalų meniu visiems."
+      },
+      {
+        "theme": "portion control made simple",
+        "hook": "Aiškios porcijos",
+        "body": "Kiekvienam patiekalui planas nurodo kiekius ir pirkinių sąrašą, todėl nereikia spėlioti, kiek valgyti vakarienei."
+      },
+      {
+        "theme": "stopping yo-yo dieting",
+        "hook": "Baik svorio kalnelį",
+        "body": "Naudoju \"Tavo knyga\", ir nebegrįžtu prie chaotiško valgymo, nes turiu savaitės planą, o ne impulsyvius sprendimus."
+      },
+      {
+        "theme": "eating enough while cutting",
+        "hook": "Valgyk pakankamai",
+        "body": "\"Tavo knyga\" subalansuoja patiekalus pagal tavo duomenis, kad mažintum svorį nebadaujant ir neprarandant energijos."
+      },
+      {
+        "theme": "weekend weight sabotage",
+        "hook": "Savaitgaliai be griūties",
+        "body": "Penktadienį jau žinai savaitgalio patiekalus ir pirkinius, todėl lengviau laikytis plano, o ne valgyti viską po ranka."
+      },
+      {
+        "theme": "late night snacking",
+        "hook": "Vakariniai užkandžiai",
+        "body": "\"Tavo knyga\" planas įtraukia sotinančius vakarienės variantus pagal tavo rutiną, kad mažiau temptų impulsyviai užkandžiauti."
+      },
+      {
+        "theme": "scale frustration",
+        "hook": "Mažiau svarstyklių streso",
+        "body": "\"Tavo knyga\" fokusuoja į įpročius ir planą, o ne į vienos dienos svorio šuolius, kuriuos sunku kontroliuoti."
+      },
+      {
+        "theme": "belly fat concerns",
+        "hook": "Sveikesnis pilvas",
+        "body": "Asmeninis planas renka patiekalus pagal tavo tikslus ir pageidavimus, o ne bendrus patarimus iš socialinių tinklų."
+      },
+      {
+        "theme": "slow metabolism worries",
+        "hook": "Ramesnis metabolizmas",
+        "body": "Reguliarus savaitės planas su aiškiais patiekalais padeda valgyti pastoviau, o ne šokinėti tarp dietų."
+      },
+      {
+        "theme": "post-holiday reset",
+        "hook": "Po švenčių lengviau",
+        "body": "Ingredientai suplanuoti keliems patiekalams, todėl po švenčių greičiau grįžti prie įprasto ritmo be perteklinių pirkinių."
+      },
+      {
+        "theme": "mindless eating",
+        "hook": "Sąmoningesnis valgymas",
+        "body": "Kai žinai, ką gaminsi kiekvieną vakarą, mažiau valgai automatiškai, nes sprendimai jau priimti iš anksto."
+      },
+      {
+        "theme": "weight loss plateaus",
+        "hook": "Kai svoris stovi",
+        "body": "\"Tavo knyga\" atnaujina planą pagal tavo atsakymus, kad meniu atitiktų dabartinį etapą, o ne praeities dietą."
+      },
+      {
+        "theme": "healthy weight maintenance",
+        "hook": "Išlaikyk svorį",
+        "body": "Vienas asmeninis planas veikia kas savaitę, todėl lengviau išlaikyti rezultatą be nuolatinio naujo meniu galvojimo."
+      },
+      {
+        "theme": "emotional overeating triggers",
+        "hook": "Mažiau emocinio valgymo",
+        "body": "Struktūruotas savaitės planas sumažina sprendimų nuovargį, kai norisi valgyti dėl streso, o ne alkio."
+      },
+      {
+        "theme": "skipping meals habit",
+        "hook": "Nebepraleisk valgymų",
+        "body": "\"Tavo knyga\" planas paskirsto patiekalus per dieną pagal tavo grafiką, kad nepraleistum valgymų ir vėliau nepersivalgytum."
+      },
+      {
+        "theme": "hidden calories in sauces",
+        "hook": "Mažiau paslėptų kalorijų",
+        "body": "Receptai su aiškiais ingredientais ir kiekiais, todėl lengviau matyti, ką tikrai valgai kiekvieną dieną."
+      },
+      {
+        "theme": "eating out too often",
+        "hook": "Mažiau valgymo išėjus",
+        "body": "Namų patiekalų planas su pirkinių sąrašu padeda dažniau gaminti, kai žinai tikslų savaitės meniu."
+      },
+      {
+        "theme": "sugar cravings weight link",
+        "hook": "Mažiau cukraus šuolių",
+        "body": "\"Tavo knyga\" parenka patiekalus pagal tavo pageidavimus, kad mažiau temptų saldūs impulsyvūs užkandžiai."
+      },
+      {
+        "theme": "consistent breakfast habit",
+        "hook": "Stabilus pusrytis",
+        "body": "Rytas įtrauktas į savaitės planą su konkrečiais receptais, todėl nebereikia ryte galvoti, ką greitai suvalgyti."
+      },
+      {
+        "theme": "water weight confusion",
+        "hook": "Aiškesnis progresas",
+        "body": "Fokusas į įpročius ir planą, o ne į kasdienius svorio svyravimus, kuriuos lengva klaidingai interpretuoti."
+      },
+      {
+        "theme": "family meals while dieting",
+        "hook": "Šeimos stalas ir tikslai",
+        "body": "\"Tavo knyga\" planas gali atsižvelgti į tavo duomenis ir namų rutiną, kad valgytum kartu, bet pagal savo porcijas."
+      },
+      {
+        "theme": "afternoon energy slump eating",
+        "hook": "Popietė be persivalgymo",
+        "body": "Sotūs pietūs ir užkandžiai suplanuoti pagal tavo dieną, kad energija būtų stabilesnė iki vakaro."
+      },
+      {
+        "theme": "weighing food obsession",
+        "hook": "Be svarstyklių manijos",
+        "body": "Porcijos jau suplanuotos receptuose, todėl nereikia sverti kiekvieno kąsnio atskirai."
+      },
+      {
+        "theme": "starting weight loss again",
+        "hook": "Nauja pradžia paprasčiau",
+        "body": "30 klausimų testas greitai suformuoja planą pagal dabartinę situaciją, o ne seną šabloną iš interneto."
+      },
+      {
+        "theme": "clothes fitting goals",
+        "hook": "Drabužiai vėl tinka",
+        "body": "Asmeninis savaitės meniu padeda laikytis krypties, kai tikslas ne skaičius, o jausmas kūne."
+      },
+      {
+        "theme": "vacation weight fear",
+        "hook": "Atostogos be panikos",
+        "body": "Iš anksto suplanuoti patiekalai ir pirkinių sąrašai padeda išlaikyti rutiną grįžus namo."
+      },
+      {
+        "theme": "night shift weight gain",
+        "hook": "Naktinis grafikas",
+        "body": "\"Tavo knyga\" planas pritaikomas pagal tavo miego ir darbo ritmą, o ne standartinį dienos meniu."
+      },
+      {
+        "theme": "menopause weight changes",
+        "hook": "Kūno pokyčiai ramiau",
+        "body": "\"Tavo knyga\" atnaujina receptus pagal tavo atsakymus, kai keičiasi poreikiai ir energija."
+      },
+      {
+        "theme": "teen family member nutrition",
+        "hook": "Augantis organizmas",
+        "body": "Asmeninis planas gali atsižvelgti į amžių ir tikslus, o ne vieną šeimos meniu visiems."
+      },
+      {
+        "theme": "post-injury weight management",
+        "hook": "Po traumos atsigavimas",
+        "body": "Patiekalai parenkami pagal tavo ribojimus ir tikslus, kad mityba būtų struktūruota atkūrimo metu."
+      },
+      {
+        "theme": "desk job weight gain",
+        "hook": "Sėdimas darbas",
+        "body": "Greiti pietūs ir sotūs patiekalai suplanuoti pagal trumpas pertraukas, o ne greitą užkandį."
+      },
+      {
+        "theme": "stress eating at work",
+        "hook": "Stresas darbe",
+        "body": "Aiškus savaitės planas sumažina impulsą valgyti saldumynus, kai diena išsekina."
+      },
+      {
+        "theme": "healthy snacks at home",
+        "hook": "Sveiki užkandžiai",
+        "body": "Pirkinių sąraše tik tai, kas tinka planui, todėl namuose mažiau atsitiktinių kaloringų užkandžių."
+      },
+      {
+        "theme": "meal timing for weight",
+        "hook": "Valgymo laikas",
+        "body": "Patiekalai paskirstyti per dieną pagal tavo rutiną, kad energija būtų pastovesnė."
+      },
+      {
+        "theme": "fiber for satiety",
+        "hook": "Sotesnis maistas",
+        "body": "Receptai parinkti taip, kad valgytum sotiai su įprastais produktais, o ne nuolat badautum."
+      },
+      {
+        "theme": "protein at every meal",
+        "hook": "Balansas kiekviename",
+        "body": "Kiekvienam patiekalui planas suderina ingredientus pagal tavo tikslus ir skonį."
+      },
+      {
+        "theme": "reducing processed foods",
+        "hook": "Mažiau pusgaminių",
+        "body": "Savaitės receptai iš aiškių ingredientų, todėl lengviau mažinti perdirbtą maistą kasdien."
+      },
+      {
+        "theme": "batch cooking for weight",
+        "hook": "Vienu kartu savaitei",
+        "body": "Ingredientai naudojami keliuose patiekaluose, kad paruoštum dalį maisto iš anksto be pertekliaus."
+      },
+      {
+        "theme": "social events eating",
+        "hook": "Renginiai be kaltės",
+        "body": "\"Tavo knyga\" planas padeda išlaikyti struktūrą aplink savaitę, kai viena diena nukrypsta nuo rutinos."
+      },
+      {
+        "theme": "tracking without apps",
+        "hook": "Be sudėtingų programėlių",
+        "body": "\"Tavo knyga\" duoda paprastą savaitės planą ir sąrašus, o ne dar vieną skaičiavimo sistemą."
+      },
+      {
+        "theme": "weekend sabotage",
+        "hook": "Savaitgalis kontrolėje",
+        "body": "Penktadienį jau žinai savaitgalio patiekalus ir pirkinius, tad nebereikia rinktis paskutinę minutę."
+      },
+      {
+        "theme": "emotional eating",
+        "hook": "Mažiau emocinio valgymo",
+        "body": "30 klausimų testas sumažina sprendimų naštą, todėl streso metu mažiau traukia užkandžiauti."
+      },
+      {
+        "theme": "skip meals fix",
+        "hook": "Ne praleisk valgymų",
+        "body": "Patiekalai paskirstyti per dieną pagal tavo grafiką."
+      },
+      {
+        "theme": "hidden sauce calories",
+        "hook": "Mažiau paslėptų kalorijų",
+        "body": "Receptai su aiškiais ingredientais ir tiksliais kiekiais, tad matai, kas iš tiesų patenka į patiekalą."
+      },
+      {
+        "theme": "eat out less",
+        "hook": "Mažiau restoranų",
+        "body": "Naudoju \"Tavo knyga\", ir dažniau gamini, kai žinai tikslų savaitės meniu."
+      },
+      {
+        "theme": "family portions",
+        "hook": "Šeimos stalas",
+        "body": "Valgai kartu su šeima, bet pagal savo asmenines porcijas."
+      },
+      {
+        "theme": "afternoon slump",
+        "hook": "Popietė be kritimo",
+        "body": "Pietūs suplanuoti taip, kad energija liktų stabilesnė iki pat vakaro."
+      },
+      {
+        "theme": "no food scale",
+        "hook": "Be svarstyklių",
+        "body": "Porcijos jau suplanuotos receptuose, tad svarstyklių nė nereikia."
+      },
+      {
+        "theme": "fresh start weight",
+        "hook": "Nauja pradžia",
+        "body": "Testas per kelias minutes suformuoja planą pagal tavo dabartinę situaciją, ne seną šabloną."
+      },
+      {
+        "theme": "clothes fit",
+        "hook": "Drabužiai tinka",
+        "body": "Naudoju \"Tavo knyga\", ir lengviau laikytis krypties be obsesijos skaičiais."
+      },
+      {
+        "theme": "vacation return",
+        "hook": "Po atostogų",
+        "body": "Greičiau grįžti prie rutinos namuose."
+      },
+      {
+        "theme": "batch weight loss",
+        "hook": "Kartą gaminti",
+        "body": "Dalį maisto paruoši iš anksto be pertekliaus."
+      },
+      {
+        "theme": "no tracking apps",
+        "hook": "Be programėlių",
+        "body": "Vienkartinis mokestis apima paprastą savaitės planą ir sąrašus, jokių papildomų programėlių nereikia."
+      },
+      {
+        "theme": "sustainable habits",
+        "hook": "Ilgaamžiai įpročiai",
+        "body": "Naudoju \"Tavo knyga\", ir svoris keičiasi be dietų šokinėjimo."
+      },
+      {
+        "theme": "water intake meals",
+        "hook": "Daugiau vandens",
+        "body": "Patiekalai suderinti su hidratacija."
+      },
+      {
+        "theme": "plateau break",
+        "hook": "Stabdymo etapas",
+        "body": "Planas atsinaujina pagal tavo atsakymus, todėl visada atitinka dabartinį etapą, ne senus duomenis."
+      },
+      {
+        "theme": "vacation mindset",
+        "hook": "Atostogų mąstymas",
+        "body": "Aiški struktūra padeda greičiau grįžti prie įprasto ritmo grįžus iš kelionės."
+      }
+    ],
+    "Health conditions": [
+      {
+        "theme": "type 2 diabetes friendly meals",
+        "hook": "Cukraus kontrolė",
+        "body": "\"Tavo knyga\" parenka patiekalus pagal tavo atsakymus, kad planas atitiktų tavo mitybos poreikius be spėliojimo."
+      },
+      {
+        "theme": "prediabetes prevention diet",
+        "hook": "Prieš diabetą",
+        "body": "Asmeninis savaitės planas padeda valgyti pastoviau, kai norisi mažinti cukraus šuolius kasdien."
+      },
+      {
+        "theme": "high cholesterol eating plan",
+        "hook": "Mažesnis cholesterolis",
+        "body": "Receptai su aiškiais ingredientais ir porcijomis, kad lengviau laikytis gydytojo rekomenduojamos krypties."
+      },
+      {
+        "theme": "PCOS friendly nutrition",
+        "hook": "PCOS ir maistas",
+        "body": "Po testo planas atsižvelgia į tavo tikslus ir pageidavimus, o ne bendrą moterų dietą iš forumų."
+      },
+      {
+        "theme": "IBS trigger management",
+        "hook": "Jautrus virškinimas",
+        "body": "\"Tavo knyga\" gali išskirti nemėgstamus produktus, kad receptai netrikdytų virškinimo kasdien."
+      },
+      {
+        "theme": "low FODMAP planning",
+        "hook": "FODMAP planas",
+        "body": "Savaitės meniu su konkrečiais ingredientais padeda vengti žinomų triggerių be nuolatinio sąrašų tikrinimo."
+      },
+      {
+        "theme": "thyroid and nutrition",
+        "hook": "Skydliaukė ir maistas",
+        "body": "Asmeninis planas pritaikomas pagal tavo duomenis, kai reikia stabilesnės kasdienės mitybos struktūros."
+      },
+      {
+        "theme": "celiac gluten-free meals",
+        "hook": "Be gliadino",
+        "body": "Receptai parenkami pagal tavo apribojimus, o pirkinių sąrašas sumažina riziką netyčia nusipirkti netinkamų produktų."
+      },
+      {
+        "theme": "lactose intolerance meals",
+        "hook": "Be laktozės",
+        "body": "\"Tavo knyga\" atsižvelgia į netoleruojamus produktus, kad nereikėtų kiekvieną receptą taisyti ranka."
+      },
+      {
+        "theme": "nut allergy safe cooking",
+        "hook": "Saugūs receptai",
+        "body": "\"Tavo knyga\" planas vengia nurodytų alergenų ir duoda aiškų ingredientų sąrašą kiekvienam patiekalui."
+      },
+      {
+        "theme": "egg allergy alternatives",
+        "hook": "Be kiaušinių",
+        "body": "Asmeninis meniu parenkamas be kiaušinių, bet su įprastais produktais iš parduotuvės."
+      },
+      {
+        "theme": "histamine intolerance diet",
+        "hook": "Mažiau histamino",
+        "body": "Savaitės patiekalai suplanuoti su aiškiais ingredientais, kad lengviau sekti, kas tinka tau."
+      },
+      {
+        "theme": "gout friendly eating",
+        "hook": "Podagros dieta",
+        "body": "Receptai ir porcijos suderinti pagal tavo tikslus, kai reikia vengti tam tikrų produktų grupių."
+      },
+      {
+        "theme": "kidney-friendly low sodium",
+        "hook": "Mažiau druskos",
+        "body": "\"Tavo knyga\" padeda planuoti patiekalus su aiškiais ingredientais, kai svarbu kontroliuoti druską."
+      },
+      {
+        "theme": "heart healthy mediterranean tilt",
+        "hook": "Širdžiai draugiška",
+        "body": "Asmeninis planas renka patiekalus pagal tavo pageidavimus ir tikslus, o ne vieną šabloninį meniu."
+      },
+      {
+        "theme": "fatty liver diet support",
+        "hook": "Kepenų sveikata",
+        "body": "Struktūruotas savaitės planas padeda valgyti pastoviau, kai reikia mažiau chaotiškų sprendimų."
+      },
+      {
+        "theme": "anemia iron-rich meals",
+        "hook": "Daugiau geležies",
+        "body": "Receptai parenkami pagal tavo duomenis, kad į planą patektų tinkami patiekalų variantai."
+      },
+      {
+        "theme": "osteoporosis calcium focus",
+        "hook": "Kaulams svarbu",
+        "body": "Savaitės meniu su konkrečiais ingredientais padeda įtraukti reikalingas maistines medžiagas kasdien."
+      },
+      {
+        "theme": "endometriosis inflammation diet",
+        "hook": "Mažiau uždegimo",
+        "body": "\"Tavo knyga\" atsižvelgia į tavo apribojimus ir tikslus, kai kūnas jautrus tam tikriems produktams."
+      },
+      {
+        "theme": "autoimmune protocol lite",
+        "hook": "Autoimuninė kasdienybė",
+        "body": "Asmeninis planas sumažina spėliojimą, ką gaminti, kai reikia vengti daugelio ingredientų."
+      },
+      {
+        "theme": "GERD acid reflux meals",
+        "hook": "Ramesnis skrandis",
+        "body": "Patiekalai parinkti pagal tavo pageidavimus, kad vakarienė mažiau trikdytų miegodama."
+      },
+      {
+        "theme": "diverticulitis gentle foods",
+        "hook": "Švelnus virškinimas",
+        "body": "Savaitės receptai paremti aiškiais ingredientais, kai reikia atsargesnio meniu tam tikru laikotarpiu."
+      },
+      {
+        "theme": "gestational diabetes meals",
+        "hook": "Nėštumo cukrus",
+        "body": "\"Tavo knyga\" planas pritaikomas pagal tavo atsakymus, kai reikia stabilesnės mitybos struktūros."
+      },
+      {
+        "theme": "insulin resistance eating",
+        "hook": "Insulino jautrumas",
+        "body": "Asmeninis meniu padeda valgyti pastoviau per dieną, o ne chaotiškai reaguoti į alkio šuolius."
+      },
+      {
+        "theme": "metabolic syndrome lifestyle",
+        "hook": "Metabolinė sveikata",
+        "body": "\"Tavo knyga\" duoda savaitės planą ir pirkinių sąrašus, kad mažiau impulsinių sprendimų kasdien."
+      },
+      {
+        "theme": "chronic fatigue nutrition",
+        "hook": "Daugiau energijos",
+        "body": "Patiekalai suplanuoti pagal tavo rutiną, kad mažiau jėgų skirtum sprendimams, ką valgyti."
+      },
+      {
+        "theme": "migraine food triggers",
+        "hook": "Mažiau migrenų",
+        "body": "Ingredientai kontroliuojami per planą, kad lengviau vengti žinomų triggerių produktų."
+      },
+      {
+        "theme": "eczema and diet connection",
+        "hook": "Oda ir maistas",
+        "body": "Asmeninis planas atsižvelgia į tavo pageidavimus, kai norisi stebėti, kaip maistas veikia savijautą."
+      },
+      {
+        "theme": "arthritis anti-inflammatory tilt",
+        "hook": "Sąnariams lengviau",
+        "body": "Savaitės meniu su aiškiais receptais padeda laikytis pastovesnės mitybos krypties."
+      },
+      {
+        "theme": "blood pressure DASH style",
+        "hook": "Kraujo spaudimas",
+        "body": "Receptai ir porcijos suplanuoti pagal tavo duomenis, o ne bendrus patarimus iš straipsnių."
+      },
+      {
+        "theme": "Crohns flare planning",
+        "hook": "Krono kasdienybė",
+        "body": "\"Tavo knyga\" leidžia pritaikyti meniu pagal tavo apribojimus, kai virškinimas jautrus."
+      },
+      {
+        "theme": "ulcerative colitis meals",
+        "hook": "Švelnus meniu",
+        "body": "Asmeninis planas sumažina stresą renkantis patiekalus, kai reikia atsargumo su ingredientais."
+      },
+      {
+        "theme": "SIBO friendly rotation",
+        "hook": "SIBO planas",
+        "body": "Savaitės patiekalai su aiškiais produktais padeda vengti pasikartojančių triggerių."
+      },
+      {
+        "theme": "non-celiac gluten sensitivity",
+        "hook": "Jautrumas gliadinui",
+        "body": "Receptai be gliadino parenkami pagal tavo atsakymus, o sąrašas apsaugo nuo klaidų parduotuvėje."
+      },
+      {
+        "theme": "oral allergy syndrome foods",
+        "hook": "Sezoniniai alergenai",
+        "body": "\"Tavo knyga\" planas gali atsižvelgti į tavo ribojimus, kad receptai atitiktų tai, ką gali valgyti."
+      },
+      {
+        "theme": "diabetes and weight together",
+        "hook": "Cukrus ir svoris",
+        "body": "\"Tavo knyga\" sujungia tavo tikslus viename savaitės plane, o ne atskiruose patarimuose."
+      },
+      {
+        "theme": "cholesterol and family meals",
+        "hook": "Šeima ir cholesterolis",
+        "body": "Asmeninės porcijos ir receptai pagal tavo duomenis, net kai gamini kitiems namuose."
+      },
+      {
+        "theme": "PCOS and sugar cravings",
+        "hook": "PCOS ir saldumynai",
+        "body": "\"Tavo knyga\" planas parenka patiekalus pagal tavo pageidavimus, kad mažiau temptų impulsyvūs saldūs užkandžiai."
+      },
+      {
+        "theme": "IBS and eating out anxiety",
+        "hook": "IBS ir restoranai",
+        "body": "Namų planas su aiškiais ingredientais padeda dažniau valgyti kontroliuojamoje aplinkoje."
+      },
+      {
+        "theme": "thyroid and weight struggles",
+        "hook": "Skydliaukė ir svoris",
+        "body": "Asmeninis meniu atnaujinamas pagal tavo atsakymus, kai keičiasi poreikiai."
+      },
+      {
+        "theme": "multiple food intolerances",
+        "hook": "Keli apribojimai",
+        "body": "\"Tavo knyga\" filtruoja ingredientus pagal tavo duomenis, o ne reikalauja ranka kurti meniu."
+      },
+      {
+        "theme": "post-surgery soft diet transition",
+        "hook": "Po operacijos",
+        "body": "\"Tavo knyga\" planas pritaikomas pagal tavo situaciją, kai reikia švelnesnio perėjimo prie įprasto valgymo."
+      },
+      {
+        "theme": "medication food interactions awareness",
+        "hook": "Vaistai ir maistas",
+        "body": "Aiškūs receptai ir ingredientai padeda lengviau derinti mitybą su gydytojo rekomendacijomis."
+      },
+      {
+        "theme": "hormone balance through food",
+        "hook": "Hormonų balansas",
+        "body": "Asmeninis planas atsižvelgia į tavo tikslus, o ne bendrą hormonų dietą iš reklamų."
+      },
+      {
+        "theme": "blood sugar morning stability",
+        "hook": "Rytinis cukrus",
+        "body": "Pusryčiai suplanuoti konkrečiais receptais, kad diena prasidėtų stabiliau."
+      },
+      {
+        "theme": "neuropathy nutrition support",
+        "hook": "Nervų sveikata",
+        "body": "\"Tavo knyga\" duoda struktūruotą savaitės planą, kai svarbu nuoseklumas, o ne eksperimentai."
+      },
+      {
+        "theme": "pancreatitis recovery eating",
+        "hook": "Kasa atsigavimas",
+        "body": "Receptai parinkti pagal tavo apribojimus ir tikslus atkūrimo laikotarpiu."
+      },
+      {
+        "theme": "gallbladder-friendly low fat",
+        "hook": "Mažiau riebalų",
+        "body": "Asmeninis meniu numato aiškius ingredientus, kai reikia lengvesnių patiekalų."
+      },
+      {
+        "theme": "iron deficiency meal planning",
+        "hook": "Geležies planas",
+        "body": "Savaitės receptai parenkami pagal tavo duomenis, kad įtrauktum tinkamus patiekalus."
+      },
+      {
+        "theme": "vitamin D and nutrition habits",
+        "hook": "Vitamino D rutina",
+        "body": "\"Tavo knyga\" planas padeda laikytis pastovių valgymo įpročių, o ne atsitiktinių sprendimų."
+      },
+      {
+        "theme": "PCOS insulin",
+        "hook": "PCOS ir insulinas",
+        "body": "Naudoju \"Tavo knyga\", ir pastovesnis valgymas per dieną."
+      },
+      {
+        "theme": "IBS flare",
+        "hook": "IBS paūmėjimas",
+        "body": "Paūmėjimo metu meniu tampa švelnesnis, pritaikytas pagal tavo apribojimus."
+      }
+    ],
+    "Life stages & milestones": [
+      {
+        "theme": "postpartum nutrition recovery",
+        "hook": "Po gimdymo maistas",
+        "body": "\"Tavo knyga\" pritaiko savaitės planą pagal tavo rutiną, kai laiko mažai, o energijos reikia daug."
+      },
+      {
+        "theme": "breastfeeding meal support",
+        "hook": "Žindymo metu",
+        "body": "Asmeninis meniu su greitais patiekalais padeda valgyti reguliariai be ilgo planavimo."
+      },
+      {
+        "theme": "menopause nutrition shift",
+        "hook": "Menopauzės etapas",
+        "body": "\"Tavo knyga\" planas atnaujinamas pagal tavo atsakymus, kai keičiasi poreikiai ir energija kasdien."
+      },
+      {
+        "theme": "turning 40 health reset",
+        "hook": "Po keturiasdešimt",
+        "body": "30 klausimų testas suformuoja planą pagal dabartinį etapą, o ne jaunystės dietą."
+      },
+      {
+        "theme": "wedding prep nutrition",
+        "hook": "Prieš vestuves",
+        "body": "Savaitės meniu ir pirkinių sąrašai padeda laikytis krypties be chaotiško badavimo."
+      },
+      {
+        "theme": "new year reset eating",
+        "hook": "Nauji metai",
+        "body": "\"Tavo knyga\" duoda aiškų savaitės planą, o ne dar vieną abstraktų pažadą valgyti sveikiau."
+      },
+      {
+        "theme": "back to school family routine",
+        "hook": "Šeimos rutina grįžta",
+        "body": "Patiekalai suplanuoti pagal užimtą šeimos grafiką, kai laiko virtuvėje lieka mažiau."
+      },
+      {
+        "theme": "empty nest cooking again",
+        "hook": "Tuščias lizdas",
+        "body": "Asmeninis planas dviem ar vienam, kad nereikėtų gaminti senų šeimos porcijų."
+      },
+      {
+        "theme": "new parent exhaustion meals",
+        "hook": "Nauji tėvai",
+        "body": "Greiti receptai ir sąrašai padeda valgyti, kai miegas trumpas, o laiko mažai."
+      },
+      {
+        "theme": "retirement healthy cooking",
+        "hook": "Po pensijos",
+        "body": "Savaitės planas supaprastina sprendimus, kai norisi daugiau laiko, bet mažiau chaoso virtuvėje."
+      },
+      {
+        "theme": "college student budget meals",
+        "hook": "Studentų biudžetas",
+        "body": "Biudžetui draugiški receptai su tiksliais pirkinių sąrašais kiekvienai savaitei."
+      },
+      {
+        "theme": "first apartment cooking",
+        "hook": "Pirmas butas",
+        "body": "\"Tavo knyga\" moko planuoti pirkinius ir patiekalus, kai virtuvė dar nauja."
+      },
+      {
+        "theme": "pregnancy trimester meals",
+        "hook": "Nėštumo etapai",
+        "body": "\"Tavo knyga\" planas pritaikomas pagal tavo atsakymus ir pageidavimus kiekvienam etapui."
+      },
+      {
+        "theme": "fertility nutrition focus",
+        "hook": "Vaisingumo rutina",
+        "body": "Asmeninis meniu padeda valgyti pastoviau, kai svarbi kasdienė struktūra."
+      },
+      {
+        "theme": "divorce fresh start cooking",
+        "hook": "Naujas etapas",
+        "body": "Vienas planas tau, be senų šeimos įpročių, su aiškiais receptais."
+      },
+      {
+        "theme": "moving homes meal chaos",
+        "hook": "Perkraustymo savaitė",
+        "body": "Pirkinių sąrašas ir paprasti patiekalai padeda išlaikyti rutiną judant."
+      },
+      {
+        "theme": "career promotion busy period",
+        "hook": "Karjeros šuolis",
+        "body": "Greiti pietūs suplanuoti pagal ilgas darbo dienas be greito maisto."
+      },
+      {
+        "theme": "exam season student eating",
+        "hook": "Egzaminų laikas",
+        "body": "Minimalus planavimas, maksimalus aiškumas: žinai, ką valgysi kiekvieną dieną."
+      },
+      {
+        "theme": "gap year travel return",
+        "hook": "Po kelionių",
+        "body": "Ingredientai suplanuoti savaitei, kad greičiau grįžtum prie namų rutinos."
+      },
+      {
+        "theme": "grandparent raising grandkids",
+        "hook": "Seneliai ir vaikai",
+        "body": "\"Tavo knyga\" planas atsižvelgia į tavo duomenis ir namų dinamiką."
+      },
+      {
+        "theme": "midlife health wake-up",
+        "hook": "Vidurio gyvenimo",
+        "body": "Asmeninis planas veikia pagal tavo tikslus, kai norisi keisti įpročius ramiai."
+      },
+      {
+        "theme": "engagement party prep",
+        "hook": "Prieš šventę",
+        "body": "Savaitės meniu padeda laikytis plano prieš svarbius renginius."
+      },
+      {
+        "theme": "summer before university",
+        "hook": "Prieš universitetą",
+        "body": "Biudžetui draugiškas planas su aiškiais receptais pirmam savarankiškam etapui."
+      },
+      {
+        "theme": "new job long commute",
+        "hook": "Ilgas kelias",
+        "body": "Patiekalai parinkti pagal trumpą laiką, kai grįžti vėlai namo."
+      },
+      {
+        "theme": "recovery after burnout",
+        "hook": "Po perdegimo",
+        "body": "Struktūruotas planas sumažina sprendimų naštą, kai energijos mažai."
+      },
+      {
+        "theme": "first baby solids planning",
+        "hook": "Pirmas maistas kūdikiui",
+        "body": "Tavo planas atskirai, kad suaugusiųjų mityba nenukryptų dėl chaoso."
+      },
+      {
+        "theme": "teen leaving home soon",
+        "hook": "Paauglys išvyksta",
+        "body": "Mokai planuoti porcijas ir pirkinius, kai šeima keičiasi."
+      },
+      {
+        "theme": "aging parents meal support",
+        "hook": "Globa tėvams",
+        "body": "Aiškūs receptai ir sąrašai padeda gaminti be papildomo galvojimo."
+      },
+      {
+        "theme": "honeymoon return routine",
+        "hook": "Po medaus mėnesio",
+        "body": "Savaitės planas padeda grįžti prie įprastos rutinos be impulsyvaus valgymo."
+      },
+      {
+        "theme": "spring wedding countdown",
+        "hook": "Pavasario vestuvės",
+        "body": "Asmeninis meniu su konkrečiais patiekalais kiekvienai savaitei."
+      },
+      {
+        "theme": "autumn back to routine",
+        "hook": "Rudens rutina",
+        "body": "\"Tavo knyga\" atnaujina planą pagal sezoną ir tavo tikslus."
+      },
+      {
+        "theme": "winter holiday recovery",
+        "hook": "Po švenčių",
+        "body": "Ingredientai naudojami keliuose patiekaluose, kad mažiau maisto išmestum po švenčių."
+      },
+      {
+        "theme": "milestone birthday reset",
+        "hook": "Apvali sukaktis",
+        "body": "30 klausimų testas greitai suformuoja naują kryptį pagal dabartį."
+      },
+      {
+        "theme": "new relationship cooking together",
+        "hook": "Kartu virtuvėje",
+        "body": "Asmeninis planas pagal tavo duomenis, net kai gaminate poroje."
+      },
+      {
+        "theme": "single again meal planning",
+        "hook": "Vėl viena",
+        "body": "Porcijos ir receptai tik tau, be senų įpročių ir perteklinių pirkinių."
+      },
+      {
+        "theme": "relocating abroad food habits",
+        "hook": "Gyvenimas užsienyje",
+        "body": "\"Tavo knyga\" planas su įprastais produktais, pritaikytas tavo situacijai."
+      },
+      {
+        "theme": "first home dinner parties",
+        "hook": "Vakarienės namuose",
+        "body": "Savaitės struktūra palieka vietos renginiams be viso meniu griūties."
+      },
+      {
+        "theme": "parental leave meal prep",
+        "hook": "Tėvystės atostogos",
+        "body": "Greiti patiekalai suplanuoti pagal trumpas virtuvės pertraukas."
+      },
+      {
+        "theme": "menstrual cycle nutrition",
+        "hook": "Ciklo ritmas",
+        "body": "\"Tavo knyga\" planas atsižvelgia į tavo pageidavimus skirtingoms savaitėms."
+      },
+      {
+        "theme": "perimenopause energy meals",
+        "hook": "Perimenopauzė",
+        "body": "Asmeninis meniu padeda valgyti pastoviau, kai energija svyruoja."
+      },
+      {
+        "theme": "adult child moving out",
+        "hook": "Vaikas išvyko",
+        "body": "Mažesnės porcijos ir aiškūs pirkinių sąrašai be pertekliaus."
+      },
+      {
+        "theme": "first trimester",
+        "hook": "Pirmas trimestras",
+        "body": "Planas pritaikomas pagal tavo pageidavimus ir savijautą pirmajame trimestre."
+      },
+      {
+        "theme": "third trimester",
+        "hook": "Trečias trimestras",
+        "body": "Greiti patiekalai trumpam laikui."
+      },
+      {
+        "theme": "newlywed meals",
+        "hook": "Naujagaliai",
+        "body": "Porcijos porai be chaoso."
+      }
+    ],
+    "Dietary approaches": [
+      {
+        "theme": "keto meal planning",
+        "hook": "Keto be spėliojimo",
+        "body": "\"Tavo knyga\" parenka patiekalus pagal tavo apribojimus ir tikslus, o sąrašas apsaugo nuo netinkamų pirkinių."
+      },
+      {
+        "theme": "low carb weeknight dinners",
+        "hook": "Mažai angliavandenių",
+        "body": "Savaitės meniu su aiškiais ingredientais, kad nereikėtų skaičiuoti kiekvieno patiekalo ranka."
+      },
+      {
+        "theme": "vegan family meals",
+        "hook": "Veganams paprasčiau",
+        "body": "Receptai be gyvulinės kilmės produktų pagal tavo atsakymus, o ne atsitiktiniai interneto radiniai."
+      },
+      {
+        "theme": "vegetarian high protein",
+        "hook": "Augalinis balansas",
+        "body": "Asmeninis planas sujungia tavo pageidavimus ir balansą kiekvienai dienai."
+      },
+      {
+        "theme": "intermittent fasting structure",
+        "hook": "Badymo langas",
+        "body": "Patiekalai paskirstyti pagal tavo rutiną, kad valgymo langas būtų aiškus."
+      },
+      {
+        "theme": "Mediterranean style eating",
+        "hook": "Viduržemio stilius",
+        "body": "\"Tavo knyga\" renka patiekalus pagal tavo skonį ir tikslus, o ne vieną fiksuotą meniu."
+      },
+      {
+        "theme": "gluten-free family cooking",
+        "hook": "Be gliadino šeimai",
+        "body": "Asmeninis meniu atsižvelgia į apribojimus ir namų rutiną."
+      },
+      {
+        "theme": "dairy-free meal plan",
+        "hook": "Be pieno produktų",
+        "body": "Receptai parenkami be laktozės pagal tavo pageidavimus."
+      },
+      {
+        "theme": "plant-based budget meals",
+        "hook": "Augalinis biudžetas",
+        "body": "Biudžetui draugiški receptai, ingredientai naudojami keliuose patiekaluose."
+      },
+      {
+        "theme": "low sugar lifestyle",
+        "hook": "Mažiau cukraus",
+        "body": "\"Tavo knyga\" parenka patiekalus pagal tavo pageidavimus be saldžių šuolių."
+      },
+      {
+        "theme": "high protein low fat",
+        "hook": "Balansas ir baltymai",
+        "body": "Porcijos suplanuotos receptuose pagal tavo tikslus be rankinio skaičiavimo."
+      },
+      {
+        "theme": "anti-inflammatory diet",
+        "hook": "Mažiau uždegimo",
+        "body": "Patiekalai parinkti pagal tavo duomenis ir apribojimus."
+      },
+      {
+        "theme": "grain-free meals",
+        "hook": "Be grūdų",
+        "body": "Savaitės receptai pagal tavo apribojimus ir skonį."
+      },
+      {
+        "theme": "macro counting alternative",
+        "hook": "Be macro streso",
+        "body": "Porcijos jau suplanuotos receptuose, o ne skaičiuojamos programėlėje."
+      },
+      {
+        "theme": "intuitive eating structure",
+        "hook": "Intuityvi struktūra",
+        "body": "\"Tavo knyga\" planas duoda ramybę, ne griežtas taisykles."
+      },
+      {
+        "theme": "mediterranean week",
+        "hook": "Viduržemio savaitė",
+        "body": "Patiekalai parenkami pagal Viduržemio jūros regiono skonį ir tavo pageidavimus."
+      },
+      {
+        "theme": "vegan protein",
+        "hook": "Vegan baltymai",
+        "body": "Kiekvienai dienai numatytas baltymų balansas, pritaikytas tavo skoniui."
+      },
+      {
+        "theme": "keto family",
+        "hook": "Keto šeimai",
+        "body": "Meniu pritaikomas keto apribojimams, tinka visai šeimai prie vieno stalo."
+      },
+      {
+        "theme": "gluten dairy free",
+        "hook": "Be gliadino ir pieno",
+        "body": "Pirkinių sąraše filtruojami ingredientai su gliadinu ir pienu, kad nereikėtų kiekvieno produkto tikrinti pačiam."
+      }
+    ],
+    "Lifestyle & convenience": [
+      {
+        "theme": "busy professional dinners",
+        "hook": "Užimti vakarai",
+        "body": "\"Tavo knyga\" sudaro savaitės planą su greitais patiekalais, kai grįžti vėlai namo."
+      },
+      {
+        "theme": "meal prep Sunday routine",
+        "hook": "Sekmadienio paruošimas",
+        "body": "Ingredientai naudojami keliuose patiekaluose, kad dalį maisto paruoštum iš anksto."
+      },
+      {
+        "theme": "15 minute weeknight meals",
+        "hook": "Penkiolika minučių",
+        "body": "Receptai parinkti pagal trumpą laiką ir tavo rutiną."
+      },
+      {
+        "theme": "budget meals under 30 euros",
+        "hook": "Biudžetas savaitei",
+        "body": "Biudžetui draugiški receptai su tiksliais pirkinių sąrašais."
+      },
+      {
+        "theme": "picky eater family",
+        "hook": "Išrankūs valgytojai",
+        "body": "\"Tavo knyga\" planas atsižvelgia į nemėgstamus produktus ir šeimos pageidavimus."
+      },
+      {
+        "theme": "no time to cook",
+        "hook": "Nėra laiko gaminti",
+        "body": "Greiti patiekalai suplanuoti pagal tavo grafiką kiekvienai dienai."
+      },
+      {
+        "theme": "grocery list chaos",
+        "hook": "Pirkinių chaosas",
+        "body": "Tikslūs sąrašai pagal planą, o ne spėliojimas parduotuvėje."
+      },
+      {
+        "theme": "impulse shopping fix",
+        "hook": "Mažiau impulsų",
+        "body": "Perki tik tai, kas suplanuota receptuose."
+      },
+      {
+        "theme": "no recipe hunting",
+        "hook": "Be receptų paieškos",
+        "body": "\"Tavo knyga\" duoda visą savaitės meniu vienoje vietoje."
+      },
+      {
+        "theme": "remote worker snack trap",
+        "hook": "Nuotolinis darbas",
+        "body": "Struktūruotas planas mažina nuolatinį užkandžiavimą."
+      },
+      {
+        "theme": "meal kit alternative",
+        "hook": "Be meal kit",
+        "body": "Vienkartinis planas vietoj brangių rinkinių."
+      },
+      {
+        "theme": "no cooking skills beginner",
+        "hook": "Pradedantysis virtuvėje",
+        "body": "Paprasti žingsniai ir aiškus savaitės meniu."
+      },
+      {
+        "theme": "instant pot",
+        "hook": "Greitas puodas",
+        "body": "Patiekalai pagal trumpą laiką."
+      },
+      {
+        "theme": "lunch prep five",
+        "hook": "Penki pietūs",
+        "body": "Porcijos kiekvienai darbo dienai."
+      },
+      {
+        "theme": "ten minute meals",
+        "hook": "Dešimt minučių",
+        "body": "Receptai parinkti pagal tavo kasdienį ritmą, kad vakarienė užtruktų vos dešimt minučių."
+      },
+      {
+        "theme": "cooking for guests",
+        "hook": "Svečiai namuose",
+        "body": "Savaitės struktūra palieka vietos vienam vakarui su svečiais, be viso plano griūties."
+      }
+    ],
+    "Emotional & psychological": [
+      {
+        "theme": "sugar cravings control",
+        "hook": "Mažiau saldumo",
+        "body": "\"Tavo knyga\" parenka patiekalus pagal tavo pageidavimus, kad mažiau temptų impulsyvūs saldumynai."
+      },
+      {
+        "theme": "emotional eating stress",
+        "hook": "Stresinis valgymas",
+        "body": "Savaitės planas sumažina sprendimų nuovargį, kai norisi valgyti dėl emocijų."
+      },
+      {
+        "theme": "diet burnout recovery",
+        "hook": "Po dietų nuovargio",
+        "body": "Vienas asmeninis planas vietoj nuolatinio naujo bandymo nuo nulio."
+      },
+      {
+        "theme": "motivation without willpower",
+        "hook": "Be valios kovos",
+        "body": "Struktūra padeda veikti, kai motyvacija svyruoja."
+      },
+      {
+        "theme": "food guilt cycle",
+        "hook": "Mažiau kaltės",
+        "body": "Aiškus planas leidžia valgyti ramiau be nuolatinio „blogai valgiau\" jausmo."
+      },
+      {
+        "theme": "binge restrict cycle",
+        "hook": "Be binge ciklo",
+        "body": "Pastovus savaitės meniu padeda nutraukti badavimo ir persivalgymo ratą."
+      },
+      {
+        "theme": "comfort food replacement",
+        "hook": "Komfortas kitaip",
+        "body": "Sotūs patiekalai suplanuoti pagal tavo skonį be chaotiškų užkandžių."
+      },
+      {
+        "theme": "anxiety around food choices",
+        "hook": "Mažiau nerimo",
+        "body": "Žinai, ką valgysi kiekvieną dieną, todėl mažiau sprendimų sukelia streso."
+      },
+      {
+        "theme": "perfectionism in dieting",
+        "hook": "Be tobulybės spaudimo",
+        "body": "\"Tavo knyga\" planas leidžia laikytis krypties be „viskas arba nieko\" mąstymo."
+      },
+      {
+        "theme": "shame after eating",
+        "hook": "Mažiau gėdos",
+        "body": "Struktūruota mityba padeda santykiui su maistu tapti ramesniam."
+      },
+      {
+        "theme": "reward eating habit",
+        "hook": "Ne apdovanojimas maistu",
+        "body": "\"Tavo knyga\" planas įtraukia sotinančius patiekalus, kad mažiau temptų saldūs prizai."
+      },
+      {
+        "theme": "lonely eating habits",
+        "hook": "Vakarienė viena",
+        "body": "Asmeninis meniu padeda gaminti sau, o ne užsisakyti impulsyviai."
+      },
+      {
+        "theme": "Sunday scaries food",
+        "hook": "Sekmadienio nerimas",
+        "body": "Pirmadienis prasideda su planu."
+      },
+      {
+        "theme": "Monday motivation food",
+        "hook": "Pirmadienio startas",
+        "body": "Savaitė jau suplanuota iš anksto, tad pirmadienis prasideda be papildomo galvojimo."
+      },
+      {
+        "theme": "Friday treat balance",
+        "hook": "Penktadienio balansas",
+        "body": "Struktūra aplink savaitgalį leidžia atsipalaiduoti penktadienį be kaltės jausmo."
+      },
+      {
+        "theme": "habit relapse",
+        "hook": "Po nukrypimo",
+        "body": "Planas veikia toliau net ir ne tobuliausią dieną, tad vienas nukrypimas viso neišmuša iš vėžių."
+      }
+    ],
+    "Fitness & energy": [
+      {
+        "theme": "muscle gain meal plan",
+        "hook": "Raumenims augti",
+        "body": "\"Tavo knyga\" suderina porcijas ir patiekalus pagal tavo tikslus ir treniruočių rutiną."
+      },
+      {
+        "theme": "post workout nutrition",
+        "hook": "Po treniruotės",
+        "body": "Sotūs patiekalai suplanuoti po sporto be ilgo gaminimo."
+      },
+      {
+        "theme": "energy crash afternoon",
+        "hook": "Popietės energija",
+        "body": "Pietūs ir užkandžiai parinkti, kad energija būtų stabilesnė iki vakaro."
+      },
+      {
+        "theme": "pre workout fuel",
+        "hook": "Prieš treniruotę",
+        "body": "Patiekalai paskirstyti pagal tavo treniruočių laiką."
+      },
+      {
+        "theme": "marathon training food",
+        "hook": "Ruošimasis bėgimui",
+        "body": "Asmeninis planas pagal didesnį energijos poreikį."
+      },
+      {
+        "theme": "strength training diet",
+        "hook": "Jėgos sportas",
+        "body": "Porcijos suplanuotos receptuose pagal tavo tikslus."
+      },
+      {
+        "theme": "yoga practitioner meals",
+        "hook": "Jogos praktika",
+        "body": "Lengvesni patiekalai pagal tavo rutiną ir pageidavimus."
+      },
+      {
+        "theme": "crossfit busy athlete",
+        "hook": "Crossfit tempas",
+        "body": "Greiti sotūs patiekalai tarp treniruočių."
+      },
+      {
+        "theme": "walking habit nutrition",
+        "hook": "Kasdienniai žingsniai",
+        "body": "\"Tavo knyga\" planas palaiko pastovius valgymo įpročius aktyviam gyvenimui."
+      },
+      {
+        "theme": "morning workout breakfast",
+        "hook": "Rytinė treniruotė",
+        "body": "Pusryčiai suplanuoti pagal tavo sporto grafiką."
+      },
+      {
+        "theme": "evening gym dinner",
+        "hook": "Vakarinė treniruotė",
+        "body": "Vakarienė paruošta pagal laiką po sporto salės."
+      },
+      {
+        "theme": "rest day eating",
+        "hook": "Poilsio diena",
+        "body": "Patiekalai pritaikyti dienoms be intensyvaus sporto."
+      },
+      {
+        "theme": "protein recovery",
+        "hook": "Atkūrimas po sporto",
+        "body": "Sotūs patiekalai po treniruotės."
+      },
+      {
+        "theme": "endurance fuel",
+        "hook": "Ištvermės sportas",
+        "body": "Naudoju \"Tavo knyga\", ir energija paskirstyta per dieną."
+      },
+      {
+        "theme": "hiit nutrition",
+        "hook": "HIIT mityba",
+        "body": "Testas parenka receptus pagal tavo tikslus, tad po intensyvios treniruotės laukia greiti, sotūs patiekalai."
+      },
+      {
+        "theme": "pilates meals",
+        "hook": "Pilates rutina",
+        "body": "Lengvesni patiekalai pagal grafiką."
+      },
+      {
+        "theme": "swimming appetite",
+        "hook": "Plaukimo diena",
+        "body": "Porcijos pritaikytos pagal treniruotės intensyvumą, vienkartinis planas veikia kiekvieną savaitę."
+      },
+      {
+        "theme": "cycling fuel",
+        "hook": "Dviračio treniruotė",
+        "body": "Meniu atsižvelgia į patiekalus prieš ir po važiavimo dviračiu."
+      },
+      {
+        "theme": "hiking weekends",
+        "hook": "Žygiai savaitgalį",
+        "body": "Pirkinių sąraše atsiranda energingesni patiekalai, tinkami ilgam žygiui."
+      },
+      {
+        "theme": "home workout food",
+        "hook": "Sportas namuose",
+        "body": "Naudoju \"Tavo knyga\", nes sotūs patiekalai be ilgo gaminimo."
+      },
+      {
+        "theme": "protein breakfast gym",
+        "hook": "Pusryčiai prieš sportą",
+        "body": "Pusryčiai suplanuoti taip, kad rytas prasidėtų stabiliai prieš treniruotę."
+      },
+      {
+        "theme": "late gym meal",
+        "hook": "Vėlai po salės",
+        "body": "Naudoju \"Tavo knyga\", ir vakarienė paruošta greitai."
+      },
+      {
+        "theme": "half marathon",
+        "hook": "Pusmaratonis",
+        "body": "Energija paskirstyta per dieną."
+      },
+      {
+        "theme": "strength bulk",
+        "hook": "Masės etapas",
+        "body": "Porcijos pagal tavo tikslus."
+      },
+      {
+        "theme": "yoga retreat",
+        "hook": "Jogos savaitgalis",
+        "body": "Meniu tampa lengvesnis, pritaikytas ramesniam jogos savaitgaliui."
+      },
+      {
+        "theme": "tennis days",
+        "hook": "Teniso dienos",
+        "body": "Patiekalai prieš ir po sporto."
+      }
+    ],
+    "Demographics": [
+      {
+        "theme": "mens health nutrition",
+        "hook": "Vyrams pritaikyta",
+        "body": "\"Tavo knyga\" formuoja planą pagal tavo duomenis, tikslus ir porcijas."
+      },
+      {
+        "theme": "womens health nutrition",
+        "hook": "Moterims pritaikyta",
+        "body": "Asmeninis meniu atsižvelgia į tavo ciklą, tikslus ir pageidavimus."
+      },
+      {
+        "theme": "seniors easy nutrition",
+        "hook": "Senjorams paprasta",
+        "body": "Aiškūs receptai ir sąrašai be sudėtingų žingsnių."
+      },
+      {
+        "theme": "new parents both",
+        "hook": "Jauni tėvai",
+        "body": "Greiti patiekalai išgelbėja, kai laiko mažai, o energijos reikia daug."
+      },
+      {
+        "theme": "teens healthy habits",
+        "hook": "Paaugliams įpročiai",
+        "body": "Struktūruotas planas padeda formuoti sveikesnius įpročius."
+      },
+      {
+        "theme": "millennial budget cooking",
+        "hook": "Millennial biudžetas",
+        "body": "Biudžetui draugiški receptai su aiškiais sąrašais."
+      },
+      {
+        "theme": "gen z first kitchen",
+        "hook": "Pirma virtuvė",
+        "body": "Paprastas savaitės planas pradedančiajam gamintojui."
+      },
+      {
+        "theme": "over 50 metabolism",
+        "hook": "Po penkiasdešimt",
+        "body": "\"Tavo knyga\" planas atnaujinamas pagal tavo dabartinius poreikius."
+      },
+      {
+        "theme": "young professional single",
+        "hook": "Jaunas profesionalas",
+        "body": "Porcijos vienam su aiškiu savaitės meniu."
+      },
+      {
+        "theme": "stay at home parent",
+        "hook": "Namuose su vaikais",
+        "body": "Patiekalai suplanuoti pagal trumpas virtuvės pertraukas."
+      },
+      {
+        "theme": "dual income no kids",
+        "hook": "Du karjeristai",
+        "body": "Greiti vakarienės variantai be ilgo planavimo."
+      },
+      {
+        "theme": "multigenerational household",
+        "hook": "Kelių kartų namai",
+        "body": "\"Tavo knyga\" planas atsižvelgia į tavo duomenis ir namų dinamiką."
+      },
+      {
+        "theme": "dad bod fix",
+        "hook": "Tėvų sveikata",
+        "body": "Planas pagal tavo tikslus."
+      },
+      {
+        "theme": "working mom meals",
+        "hook": "Dirbanti mama",
+        "body": "Naudoju \"Tavo knyga\", ir greiti patiekalai trumpam laikui."
+      },
+      {
+        "theme": "single dad cooking",
+        "hook": "Vienas tėvas",
+        "body": "Testas parenka porcijas ir receptus, pritaikytus tik tau ir vaikams."
+      },
+      {
+        "theme": "retired couple",
+        "hook": "Pora pensijoje",
+        "body": "Savaitės meniu paprastas ir aiškus, pritaikytas dviem žmonėms."
+      },
+      {
+        "theme": "young couple budget",
+        "hook": "Jauna pora",
+        "body": "Vienkartinis mokestis apima biudžetui draugišką planą, tinkantį porai."
+      },
+      {
+        "theme": "empty nester health",
+        "hook": "Tuščias lizdas",
+        "body": "Porcijos keičiasi kartu su gyvenimo etapu, kai namuose lieka mažiau žmonių."
+      },
+      {
+        "theme": "college athlete",
+        "hook": "Studentas sportininkas",
+        "body": "Pirkinių sąrašas užtikrina energiją, pritaikytą treniruočių grafikui."
+      },
+      {
+        "theme": "night nurse mom",
+        "hook": "Naktinė pamaina",
+        "body": "Naudoju \"Tavo knyga\", nes meniu pagal grafiką."
+      },
+      {
+        "theme": "immigrant cooking",
+        "hook": "Nauja šalis",
+        "body": "Įprasti produktai tavo planui."
+      },
+      {
+        "theme": "rural grocery",
+        "hook": "Mažas miestelis",
+        "body": "Naudoju \"Tavo knyga\", ir paprasti ingredientai sąraše."
+      },
+      {
+        "theme": "women 30s",
+        "hook": "Moterys trisdešimt",
+        "body": "Planas pritaikomas pagal tavo dabartinį gyvenimo etapą, ne bendrą trisdešimtmečių šabloną."
+      },
+      {
+        "theme": "men 40s",
+        "hook": "Vyrai keturiasdešimt",
+        "body": "Meniu atsižvelgia į tavo tikslus, pritaikytus šiam gyvenimo etapui."
+      },
+      {
+        "theme": "seniors couple",
+        "hook": "Senjorų pora",
+        "body": "Receptai paprasti ir tinka abiem, be sudėtingų žingsnių."
+      },
+      {
+        "theme": "young parents twins",
+        "hook": "Dvynukai namuose",
+        "body": "Greiti patiekalai trumpam laikui."
+      }
+    ],
+    "Seasonal hooks": [
+      {
+        "theme": "summer body preparation",
+        "hook": "Pavasario kryptis",
+        "body": "\"Tavo knyga\" duoda savaitės planą pagal tavo tikslus, o ne trumpalaikį badavimą."
+      },
+      {
+        "theme": "holiday eating survival",
+        "hook": "Šventės be chaoso",
+        "body": "\"Tavo knyga\" planas padeda išlaikyti struktūrą aplink šventes."
+      },
+      {
+        "theme": "spring reset nutrition",
+        "hook": "Pavasario resetas",
+        "body": "Asmeninis meniu atnaujinamas pagal sezoną ir tavo tikslus."
+      },
+      {
+        "theme": "winter comfort healthy",
+        "hook": "Žiemos komfortas",
+        "body": "Sotūs patiekalai pagal tavo skonį be perteklinio švaistymo."
+      },
+      {
+        "theme": "summer BBQ balance",
+        "hook": "Vasaros kepimas",
+        "body": "Savaitės struktūra palieka vietos renginiams."
+      },
+      {
+        "theme": "autumn cozy meals",
+        "hook": "Rudens jaukumas",
+        "body": "Sezoniniai ingredientai suplanuoti per savaitę."
+      },
+      {
+        "theme": "new year resolution",
+        "hook": "Naujų metų planas",
+        "body": "30 klausimų testas suformuoja realų planą, o ne abstraktų pažadą."
+      },
+      {
+        "theme": "beach vacation prep",
+        "hook": "Prieš atostogas",
+        "body": "Aiškus meniu padeda laikytis krypties prieš kelionę."
+      },
+      {
+        "theme": "back to school lunches",
+        "hook": "Pietūs į dėžutę",
+        "body": "Pietūs suplanuoti pagal užimtą dienos grafiką."
+      },
+      {
+        "theme": "christmas leftover plan",
+        "hook": "Po Kalėdų",
+        "body": "Ingredientai naudojami keliuose patiekaluose po švenčių."
+      },
+      {
+        "theme": "lent fasting structure",
+        "hook": "Paso struktūra",
+        "body": "Patiekalai pritaikyti pagal tavo apribojimus."
+      },
+      {
+        "theme": "ramadan meal planning",
+        "hook": "Ramadano planas",
+        "body": "Meniu pagal tavo valgymo langą ir rutiną."
+      },
+      {
+        "theme": "january reset",
+        "hook": "Sausio startas",
+        "body": "Realus planas, ne ekstremalus."
+      },
+      {
+        "theme": "february slump",
+        "hook": "Vasario rutina",
+        "body": "Naudoju \"Tavo knyga\", ir turiu struktūrą net kai motyvacija krenta."
+      },
+      {
+        "theme": "march spring",
+        "hook": "Kovo atgimimas",
+        "body": "Testas atnaujina planą pagal sezoną, tad meniu keičiasi kartu su pavasariu."
+      },
+      {
+        "theme": "april lighter",
+        "hook": "Balandžio lengvumas",
+        "body": "Plane numatyti švelnesni pavasario patiekalai, pritaikyti tavo skoniui."
+      },
+      {
+        "theme": "may outdoor",
+        "hook": "Gegužės sezonas",
+        "body": "Vienkartinis planas veikia kiekvieną savaitę, patiekalai pritaikyti aktyvesniam gegužės grafikui."
+      },
+      {
+        "theme": "june summer",
+        "hook": "Birželio startas",
+        "body": "Meniu suteikia struktūrą prieš vasaros atostogas, kai grafikas dažnai pasikeičia."
+      },
+      {
+        "theme": "july heat meals",
+        "hook": "Karščio dienos",
+        "body": "Pirkinių sąraše atsiranda lengvesni patiekalai, pritaikyti karštoms dienoms."
+      },
+      {
+        "theme": "august vacation end",
+        "hook": "Rugpjūčio pabaiga",
+        "body": "Naudoju \"Tavo knyga\", nes grįžimas prie rutinos."
+      },
+      {
+        "theme": "october cozy",
+        "hook": "Spalio jaukumas",
+        "body": "Savaitės planas įtraukia sotesnius sezoninius patiekalus pagal metų laiką."
+      },
+      {
+        "theme": "november prep",
+        "hook": "Lapkričio ruoša",
+        "body": "Naudoju \"Tavo knyga\", ir planas prieš šventes."
+      },
+      {
+        "theme": "easter meals",
+        "hook": "Velykų savaitė",
+        "body": "Testas parenka receptus pagal tavo tikslus, tad struktūra išlieka net per šventes."
+      },
+      {
+        "theme": "summer travel",
+        "hook": "Vasaros kelionės",
+        "body": "Naudoju \"Tavo knyga\", ir rutina grįžus namo."
+      },
+      {
+        "theme": "winter soups",
+        "hook": "Žiemos sriubos",
+        "body": "Žiemos savaitėms plane numatytos sotesnės sriubos ir troškiniai."
+      },
+      {
+        "theme": "spring detox",
+        "hook": "Pavasario lengvumas",
+        "body": "Švelnus resetas be ekstremumų."
+      }
+    ],
+    "Wellness-adjacent": [
+      {
+        "theme": "gut health focus",
+        "hook": "Virškinimo ramybė",
+        "body": "\"Tavo knyga\" parenka patiekalus pagal tavo pageidavimus ir apribojimus."
+      },
+      {
+        "theme": "better sleep nutrition",
+        "hook": "Miegui ramiau",
+        "body": "Vakarienės suplanuotos pagal tavo rutiną, kad miegas būtų lengvesnis."
+      },
+      {
+        "theme": "skin health through food",
+        "hook": "Oda ir maistas",
+        "body": "Asmeninis planas padeda valgyti pastoviau be chaotiškų sprendimų."
+      },
+      {
+        "theme": "hormone balance meals",
+        "hook": "Hormonų balansas",
+        "body": "Receptai pagal tavo duomenis, o ne bendrą hormonų dietą."
+      },
+      {
+        "theme": "bloating reduction",
+        "hook": "Mažiau pilvo pūtimo",
+        "body": "Ingredientai kontroliuojami per savaitės planą."
+      },
+      {
+        "theme": "hydration and meals",
+        "hook": "Vanduo ir maistas",
+        "body": "Struktūruotas planas padeda pastovesnei kasdienybei."
+      },
+      {
+        "theme": "inflammation reduction",
+        "hook": "Mažiau uždegimo",
+        "body": "Patiekalai parinkti pagal tavo tikslus ir apribojimus."
+      },
+      {
+        "theme": "immune support eating",
+        "hook": "Stipresnė kasdienybė",
+        "body": "Įvairūs ingredientai suplanuoti per savaitę."
+      },
+      {
+        "theme": "stress resilience food",
+        "hook": "Streso atsparumas",
+        "body": "Mažiau sprendimų apie maistą sumažina kasdienį stresą."
+      },
+      {
+        "theme": "mental clarity nutrition",
+        "hook": "Aiškesnė galva",
+        "body": "Stabilūs valgymo laikai pagal tavo rutiną."
+      },
+      {
+        "theme": "energy without coffee",
+        "hook": "Energija be kavos",
+        "body": "Sotūs patiekalai padeda išvengti popietės energijos kritimo."
+      },
+      {
+        "theme": "microbiome friendly",
+        "hook": "Žarnyno draugiška",
+        "body": "\"Tavo knyga\" planas su aiškiais ingredientais kiekvienai dienai."
+      },
+      {
+        "theme": "sleep dinner timing",
+        "hook": "Miegas ir vakarienė",
+        "body": "Naudoju \"Tavo knyga\", ir vakarienės pagal rutiną."
+      },
+      {
+        "theme": "hormone support",
+        "hook": "Hormonų palaikymas",
+        "body": "Planas pagal tavo duomenis."
+      },
+      {
+        "theme": "bloat reduce",
+        "hook": "Mažiau pūtimo",
+        "body": "Vienkartinis mokestis apima planą su aiškiais ingredientais, be pilvo pūtimą sukeliančių netikėtumų."
+      },
+      {
+        "theme": "immune routine",
+        "hook": "Kasdienė stiprybė",
+        "body": "Pirkinių sąraše atsiranda įvairūs ingredientai, palaikantys kasdienę savijautą."
+      },
+      {
+        "theme": "stress gut",
+        "hook": "Stresas ir gut",
+        "body": "Naudoju \"Tavo knyga\", nes mažiau chaotiškų sprendimų."
+      },
+      {
+        "theme": "focus food",
+        "hook": "Dėmesys dienai",
+        "body": "Valgymo laikai suplanuoti stabiliai pagal tavo dieną, kad dėmesys išliktų aiškesnis."
+      },
+      {
+        "theme": "afternoon clarity",
+        "hook": "Popietės aiškumas",
+        "body": "Naudoju \"Tavo knyga\", ir energija be kritimo."
+      },
+      {
+        "theme": "gut brain axis",
+        "hook": "Gut ir galva",
+        "body": "Naudoju \"Tavo knyga\", ir pastovesnė kasdienybė."
+      },
+      {
+        "theme": "mood food",
+        "hook": "Nuotaika ir maistas",
+        "body": "Testas sumažina chaotiškus sprendimus dėl maisto, o tai atsiliepia ir nuotaikai."
+      },
+      {
+        "theme": "afternoon focus",
+        "hook": "Popietės fokusas",
+        "body": "Testas parenka patiekalus taip, kad energija išliktų stabili be popietės kritimo."
+      },
+      {
+        "theme": "evening wind down",
+        "hook": "Vakaro ramybė",
+        "body": "Vakarienė suplanuota pagal tavo rutiną, kad miegas būtų ramesnis."
+      }
+    ],
+    "Objections & pain points": [
+      {
+        "theme": "tried every diet",
+        "hook": "Bandžiau visas dietas",
+        "body": "\"Tavo knyga\" duoda vieną asmeninį planą pagal tavo duomenis, o ne dar vieną universalų šabloną."
+      },
+      {
+        "theme": "confusing nutrition advice",
+        "hook": "Prieštaringi patarimai",
+        "body": "Vienas aiškus savaitės meniu vietoj dešimčių priešingų nuomonių."
+      },
+      {
+        "theme": "dont know what to cook",
+        "hook": "Nežinau ką gaminti",
+        "body": "Kiekvienai dienai konkretūs receptai ir pirkinių sąrašas."
+      },
+      {
+        "theme": "healthy food too expensive",
+        "hook": "Sveika brangu?",
+        "body": "Biudžetui draugiški receptai su tiksliais sąrašais."
+      },
+      {
+        "theme": "no time for meal planning",
+        "hook": "Nėra laiko planuoti",
+        "body": "30 klausimų testas ir savaitės planas paruošti už tave."
+      },
+      {
+        "theme": "diets always fail",
+        "hook": "Dietos vis žlunga",
+        "body": "Struktūra veikia kas savaitę, o ne vienkartinis bandymas."
+      },
+      {
+        "theme": "cooking is boring",
+        "hook": "Virtuvė nuobodi",
+        "body": "Įvairūs patiekalai parinkti pagal tavo skonį."
+      },
+      {
+        "theme": "family wont eat healthy",
+        "hook": "Šeima nevalgo",
+        "body": "\"Tavo knyga\" planas atsižvelgia į pageidavimus ir apribojimus."
+      },
+      {
+        "theme": "too many ingredients",
+        "hook": "Per daug ingredientų",
+        "body": "Produktai naudojami keliuose patiekaluose per savaitę."
+      },
+      {
+        "theme": "subscription fatigue",
+        "hook": "Prenumeratų nuovargis",
+        "body": "Sumoki vieną kartą už asmeninį planą, kuris veikia kas savaitę."
+      },
+      {
+        "theme": "apps too complicated",
+        "hook": "Per sudėtingos programėlės",
+        "body": "Paprastas PDF planas ir sąrašai be skaičiavimo."
+      },
+      {
+        "theme": "generic meal plans",
+        "hook": "Bendri planai neveikia",
+        "body": "Asmeninis planas iš 30 klausimų testo pagal tavo situaciją."
+      },
+      {
+        "theme": "too hard to start",
+        "hook": "Lengva pradėti",
+        "body": "Testas ir planas paruošti už tave."
+      },
+      {
+        "theme": "no results before",
+        "hook": "Anksčiau neveikė",
+        "body": "Naudoju \"Tavo knyga\", ir asmeninis planas, ne bendras šablonas."
+      },
+      {
+        "theme": "hate cooking",
+        "hook": "Nemėgsti gaminti",
+        "body": "Testas parenka paprastus, greitus receptus net tiems, kam gaminti nepatinka."
+      },
+      {
+        "theme": "partner picky",
+        "hook": "Išrankus partneris",
+        "body": "Pageidavimai įtraukti į planą."
+      },
+      {
+        "theme": "kids junk food",
+        "hook": "Vaikai ir greitas",
+        "body": "Vienkartinis planas duoda struktūrą namuose, kai vaikai traukia prie greito maisto."
+      },
+      {
+        "theme": "no kitchen skills",
+        "hook": "Nėra įgūdžių",
+        "body": "Kiekviename recepte aiškūs žingsniai, tad virtuvės įgūdžiai nebūtini."
+      },
+      {
+        "theme": "always hungry",
+        "hook": "Nuolat alkanas",
+        "body": "Pirkinių sąraše numatyti sotūs patiekalai, kad alkis nebūtų nuolatinis."
+      },
+      {
+        "theme": "too many diets info",
+        "hook": "Per daug info",
+        "body": "Naudoju \"Tavo knyga\", nes vienas aiškus savaitės meniu."
+      },
+      {
+        "theme": "cant afford healthy",
+        "hook": "Sveika nebrangu",
+        "body": "Receptai parinkti taip, kad tilptum į savo biudžetą."
+      },
+      {
+        "theme": "no time ever",
+        "hook": "Niekada nėra laiko",
+        "body": "Naudoju \"Tavo knyga\", ir planavimas atliktas už tave."
+      },
+      {
+        "theme": "tried meal kits",
+        "hook": "Bandėte meal kit",
+        "body": "Vienkartinis planas pakeičia brangią prenumeratą, mokama tik kartą."
+      },
+      {
+        "theme": "tried influencers",
+        "hook": "Bandėte influencerius",
+        "body": "Vienas planas, pritaikytas tavo duomenims, o ne dar vienas influencerio patarimas iš socialinių tinklų."
+      },
+      {
+        "theme": "no meal ideas",
+        "hook": "Nėra idėjų",
+        "body": "Pirkinių sąraše konkretūs receptai kiekvienai dienai, idėjų ieškoti nebereikia."
+      },
+      {
+        "theme": "hate meal prep",
+        "hook": "Nemėgsti meal prep",
+        "body": "Vienkartinis planas atlieka planavimą už tave, meal prep stresas dingsta."
+      }
+    ],
+    "Transformation & social proof": [
+      {
+        "theme": "finally stuck to plan",
+        "hook": "Pagaliau laikiausi",
+        "body": "Naudoju \"Tavo knyga\", ir pagaliau turiu savaitės planą, kurio laikausi."
+      },
+      {
+        "theme": "before after grocery bills",
+        "hook": "Mažesnė sąskaita",
+        "body": "Mano savaitinė maisto sąskaita sumažėjo, nes perku pagal aiškų planą."
+      },
+      {
+        "theme": "stopped ordering takeout",
+        "hook": "Mažiau užsakymų",
+        "body": "Kai žinai vakarienės receptą, rečiau užsakau greitą maistą."
+      },
+      {
+        "theme": "kids eating better",
+        "hook": "Vaikai valgo geriau",
+        "body": "\"Tavo knyga\" planas atsižvelgia į šeimos pageidavimus ir rutiną."
+      },
+      {
+        "theme": "husband joined plan",
+        "hook": "Vyras prisijungė",
+        "body": "Asmeninis meniu pagal tavo duomenis, bet patiekalai tinka visai šeimai."
+      },
+      {
+        "theme": "lost weight without counting",
+        "hook": "Be skaičiavimo",
+        "body": "Porcijos suplanuotos receptuose, todėl nereikia skaičiuoti kiekvieno kąsnio."
+      },
+      {
+        "theme": "more energy daily",
+        "hook": "Daugiau energijos",
+        "body": "Pastovus valgymas pagal planą padėjo jaustis žvaliau dieną."
+      },
+      {
+        "theme": "less food waste monthly",
+        "hook": "Mažiau švaistymo",
+        "body": "Ingredientai naudojami keliuose patiekaluose, todėl mažiau išmetu."
+      },
+      {
+        "theme": "cooking confidence grew",
+        "hook": "Pasitikėjimas virtuvėje",
+        "body": "Aiškūs receptai padėjo gaminti be nuolatinės paieškos."
+      },
+      {
+        "theme": "weekend no longer ruins",
+        "hook": "Savaitgalis negriauna",
+        "body": "Penktadienį jau žinai savaitgalio patiekalus ir pirkinius."
+      },
+      {
+        "theme": "friends asked my secret",
+        "hook": "Draugai klausia",
+        "body": "Pasidalinu, kad turiu asmeninį savaitės planą iš \"Tavo knyga\"."
+      },
+      {
+        "theme": "three months consistent",
+        "hook": "Trys mėnesiai",
+        "body": "Vienas planas veikia kas savaitę, todėl lengviau išlaikyti įpročius."
+      },
+      {
+        "theme": "month one done",
+        "hook": "Pirmas mėnuo",
+        "body": "Pagaliau turiu planą, kurio laikausi."
+      },
+      {
+        "theme": "takeout cut half",
+        "hook": "Pusė užsakymų",
+        "body": "Testas parenka receptus pagal tavo tikslus, tad žinant vakarienės receptą rečiau užsisakai maisto."
+      },
+      {
+        "theme": "kids try vegetables",
+        "hook": "Vaikai ragauja",
+        "body": "Patiekalai pagal šeimos rutiną."
+      },
+      {
+        "theme": "partner cooks too",
+        "hook": "Kartu gaminate",
+        "body": "Vienkartinis planas duoda aiškius receptus abiems, gaminti galima kartu."
+      },
+      {
+        "theme": "weight without obsession",
+        "hook": "Be obsesijos",
+        "body": "Meniu atsižvelgia į tavo pageidavimus, porcijos jau suplanuotos receptuose, tad skaičių obsesijos nereikia."
+      },
+      {
+        "theme": "weekend on track",
+        "hook": "Savaitgalis tvarkingas",
+        "body": "Naudoju \"Tavo knyga\", ir žinai savaitgalio patiekalus."
+      },
+      {
+        "theme": "six month streak",
+        "hook": "Šeši mėnesiai",
+        "body": "Vienas planas veikia kas savaitę jau šešis mėnesius be pertrūkio."
+      },
+      {
+        "theme": "friend recommended",
+        "hook": "Draugė rekomendavo",
+        "body": "Asmeninis planas, pritaikytas tavo duomenims, būtent tai draugė ir rekomendavo išbandyti."
+      },
+      {
+        "theme": "instagram saved",
+        "hook": "Išsaugojau postą",
+        "body": "Naudoju \"Tavo knyga\", ir pagaliau turiu savo planą."
+      },
+      {
+        "theme": "reused ingredients",
+        "hook": "Ingredientai panaudoti",
+        "body": "Mažiau maisto išmetu."
+      }
+    ],
+    "Save money & budget": [
+      {
+        "theme": "smart meal planning budget",
+        "hook": "Protingi maisto planai",
+        "body": "\"Tavo knyga\" sudaro visiškai asmeninį savaitės planą su biudžetui draugiškais receptais ir tiksliais pirkinių sąrašais."
+      },
+      {
+        "theme": "reduce grocery overspending",
+        "hook": "Mažiau permokėjimo",
+        "body": "Perki pagal aiškų planą, o ne spėlioji patiekalus parduotuvėje."
+      },
+      {
+        "theme": "real money savings",
+        "hook": "Realiai sutaupyk",
+        "body": "Naudoju \"Tavo knyga\", ir mano savaitinė maisto sąskaita sumažėjo, nes perku pagal planą."
+      },
+      {
+        "theme": "one time payment value",
+        "hook": "Vienkartinis mokestis",
+        "body": "Sumoki vieną kartą už asmeninį planą, kuris veikia kas savaitę, o ne švaistai pinigus kiekvieną kartą galvodama patiekalus."
+      },
+      {
+        "theme": "stop duplicate purchases",
+        "hook": "Be dublių",
+        "body": "Sąrašas pagal receptus, todėl nenuperki to paties du kartus."
+      },
+      {
+        "theme": "budget proteins",
+        "hook": "Biudžetiniai baltymai",
+        "body": "Receptai parinkti pagal tavo biudžetą ir tikslus."
+      },
+      {
+        "theme": "cheap healthy week",
+        "hook": "Pigi sveika savaitė",
+        "body": "Biudžetui draugiški ingredientai suplanuoti per savaitę."
+      },
+      {
+        "theme": "coupon friendly shopping",
+        "hook": "Su nuolaidomis",
+        "body": "Aiškus sąrašas padeda planuoti pirkinius iš anksto."
+      },
+      {
+        "theme": "bulk buy smart",
+        "hook": "Didelis kiekis",
+        "body": "\"Tavo knyga\" planas padeda panaudoti didesnius kiekius be švaistymo."
+      },
+      {
+        "theme": "eating out cost comparison",
+        "hook": "Namai vs restoranas",
+        "body": "Gaminti pagal planą dažnai pigiau nei nuolatiniai užsakymai."
+      },
+      {
+        "theme": "student food budget",
+        "hook": "Studentų biudžetas",
+        "body": "Paprasti receptai su tiksliais sąrašais kiekvienai savaitei."
+      },
+      {
+        "theme": "inflation grocery prices",
+        "hook": "Brangstant maistui",
+        "body": "Biudžetui draugiški patiekalai su aiškiais ingredientais."
+      },
+      {
+        "theme": "smart lists",
+        "hook": "Protingi sąrašai",
+        "body": "Perki tik suplanuotus produktus."
+      },
+      {
+        "theme": "cheap protein week",
+        "hook": "Pigūs baltymai",
+        "body": "Testas parenka receptus pagal biudžetą, tad baltymų šaltiniai lieka pigūs visą savaitę."
+      },
+      {
+        "theme": "aldi week plan",
+        "hook": "Savaitė ALDI",
+        "body": "Savaitės sąrašas sudarytas iš biudžetui draugiškų ingredientų."
+      },
+      {
+        "theme": "student save",
+        "hook": "Studentas taupo",
+        "body": "Meniu atsižvelgia į tavo pageidavimus, siūlomi paprasti ir pigūs patiekalai."
+      },
+      {
+        "theme": "family budget 50",
+        "hook": "50 eurų savaitė",
+        "body": "Pirkinių sąrašas sudarytas taip, kad savaitės planas tilptų į numatytą biudžetą."
+      },
+      {
+        "theme": "bulk chicken use",
+        "hook": "Vištiena keliems",
+        "body": "Vienas ingredientas panaudojamas keliuose skirtinguose patiekaluose per savaitę."
+      },
+      {
+        "theme": "eat out savings",
+        "hook": "Mažiau restoranų",
+        "body": "Naudoju \"Tavo knyga\", ir namų planas pigesnis."
+      },
+      {
+        "theme": "weekly 40 euro",
+        "hook": "40 eurų savaitė",
+        "body": "Visi receptai atrinkti taip, kad tilptum į savaitės biudžetą."
+      },
+      {
+        "theme": "stop food delivery",
+        "hook": "Mažiau pristatymų",
+        "body": "Pirkinių sąrašas iš anksto aiškus, tad vakarienės receptą žinai dar prieš grįžtant namo."
+      },
+      {
+        "theme": "warehouse shop",
+        "hook": "Didelis apsipirkimas",
+        "body": "Planas panaudoja kiekius be švaistymo."
+      },
+      {
+        "theme": "price rise adapt",
+        "hook": "Brangėjimo adaptacija",
+        "body": "Ingredientai parenkami atsižvelgiant į kainas, kad planas išliktų biudžetui draugiškas."
+      }
+    ],
+    "Reduce food waste": [
+      {
+        "theme": "reduce food waste",
+        "hook": "Sumažink maisto švaistymą",
+        "body": "Kiekvienas ingredientas naudojamas keliuose patiekaluose, kad neišmestum pusės pirkinių."
+      },
+      {
+        "theme": "use leftovers smart",
+        "hook": "Likučiai suplanuoti",
+        "body": "Savaitės meniu suplanuotas taip, kad produktai būtų panaudoti."
+      },
+      {
+        "theme": "fridge cleanout meals",
+        "hook": "Šaldytuvo tvarka",
+        "body": "Receptai su aiškiais kiekiais, kad mažiau maisto sugestų."
+      },
+      {
+        "theme": "vegetables before spoil",
+        "hook": "Daržovės laiku",
+        "body": "Ingredientai paskirstyti per kelis patiekalus per savaitę."
+      },
+      {
+        "theme": "bread waste solution",
+        "hook": "Mažiau senos duonos",
+        "body": "\"Tavo knyga\" planas padeda pirkti tik tiek, kiek reikia receptams."
+      },
+      {
+        "theme": "herbs full use",
+        "hook": "Žolelės iki galo",
+        "body": "Produktai naudojami keliuose patiekaluose, o ne lieka vienam receptui."
+      },
+      {
+        "theme": "meal plan portion accuracy",
+        "hook": "Tikslūs kiekiai",
+        "body": "Porcijos suplanuotos, todėl mažiau pertekliaus virtuvėje."
+      },
+      {
+        "theme": "freezer burn prevention",
+        "hook": "Šaldiklis tvarkingas",
+        "body": "Paruošimas pagal savaitės planą sumažina pamirštus produktus."
+      },
+      {
+        "theme": "expiry date planning",
+        "hook": "Galiojimo datos",
+        "body": "Pirkinių sąrašas pagal receptų seką per savaitę."
+      },
+      {
+        "theme": "zero waste mindset",
+        "hook": "Be švaistymo",
+        "body": "\"Tavo knyga\" suplanuoja ingredientus taip, kad jie būtų panaudoti."
+      },
+      {
+        "theme": "spinach use up",
+        "hook": "Špinatai iki galo",
+        "body": "Kiekvienas ingredientas suplanuotas keliuose patiekaluose, kad nespėtų sugesti."
+      },
+      {
+        "theme": "yogurt before expiry",
+        "hook": "Jogurtas laiku",
+        "body": "Naudoju \"Tavo knyga\", ir panaudojamas pagal planą."
+      },
+      {
+        "theme": "carrot tops use",
+        "hook": "Morkos iki galo",
+        "body": "Testas parenka receptus su tiksliais kiekiais, tad daržovės nespėja sugesti."
+      },
+      {
+        "theme": "cheese ends",
+        "hook": "Sūris iki galo",
+        "body": "Produktas suplanuotas keliuose patiekaluose, kad būtų panaudotas iki galo."
+      },
+      {
+        "theme": "bread plan",
+        "hook": "Duona be švaistymo",
+        "body": "Vienkartinis planas padeda pirkti tiek duonos, kiek tikrai suvalgysi."
+      },
+      {
+        "theme": "fruit ripen",
+        "hook": "Vaisiai laiku",
+        "body": "Pirkinių sąrašas paskirsto vaisius per visą savaitę, kad jie neprisirptų nepanaudoti."
+      },
+      {
+        "theme": "meat portion exact",
+        "hook": "Mėsa be pertekliaus",
+        "body": "Naudoju \"Tavo knyga\", nes tikslūs kiekiai."
+      },
+      {
+        "theme": "sauce jar finish",
+        "hook": "Padažas iki galo",
+        "body": "Padažas suplanuotas keliuose patiekaluose, kad neliktų stovėti šaldytuve."
+      },
+      {
+        "theme": "veg drawer clean",
+        "hook": "Šaldytuvas tvarkingas",
+        "body": "Naudoju \"Tavo knyga\", ir produktai suplanuoti."
+      },
+      {
+        "theme": "wilted salad",
+        "hook": "Salotos laiku",
+        "body": "Ingredientai paskirstyti per savaitę."
+      },
+      {
+        "theme": "half onion left",
+        "hook": "Svogūnas iki galo",
+        "body": "Kiekvienas produktas naudojamas keliuose patiekaluose, kad neliktų likučių."
+      },
+      {
+        "theme": "extra rice use",
+        "hook": "Ryžiai iki galo",
+        "body": "Likęs produktas suplanuotas keliuose receptuose, kad nieko netektų išmesti."
+      },
+      {
+        "theme": "cream before expiry",
+        "hook": "Grietinė laiku",
+        "body": "Pirkinių sąrašas užtikrina, kad grietinė būtų panaudota pagal planą, o ne pamiršta šaldytuve."
+      }
+    ],
+    "Planning & personalisation": [
+      {
+        "theme": "weekly meal planning",
+        "hook": "Savaitės planas",
+        "body": "\"Tavo knyga\" sudaro asmeninį savaitės meniu su tiksliais pirkinių sąrašais."
+      },
+      {
+        "theme": "30 question personalization",
+        "hook": "30 klausimų testas",
+        "body": "\"Tavo knyga\" planas formuojamas pagal tavo tikslus, skonį, alergijas ir rutiną."
+      },
+      {
+        "theme": "personalised recipe book",
+        "hook": "Asmeninė knyga",
+        "body": "Gausi planą pagal tavo atsakymus, o ne bendrą šabloną visiems."
+      },
+      {
+        "theme": "shopping list exact",
+        "hook": "Tikslūs sąrašai",
+        "body": "Kiekvienai savaitei aiškus pirkinių sąrašas pagal receptus."
+      },
+      {
+        "theme": "avoid disliked foods",
+        "hook": "Be nemėgstamų",
+        "body": "Receptai be produktų, kurių nenori, pagal tavo atsakymus."
+      },
+      {
+        "theme": "allergy aware planning",
+        "hook": "Su alergijomis",
+        "body": "Ingredientai filtruojami pagal tavo duomenis."
+      },
+      {
+        "theme": "taste preference match",
+        "hook": "Tavo skonis",
+        "body": "Patiekalai parinkti pagal tai, ką mėgsti valgyti."
+      },
+      {
+        "theme": "schedule matched meals",
+        "hook": "Pagal grafiką",
+        "body": "Valgymo laikai pritaikyti pagal tavo dieną."
+      },
+      {
+        "theme": "goal based nutrition",
+        "hook": "Pagal tikslą",
+        "body": "\"Tavo knyga\" planas atitinka tavo svorio, energijos ar sveikatos tikslus."
+      },
+      {
+        "theme": "one plan whole week",
+        "hook": "Viena savaitė",
+        "body": "Visi patiekalai suplanuoti iš anksto, be kasdienio galvojimo."
+      },
+      {
+        "theme": "quiz personal plan",
+        "hook": "Testas ir planas",
+        "body": "30 klausimų formuoja meniu."
+      },
+      {
+        "theme": "allergy filter",
+        "hook": "Alergijų filtras",
+        "body": "Naudoju \"Tavo knyga\", ir ingredientai pagal tavo duomenis."
+      },
+      {
+        "theme": "goal weight plan",
+        "hook": "Svorio tikslas",
+        "body": "Vienkartinis planas veikia kas savaitę ir atitinka būtent tavo svorio tikslą."
+      },
+      {
+        "theme": "energy goal plan",
+        "hook": "Energijos tikslas",
+        "body": "Meniu atsižvelgia į tavo pageidavimus, patiekalai parenkami pagal energijos poreikį."
+      },
+      {
+        "theme": "taste match plan",
+        "hook": "Skonio atitikimas",
+        "body": "Pirkinių sąrašas atspindi tavo skonį, tad mėgsti tai, ką gamini."
+      },
+      {
+        "theme": "family size plan",
+        "hook": "Šeimos dydis",
+        "body": "Naudoju \"Tavo knyga\", nes porcijos pagal namus."
+      },
+      {
+        "theme": "cooking time match",
+        "hook": "Pagal laiką",
+        "body": "Receptai parinkti pagal tavo turimą laiką virtuvėje."
+      },
+      {
+        "theme": "weekly auto plan",
+        "hook": "Automatinė savaitė",
+        "body": "Naudoju \"Tavo knyga\", ir viskas suplanuota iš anksto."
+      },
+      {
+        "theme": "quiz five minutes",
+        "hook": "Penkių minučių testas",
+        "body": "Vienkartinis planas formuojamas per penkių minučių testą pagal tavo atsakymus."
+      },
+      {
+        "theme": "email pdf plan",
+        "hook": "PDF el. paštu",
+        "body": "Vienkartinis mokestis, o asmeninį PDF planą gauni el. paštu per 24 valandas."
+      },
+      {
+        "theme": "update preferences",
+        "hook": "Atnaujinti pageidavimus",
+        "body": "Meniu atsižvelgia į tavo pageidavimus ir keičiasi kartu su tavimi, kai jie pasikeičia."
+      },
+      {
+        "theme": "one time no sub",
+        "hook": "Be prenumeratos",
+        "body": "Sumoki tik vieną kartą, jokios mėnesinės prenumeratos nereikia."
+      }
+    ]
+  }
+}

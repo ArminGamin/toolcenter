@@ -1,0 +1,12 @@
+{"t":"2026-08-05T21:09:02.262Z","ms":0,"event":"begin","slot":5,"theme":"eating enough while cutting"}
+{"t":"2026-08-05T21:09:02.263Z","ms":1,"event":"write","filename":"00b-plan.json"}
+{"t":"2026-08-05T21:09:02.263Z","ms":1,"event":"chunk_attempt","start":1,"requestSize":3,"attempt":0,"roles":["hook","context","build"],"temp":0.405,"promptChars":1932}
+{"t":"2026-08-05T21:09:43.822Z","ms":41560,"event":"ollama_call","callIndex":1,"durationMs":41556,"responseChars":608,"error":null}
+{"t":"2026-08-05T21:09:43.824Z","ms":41562,"event":"write","filename":"03-raw-items-s1.json"}
+{"t":"2026-08-05T21:09:43.828Z","ms":41566,"event":"chunk_attempt","start":4,"requestSize":2,"attempt":0,"roles":["build","close"],"temp":0.405,"promptChars":2624}
+{"t":"2026-08-05T21:10:14.400Z","ms":72138,"event":"ollama_call","callIndex":2,"durationMs":30570,"responseChars":454,"error":null}
+{"t":"2026-08-05T21:10:14.402Z","ms":72140,"event":"write","filename":"03-raw-items-s4.json"}
+{"t":"2026-08-05T21:10:14.404Z","ms":72142,"event":"write","filename":"03-chunks.json"}
+{"t":"2026-08-05T21:10:14.405Z","ms":72143,"event":"write","filename":"05-normalized-before-finalize.json"}
+{"t":"2026-08-05T21:10:14.410Z","ms":72148,"event":"finalize","ok":true,"ollamaCalls":2}
+{"t":"2026-08-05T21:22:22.553Z","event":"export_attach","ok":true}

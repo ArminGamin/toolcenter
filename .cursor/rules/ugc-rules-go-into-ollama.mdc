@@ -1,0 +1,20 @@
+---
+description: UGC writing rules go into Ollama AI + skills — never Cursor-only
+alwaysApply: true
+---
+
+# UGC writing rules → the Ollama model (not Cursor)
+
+The coding agent does **not** write UGC slides. **`ugc-lt-gpu` (Ollama)** does.
+
+When the user asks to fix typos, grammar, CTA, tone, or “add writing rules/skills”:
+
+1. **REQUIRED — put rules into the model:**
+   - `ollama/Modelfile.ugc-lt-gpu` → `SYSTEM """..."""`
+   - `server/ugc-lt-normalize.ts` → `UGC_OLLAMA_SYSTEM_PROMPT` (must stay in sync with Modelfile)
+   - `server/ugc-copy-skill.ts` → `UGC_BATCH_MINIMAL_SKILL` / `UGC_BATCH_LITE_SKILL` / `UGC_LT_COPY_SKILL`
+2. **REQUIRED — rebuild:** `ollama create ugc-lt-gpu -f ollama/Modelfile.ugc-lt-gpu`
+3. **OK as backup only:** phrase fixes / gibberish gate in `ugc-lt-normalize.ts` (post-process). Never treat this as the main “writing rules” fix.
+4. **FORBIDDEN as the deliverable:** dumping writing rules only into `.cursor/rules/` or chatting as if this agent authors slide copy.
+
+CTA default for the model: `Pradėk 5 min. testą! 🤩`

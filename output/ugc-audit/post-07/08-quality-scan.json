@@ -1,0 +1,90 @@
+{
+  "slides": [
+    {
+      "index": 1,
+      "role": "hook",
+      "title": "Ar vasaros karštis tavęs išvargina",
+      "body": "Jaučiuosi tarsi įstrigusi tarp noro džiaugtis paskutinėmis vasaros dienomis ir nuovokio, kad ruduo jau vos ne už durų. Stengiuosi atsipalaiduoti, bet galvoju apie visus darbus.",
+      "issues": [],
+      "charCounts": {
+        "title": 34,
+        "body": 176,
+        "cta": 0
+      }
+    },
+    {
+      "index": 2,
+      "role": "context",
+      "title": "",
+      "body": "Anksčiau skaičiavau kalorijas ir stebėdavau kiekvieną kąsnį, saugiau jaučiausi kontroliuodama savo svorį, bet tai tik didino stresą.",
+      "issues": [],
+      "charCounts": {
+        "title": 0,
+        "body": 132,
+        "cta": 0
+      }
+    },
+    {
+      "index": 3,
+      "role": "build",
+      "title": "",
+      "body": "Dabar ruošdamasis rudeniui tiesiog pasirenku skanius ir sveikus receptus. Maisto porcijos jau yra suplanuotos, todėl nereikia nieko papildomai skačiuoti.",
+      "issues": [],
+      "charCounts": {
+        "title": 0,
+        "body": 153,
+        "cta": 0
+      }
+    },
+    {
+      "index": 4,
+      "role": "build",
+      "title": "",
+      "body": "Rugpjūčio karštis vis dar juntamas, bet jaučiuosi besiruošdama rudeniui. Anksčiau rūpinimasis maistu buvo tarsi papildoma našta.",
+      "issues": [],
+      "charCounts": {
+        "title": 0,
+        "body": 128,
+        "cta": 0
+      }
+    },
+    {
+      "index": 5,
+      "role": "build",
+      "title": "",
+      "body": "Pajutau, kad nuolatinis kalorijų skaičiavimas tik didina nerimą. Sprendžiau - metas atsiriboti nuo to ir pradėti gyventi paprasčiau.",
+      "issues": [],
+      "charCounts": {
+        "title": 0,
+        "body": 132,
+        "cta": 0
+      }
+    },
+    {
+      "index": 6,
+      "role": "build",
+      "title": "",
+      "body": "Dabar tiesiog renkuosi patikusius receptus su jau paruoštomis porcijomis. Tai leidžia mėgautis vasara be papildomo streso ir rūpesčių.",
+      "issues": [],
+      "charCounts": {
+        "title": 0,
+        "body": 134,
+        "cta": 0
+      }
+    },
+    {
+      "index": 7,
+      "role": "close",
+      "title": "",
+      "body": "Pajutau, kad nuolatinis maisto kiekio skaičiavimas tik didina nerimą. Dabar tiesiog mėgaujuosi vasaros diena ir paruoštomis porcijomis.",
+      "cta": "Apsilankyk tavoknyga.com ir pradėk 5 min. testą! 🤩",
+      "issues": [],
+      "charCounts": {
+        "title": 0,
+        "body": 135,
+        "cta": 51
+      }
+    }
+  ],
+  "caption": null
+}

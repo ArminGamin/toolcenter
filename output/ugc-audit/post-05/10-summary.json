@@ -1,0 +1,18 @@
+{
+  "postId": "post-05",
+  "ok": true,
+  "durationMs": 72147,
+  "ollamaCalls": 2,
+  "arcName": "Before / after hook · Before / after",
+  "hookStyle": "Before / after",
+  "storyArc": "Before / after",
+  "topic": "Valgyk pakankamai. \"Tavo knyga\" subalansuoja patiekalus pagal tavo duomenis, kad mažintum svorį nebadaujant ir neprarandant energijos.",
+  "slideCount": 5,
+  "error": null,
+  "extra": {
+    "theme": "eating enough while cutting",
+    "themeHook": "Valgyk pakankamai",
+    "category": "Random theme"
+  },
+  "at": "2026-08-05T21:10:14.409Z"
+}

@@ -1,0 +1,16 @@
+{
+  "postId": "post-08",
+  "slot": 8,
+  "target": 10,
+  "at": "2026-08-05T21:15:45.952Z",
+  "theme": "PCOS insulin",
+  "themeHook": "PCOS ir insulinas",
+  "themeBody": "Naudoju \"Tavo knyga\", ir pastovesnis valgymas per dieną.",
+  "category": "Random theme",
+  "slideCount": 6,
+  "seed": 8,
+  "topic": "PCOS ir insulinas. Naudoju \"Tavo knyga\", ir pastovesnis valgymas per dieną.",
+  "model": "ugc-lt-gpu",
+  "numCtx": 4096,
+  "numGpu": 32
+}

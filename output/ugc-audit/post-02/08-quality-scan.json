@@ -1,0 +1,66 @@
+{
+  "slides": [
+    {
+      "index": 1,
+      "role": "hook",
+      "title": "Ar kepenys kenčia nuo vasaros karščio",
+      "body": "Rugpjūčio šiluma dažnai verčiasi į netinkamus mitybos pasirinkimus. Jaučiuosi varginantis prisiminti, ką valgyti sveikai.",
+      "issues": [],
+      "charCounts": {
+        "title": 37,
+        "body": 121,
+        "cta": 0
+      }
+    },
+    {
+      "index": 2,
+      "role": "context",
+      "title": "",
+      "body": "Nuolatinis chaotiškas maitinimas apkrauna kepenų darbą. Tai gali lemti nuovargį ir virškinimo problemų.",
+      "issues": [],
+      "charCounts": {
+        "title": 0,
+        "body": 103,
+        "cta": 0
+      }
+    },
+    {
+      "index": 3,
+      "role": "build",
+      "title": "",
+      "body": "Struktūruotas planavimas atpalaiduoja mintis. Tuomet lengviau pasirinkti sveiką maistą kasdien.",
+      "issues": [],
+      "charCounts": {
+        "title": 0,
+        "body": 95,
+        "cta": 0
+      }
+    },
+    {
+      "index": 4,
+      "role": "build",
+      "title": "",
+      "body": "Praėjusi vasara praėjo be planavimo. Dabar jaučiuosi apkrautas ir noriu pataisyti situaciją. Šiais metais aš ruošiasi rudeniui su aišku savaitės mitybos planas.",
+      "issues": [],
+      "charCounts": {
+        "title": 0,
+        "body": 160,
+        "cta": 0
+      }
+    },
+    {
+      "index": 5,
+      "role": "close",
+      "title": "",
+      "body": "Reguliarus maitinimas leidžia kepenims atpalaiduoti ir efektyviau dirbti. Štai kaip tu gali pradėti jaustis geriau.",
+      "cta": "Apsilankyk tavoknyga.com ir pradėk 5 min. testą! 🤩",
+      "issues": [],
+      "charCounts": {
+        "title": 0,
+        "body": 115,
+        "cta": 51
+      }
+    }
+  ],
+  "caption": null
+}

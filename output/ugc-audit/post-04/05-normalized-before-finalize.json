@@ -1,0 +1,33 @@
+[
+  {
+    "id": "slide-1",
+    "role": "hook",
+    "title": "Ar jauti kaip įstrigę",
+    "body": "Rugpjūčio karštis dažnai atneša ne tik prakaitą, bet ir nuovargį. Galbūt svajoji apie pokyčius, tačiau nežinai nuo ko pradėti?"
+  },
+  {
+    "id": "slide-2",
+    "role": "context",
+    "title": "",
+    "body": "Planavimas gali tapti įtūmiu, kai atsiranda per daug taisyklių. Tu norėtumis tikslumo, bet ne griežto režimo."
+  },
+  {
+    "id": "slide-3",
+    "role": "build",
+    "title": "",
+    "body": "„Tavo knyga“ leidžia tau kurti savo kelią. Jausi ramesnis, kai pats nusistatysi kryptį."
+  },
+  {
+    "id": "slide-4",
+    "role": "build",
+    "title": "",
+    "body": "Rugsėjis artėja, o planai vis dar tik galvos sprendimai. Štai kada reikia kažko lengvesnio nei griežtas režinas."
+  },
+  {
+    "id": "slide-5",
+    "role": "close",
+    "title": "",
+    "body": "Tavo planas turi būti kaip šviesa. Ramesnis, o ne uždusiantis.",
+    "cta": "Apsilankyk tavoknyga.com ir pradėk 5 min. testą! 🤩"
+  }
+]

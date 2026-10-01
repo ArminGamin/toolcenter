@@ -1,0 +1,47 @@
+{
+  "theme": "new job long commute",
+  "hook": "Ilgas kelias",
+  "body": "Patiekalai parinkti pagal trumpą laiką, kai grįžti vėlai namo.",
+  "category": "Random theme",
+  "slide_count": 5,
+  "template": "headline_body",
+  "placement": "center",
+  "exportSizeId": "tiktok_reels",
+  "background_image": "f6c12c1eff188ccd20f10efb67f32e7e.jpg, 6fe1b965d27e5a569507d72967efd004.jpg, 2740794edae1ec10d8a3fabd25bff281.jpg, f5b5bed59162dfbcce0a23f66a8cc2d9.jpg, c3affb3739115e68813b49634186f1c2.jpg",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Vėlus grįžimas?",
+      "body": "Ilgesnis kelias – didesnis alkis, tai žinome visi. Kai jaučiasi nuovargis po dienos, norisi greito ir skanaus. Tavo vakarienės planas turi būti paprastas bei sotus."
+    },
+    {
+      "id": "slide-1",
+      "role": "context",
+      "title": "",
+      "body": "Dabar jaučiuosi skaudžiau, po ilgos darbo dienos ir kelionės. Tai atsirūpina – kada susitvarkysi su tuo alkio jausmu? Tavo planas turi būti greitas bei veiksmingas, nes laiko nėra daug. Netikėtai atsirado dar vienas darbas vakare."
+    },
+    {
+      "id": "slide-1",
+      "role": "build",
+      "title": "",
+      "body": "Ir tu jau žinai tą jausmą – pilvas burbuliuoja, o galvoje tik vienas dalykas. Tai nėra metas eksperimentuoti su sudėtingais receptais po ilgos kelionės."
+    },
+    {
+      "id": "slide-1",
+      "role": "build",
+      "title": "",
+      "body": "Tavo vakarienė turi būti lengva ir greita, kad neužimtum daug laiko. Dabar ruošiesi susitikti su savo naujuoju, skanių patiekalų pasirinkimu."
+    },
+    {
+      "id": "slide-1",
+      "role": "close",
+      "title": "",
+      "body": "Susidūri su alkio jausmu po ilgos kelionės? Tavo vakarienė turi būti greita ir paprasta, kad neprarastum laiko. Pradėk 5 min.",
+      "cta": "Pradėk 5 min. testą"
+    }
+  ],
+  "arc_name": "Question hook · Two-beat punch",
+  "hook_style": "Question",
+  "story_arc": "Two-beat punch"
+}

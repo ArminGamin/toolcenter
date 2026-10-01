@@ -1,0 +1,54 @@
+{
+  "slides": [
+    {
+      "index": 1,
+      "role": "hook",
+      "title": "Ar žinai, ką daryti su baziliku",
+      "body": "Vasara dar karšta, bet jau ruošiamės rudeniui. Dažnai užsisklendiname į vieną receptą ir pamirštame apie kitus galimybių variantus.",
+      "issues": [],
+      "charCounts": {
+        "title": 31,
+        "body": 131,
+        "cta": 0
+      }
+    },
+    {
+      "index": 2,
+      "role": "context",
+      "title": "",
+      "body": "Tai pasirodo, kad daugybė žolelių lieka nenaudotos. Tokiu būdu išleidžiamos pinigai ir prarandamas jų skonis bei kvapas.",
+      "issues": [],
+      "charCounts": {
+        "title": 0,
+        "body": 120,
+        "cta": 0
+      }
+    },
+    {
+      "index": 3,
+      "role": "build",
+      "title": "",
+      "body": "Galime eksperimentuoti su skirtingais deriniais, kad pasiektume maksimalų skonį. Štai kaip išnaudoji savo žemės dovanas iki galo!",
+      "issues": [],
+      "charCounts": {
+        "title": 0,
+        "body": 129,
+        "cta": 0
+      }
+    },
+    {
+      "index": 4,
+      "role": "close",
+      "title": "",
+      "body": "Rugpjūčio karštis dar juntamas, bet jau ruošiamės rudeniui. Dažnai užsisklendiname į vieną receptą ir pamirštame apie kitus galimybių variantus.",
+      "cta": "Apsilankyk tavoknyga.com ir pradėk 5 min. testą! 🤩",
+      "issues": [],
+      "charCounts": {
+        "title": 0,
+        "body": 144,
+        "cta": 51
+      }
+    }
+  ],
+  "caption": null
+}

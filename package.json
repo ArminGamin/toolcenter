@@ -1,0 +1,40 @@
+{
+  "name": "control-center",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:ugc-fortress": "vitest run server/__tests__/ugc-audit-fortress.test.ts server/__tests__/ugc-vision-batch5.test.ts server/__tests__/ugc-batch-aug7.test.ts server/__tests__/ugc-batch-aug7-track.test.ts server/__tests__/ugc-never-lose-post.test.ts",
+    "ugc:mine": "tsx scripts/mine-ugc-vision.ts",
+    "test:watch": "vitest",
+    "find-plaintext-backups": "tsx scripts/find-plaintext-backups.ts"
+  },
+  "dependencies": {
+    "dictionary-lt": "^2.0.0",
+    "fflate": "^0.8.3",
+    "hunspell-asm": "^4.0.2",
+    "jspdf": "^4.2.1",
+    "mp4-muxer": "^5.2.2",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.2",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.3",
+    "autoprefixer": "^10.5.4",
+    "oxlint": "^1.71.0",
+    "postcss": "^8.5.19",
+    "tailwindcss": "^3.4.19",
+    "tsx": "^4.23.1",
+    "typescript": "~6.0.2",
+    "vite": "^8.1.1",
+    "vitest": "^4.1.10"
+  }
+}

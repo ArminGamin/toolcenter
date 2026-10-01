@@ -1,0 +1,55 @@
+{
+  "theme": "gut health focus",
+  "hook": "Virškinimo ramybė",
+  "body": "\"Tavo knyga\" parenka patiekalus pagal tavo pageidavimus ir apribojimus.",
+  "category": "Random theme",
+  "slide_count": 6,
+  "template": "headline_body",
+  "placement": "center",
+  "exportSizeId": "tiktok_reels",
+  "background_image": "f06e6c1b7736688194eaac511cbacef1.jpg, 6f6ac5ef4d237302c1ec98b6bfb65816.jpg, 1d75b6969c50eb072493f7ebf8074968.jpg, 1654e3c76fee92b0f36ab5cf6194f761.jpg, bb49af5cdf25fa399e2121f24992a4aa.jpg, 41e12b84f720c6012e77fbe960255980.jpg",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Ar vasaros karštis tave vargina",
+      "body": "Skrandžio sunkumas vis atsiranda netikėtai? Jautiesi lyg pripildytas sunkių akmenų po gausia vakariene."
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Per didelis maisto kiekis dažnai apkrauna virškinimo sistemą. Netinkamas derinimas sukelia diskomforto jausmą."
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Dabar gera proga pasirūpinti virškinimo gerove. Tavo knyga padės atrasti tinkamiausius patiekalus."
+    },
+    {
+      "id": "slide-4",
+      "role": "build",
+      "title": "",
+      "body": "Štai paskutinė vasara, o skrandis vis sunksta. Ar žinai, ką tau reikia?"
+    },
+    {
+      "id": "slide-5",
+      "role": "build",
+      "title": "",
+      "body": "Ruošiesi rudeniui ir nori jaustis lengvas? Tavo knyga atranda maisto derinimus pagal tave."
+    },
+    {
+      "id": "slide-6",
+      "role": "close",
+      "title": "",
+      "body": "Džiaukis kiekvienu kąsniu be diskomforto. Pasirūpink savimi.",
+      "cta": "Apsilankyk tavoknyga.com ir pradėk 5 min. testą! 🤩"
+    }
+  ],
+  "arc_name": "Empathy mirror hook · Question",
+  "hook_style": "Empathy mirror",
+  "story_arc": "Question",
+  "auditId": "post-06",
+  "caption_preview": "📌 Sunki tiesa:\n\nAr jauti, kad mitybos planas vis tiek trukdo kasdienybei?\n\n\"Tavo knyga\" parenka patiekalus pagal tavo pageidavimus ir apribojimus.\n\nSužinok, ko tau iš tikrųjų trūksta - apsilankyk tavoknyga.com ir pradėk 5 min. testą! 😊\n•\n•\n•\n#tavoknyga #maistas #lithuania #disciplina #lietuva"
+}

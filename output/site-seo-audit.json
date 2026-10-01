@@ -1,0 +1,557 @@
+{
+  "local": {
+    "productsChecked": 53,
+    "errors": [],
+    "sitemapLocations": 70,
+    "duplicateSitemapLocations": 0,
+    "sitemapIncludesCheckout": [],
+    "robots": "User-Agent: *\nAllow: /\nDisallow: /api/\nDisallow: /dekojame\nDisallow: /checkout\nDisallow: /apmokejimas\nDisallow: /tiktok\nDisallow: /instagram\nDisallow: /krepselis\n\nSitemap: https://www.kaledukampelis.com/sitemap.xml\n",
+    "privatePages": [
+      {
+        "route": "/checkout",
+        "robots": "noindex, nofollow"
+      },
+      {
+        "route": "/checkout/success",
+        "robots": "noindex, nofollow"
+      },
+      {
+        "route": "/checkout/recover",
+        "robots": "noindex, nofollow"
+      }
+    ],
+    "feedItems": 53,
+    "summaries": [
+      {
+        "route": "/produktai/aromaterapijos-zvake-zvakiu-vakaras",
+        "canonical": "https://www.kaledukampelis.com/produktai/aromaterapijos-zvake-zvakiu-vakaras",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/silkinis-miego-rinkinys-miegas",
+        "canonical": "https://www.kaledukampelis.com/produktai/silkinis-miego-rinkinys-miegas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/vilnonis-pledas-jaukumas",
+        "canonical": "https://www.kaledukampelis.com/produktai/vilnonis-pledas-jaukumas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/viskio-akmenu-ir-stiklo-rinkinys",
+        "canonical": "https://www.kaledukampelis.com/produktai/viskio-akmenu-ir-stiklo-rinkinys",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/vaistazoliu-auginimo-rinkinys",
+        "canonical": "https://www.kaledukampelis.com/produktai/vaistazoliu-auginimo-rinkinys",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/poros-knyga-musu-istorija",
+        "canonical": "https://www.kaledukampelis.com/produktai/poros-knyga-musu-istorija",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/kvapo-difuzorius-lazdelemis",
+        "canonical": "https://www.kaledukampelis.com/produktai/kvapo-difuzorius-lazdelemis",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/vilnones-kojines-ziemos-jaukumas",
+        "canonical": "https://www.kaledukampelis.com/produktai/vilnones-kojines-ziemos-jaukumas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/zaidimu-vakaro-rinkinys",
+        "canonical": "https://www.kaledukampelis.com/produktai/zaidimu-vakaro-rinkinys",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/termosas-kelionemis-500ml",
+        "canonical": "https://www.kaledukampelis.com/produktai/termosas-kelionemis-500ml",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/namu-kino-projektorius",
+        "canonical": "https://www.kaledukampelis.com/produktai/namu-kino-projektorius",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/sventinis-vonios-rinkinys",
+        "canonical": "https://www.kaledukampelis.com/produktai/sventinis-vonios-rinkinys",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/keramikos-arbatos-rinkinys-po-vakara",
+        "canonical": "https://www.kaledukampelis.com/produktai/keramikos-arbatos-rinkinys-po-vakara",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/kaledinis-puodelis-kakava",
+        "canonical": "https://www.kaledukampelis.com/produktai/kaledinis-puodelis-kakava",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/egluciu-zaisliukai-stiklas",
+        "canonical": "https://www.kaledukampelis.com/produktai/egluciu-zaisliukai-stiklas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/odinis-korteliu-deklas",
+        "canonical": "https://www.kaledukampelis.com/produktai/odinis-korteliu-deklas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/led-girlianda-siltas",
+        "canonical": "https://www.kaledukampelis.com/produktai/led-girlianda-siltas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/uzrasine-aukso-krastu",
+        "canonical": "https://www.kaledukampelis.com/produktai/uzrasine-aukso-krastu",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/belaidis-ikroviklis-medis",
+        "canonical": "https://www.kaledukampelis.com/produktai/belaidis-ikroviklis-medis",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/vaiku-kaledinis-zaidimas",
+        "canonical": "https://www.kaledukampelis.com/produktai/vaiku-kaledinis-zaidimas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/zvakiu-sildymo-lempa",
+        "canonical": "https://www.kaledukampelis.com/produktai/zvakiu-sildymo-lempa",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/amzinoji-roze-gaubte",
+        "canonical": "https://www.kaledukampelis.com/produktai/amzinoji-roze-gaubte",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/menulio-lempa-3d",
+        "canonical": "https://www.kaledukampelis.com/produktai/menulio-lempa-3d",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/saulelydzio-lempa",
+        "canonical": "https://www.kaledukampelis.com/produktai/saulelydzio-lempa",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/lietaus-debesies-drekinuvas",
+        "canonical": "https://www.kaledukampelis.com/produktai/lietaus-debesies-drekinuvas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/megzta-sildykle-2l",
+        "canonical": "https://www.kaledukampelis.com/produktai/megzta-sildykle-2l",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/galaktikos-projektorius-zvaigzdziu-kelione",
+        "canonical": "https://www.kaledukampelis.com/produktai/galaktikos-projektorius-zvaigzdziu-kelione",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/pieno-plakiklis-usb",
+        "canonical": "https://www.kaledukampelis.com/produktai/pieno-plakiklis-usb",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/mini-masazo-pistoletas",
+        "canonical": "https://www.kaledukampelis.com/produktai/mini-masazo-pistoletas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/silkinis-pagalves-uzvalkalas",
+        "canonical": "https://www.kaledukampelis.com/produktai/silkinis-pagalves-uzvalkalas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/gua-sha-rinkinys-roze",
+        "canonical": "https://www.kaledukampelis.com/produktai/gua-sha-rinkinys-roze",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/kilimas-silta-grindys",
+        "canonical": "https://www.kaledukampelis.com/produktai/kilimas-silta-grindys",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/raktu-pakabukas-namai",
+        "canonical": "https://www.kaledukampelis.com/produktai/raktu-pakabukas-namai",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/isoreine-baterija-kelione",
+        "canonical": "https://www.kaledukampelis.com/produktai/isoreine-baterija-kelione",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/ausines-kisenines",
+        "canonical": "https://www.kaledukampelis.com/produktai/ausines-kisenines",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/slepetes-minksta-peda",
+        "canonical": "https://www.kaledukampelis.com/produktai/slepetes-minksta-peda",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/telefono-stovas-stalas",
+        "canonical": "https://www.kaledukampelis.com/produktai/telefono-stovas-stalas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/nuotrauku-remelis-akimirka",
+        "canonical": "https://www.kaledukampelis.com/produktai/nuotrauku-remelis-akimirka",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/dovanu-pakavimas-sventine",
+        "canonical": "https://www.kaledukampelis.com/produktai/dovanu-pakavimas-sventine",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/kvapo-purskiklis-namai",
+        "canonical": "https://www.kaledukampelis.com/produktai/kvapo-purskiklis-namai",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/serviravimo-lenta-vakariene",
+        "canonical": "https://www.kaledukampelis.com/produktai/serviravimo-lenta-vakariene",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/advento-kalendorius-24",
+        "canonical": "https://www.kaledukampelis.com/produktai/advento-kalendorius-24",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/kaledu-dovanu-kojine-staigmena",
+        "canonical": "https://www.kaledukampelis.com/produktai/kaledu-dovanu-kojine-staigmena",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/sniego-gaublys-ziemos-pasaka",
+        "canonical": "https://www.kaledukampelis.com/produktai/sniego-gaublys-ziemos-pasaka",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/stalo-takelis-siaures-rastas",
+        "canonical": "https://www.kaledukampelis.com/produktai/stalo-takelis-siaures-rastas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/riesutu-spaudiklis-sargybinis",
+        "canonical": "https://www.kaledukampelis.com/produktai/riesutu-spaudiklis-sargybinis",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/egles-sijonas-sventinis-ratas",
+        "canonical": "https://www.kaledukampelis.com/produktai/egles-sijonas-sventinis-ratas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/megztinis-kasdienis-siltis",
+        "canonical": "https://www.kaledukampelis.com/produktai/megztinis-kasdienis-siltis",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/keramikinis-zibintas-ziemos-namelis",
+        "canonical": "https://www.kaledukampelis.com/produktai/keramikinis-zibintas-ziemos-namelis",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/dzemperis-siltas-uztrauktukas",
+        "canonical": "https://www.kaledukampelis.com/produktai/dzemperis-siltas-uztrauktukas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/kardiganas-atviras-siltis",
+        "canonical": "https://www.kaledukampelis.com/produktai/kardiganas-atviras-siltis",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/pizama-vakaro-komplektas",
+        "canonical": "https://www.kaledukampelis.com/produktai/pizama-vakaro-komplektas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/golfas-aukstas-kaklas",
+        "canonical": "https://www.kaledukampelis.com/produktai/golfas-aukstas-kaklas",
+        "productSchema": true
+      }
+    ]
+  },
+  "live": {
+    "productsChecked": 48,
+    "errors": [],
+    "sitemapLocations": 65,
+    "duplicateSitemapLocations": 0,
+    "sitemapIncludesCheckout": [],
+    "robots": "User-Agent: *\nAllow: /\nDisallow: /api/\nDisallow: /dekojame\nDisallow: /checkout\nDisallow: /apmokejimas\nDisallow: /tiktok\nDisallow: /instagram\nDisallow: /krepselis\n\nSitemap: https://www.kaledukampelis.com/sitemap.xml\n",
+    "privatePages": [
+      {
+        "route": "/checkout",
+        "robots": "noindex, nofollow"
+      },
+      {
+        "route": "/checkout/success",
+        "robots": "noindex, nofollow"
+      },
+      {
+        "route": "/checkout/recover",
+        "robots": "noindex, nofollow"
+      }
+    ],
+    "feedItems": 48,
+    "summaries": [
+      {
+        "route": "/produktai/vilnonis-pledas-jaukumas",
+        "canonical": "https://www.kaledukampelis.com/produktai/vilnonis-pledas-jaukumas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/silkinis-miego-rinkinys-miegas",
+        "canonical": "https://www.kaledukampelis.com/produktai/silkinis-miego-rinkinys-miegas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/aromaterapijos-zvake-zvakiu-vakaras",
+        "canonical": "https://www.kaledukampelis.com/produktai/aromaterapijos-zvake-zvakiu-vakaras",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/vaistazoliu-auginimo-rinkinys",
+        "canonical": "https://www.kaledukampelis.com/produktai/vaistazoliu-auginimo-rinkinys",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/kvapo-difuzorius-lazdelemis",
+        "canonical": "https://www.kaledukampelis.com/produktai/kvapo-difuzorius-lazdelemis",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/viskio-akmenu-ir-stiklo-rinkinys",
+        "canonical": "https://www.kaledukampelis.com/produktai/viskio-akmenu-ir-stiklo-rinkinys",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/poros-knyga-musu-istorija",
+        "canonical": "https://www.kaledukampelis.com/produktai/poros-knyga-musu-istorija",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/termosas-kelionemis-500ml",
+        "canonical": "https://www.kaledukampelis.com/produktai/termosas-kelionemis-500ml",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/vilnones-kojines-ziemos-jaukumas",
+        "canonical": "https://www.kaledukampelis.com/produktai/vilnones-kojines-ziemos-jaukumas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/sventinis-vonios-rinkinys",
+        "canonical": "https://www.kaledukampelis.com/produktai/sventinis-vonios-rinkinys",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/namu-kino-projektorius",
+        "canonical": "https://www.kaledukampelis.com/produktai/namu-kino-projektorius",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/keramikos-arbatos-rinkinys-po-vakara",
+        "canonical": "https://www.kaledukampelis.com/produktai/keramikos-arbatos-rinkinys-po-vakara",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/zaidimu-vakaro-rinkinys",
+        "canonical": "https://www.kaledukampelis.com/produktai/zaidimu-vakaro-rinkinys",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/kaledinis-puodelis-kakava",
+        "canonical": "https://www.kaledukampelis.com/produktai/kaledinis-puodelis-kakava",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/egluciu-zaisliukai-stiklas",
+        "canonical": "https://www.kaledukampelis.com/produktai/egluciu-zaisliukai-stiklas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/led-girlianda-siltas",
+        "canonical": "https://www.kaledukampelis.com/produktai/led-girlianda-siltas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/odinis-korteliu-deklas",
+        "canonical": "https://www.kaledukampelis.com/produktai/odinis-korteliu-deklas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/vaiku-kaledinis-zaidimas",
+        "canonical": "https://www.kaledukampelis.com/produktai/vaiku-kaledinis-zaidimas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/uzrasine-aukso-krastu",
+        "canonical": "https://www.kaledukampelis.com/produktai/uzrasine-aukso-krastu",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/belaidis-ikroviklis-medis",
+        "canonical": "https://www.kaledukampelis.com/produktai/belaidis-ikroviklis-medis",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/amzinoji-roze-gaubte",
+        "canonical": "https://www.kaledukampelis.com/produktai/amzinoji-roze-gaubte",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/menulio-lempa-3d",
+        "canonical": "https://www.kaledukampelis.com/produktai/menulio-lempa-3d",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/zvakiu-sildymo-lempa",
+        "canonical": "https://www.kaledukampelis.com/produktai/zvakiu-sildymo-lempa",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/saulelydzio-lempa",
+        "canonical": "https://www.kaledukampelis.com/produktai/saulelydzio-lempa",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/galaktikos-projektorius-zvaigzdziu-kelione",
+        "canonical": "https://www.kaledukampelis.com/produktai/galaktikos-projektorius-zvaigzdziu-kelione",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/megzta-sildykle-2l",
+        "canonical": "https://www.kaledukampelis.com/produktai/megzta-sildykle-2l",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/lietaus-debesies-drekinuvas",
+        "canonical": "https://www.kaledukampelis.com/produktai/lietaus-debesies-drekinuvas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/pieno-plakiklis-usb",
+        "canonical": "https://www.kaledukampelis.com/produktai/pieno-plakiklis-usb",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/silkinis-pagalves-uzvalkalas",
+        "canonical": "https://www.kaledukampelis.com/produktai/silkinis-pagalves-uzvalkalas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/mini-masazo-pistoletas",
+        "canonical": "https://www.kaledukampelis.com/produktai/mini-masazo-pistoletas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/gua-sha-rinkinys-roze",
+        "canonical": "https://www.kaledukampelis.com/produktai/gua-sha-rinkinys-roze",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/kilimas-silta-grindys",
+        "canonical": "https://www.kaledukampelis.com/produktai/kilimas-silta-grindys",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/raktu-pakabukas-namai",
+        "canonical": "https://www.kaledukampelis.com/produktai/raktu-pakabukas-namai",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/isoreine-baterija-kelione",
+        "canonical": "https://www.kaledukampelis.com/produktai/isoreine-baterija-kelione",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/ausines-kisenines",
+        "canonical": "https://www.kaledukampelis.com/produktai/ausines-kisenines",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/slepetes-minksta-peda",
+        "canonical": "https://www.kaledukampelis.com/produktai/slepetes-minksta-peda",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/nuotrauku-remelis-akimirka",
+        "canonical": "https://www.kaledukampelis.com/produktai/nuotrauku-remelis-akimirka",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/telefono-stovas-stalas",
+        "canonical": "https://www.kaledukampelis.com/produktai/telefono-stovas-stalas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/dovanu-pakavimas-sventine",
+        "canonical": "https://www.kaledukampelis.com/produktai/dovanu-pakavimas-sventine",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/serviravimo-lenta-vakariene",
+        "canonical": "https://www.kaledukampelis.com/produktai/serviravimo-lenta-vakariene",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/kvapo-purskiklis-namai",
+        "canonical": "https://www.kaledukampelis.com/produktai/kvapo-purskiklis-namai",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/advento-kalendorius-24",
+        "canonical": "https://www.kaledukampelis.com/produktai/advento-kalendorius-24",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/sniego-gaublys-ziemos-pasaka",
+        "canonical": "https://www.kaledukampelis.com/produktai/sniego-gaublys-ziemos-pasaka",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/kaledu-dovanu-kojine-staigmena",
+        "canonical": "https://www.kaledukampelis.com/produktai/kaledu-dovanu-kojine-staigmena",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/stalo-takelis-siaures-rastas",
+        "canonical": "https://www.kaledukampelis.com/produktai/stalo-takelis-siaures-rastas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/riesutu-spaudiklis-sargybinis",
+        "canonical": "https://www.kaledukampelis.com/produktai/riesutu-spaudiklis-sargybinis",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/egles-sijonas-sventinis-ratas",
+        "canonical": "https://www.kaledukampelis.com/produktai/egles-sijonas-sventinis-ratas",
+        "productSchema": true
+      },
+      {
+        "route": "/produktai/keramikinis-zibintas-ziemos-namelis",
+        "canonical": "https://www.kaledukampelis.com/produktai/keramikinis-zibintas-ziemos-namelis",
+        "productSchema": true
+      }
+    ]
+  }
+}

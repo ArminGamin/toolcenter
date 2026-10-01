@@ -1,0 +1,27 @@
+{
+  "items": [
+    {
+      "role": "hook",
+      "text": "Jaučiuosi lėtas ir pavargęs, nors dienos dar ilgai trunka.\nGalbūt tavo savaitės meniu slepia daugiau nei tik maisto pasirinkimą?",
+      "title": "Ar esi įstrigęs vasaros karščio rutinoje?",
+      "cta": ""
+    },
+    {
+      "role": "context",
+      "text": "Nuolatinis skaičiavimas atima energiją ir laiko.\nRutina tampa įtikinimu, o ne sprendimų erdve.",
+      "title": "Ką pasako kasdienis maitinimas?",
+      "cta": ""
+    },
+    {
+      "role": "build",
+      "text": "Aišus savaitės meniu leidžia susikoncentruoti ties svarbiais dalykais.\nŠtai kaip įveikti rugpjūčio nuovargį ir pasirengti rudeniui.",
+      "title": "Mažiau angliavandenių – daugiau aiškumo?",
+      "cta": ""
+    }
+  ],
+  "roles": [
+    "hook",
+    "context",
+    "build"
+  ]
+}

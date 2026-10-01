@@ -1,0 +1,27 @@
+{
+  "items": [
+    {
+      "role": "hook",
+      "text": "Vasara dar tebesitęsia, bet energijos vis mažiau.\nGalbūt esi įpratęs badauti bandydamas suliežėti?",
+      "title": "Ar jaučiatės lėtesni rugpjūčio karščiu?",
+      "cta": ""
+    },
+    {
+      "role": "context",
+      "text": "Nuolatinis ribojimas sukelia nuovargį ir sunkumą.\nTai lemia dar didesnę alkio baimę bei apgailėtinas miegas.",
+      "title": "Kuo kenčia tavo kūnas?",
+      "cta": ""
+    },
+    {
+      "role": "build",
+      "text": "Tavo knyga suderina patiekalus pagal tavo duomenis.\nTaip mažinsi svorį nebadaujant ir išliksi energingas.",
+      "title": "Subalansuota mityba – sprendimas?",
+      "cta": ""
+    }
+  ],
+  "roles": [
+    "hook",
+    "context",
+    "build"
+  ]
+}

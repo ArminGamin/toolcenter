@@ -1,0 +1,32 @@
+[
+  {
+    "input": "Daug laiko praleidi kelyje",
+    "reason": "missing_question_mark",
+    "expect": "fail",
+    "valid": ["Daug laiko praleidi kelyje?"]
+  },
+  {
+    "input": "Dar neišsirinkai dovanos",
+    "reason": "missing_question_mark",
+    "expect": "fail",
+    "valid": ["Dar neišsirinkai dovanos?"]
+  },
+  {
+    "input": "Praktiška dovana gali praversti kiekvieną dieną",
+    "reason": "missing_question_mark",
+    "expect": "pass",
+    "valid": ["Praktiška dovana gali praversti kiekvieną dieną."]
+  },
+  {
+    "input": "Vis dar nežinai, ką padovanoti?",
+    "reason": "missing_question_mark",
+    "expect": "pass",
+    "valid": ["Vis dar nežinai, ką padovanoti?"]
+  },
+  {
+    "input": "Praktiška dovana nebūtinai turi būti nuobodi.",
+    "reason": "unnatural_collocation",
+    "expect": "pass",
+    "valid": ["Praktiška dovana nebūtinai turi būti nuobodi."]
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "items": [
+    {
+      "role": "build",
+      "text": "Štai paskutinė vasara, o skrandis vis sunksta.\nAr žinai, ką tau reikia?",
+      "title": "",
+      "cta": ""
+    },
+    {
+      "role": "build",
+      "text": "Ruošiesi rudeniui ir nori jaustis lengvas?\nTavo knyga atranda maisto derinimus pagal tave.",
+      "title": "",
+      "cta": ""
+    },
+    {
+      "role": "close",
+      "text": "Džiaukis kiekvienu kąsniu be diskomforto.\nPasirūpink savimi – tai lengva!",
+      "title": "",
+      "cta": "Apsilankyk tavoknyga.com ir pradėk 5 min. testą! 🤩"
+    }
+  ],
+  "roles": [
+    "build",
+    "build",
+    "close"
+  ]
+}

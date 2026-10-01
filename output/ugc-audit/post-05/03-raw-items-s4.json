@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "role": "build",
+      "text": "Vasara dar tebesitęsia, tačiau jau ruošiasi atvykti ramybė.\nSaugok savo energiją ir pasirūpink sveiku maistu.",
+      "title": "",
+      "cta": ""
+    },
+    {
+      "role": "close",
+      "text": "Subalansuotas meniu padeda jaustis sotus, o ne badaujantis.\nSu „Tavo knyga“ lengvai rasi optimalius sprendimus.",
+      "title": "",
+      "cta": "Apsilankyk tavoknyga.com ir pradėk 5 min. testą! 🤩"
+    }
+  ],
+  "roles": [
+    "build",
+    "close"
+  ]
+}

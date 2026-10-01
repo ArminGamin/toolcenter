@@ -1,0 +1,11 @@
+---
+description: Keep chat replies short — no paragraphs
+alwaysApply: true
+---
+
+# Concise replies
+
+- No paragraphs. Short lines or bullets only.
+- Answer the question directly; skip preamble and recap.
+- Default length: 1–5 lines unless the user asks for detail.
+- Code citations only when needed; no essay-style explanations.

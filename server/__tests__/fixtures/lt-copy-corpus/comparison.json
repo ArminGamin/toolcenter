@@ -1,0 +1,8 @@
+[
+  {
+    "input": "Ką vienam gera, kitam nuobodulys.",
+    "reason": "broken_comparison",
+    "expect": "fail",
+    "valid": ["Kas vienam patinka, kitam gali visai netikti."]
+  }
+]

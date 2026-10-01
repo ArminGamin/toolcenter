@@ -1,0 +1,12 @@
+{"t":"2026-08-05T21:15:45.952Z","ms":0,"event":"begin","slot":8,"theme":"PCOS insulin"}
+{"t":"2026-08-05T21:15:45.953Z","ms":1,"event":"write","filename":"00b-plan.json"}
+{"t":"2026-08-05T21:15:45.953Z","ms":1,"event":"chunk_attempt","start":1,"requestSize":3,"attempt":0,"roles":["hook","context","build"],"temp":0.40800000000000003,"promptChars":1811}
+{"t":"2026-08-05T21:16:23.143Z","ms":37191,"event":"ollama_call","callIndex":1,"durationMs":37187,"responseChars":604,"error":null}
+{"t":"2026-08-05T21:16:23.144Z","ms":37192,"event":"write","filename":"03-raw-items-s1.json"}
+{"t":"2026-08-05T21:16:23.150Z","ms":37198,"event":"chunk_attempt","start":4,"requestSize":3,"attempt":0,"roles":["build","build","close"],"temp":0.40800000000000003,"promptChars":2753}
+{"t":"2026-08-05T21:17:02.761Z","ms":76809,"event":"ollama_call","callIndex":2,"durationMs":39608,"responseChars":608,"error":null}
+{"t":"2026-08-05T21:17:02.763Z","ms":76811,"event":"write","filename":"03-raw-items-s4.json"}
+{"t":"2026-08-05T21:17:02.769Z","ms":76817,"event":"write","filename":"03-chunks.json"}
+{"t":"2026-08-05T21:17:02.770Z","ms":76818,"event":"write","filename":"05-normalized-before-finalize.json"}
+{"t":"2026-08-05T21:17:02.776Z","ms":76824,"event":"finalize","ok":true,"ollamaCalls":2}
+{"t":"2026-08-05T21:22:22.620Z","event":"export_attach","ok":true}

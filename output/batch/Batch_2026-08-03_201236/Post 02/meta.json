@@ -1,0 +1,11 @@
+{
+  "theme": "cooking time match",
+  "hook": "Pagal laiką",
+  "body": "Receptai parinkti pagal tavo turimą laiką virtuvėje.",
+  "category": "Random theme",
+  "slide_count": 3,
+  "template": "headline_body",
+  "placement": "center",
+  "exportSizeId": "tiktok_reels",
+  "background_image": "77eefdb18d9a01eefef48251838731fa.jpg"
+}

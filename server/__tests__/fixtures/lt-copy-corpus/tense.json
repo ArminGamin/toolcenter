@@ -1,0 +1,8 @@
+[
+  {
+    "input": "Kai žmogus ją naudos kasdien, ji primena apie tave.",
+    "reason": "tense_mismatch",
+    "expect": "fail",
+    "valid": ["Kai žmogus ją naudos kasdien, ji vis primins apie tave."]
+  }
+]

@@ -1,0 +1,36 @@
+{
+  "theme": "batch weight loss",
+  "hook": "Kartą gaminti",
+  "body": "Dalį maisto paruoši iš anksto be pertekliaus.",
+  "category": "Random theme",
+  "slide_count": 3,
+  "template": "headline_body",
+  "placement": "center",
+  "exportSizeId": "tiktok_reels",
+  "background_image": "eb0dd64955b57b919fbde6e7f27fd3c9.jpg, 4bda8daf3bfd9cda42b5227a86e9ab71.jpg, 1c23e014cf3e533816177a6566e6dc23.jpg",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Ar ruošiesi rudeniui?",
+      "body": "Rugpjūčio karštis dar juntamas, tačiau jau planuoji savaitę. Norisi sveikesnio maisto ir mažiau triukšmo virtuvėje."
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Kiekvieną dieną gamini naujus patiekalus, bet dažnai lieka per daug. Tai švaistosi laiką bei pinigus. Galėtum efektyviau organizuoti."
+    },
+    {
+      "id": "slide-3",
+      "role": "close",
+      "title": "",
+      "body": "Kartkartėmis ruošiamas maistas leis tau sutaupyti energijos ir laiko. Štai proga pasitikrinti savo pasiruošimą.",
+      "cta": "Apsilankyk tavoknyga.com ir pradėk 5 min. testą! 🤩"
+    }
+  ],
+  "arc_name": "Question hook · Two-beat punch",
+  "hook_style": "Question",
+  "story_arc": "Two-beat punch",
+  "caption_preview": "📌 Sunki tiesa:\n\nAr savaitės planas vis dar trukdo tavo savaitės ritmui?\n\nDalį maisto paruoši iš anksto be pertekliaus.\n\nSužinok, ko tau iš tikrųjų trūksta - apsilankyk tavoknyga.com ir pradėk 5 min. testą! 😊\n•\n•\n•\n#tavoknyga #maistas #lithuania #disciplina #lietuva"
+}

@@ -1,0 +1,18 @@
+{
+  "postId": "post-10",
+  "ok": true,
+  "durationMs": 123358,
+  "ollamaCalls": 3,
+  "arcName": "Contrarian hook · Bold claim",
+  "hookStyle": "Contrarian",
+  "storyArc": "Bold claim",
+  "topic": "Mažai angliavandenių. Savaitės meniu su aiškiais ingredientais, kad nereikėtų skaičiuoti kiekvieno patiekalo ranka.",
+  "slideCount": 6,
+  "error": null,
+  "extra": {
+    "theme": "low carb weeknight dinners",
+    "themeHook": "Mažai angliavandenių",
+    "category": "Random theme"
+  },
+  "at": "2026-08-05T21:21:34.765Z"
+}
