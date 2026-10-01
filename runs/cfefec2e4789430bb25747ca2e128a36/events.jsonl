@@ -1,1 +1,0 @@
-{"schemaVersion": 1, "at": "2026-09-16T15:15:54.286767+00:00", "runId": "cfefec2e4789430bb25747ca2e128a36", "tool": "group-poster", "phase": "post", "level": "info", "code": "worker_info", "kind": "info", "message": "2 friend(s) not retried — counted failed (test)", "mode": "post", "pid": 11948, "details": {"pid": 11948, "mode": "post"}}

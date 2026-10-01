@@ -336,7 +336,7 @@ export function ToolPanel({ tool, online, bridgeOk, pinned, onTogglePin, onHome,
   const powerLabel = tool.removed ? 'Hidden' : running ? 'Running' : 'Idle'
 
   return (
-    <div className="tool-page relative mx-auto max-w-none px-2">
+    <div className="tool-page relative mx-auto max-w-none overflow-x-clip px-2">
       {bridgeOk === false && (
         <div className="mb-4">
           <BridgeOfflineBanner

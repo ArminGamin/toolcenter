@@ -172,6 +172,30 @@ function extractStringArray(block: string, key: string): string[] {
   return [...m[1].matchAll(/"([^"]+)"/g)].map((x) => x[1])
 }
 
+function extractTopLevelStringArray(block: string, key: string): string[] {
+  let depth = 0
+  let quote = ''
+  for (let i = 0; i < block.length; i++) {
+    const char = block[i]
+    if (quote) {
+      if (char === '\\') i++
+      else if (char === quote) quote = ''
+      continue
+    }
+    if (char === '"' || char === "'") {
+      quote = char
+      continue
+    }
+    if (char === '{') depth++
+    else if (char === '}') depth--
+    else if (depth === 1 && block.startsWith(key, i) && !/[\w$]/.test(block[i - 1] || '')) {
+      const rest = block.slice(i + key.length)
+      if (/^\s*:\s*\[/.test(rest)) return extractStringArray(block.slice(i), key)
+    }
+  }
+  return []
+}
+
 function ugcBlock(block: string): string {
   const match = block.match(/ugc:\s*\{([^}]*)\}/)
   return match?.[1] || ''
@@ -211,7 +235,7 @@ export function parseKaleduCatalogText(text: string): KaleduCatalogProduct[] {
         benefits: extractStringArray(block, 'benefits'),
         ugcFamily: extractUgcString(block, 'family'),
         ugcUseCases: extractUgcArray(block, 'useCases'),
-        images: extractStringArray(block, 'images'),
+        images: extractTopLevelStringArray(block, 'images'),
         inStock: extractBool(block, 'inStock'),
       } satisfies KaleduCatalogProduct
     })

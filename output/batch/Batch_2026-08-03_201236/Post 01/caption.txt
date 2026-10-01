@@ -1,3 +1,0 @@
-HOOK: Kartą gaminti
-
-BODY: Dalį maisto paruoši iš anksto be pertekliaus.

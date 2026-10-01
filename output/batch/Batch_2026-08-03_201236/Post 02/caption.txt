@@ -1,3 +1,0 @@
-HOOK: Pagal laiką
-
-BODY: Receptai parinkti pagal tavo turimą laiką virtuvėje.

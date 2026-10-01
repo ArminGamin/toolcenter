@@ -25,3 +25,30 @@ output/one-shot/**
 *.njsproj
 *.sln
 *.sw?
+
+# Secrets and local config (never commit)
+.env
+.env.*
+!.env.example
+*.env
+!*.env.example
+**/settings.env
+**/profiles.json
+*.pem
+*.key
+*.p12
+vault*.json
+secrets/
+.cc-auth*
+.control-center-data/
+
+# Local run data, generated output and logs
+output/
+!output/one-shot/.gitkeep
+runs/
+log.jsonl
+*.jsonl
+debug-*.log
+.cursor/*.log
+ads/*/out/
+ads/*/preview/

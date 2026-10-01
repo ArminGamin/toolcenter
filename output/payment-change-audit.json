@@ -1,9 +1,0 @@
-{
-  "stripeMocked": true,
-  "paymentWasBusy": true,
-  "submittedMysteryGift": false,
-  "submittedDisplayedTotalCents": 2939,
-  "visibleTotalAfterToggleCents": 3539,
-  "confirmationStillCalled": true,
-  "differenceCents": 600
-}

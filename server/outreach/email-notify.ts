@@ -4,8 +4,8 @@ import { fireNotify, loadVault } from '../cc-services.js'
 import fs from 'node:fs'
 import path from 'node:path'
 
-const DEFAULT_SEND_DISCORD_WEBHOOK =
-  'https://discord.com/api/webhooks/1522270757143576676/UDhWaAX-1dCpnbxs4QfHT0wtBezGt4_xzktiCCZyN6ischeHmCZ_nbs_iXUsreLnvdtf'
+/** Set DISCORD_NEWSLETTER_SEND_WEBHOOK_URL in the vault or newsletter .env; never hard-code it. */
+const DEFAULT_SEND_DISCORD_WEBHOOK = ''
 
 export function resolveSendDiscordWebhook(): string {
   const vault = loadVault()

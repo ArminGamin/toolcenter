@@ -594,7 +594,7 @@ export default function App() {
 
           <section
             className={[
-              'absolute inset-0 overflow-y-auto p-6 sm:p-8 max-[860px]:px-4 max-[860px]:pb-4 max-[860px]:pt-4',
+              'absolute inset-0 overflow-y-auto overflow-x-hidden p-6 sm:p-8 max-[860px]:px-4 max-[860px]:pb-4 max-[860px]:pt-4',
               'transition-[opacity,transform] duration-[250ms] ease-out',
               nav.marketsOpen
                 ? 'pointer-events-auto translate-y-0 opacity-100'
@@ -616,7 +616,7 @@ export default function App() {
 
           <section
             className={[
-              'absolute inset-0 overflow-y-auto p-6 sm:p-8 max-[860px]:px-4 max-[860px]:pb-4 max-[860px]:pt-4',
+              'absolute inset-0 overflow-y-auto overflow-x-hidden p-6 sm:p-8 max-[860px]:px-4 max-[860px]:pb-4 max-[860px]:pt-4',
               'transition-[opacity,transform] duration-[250ms] ease-out',
               showTool
                 ? 'pointer-events-auto translate-y-0 opacity-100'

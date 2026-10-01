@@ -9,6 +9,7 @@ import {
   kaleduProductSlideVerdict,
   kaleduUngroundedRecommendations,
   loadKaleduCatalog,
+  parseKaleduCatalogText,
   pickKaleduProductsForTheme,
   resolveProductAssets,
   classifyKaleduSlideIntent,
@@ -21,6 +22,28 @@ import { kaleduDeterministicQa, isDirectReaderQuestion, normalizeDirectQuestionP
 import { listKaleduBackgroundRelPaths } from '../ugc-kaledu-bgs.js'
 
 describe('Kalėdų catalog resolver', () => {
+  it('reads product-level images after family variant images', () => {
+    const catalog = parseKaleduCatalogText(`export const products = [{
+      slug: "seimos-kaledinis-megztinis",
+      sku: "JK-057",
+      name: "Šeimos kalėdinis megztinis",
+      tagline: "Derantys kalėdiniai megztiniai šeimai",
+      priceCents: 3990,
+      variants: [
+        { id: "vaikas", images: ["/products/vaiko-megztinis.webp"] },
+        { id: "moteris", images: ["/products/moters-megztinis.webp"] },
+      ],
+      images: ["/products/seimos-megztinis.webp", "/products/seimos-megztinis-detale.webp"],
+      recipients: ["seimai"],
+      vibes: ["sventinis"],
+      inStock: true,
+    }]`)
+    expect(catalog[0]?.images).toEqual([
+      '/products/seimos-megztinis.webp',
+      '/products/seimos-megztinis-detale.webp',
+    ])
+  })
+
   it('resolves pledas slug to a real product image', () => {
     const assets = resolveProductAssets('vilnonis-pledas-jaukumas')
     expect(assets).not.toBeNull()
