@@ -3,7 +3,7 @@
   "product": "Kalėdų Kampelis",
   "language": "lt",
   "format": "ugc-slides",
-  "total": 123,
+  "total": 127,
   "categories": {
     "Dovanų idėjos": [
       {
@@ -414,6 +414,46 @@
         "modeHint": "product_led",
         "productHints": [
           "golfas-aukstas-kaklas"
+        ]
+      },
+      {
+        "theme": "Moteriškas kalėdinis megztinis su eglutėmis",
+        "hook": "Kai norisi, kad megztinis iš tiesų atrodytų kalėdiškai.",
+        "body": "Šis raudonas, baltas ir žalias megztinis turi eglučių, elnių ir snaigių raštą.",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "kaledinis-megztinis-sventinis-rastas"
+        ]
+      },
+      {
+        "theme": "Derantys kalėdiniai megztiniai visai šeimai",
+        "hook": "Šeimos nuotraukoje derantys megztiniai iškart kuria šventinę nuotaiką.",
+        "body": "Vyro, moters ir vaiko megztiniai turi Kalėdų Senelio ir snaigių raštą bei raudonus ir žalius akcentus.",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "seimos-megztiniai-kaledu-dziaugsmas"
+        ]
+      },
+      {
+        "theme": "Derantys kalėdiniai megztiniai porai su sniego seniais",
+        "hook": "Poros nuotraukai užtenka vieno bendro šventinio motyvo.",
+        "body": "Vyro ir moters megztinius jungia sniego senio raštas; spalvos – raudona ir žalia.",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "kalediniai-megztiniai-sniego-duetas"
+        ]
+      },
+      {
+        "theme": "Šiaurietiško rašto kalėdiniai megztiniai šeimai",
+        "hook": "Vienas šventinis raštas, kurį gali pasirinkti visa šeima.",
+        "body": "Vyro, moters ir vaiko megztinius derina raudona ir balta spalvos, elnių bei snaigių motyvai.",
+        "kind": "product",
+        "modeHint": "product_led",
+        "productHints": [
+          "seimos-megztiniai-siaures-rastas"
         ]
       },
       {

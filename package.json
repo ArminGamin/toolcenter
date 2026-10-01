@@ -12,7 +12,9 @@
     "test:ugc-fortress": "vitest run server/__tests__/ugc-audit-fortress.test.ts server/__tests__/ugc-vision-batch5.test.ts server/__tests__/ugc-batch-aug7.test.ts server/__tests__/ugc-batch-aug7-track.test.ts server/__tests__/ugc-never-lose-post.test.ts",
     "ugc:mine": "tsx scripts/mine-ugc-vision.ts",
     "test:watch": "vitest",
-    "find-plaintext-backups": "tsx scripts/find-plaintext-backups.ts"
+    "find-plaintext-backups": "tsx scripts/find-plaintext-backups.ts",
+    "app": "electron .",
+    "app:build": "vite build"
   },
   "dependencies": {
     "dictionary-lt": "^2.0.0",
@@ -29,6 +31,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.3",
     "autoprefixer": "^10.5.4",
+    "electron": "^44.5.1",
     "oxlint": "^1.71.0",
     "postcss": "^8.5.19",
     "tailwindcss": "^3.4.19",
@@ -36,5 +39,6 @@
     "typescript": "~6.0.2",
     "vite": "^8.1.1",
     "vitest": "^4.1.10"
-  }
+  },
+  "main": "electron/main.cjs"
 }

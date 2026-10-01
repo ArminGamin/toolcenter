@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 import { adaptUgcThemeForSeason, isUgcThemeSeasonallyValid } from './ugc-season-context.js'
 import { currentProfileBrand } from './profile-brand.js'
 import { profileDataPath } from './business-profiles.js'
+import { loadKaleduCatalog, resolveProductAssets } from './ugc-kaledu-catalog.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ASSETS = process.env.UGC_TEST_ASSETS || path.join(__dirname, '..', 'assets', 'ugc-slides')
@@ -86,6 +87,16 @@ export function getAllUgcThemes(): UgcThemeEntry[] {
   return Object.values(pool.categories).flat()
 }
 
+function autoSelectableThemes(themes: UgcThemeEntry[]): UgcThemeEntry[] {
+  if (!isChristmasUgc()) return themes
+  const available = new Set(
+    loadKaleduCatalog()
+      .filter((product) => product.inStock && resolveProductAssets(product.slug))
+      .flatMap((product) => [product.slug, product.sku, product.productId]),
+  )
+  return themes.filter((theme) => !theme.productHints?.length || theme.productHints.every((id) => available.has(id)))
+}
+
 function themeFingerprint(theme: string): string {
   return theme.trim().toLowerCase().replace(/\s+/g, ' ')
 }
@@ -104,7 +115,7 @@ export function loadUsedUgcThemes(): Set<string> {
 export function pickUnusedUgcTheme(category?: string): UgcThemeEntry | null {
   const used = loadUsedUgcThemes()
   const christmas = isChristmasUgc()
-  const candidates = (category ? getUgcThemesForCategory(category) : getAllUgcThemes()).filter(
+  const candidates = autoSelectableThemes(category ? getUgcThemesForCategory(category) : getAllUgcThemes()).filter(
     (e) => !used.has(themeFingerprint(e.theme)),
   )
   const pool = christmas
@@ -120,9 +131,7 @@ export function pickUnusedUgcTheme(category?: string): UgcThemeEntry | null {
 
 export function countAvailableUgcThemes(category?: string): number {
   const used = loadUsedUgcThemes()
-  const candidates = category
-    ? getUgcThemesForCategory(category)
-    : getAllUgcThemes()
+  const candidates = autoSelectableThemes(category ? getUgcThemesForCategory(category) : getAllUgcThemes())
   return candidates.filter((e) => !used.has(themeFingerprint(e.theme))).length
 }
 
@@ -131,7 +140,7 @@ export function getUgcThemePoolStatus(category?: string) {
   const used = loadUsedUgcThemes()
   const categories = listUgcThemeCategories()
   const catKey = category && category !== 'Random theme' ? category : undefined
-  const candidates = catKey ? getUgcThemesForCategory(catKey) : getAllUgcThemes()
+  const candidates = autoSelectableThemes(catKey ? getUgcThemesForCategory(catKey) : getAllUgcThemes())
   const available = candidates.filter((e) => !used.has(themeFingerprint(e.theme))).length
   const totalInScope = candidates.length
   return {
@@ -157,7 +166,7 @@ export function pickBatchUgcThemes(
   const testMode = options?.testMode === true
   const used = testMode ? new Set<string>() : loadUsedUgcThemes()
   const catKey = category && category !== 'Random theme' ? category : undefined
-  let candidates = (catKey ? getUgcThemesForCategory(catKey) : getAllUgcThemes()).filter(
+  let candidates = autoSelectableThemes(catKey ? getUgcThemesForCategory(catKey) : getAllUgcThemes()).filter(
     (e) => !used.has(themeFingerprint(e.theme)),
   )
   if (!isChristmasUgc()) {

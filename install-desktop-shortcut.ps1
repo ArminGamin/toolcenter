@@ -1,4 +1,4 @@
-# ToolsAI Control Center — regenerate app icon ICO and refresh desktop shortcut.
+﻿# ToolsAI Control Center — regenerate app icon ICO and refresh desktop shortcut.
 $ErrorActionPreference = 'Stop'
 $root = (Resolve-Path (Split-Path -Parent $MyInvocation.MyCommand.Path)).Path
 Set-Location $root
@@ -7,6 +7,7 @@ $pngPath = Join-Path $root 'public\app-icon.png'
 $icoPath = Join-Path $root 'toolsai-app.ico'
 $legacyIcoPath = Join-Path $root 'toolsai.ico'
 $batPath = Join-Path $root 'Start ToolsAI.bat'
+$electronExe = Join-Path $root 'node_modules\electron\dist\electron.exe'
 $shortcutName = 'ToolsAI Control Center.lnk'
 
 # Legacy / duplicate shortcut names to remove from every desktop folder.
@@ -170,7 +171,13 @@ function Install-Shortcut {
     $linkPath = Join-Path $DesktopDir $shortcutName
     $shell = New-Object -ComObject WScript.Shell
     $shortcut = $shell.CreateShortcut($linkPath)
-    $shortcut.TargetPath = $batPath
+    # Desktop app (Electron); fall back to the old launcher if Electron is not installed.
+    if (Test-Path $electronExe) {
+        $shortcut.TargetPath = $electronExe
+        $shortcut.Arguments = '"' + $root + '"'
+    } else {
+        $shortcut.TargetPath = $batPath
+    }
     $shortcut.WorkingDirectory = $root
     $shortcut.IconLocation = "$icoPath,0"
     $shortcut.Description = 'ToolsAI Control Center'

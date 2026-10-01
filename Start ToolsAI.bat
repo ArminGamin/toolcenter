@@ -2,13 +2,7 @@
 setlocal EnableExtensions
 cd /d "%~dp0"
 
-REM ToolsAI Control Center — desktop launcher
-REM Ensures bridge is up, then opens the tools home (orbit).
-
-REM AMD GPU (RX 5700 XT): prefer Vulkan compute for Ollama when available
-if not defined OLLAMA_VULKAN set OLLAMA_VULKAN=1
-if not defined OLLAMA_NUM_PARALLEL set OLLAMA_NUM_PARALLEL=1
-if not defined OLLAMA_MAX_LOADED_MODELS set OLLAMA_MAX_LOADED_MODELS=1
+REM ToolsAI Control Center: opens the desktop app (it starts its own services).
 
 where npm >nul 2>&1
 if errorlevel 1 (
@@ -17,8 +11,8 @@ if errorlevel 1 (
   exit /b 1
 )
 
-if not exist "node_modules\" (
-  echo Installing dependencies…
+if not exist "node_modules\electron\dist\electron.exe" (
+  echo Installing dependencies...
   call npm install
   if errorlevel 1 (
     echo npm install failed.
@@ -27,5 +21,5 @@ if not exist "node_modules\" (
   )
 )
 
-powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0wait-and-open.ps1"
-exit /b %ERRORLEVEL%
+start "" "%~dp0node_modules\electron\dist\electron.exe" "%~dp0."
+exit /b 0
