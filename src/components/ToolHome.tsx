@@ -22,7 +22,9 @@ interface ToolHomeProps {
 
 export function ToolHome(props: ToolHomeProps) {
   const { tools, onlineMap, onSelect, onOpenModule, onAddToRail, onRemoveFromRail, isOnRail, railDirty, onSaveRail, onRestoreTool } = props
-  const [view, setView] = useState<'directory' | 'orbit'>('directory')
+  const [view, setView] = useState<'directory' | 'orbit'>(() =>
+    typeof window !== 'undefined' && window.matchMedia('(max-width: 860px)').matches ? 'directory' : 'orbit',
+  )
   const [query, setQuery] = useState('')
   const [filter, setFilter] = useState<'All tools' | 'Pinned' | 'Hidden tools' | DirectoryGroup>('All tools')
   const entries = useMemo(() => buildToolDirectory(tools, true), [tools])

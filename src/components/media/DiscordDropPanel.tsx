@@ -411,7 +411,7 @@ export function DiscordDropPanel() {
             {queue.map((v, i) => (
               <li key={v.name} className="flex items-center justify-between gap-3 rounded-lg px-2 py-1.5 text-sm">
                 <span className="min-w-0 truncate text-snow">
-                  <span className="mr-2 font-mono text-xs text-fog">#video{(form.start_index || 1) + i}</span>
+                  <span className="mr-2 font-mono text-xs text-fog">#video-{(form.start_index || 1) + i}</span>
                   {v.name}
                 </span>
                 <span className={`shrink-0 text-xs ${v.state === 'fail' || v.too_large ? 'text-ember' : v.state === 'busy' ? 'text-brass' : 'text-fog'}`}>

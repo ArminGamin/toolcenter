@@ -5,7 +5,8 @@ const DISCORD_API = 'https://discord.com/api/v10'
 const MAX_MESSAGE_LEN = 2000
 const MAX_UPLOAD_BYTES = 8 * 1024 * 1024
 export const ONE_SHOT_MAX_UPLOAD_BYTES = Math.floor(9.5 * 1024 * 1024)
-const POST_NAME_RE = /^post-(\d+)(?:-.+)?$/i
+/** UGC post channels: slides-N (older ones were post-NN); both count when numbering. */
+const POST_NAME_RE = /^(?:slides|post)-(\d+)(?:-.+)?$/i
 const DISCORD_FETCH_TIMEOUT_MS = 120_000
 const DISCORD_UPLOAD_TIMEOUT_MS = 300_000
 const DISCORD_FETCH_RETRIES = 2
@@ -238,7 +239,7 @@ async function publishSlideshowToDiscordRest(
     const taken = await fetchTakenPostNumbers(token, guildId, categoryId || undefined)
     const catKey = categoryKey(guildId, categoryId || undefined)
     const postNum = planPostNumber(taken, catKey, guildId, categoryId || '')
-    const channelName = `post-${String(postNum).padStart(2, '0')}`
+    const channelName = `slides-${postNum}`
     createdChannel = await createPostChannel(
       token,
       guildId,

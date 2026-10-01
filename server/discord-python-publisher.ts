@@ -74,7 +74,8 @@ export function publishUgcViaPostMakerPython(
       encoding: 'utf8',
       timeout: 600_000,
       windowsHide: true,
-      env: { ...process.env, PYTHONUTF8: '1' },
+      // UGC posts are named slides-N (PostMaker on its own keeps post-NN).
+      env: { ...process.env, PYTHONUTF8: '1', DISCORD_CHANNEL_PREFIX: 'slides' },
     })
 
     const stdout = (proc.stdout || '').trim()
