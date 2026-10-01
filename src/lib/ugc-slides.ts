@@ -1,5 +1,5 @@
 import type { UgcPlacement, UgcTemplate } from './ugc-slides-render'
-import { KALEDU_UNIVERSAL_DESCRIPTION } from './ugc-universal-description'
+import { KALEDU_UNIVERSAL_DESCRIPTION, KALEDU_UNIVERSAL_DESCRIPTIONS, normalizeUniversalDescriptions } from './ugc-universal-description'
 import { isAbortError, type UgcRequestOptions } from './ugc-fetch'
 import {
   activeBusinessProfileId,
@@ -222,6 +222,8 @@ export type UgcSlidesProfileSettings = {
   exportSizeId: UgcExportSizeId
   ltDescription: string
   universalDescription?: string
+  /** Kalėdų: up to three descriptions; each batch post picks one at random. */
+  universalDescriptions?: string[]
   generateDescriptionAutomatically?: boolean
   discordGuildId: string
   discordCategoryId: string
@@ -267,6 +269,7 @@ export function emptyUgcDraft(profileId = activeBusinessProfileId()): UgcSlidesD
     defaultCta: defaultUgcCtaForProfile(profileId),
     ...(isChristmasUgcProfile(profileId) ? {
       universalDescription: KALEDU_UNIVERSAL_DESCRIPTION,
+      universalDescriptions: [...KALEDU_UNIVERSAL_DESCRIPTIONS],
       generateDescriptionAutomatically: false,
     } : {}),
     slides: [],
@@ -283,6 +286,7 @@ export function draftProfileSettings(draft: UgcSlidesDraft): UgcSlidesProfileSet
     exportSizeId: draft.exportSizeId,
     ltDescription: draft.ltDescription,
     universalDescription: draft.universalDescription,
+    universalDescriptions: draft.universalDescriptions,
     generateDescriptionAutomatically: draft.generateDescriptionAutomatically,
     discordGuildId: draft.discordGuildId,
     discordCategoryId: draft.discordCategoryId,
@@ -710,6 +714,9 @@ export function loadUgcDraft(): UgcSlidesDraft {
       angle,
       exportSizeId,
       defaultCta: defaultCta === otherBrandCta ? fallback.defaultCta : defaultCta,
+      ...(isChristmasUgcProfile()
+        ? { universalDescriptions: normalizeUniversalDescriptions(parsed.universalDescriptions, parsed.universalDescription) }
+        : {}),
       slides: Array.isArray(parsed.slides)
         ? parsed.slides.map((s) => ({
             ...DEFAULT_SLIDE_CONTENT,

@@ -80,6 +80,7 @@ export async function startUgcBatchRun(body: {
   outputFolder: string
   defaultCta: string
   universalDescription?: string
+  universalDescriptions?: string[]
   useFolderImages: boolean
 }): Promise<{ ok: boolean; message?: string; run?: UgcBatchRunView } | null> {
   return postJson('batch-run-start', body)

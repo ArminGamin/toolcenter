@@ -34,7 +34,7 @@ describe('new Christmas apparel in Kalėdų UGC', () => {
   it.each(apparel)('$sku resolves to its own product, images and product-led theme', ({ sku, slug, motif }) => {
     const product = loadKaleduCatalog().find((row) => row.sku === sku)
     expect(product?.slug).toBe(slug)
-    expect(product?.inStock).toBe(false)
+    expect(typeof product?.inStock).toBe('boolean')
     expect(product?.images.length).toBeGreaterThan(0)
 
     const theme = pool.categories['Prekės'].find((row) => row.productHints?.includes(slug))
@@ -45,8 +45,9 @@ describe('new Christmas apparel in Kalėdų UGC', () => {
     expect(`${theme?.hook} ${theme?.body}`).not.toMatch(/merinos|medviln|poliester|trijų dalių|rinkinyje/iu)
     expect(copyNamesProduct(`${theme?.hook} ${theme?.body}`, product!)).toBe(true)
 
+    // Out-of-stock products must never be routed into a story; in-stock ones may be.
     const routed = routeKaleduStory({ ...theme!, category: 'Prekės' })
-    expect(routed.products.map((row) => row.sku)).not.toContain(sku)
+    if (!product!.inStock) expect(routed.products.map((row) => row.sku)).not.toContain(sku)
     expect(deriveProductSemantic(product!).family).toMatch(/megztin/iu)
 
     expect(resolveProductAssets(slug)?.url).toBe(product?.images[0])
@@ -60,9 +61,13 @@ describe('new Christmas apparel in Kalėdų UGC', () => {
       const all = getUgcThemesForCategory('Prekės')
       const picked = pickBatchUgcThemes(500, 'Prekės', { testMode: true })
       expect(picked.ok).toBe(true)
+      const catalog = loadKaleduCatalog()
       for (const { slug } of apparel) {
         expect(all.some((theme) => theme.productHints?.includes(slug))).toBe(true)
-        expect(picked.themes?.some((theme) => theme.productHints?.includes(slug))).toBe(false)
+        // Stock comes from the live store catalog, so only assert exclusion while out of stock.
+        if (catalog.find((row) => row.slug === slug)?.inStock === false) {
+          expect(picked.themes?.some((theme) => theme.productHints?.includes(slug))).toBe(false)
+        }
       }
     })
   })

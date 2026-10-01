@@ -1,7 +1,16 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { BUSINESS_PROFILE_STORAGE_KEY } from './business-profiles'
 import { emptyUgcDraft, loadUgcDraft, saveUgcDraft, UGC_DRAFT_KEY } from './ugc-slides'
-import { KALEDU_UNIVERSAL_DESCRIPTION, resolveUniversalUgcDescription } from './ugc-universal-description'
+import {
+  KALEDU_UNIVERSAL_DESCRIPTION,
+  KALEDU_UNIVERSAL_DESCRIPTION_2,
+  KALEDU_UNIVERSAL_DESCRIPTION_3,
+  KALEDU_UNIVERSAL_DESCRIPTIONS,
+  normalizeUniversalDescriptions,
+  pickUniversalDescription,
+  resolveUniversalUgcDescription,
+  resolveUniversalUgcDescriptions,
+} from './ugc-universal-description'
 
 function storage() {
   const values = new Map<string, string>()
@@ -46,5 +55,31 @@ describe('Kalėdų universal description', () => {
     expect(loadUgcDraft().ltDescription).toBe('')
     sessionStorage.setItem(BUSINESS_PROFILE_STORAGE_KEY, 'christmas-gifts')
     expect(loadUgcDraft().universalDescription).toBe('Mano tekstas\n#kaledos')
+  })
+})
+
+describe('Kalėdų description rotation', () => {
+  it('keeps an old single description in slot 1 and adds the two new ones', () => {
+    const slots = normalizeUniversalDescriptions(undefined, 'Mano senas aprašymas')
+    expect(slots).toEqual(['Mano senas aprašymas', KALEDU_UNIVERSAL_DESCRIPTION_2, KALEDU_UNIVERSAL_DESCRIPTION_3])
+    expect(normalizeUniversalDescriptions(['a'])).toEqual(['a', '', ''])
+  })
+
+  it('rotates only filled descriptions and never repeats the previous one', () => {
+    const list = resolveUniversalUgcDescriptions('christmas-gifts', ['A', '  ', 'C'])!
+    expect(list).toEqual(['A', 'C'])
+    for (let i = 0; i < 20; i++) expect(pickUniversalDescription(list, 'A')).toBe('C')
+    expect(resolveUniversalUgcDescriptions('christmas-gifts', ['A'], true)).toBeUndefined()
+    expect(resolveUniversalUgcDescriptions('tavo-knyga', ['A'])).toBeUndefined()
+  })
+
+  it('spreads picks across all three descriptions', () => {
+    const seen = new Set<string>()
+    let prev: string | undefined
+    for (let i = 0; i < 60; i++) {
+      prev = pickUniversalDescription(KALEDU_UNIVERSAL_DESCRIPTIONS, prev)
+      seen.add(prev)
+    }
+    expect(seen.size).toBe(3)
   })
 })

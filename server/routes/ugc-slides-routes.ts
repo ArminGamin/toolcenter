@@ -218,6 +218,9 @@ export function attachUgcSlidesRoutes(middlewares: Connect.Server) {
           outputFolder,
           defaultCta,
           universalDescription: typeof parsed.universalDescription === 'string' ? parsed.universalDescription : undefined,
+          universalDescriptions: Array.isArray(parsed.universalDescriptions)
+            ? parsed.universalDescriptions.filter((d: unknown): d is string => typeof d === 'string')
+            : undefined,
           useFolderImages,
         })
         sendJson(res, result.ok ? 200 : 400, result)

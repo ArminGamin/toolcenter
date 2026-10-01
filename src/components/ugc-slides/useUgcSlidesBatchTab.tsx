@@ -42,7 +42,7 @@ import {
     resetUgcThemePool,
     type UgcThemePoolStatus,
 } from '../../lib/ugc-theme-pool'
-import { resolveUniversalUgcDescription } from '../../lib/ugc-universal-description'
+import { normalizeUniversalDescriptions, resolveUniversalUgcDescriptions } from '../../lib/ugc-universal-description'
 import { type UgcDescriptionSettings } from './UgcUniversalDescription'
 import { clearDiscordPosted, estimateMinutes, loadDiscordPosted, loadPrefs, saveDiscordPosted, savePrefs, VISION_BATCH_OUTPUT, type BatchPrefs } from './batch-prefs'
 import { mapStorySlidesToRender, renderStorySlide } from './batch-render'
@@ -540,8 +540,10 @@ export function useUgcSlidesBatchTab({
       testMode,
       outputFolder: prefs.outputFolder.trim() || VISION_BATCH_OUTPUT,
       defaultCta: draft.defaultCta,
-      universalDescription: resolveUniversalUgcDescription(
-        activeBusinessProfileId(), draft.universalDescription, draft.generateDescriptionAutomatically,
+      universalDescriptions: resolveUniversalUgcDescriptions(
+        activeBusinessProfileId(),
+        normalizeUniversalDescriptions(draft.universalDescriptions, draft.universalDescription),
+        draft.generateDescriptionAutomatically,
       ),
       useFolderImages,
     })

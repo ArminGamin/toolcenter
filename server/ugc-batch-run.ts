@@ -16,7 +16,11 @@ import { buildBatchPostCaption } from './ugc-caption-format.js'
 import { ugcActiveCta } from './ugc-cta-normalize.js'
 import { currentBusinessProfile } from './business-profiles.js'
 import { isChristmasGiftsNiche } from './profile-brand.js'
-import { resolveUniversalUgcDescription } from '../src/lib/ugc-universal-description.js'
+import {
+  pickUniversalDescription,
+  resolveUniversalUgcDescription,
+  resolveUniversalUgcDescriptions,
+} from '../src/lib/ugc-universal-description.js'
 import {
   attachUgcAuditExport,
   deactivateUgcAuditCapture,
@@ -94,6 +98,8 @@ export type UgcBatchRunState = {
     testMode: boolean
     defaultCta: string
     universalDescription?: string
+    /** Kalėdų: descriptions rotated randomly per post. */
+    universalDescriptions?: string[]
     useFolderImages: boolean
   }
   posts: UgcBatchRunPost[]
@@ -317,6 +323,7 @@ export function startUgcBatchRun(opts: {
   outputFolder: string
   defaultCta?: string
   universalDescription?: string
+  universalDescriptions?: string[]
   useFolderImages: boolean
 }): { ok: boolean; message: string; run?: UgcBatchRunState } {
   const id = currentBusinessProfile().id
@@ -366,6 +373,7 @@ export function startUgcBatchRun(opts: {
       testMode: opts.testMode,
       defaultCta: opts.defaultCta?.trim() || ugcActiveCta(),
       universalDescription: resolveUniversalUgcDescription(id, opts.universalDescription),
+      universalDescriptions: resolveUniversalUgcDescriptions(id, opts.universalDescriptions),
       useFolderImages: opts.useFolderImages,
     },
     posts: [],
@@ -511,6 +519,7 @@ async function runPostsFrom(batch: UgcBatchRunState, id: string, startIndex: num
   void slideMin
   void slideMax
 
+  let lastUniversalDescription: string | undefined
   for (let i = startIndex; i < batch.posts.length; i++) {
     if (batch.abortRequested || isStaleBatchLoop(gen, id)) {
       if (!isStaleBatchLoop(gen, id)) {
@@ -589,7 +598,11 @@ async function runPostsFrom(batch: UgcBatchRunState, id: string, startIndex: num
       }
 
       postPhase = 'caption'
-      const universalDescription = batch.options.universalDescription
+      const rotation = batch.options.universalDescriptions
+      const universalDescription = rotation?.length
+        ? pickUniversalDescription(rotation, lastUniversalDescription)
+        : batch.options.universalDescription
+      lastUniversalDescription = universalDescription
       step(batch, id, `Post ${post.postIndex}: ${universalDescription === undefined ? 'building caption' : 'using universal description'}…`, (i + 0.7) / batch.count)
       const hookSlide =
         storyRes.slides.find((slide) => slide.role === 'hook') || storyRes.slides[0]
