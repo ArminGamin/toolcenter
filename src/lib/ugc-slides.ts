@@ -259,8 +259,11 @@ export const DEFAULT_UGC_DRAFT: UgcSlidesDraft = {
   activeSlideIndex: 0,
   ltDescription: '',
   discordGuildId: '',
-  discordCategoryId: '1533864166610436096',
+  discordCategoryId: '',
 }
+
+/** Former hard-coded category id; the category was deleted on Discord. */
+const STALE_DEFAULT_DISCORD_CATEGORY = '1533864166610436096'
 
 export function emptyUgcDraft(profileId = activeBusinessProfileId()): UgcSlidesDraft {
   return {
@@ -714,6 +717,8 @@ export function loadUgcDraft(): UgcSlidesDraft {
       angle,
       exportSizeId,
       defaultCta: defaultCta === otherBrandCta ? fallback.defaultCta : defaultCta,
+      // The old built-in category no longer exists on Discord; let the server setting fill it in.
+      discordCategoryId: parsed.discordCategoryId === STALE_DEFAULT_DISCORD_CATEGORY ? '' : (parsed.discordCategoryId ?? ''),
       ...(isChristmasUgcProfile()
         ? { universalDescriptions: normalizeUniversalDescriptions(parsed.universalDescriptions, parsed.universalDescription) }
         : {}),

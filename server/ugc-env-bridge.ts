@@ -92,7 +92,7 @@ const LEGACY_UGC_OLLAMA_MODELS = new Set([
 export const POST_MAKER_DISCORD_CATEGORY_ID = '1519313422309654599'
 
 /** UGC Slides Discord category (Control Center batch — separate from PostMaker). */
-export const UGC_DEFAULT_DISCORD_CATEGORY_ID = '1533864166610436096'
+export const UGC_DEFAULT_DISCORD_CATEGORY_ID = '1551579183094702110'
 
 export const UGC_VAULT_KEYS = [
   'OLLAMA_URL',

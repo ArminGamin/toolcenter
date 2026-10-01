@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { publishUgcSlideshowToDiscord } from '../discord-publisher.js'
 import { readJsonBody, sendJson } from '../middleware/http.js'
+import { raiseAlert } from '../alerts.js'
 import {
   loadUgcDiscordSettings,
   resolveDiscordCredentials,
@@ -422,13 +423,31 @@ export function attachUgcSlidesRoutes(middlewares: Connect.Server) {
           slides.push({ filename, data: Buffer.from(b64, 'base64') })
         }
 
-        const result = await publishUgcSlideshowToDiscord({
+        let result = await publishUgcSlideshowToDiscord({
           token: creds.token,
           guildId: creds.guildId,
           categoryId: creds.categoryId || undefined,
           caption,
           slides,
         })
+        const saved = resolveDiscordCredentials()
+        if (!result.ok && /10003|Unknown Channel/i.test(result.error || '') && saved.categoryId && saved.categoryId !== creds.categoryId) {
+          // The category sent by the page no longer exists: fall back to the profile's saved category.
+          result = await publishUgcSlideshowToDiscord({
+            token: creds.token,
+            guildId: creds.guildId,
+            categoryId: saved.categoryId,
+            caption,
+            slides,
+          })
+        }
+        if (!result.ok && /10003|Unknown Channel/i.test(result.error || '')) {
+          result = {
+            ...result,
+            error: `Discord category ${creds.categoryId || '(none)'} does not exist on this server. Set the right Category ID in UGC Settings → Discord.`,
+          }
+        }
+        if (!result.ok) raiseAlert('Discord post failed', result.error || 'Unknown error', { source: 'ugc-slides' })
         sendJson(res, result.ok ? 200 : 400, result)
         return
       }
