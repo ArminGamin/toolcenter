@@ -105,8 +105,8 @@ const CTA_LEADS: Record<KaleduCtaIntent, string[]> = {
   ],
   LAST_MINUTE: ['Rask dovaną greičiau –', 'Dar neišrinkai dovanos? Užsuk į'],
   BUDGET: [],
-  PRODUCT: ['Šį ir daugiau jaukių dovanų rasi', 'Daugiau praktiškų dovanų rasi'],
-  COUPLE: ['Rask tinkamą dovaną porai –', 'Šias ir daugiau jaukių dovanų rasi'],
+  PRODUCT: ['Šią dovaną ir daugiau jaukių idėjų rasi', 'Daugiau praktiškų dovanų rasi'],
+  COUPLE: ['Rask tinkamą dovaną porai –', 'Šias dovanas ir daugiau jaukių idėjų rasi'],
   RECIPIENT: [],
   COZY_MOOD: ['Dar daugiau jaukumo Kalėdoms rasi', 'Jaukias dovanas žiemos vakarams rasi'],
   PRACTICAL: ['Daugiau praktiškų dovanų rasi', 'Rask tinkamą variantą –'],
@@ -160,8 +160,8 @@ function recipientLead(blob: string): string | null {
 }
 
 function productLeads(productCount: number, hasVisibleProduct: boolean): string[] {
-  if (productCount >= 2 && hasVisibleProduct) return ['Šias ir daugiau jaukių dovanų rasi']
-  if (hasVisibleProduct) return ['Šį ir daugiau jaukių dovanų rasi', 'Daugiau praktiškų dovanų rasi']
+  if (productCount >= 2 && hasVisibleProduct) return ['Šias dovanas ir daugiau jaukių idėjų rasi']
+  if (hasVisibleProduct) return ['Šią dovaną ir daugiau jaukių idėjų rasi', 'Daugiau praktiškų dovanų rasi']
   return ['Daugiau praktiškų dovanų rasi']
 }
 

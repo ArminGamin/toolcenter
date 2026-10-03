@@ -1122,6 +1122,26 @@ export const KALEDU_PRODUCT_WHY: Record<string, string[]> = {
   'kalediniai-megztiniai-sniego-duetas': ['Derantys megztiniai tiks bendrai poros nuotraukai prie eglutės.'],
 }
 
+/**
+ * Catalog names start with a capital („Aromaterapijos žvakė“, „Mėnulio lempa“); the model copies
+ * them into the middle of a sentence („su Aromaterapijos žvake“, „Štai Mėnulio lempa“). The product
+ * type is a common noun — lowercase it mid-sentence. The quoted name („Žvakių vakaras“) keeps its
+ * capital; holiday names stay capitalised (reference §21).
+ */
+export function demoteProductTypeCapitals(text: string, products: KaleduCatalogProduct[] = loadKaleduCatalog()): string {
+  const stems = new Set<string>()
+  for (const product of products) {
+    const first = String(product.name || '').replace(/„[^“”"]*[“”"]/gu, ' ').trim().split(/\s+/)[0] || ''
+    const word = first.replace(/[^\p{L}]/gu, '')
+    if (word.length < 4 || !/^\p{Lu}\p{Ll}/u.test(word) || /^(?:Kalėd|Kūč|Naujųj|Velyk|Advent|Lietuv)/u.test(word)) continue
+    stems.add(word.slice(0, Math.max(4, word.length - 2)))
+  }
+  if (!stems.size) return text
+  return String(text || '').replace(/(?<=[\p{L},“”"]\s)\p{Lu}\p{Ll}+/gu, (word) =>
+    [...stems].some((stem) => word.startsWith(stem)) ? word.charAt(0).toLocaleLowerCase('lt-LT') + word.slice(1) : word,
+  )
+}
+
 /** Reason lines for one product: its own lifestyle intent first, then the per-product list. */
 export function kaleduProductReasonLines(product: KaleduCatalogProduct): string[] {
   const fromIntents = KALEDU_LIFESTYLE_INTENTS.filter((intent) => intent.slugs.includes(product.slug)).flatMap(
@@ -1136,7 +1156,8 @@ export const KALEDU_LIFESTYLE_INTENTS: KaleduLifestyleIntent[] = [
     confidence: 'HIGH',
     theme: /latte|cappuccin|kavos\s+put|pieno\s+put/iu,
     slugs: ['pieno-plakiklis-usb'],
-    context: ['Jei jis namie plaka pieną latte ar kakavai, dovanos kryptis jau aiški.'],
+    // No „jis“: the recipient may be mama or močiutė (batch30 post-02).
+    context: ['Kai namuose kas rytą plakamos pieno putos latte ar kakavai, dovanos kryptis jau aiški.'],
     why: ['Putos namie atsiras per kelias sekundes.'],
     copy: /latte|put|plakikl|kav|kakav/iu,
   },
@@ -1159,7 +1180,7 @@ export const KALEDU_LIFESTYLE_INTENTS: KaleduLifestyleIntent[] = [
     theme: /arbat/iu,
     slugs: ['keramikos-arbatos-rinkinys-po-vakara'],
     products: [/arbat/iu],
-    context: ['Jei vakare jis visada užsiplikys arbatos, dovanos idėja jau beveik aiški.'],
+    context: ['Jei vakaras neapsieina be arbatos, dovanos idėja jau beveik aiški.'],
     why: ['Tiks ramiam vakarui po ilgos dienos.'],
     copy: /arbat|vakar|puodel|šilt/iu,
   },

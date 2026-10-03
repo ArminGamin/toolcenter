@@ -649,6 +649,24 @@ The bare instrumental is the default for the means (`pjauk peiliu`, `nustebink d
 
 Sources: *Lietuvių kalbos žinynas. Prielinksnių vartojimas ir reikšmė* — http://www.xn--altiniai-4wb.info/files/kalba/KJ00/Lietuvi%C5%B3_kalbos_%C5%BEinynas._Prielinksni%C5%B3_vartojimas_ir_reik%C5%A1m%C4%97.KJ1806.pdf ; V. Zubaitienė (VU), *Specialybės kalba: linksnių vartojimo klaidos* — http://web.vu.lt/flf/v.zubaitiene/files/2014/02/sintakses_klaidos.pdf
 
+## Holiday names take a capital letter
+
+Holiday names are proper names: **Kalėdos, Kūčios, Velykos, Naujieji metai**. Mid-sentence `kalėdos` is a hard error → `Kalėdos` (also `Kalėdų`, `Kalėdoms`, `Kalėdas`…). The adjective `kalėdinis, kalėdinė` stays lowercase; `šv.` before the name is lowercase (`šv. Kalėdos`).
+
+Sources: VLKK, *Kai kurių religinių vardų, terminų, pavadinimų rašymas didžiąja raide* — https://www.vlkk.lt/vlkk-nutarimai/projektai/kai-kuriu-religiniu-vardu-terminu-pavadinimu-rasymas-didziaja-raide ; VLKK consultation *šventasis, šv. didžioji raidė* — https://www.vlkk.lt/konsultacijos/3037-sventasis-sv-didzioji-raide ; *Naujieji metai, didžioji raidė* — https://www.vlkk.lt/konsultacijos/1781-naujieji-metai-didzioji-raide
+
+## `daryti ką kokį` — the result adjective is accusative
+
+When `(pa)daryti` names the resulting state with an adjective or adjectival word, that word agrees with the object in the **accusative**: `padaryk mane laimingą`, `padaryti gyvenimą gražesnį`, `paiešką daro varginančią`. The instrumental (`laimingu`) and the nominative (`paiešką daro varginanti`) are errors.
+
+Source: VLKK consultation *daryti ką kokiu* — https://vlkk.lt/konsultacijos/6717-daryti-ka-kokiu
+
+## `(pa)imti viršų`
+
+The fixed expression is `(pa)imti viršų` (accusative) — "to prevail, to take over". `ima viršum` mixes in the adverb/preposition `viršum` and is an error → `ima viršų`.
+
+Source: VLKK consultation *Ar vartotinas pasakymas „paimti viršų“?* — https://vlkk.lt/konsultacijos/12806-2017-08-25-12-55-32 (citing *Lietuvių kalbos žodynas* and *Frazeologijos žodynas*, 2001, p. 842)
+
 Not yet verified (treat as naturalness only, never a gate): abstract `ties` (`susikoncentruoti ties kuo` → prefer `susitelkti į ką`).
 
 ---
@@ -661,6 +679,6 @@ The generator also applies a few deterministic repairs that are **naturalness** 
 - `iki kol` → `kol` (doubled conjunction; `iki` alone or `kol` alone is normative — see §21).
 - `jauti stresas / nerimas` → `jauti stresą / nerimą` (object of *jausti* is accusative).
 - `Dovanos galite įsigyti / pirkti` → `Dovanas gali įsigyti / pirkti` (the gift is the object, accusative; the plain `galite → gali` swap alone would leave a false subject — §3).
-- Audit batch30 phrases, rewritten as whole phrases for naturalness only: `parodyti savo dėmesį` → `parodyti dėmesio`, `tai išleidžia daugiau` (no agent) → `taip dažnai išleidi daugiau`, `pasirinkimas visoms šalims` (legal register) → `pasirinkimas abiem`, `jaukumo ir šviesaus komforto` → `jaukumo ir šilumos`, `filmų vakaro mėgėjams` → `filmų vakarų mėgėjams`.
+- Audit batch30 phrases, rewritten as whole phrases for naturalness only: `parodyti savo dėmesį` → `parodyti dėmesio`, `tai išleidžia daugiau` (no agent) → `taip dažnai išleidi daugiau`, `pasirinkimas visoms šalims` (legal register) → `pasirinkimas abiem`, `jaukumo ir šviesaus komforto` → `jaukumo ir šilumos`, `filmų vakaro mėgėjams` → `filmų vakarų mėgėjams`, `ką nors netikėtų ir šventiška` (mixed cases) → `kažko netikėto ir šventiško`, invented `staigroves` → `staigmenas`.
 
 If a VLKK / E. Kalba source contradicts one of these, the source wins: remove or change the repair.

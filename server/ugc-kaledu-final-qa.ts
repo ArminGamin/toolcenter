@@ -6,6 +6,7 @@
  */
 
 import { UGC_KALEDU_DIET_LEAK_RE } from './ugc-lt-normalize.js'
+import { isVerblessFragmentSentence, ltSentenceHasPredicate } from './ugc-lt/normalize-copy.js'
 import {
   kaleduInventedProductMentions,
   kaleduProductSlideVerdict,
@@ -657,6 +658,8 @@ export function findIncompleteClause(text: string, role?: string, field: 'title'
   if (DANGLING_LAST_WORDS.has(last)) return `ends on "${last}"`
   if (!hasTerminal && /(tų|ti|tis)$/u.test(last) && last.length > 4) return `cut after "${last}"`
   if (field === 'title' && role === 'hook' && isIncompleteSubordinateHook(t)) return 'Kai hook never finishes'
+  // „Ritualai su šviesa. Jaukumo kelias“ — a label, not a hook: no question and no verb.
+  if (field === 'title' && role === 'hook' && !/\?\s*$/u.test(t) && !ltSentenceHasPredicate(t)) return 'label title (no question, no verb)'
   if (field === 'title' && !hasTerminal && /,/.test(t) && /^(jei|jeigu|kai|kad|nors)\b/iu.test(t)) {
     return 'subordinate title without main clause'
   }
@@ -746,8 +749,17 @@ export function findCaseGovernmentErrors(text: string): string[] {
   if (jautiNom) errors.push(`${jautiNom[0]} (jausti + accusative)`)
   const nounJauti = String(text || '').match(NOUN_SUBJECT_JAUTI_RE)
   if (nounJauti) errors.push(`${nounJauti[0]} (noun subject + 2nd-person verb)`)
+  // „paiešką daro varginanti“ / „padaryk mane laimingu“ — result adjective is accusative (reference §21, VLKK 6717).
+  const darytiResult = String(text || '').match(DARYTI_RESULT_RE)
+  if (darytiResult) errors.push(`${darytiResult[0]} (daryti ką kokį: accusative)`)
+  // „Kalėdos“ is a holiday name — capital letter (reference §21).
+  const lowerHoliday = String(text || '').match(/(?<![\p{L}#/.@])kalėd(?:os|ų|oms|as|omis|ose)(?!\p{L})/u)
+  if (lowerHoliday) errors.push(`${lowerHoliday[0]} (holiday name needs a capital letter)`)
   return errors
 }
+
+const DARYTI_RESULT_RE =
+  /(?:\p{L}+ą\s+(?:pa)?dar(?:o|ai|ys|ysi|ė|yti|yk)\s+\p{L}{3,}(?:nti|inga|unga)|(?:pa)?dar(?:o|ai|ys|ysi|ė|yti|yk)\s+(?:mane|tave|jį|ją|juos|jas)\s+\p{L}{2,}(?:ingu|esniu))(?!\p{L})/iu
 
 
 const NEBUTINA_BUTI_MISUSE_RE =
@@ -1580,11 +1592,15 @@ export function repairValidWordWrongContext(text: string): {
 }
 export function findSentenceFragments(text: string): string[] {
   const out: string[] = []
-  for (const sentence of String(text || '').split(/(?<=[.!?…])\s+/u)) {
+  const all = String(text || '').split(/(?<=[.!?…])\s+/u).map((part) => part.trim()).filter(Boolean)
+  for (const sentence of all) {
     const s = sentence.trim()
     if (!s) continue
     const words = s.split(/\s+/).filter((w) => /\p{L}/u.test(w))
     if (words.length === 1 && /[.!]$/u.test(s)) out.push(s)
+    // „Šventiška nuotaika.“ / „Dabar rytas.“ / „Nuspręsti, kas svarbiausia.“ next to full sentences:
+    // a split-off label, not UGC copy (brand voice: short complete sentences).
+    else if (all.length >= 2 && /[.!]$/u.test(s) && isVerblessFragmentSentence(s)) out.push(s)
     if (/^kai\s/iu.test(s) && !/[,?]/u.test(s) && words.length <= 8 && /[.!]$/u.test(s)) out.push(s)
     if (/^(?:(?:su|be|į|iš|apie|dėl|prie)\s+)?kur(?:is|i|ie|ios|iuo|iais|ią|į|iam|iai|ių|iomis)\s/iu.test(s)) out.push(s)
     // „Idealus atsipalaiduoti po dienos.“ — adjective + infinitive, no finite verb.

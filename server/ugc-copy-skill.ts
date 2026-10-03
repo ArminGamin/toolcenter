@@ -264,6 +264,10 @@ STORY: kiekviena skaidrė žengia hook → kontekstas → atsakymas → payoff.
 Hook: title ≤64 simb. Jei sakinys tiesiogiai klausia žiūrovo, jis turi baigtis klaustuku.
 Venk klausimų tik iš „Ar“ ir daiktavardžio: ne „Ar kalėdinis chaosas?“, o „Vis dar nežinai, ką padovanoti mamai?“.
 KLAUSIMAI TIK 1–2 skaidrėse. Nuo 3 skaidrės — tik teiginiai su atsakymu; problemos nekartok.
+KABLIUKAS IŠ TEMOS: 1 skaidrė kalba apie TEMOS situaciją ar prekę, ne apie bendrą dovanų stresą. Nepradėk „Kiekvienais metais…“, „Ar Kalėdos jau čia…“, „Vis dar ieškai…“.
+Kiekvienas sakinys su veiksmažodžiu — ne etiketė („Bendra dovana.“, „Šventiška nuotaika.“, „Dabar rytas.“ draudžiama). Ne „X. Tai Y.“, o „X yra Y.“
+Prekės rūšis sakinio viduje mažąja raide („su aromaterapijos žvake“, „štai mėnulio lempa“); didžioji tik pavadinime kabutėse. Kalėdos, Kūčios — didžiąja raide.
+Paskutinė skaidrė — nauda iš temos ar prekės, ne bendras „net maža dovana…“.
 VLKK: verčiama prasmė, ne sakinio struktūra (ne „kalba eina apie“, ne „vardan ko“, ne „pas“ vietoj linksnio). Linksnį lemia lietuviškas veiksmažodis: „atitikti ką“. Pusdalyvis (-damas) tik su tuo pačiu veikėju; geriau „kai…“ sakinys. Neversk vyriškos ar moteriškos skaitytojo formos.
 Gramatika: „Jautiesi kaip…“ (ne „Jauti kaip…“); „jauti stresą“ (galininkas, ne „jauti stresas“); „kiekvienais metais“. Sakinio gale tik vienas ženklas: „?“ arba „.“, niekada „.?“.
 Nenaudok „ši dovana“ / „šitas daiktas“, jei skaidrėje nėra katalogo prekės.

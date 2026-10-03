@@ -523,6 +523,62 @@ export const KALEDU_SUBJECT_HOOKS: Record<string, Array<{ title: string; body: s
   kojinės: [{ title: 'Šilta dovana žiemai?', body: 'Kartais paprasčiausia dovana būna pati praktiškiausia.' }],
 }
 
+/**
+ * On-topic hooks for product themes that no KALEDU_THEME_SUBJECTS row covers (difuzorius, lempos,
+ * miego rinkinys…). Situation only, no product noun — the product is revealed later (batch30:
+ * product posts opened on generic gift stress because nothing on-topic existed).
+ */
+export const KALEDU_THEME_HOOKS: Array<{ re: RegExp; hooks: Array<{ title: string; body: string }> }> = [
+  {
+    re: /difuzori|kvap\p{L}*\s+nam|namų\s+kvap|aromat/iu,
+    hooks: [{ title: 'Kuo kvepia tavo namai per šventes?', body: 'Kvapas sukuria jaukumą greičiau nei bet kokia dekoracija.' }],
+  },
+  {
+    re: /lemp|girliand|projektori|mėnul|saulėlyd|galaktik|šviesa/iu,
+    hooks: [{ title: 'Žiemos vakarai per tamsūs?', body: 'Šilta šviesa pakeičia kambario nuotaiką per kelias sekundes.' }],
+  },
+  {
+    re: /mieg|šilk|pižam|sapn/iu,
+    hooks: [{ title: 'Ar spėji pailsėti prieš šventes?', body: 'Gruodį ramaus miego dažnai pritrūksta labiausiai.' }],
+  },
+  {
+    re: /advent|atgalin\p{L}*\s+skaičiav/iu,
+    hooks: [{ title: 'Kaip laukti Kalėdų kiekvieną dieną?', body: 'Gruodžio rytai smagesni, kai kiekvienas atneša mažą staigmeną.' }],
+  },
+  {
+    re: /pakavim|pakuot/iu,
+    hooks: [{ title: 'Dovanos nupirktos, bet dar nesupakuotos?', body: 'Paskutinį vakarą pakuoti visada užtrunka ilgiau, nei tikiesi.' }],
+  },
+  {
+    re: /(?<!\p{L})arbat/iu,
+    hooks: [{ title: 'Vakaras neapsieina be arbatos?', body: 'Tada dovanos idėja jau beveik aiški.' }],
+  },
+  {
+    re: /(?<!\p{L})kav(?:a|ą|os|ai)(?!\p{L})|latte|kakav|plakikl/iu,
+    hooks: [{ title: 'Rytas prasideda nuo kavos?', body: 'Tada geriausia dovana yra ta, kuri tą rytą padaro dar malonesnį.' }],
+  },
+  {
+    re: /film|kino/iu,
+    hooks: [{ title: 'Filmų vakaras namuose?', body: 'Kartais jam trūksta tik vienos smulkmenos.' }],
+  },
+  {
+    re: /megztin|džemper|kardigan|golf|drabuž/iu,
+    hooks: [{ title: 'Šilta dovana, kurią dėvės kasdien?', body: 'Žiemą jaukūs drabužiai spintoje neužsibūna.' }],
+  },
+  {
+    re: /romantišk|(?<!\p{L})rož/iu,
+    hooks: [{ title: 'Romantiška dovana be klišių?', body: 'Kartais užtenka vieno gražaus akcento, kuris išliks ilgai.' }],
+  },
+  {
+    re: /telefon|įkrov|ausin|bater|power\s*bank/iu,
+    hooks: [{ title: 'Telefonas vėl išsikrovė?', body: 'Praktiška smulkmena kasdien sutaupo nervų.' }],
+  },
+  {
+    re: /vakarien\p{L}*\s+dviese|serviravim/iu,
+    hooks: [{ title: 'Vakarienė dviese namuose?', body: 'Kartais jai trūksta tik gražaus serviravimo.' }],
+  },
+]
+
 export const KALEDU_GENERIC_HOOKS: Array<{ title: string; body: string }> = [
   { title: 'Vis dar be dovanos?', body: 'Sąrašas ilgėja, o šventė vis arčiau.' },
   { title: 'Nežinai, ką padovanoti?', body: 'Idėjų daug, bet nė viena netinka iki galo.' },
@@ -534,7 +590,15 @@ export function pickKaleduSubjectHook(
   prior: Array<{ title?: string; body?: string; text?: string }> = [],
   allowed: KaleduCatalogProduct[] = [],
 ): { title: string; body: string } {
-  let subjects = KALEDU_THEME_SUBJECTS.filter((row) => row.theme.test(themeText)).map((row) => row.label)
+  // The theme title comes first in themeText: „Dovanos iki 50 eurų … pledas, termosas“ is a budget
+  // post, not a thermos post (batch30 post-23). Earliest mention wins.
+  const firstAt = (re: RegExp) => {
+    const at = themeText.search(re)
+    return at < 0 ? Number.POSITIVE_INFINITY : at
+  }
+  let subjects = KALEDU_THEME_SUBJECTS.filter((row) => row.theme.test(themeText))
+    .sort((a, b) => firstAt(a.theme) - firstAt(b.theme))
+    .map((row) => row.label)
   if (/slapt/iu.test(themeText)) subjects = ['kolega', ...subjects.filter((label) => label !== 'kolega' && label !== 'senelis')]
   const byFreshness = (hooks: Array<{ title: string; body: string }>) =>
     rankByLedgerFreshness(hooks.map((h) => `${h.title}\n${h.body}`)).map((key) => {
@@ -542,9 +606,13 @@ export function pickKaleduSubjectHook(
       return { title, body }
     })
   const kit = findKaleduThemeKit(themeText)
+  const themeHooks = KALEDU_THEME_HOOKS.filter((row) => row.re.test(themeText))
+    .sort((a, b) => firstAt(a.re) - firstAt(b.re))
+    .flatMap((row) => row.hooks)
   const ranked = [
     ...byFreshness(kit?.hooks || []),
     ...byFreshness(subjects.flatMap((label) => KALEDU_SUBJECT_HOOKS[label] || [])),
+    ...byFreshness(themeHooks),
     ...byFreshness(KALEDU_GENERIC_HOOKS),
   ]
   const ok = ranked.find((hook) => {

@@ -15,6 +15,7 @@ import {
 import { finalizeCloseSlideCta, ugcActiveCta } from '../ugc-cta-normalize.js'
 import { resolveUgcOllamaKeepAliveActive, resolveUgcOllamaModel, resolveUgcOllamaNumCtxBatch, resolveUgcOllamaNumGpu } from '../ugc-env-bridge.js'
 import {
+    demoteProductTypeCapitals,
     kaleduInventedProductMentions,
     productTypePhrase,
     repairInventedProductCopy,
@@ -170,11 +171,12 @@ export async function rewriteKaleduSlidesNative(
   const qaCtx = { theme: opts.theme, allowed, productTruth: true as const }
 
   // A leaked „productId=…“ is stripped before QA — otherwise the whole slide is flagged and
-  // replaced by a stock line (audit batch30 post-08).
+  // replaced by a stock line (audit batch30 post-08). Catalog product types copied with their
+  // capital mid-sentence („su Aromaterapijos žvake“) are lowercased.
   const mechanically = slides.map((slide) => ({
     ...slide,
-    title: applyKaleduNativeRepairs(stripProductIdTags(slide.title)),
-    body: applyKaleduNativeRepairs(stripKaleduCtaLeak(stripProductIdTags(slide.body))),
+    title: applyKaleduNativeRepairs(demoteProductTypeCapitals(stripProductIdTags(slide.title))),
+    body: applyKaleduNativeRepairs(stripKaleduCtaLeak(demoteProductTypeCapitals(stripProductIdTags(slide.body)))),
   }))
 
   const audits: KaleduNativeSlideAudit[] = mechanically.map((slide, i) => {

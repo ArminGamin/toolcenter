@@ -6,6 +6,7 @@ import { isAllowedKaleduCta } from '../ugc-kaledu-cta.js'
 import { repairLtCaseAgreement } from '../ugc-lt-case-check.js'
 import { applyUniversalLtClassRepairs } from '../ugc-lt-classes.js'
 import { sanitizeLtSeasonCopy } from '../ugc-season-context.js'
+import { textHasFiniteVerbCue } from './gibberish.js'
 import { FORMAL_TO_TU, PHRASE_FIXES } from './phrase-fixes.js'
 export { FORMAL_TO_TU, PHRASE_FIXES } from './phrase-fixes.js'
 
@@ -205,7 +206,7 @@ const LT_DASH_VERB_RE =
 const LT_DASH_2SG_RE =
   /(?:^|[\s,„])(?!(?:jei|nei|kai|tai|ji|visi|kiti|mano|tavo|puiki|graži|jauki|švelni|saldi|plati|brangi|maloni|patogi|rami|aiški|šauni|gili|skani|stipri|tikri|geri)(?![\p{L}]))(?:\p{L}*[bdgklmnprsvzžšč]i|jauti|meti|kerti|verti)(?![\p{L}])/iu
 
-function ltClauseHasVerb(segment: string): boolean {
+export function ltClauseHasVerb(segment: string): boolean {
   const core = String(segment || '').trim()
   if (!core) return false
   return (
@@ -266,6 +267,8 @@ function rewriteOneLtDash(left: string, right: string): string {
     const lowered = /^[A-ZĄČĘĖĮŠŲŪŽ][a-ząčęėįšųūž]/u.test(rest) && !LT_PROPER_NOUN_START_RE.test(rest)
       ? rest.charAt(0).toLocaleLowerCase('lt-LT') + rest.slice(1)
       : rest
+    // „Štai X – Y“ is a presentative, not a copula: „Štai X: y“, never „Štai X yra y“.
+    if (/^Štai(?![\p{L}])/u.test(leftClause)) return `${leftTrim}: ${lowered}`
     return `${leftTrim}${comma} yra ${lowered}`
   }
   if (leftVerb && !tai && rightWords.length >= 1 && rightWords.length <= 5 && !rightVerb && !/[,:;]$/u.test(leftTrim)) {
@@ -378,7 +381,9 @@ export function normalizeLtUgcCopy(text: string, state: NormalizeLtCopyState = {
   state.mesOpenerCount = deduped.mesCount
   return polishLtCaps(
     stripLtBodyJunk(
-      repairIncompleteLtSentence(stripLtEmDashes(deduped.text.replace(/\s+/g, ' ').replace(/ \n /g, '\n').trim())),
+      joinVerblessCopulaSplits(
+        repairIncompleteLtSentence(stripLtEmDashes(deduped.text.replace(/\s+/g, ' ').replace(/ \n /g, '\n').trim())),
+      ),
     ),
   )
 }
@@ -392,6 +397,7 @@ export function normalizeLtUgcMultiline(text: string, state: NormalizeLtCopyStat
   let sanitized = sanitizeLtSeasonCopy(stripLtEmDashes(lines.join('\n').trim()))
   sanitized = applyLtPhrasePasses(sanitized)
   sanitized = mergeStubSentences(sanitized)
+  sanitized = sanitized.split('\n').map(joinVerblessCopulaSplits).join('\n')
   return polishLtCaps(stripLtBodyJunk(sanitized))
 }
 
@@ -438,6 +444,100 @@ export function mergeStubSentences(text: string): string {
     }
   }
   return merged.join(' ')
+}
+
+/**
+ * Predicates the verb cue lists miss: impersonal / predicative adverbs („dar sunkiau“, „lengva“,
+ * „verta“), 3rd-person futures („liks“, „pravers“) and prefixed passive participles used as the
+ * predicate („Dovana jau supakuota.“). Negated forms are checked with the
+ * „ne-/nebe-“ prefix removed („Nereikia“, „Neužtenka“).
+ */
+const LT_PREDICATE_EXTRA_RE =
+  /(?<!\p{L})(?:\p{L}{2,}iau|(?!pats(?!\p{L}))\p{L}{2,}[bcčdgjklnprtvzž]s|(?:su|iš|nu|pa|pri|ap|at|į|už|per|pra)\p{L}{2,}t(?:a|as|os)|lengva|sunku|smagu|malonu|verta|svarbu|gera|galima|įdomu|patogu|ramu|paprasta|jauku|šilta|gaila|metas|laikas|liks|tiks|bus|pravers|patiks|džiugins|pradžiugins|nudžiugins|šildys|sušildys|atrodys|kvepės|primins|tarnaus|papuoš|sukurs|suteiks|išliks|padės|sutaupys)(?!\p{L})/iu
+
+/**
+ * Present-tense verb endings (bėga, pasimeta, šviečia, keliauja, džiugina). Some nouns share them
+ * („kaina“, „pradžia“): a miss only lets a fragment through, it never flags a real sentence.
+ */
+const LT_PRESENT_LIKE_RE = /(?<!\p{L})(?:\p{L}{2,}(?:uoja|oja|ina|ena|eta|ėga|auga|ūna)|\p{L}{2,}(?<!iaus)ia)(?!\p{L})/iu
+
+function ltPredicateIn(text: string): boolean {
+  return ltClauseHasVerb(text) || textHasFiniteVerbCue(text) || LT_PREDICATE_EXTRA_RE.test(text) || LT_PRESENT_LIKE_RE.test(text)
+}
+
+export function ltSentenceHasPredicate(text: string): boolean {
+  const core = String(text || '')
+  if (ltPredicateIn(core)) return true
+  const unNegated = core.replace(/(?<!\p{L})ne(?:be)?(?=\p{L}{3,})/giu, '')
+  return unNegated !== core && ltPredicateIn(unNegated)
+}
+
+/** Openers that make a verbless sentence a normal elliptical one („Tai puiki dovana.“, „Štai…“). */
+const LT_ELLIPTIC_OPENER_RE = /^(?:Tai|Štai|Taip|Ne|Ar|Kai|Jei|Jeigu|Nors|Kuo|Kodėl|Kaip|Ką|Kas|Kur|Kada|Net|Tik|Vis\s+dar|Dar|Juk)(?![\p{L}])/u
+
+/** Adverbial openers that do not form a subject („Dabar rytas.“) — never joined with „yra“. */
+const LT_ADVERB_OPENER_RE = /^(?:Dabar|Šiandien|Rytoj|Vakar|Vėl|Čia|Ten|Šiemet|Kasmet|Kartais|Dažnai|Visada)(?![\p{L}])/u
+
+/**
+ * A short statement with no finite verb that is not a normal elliptical sentence:
+ * „Šventiška nuotaika.“, „Dabar rytas.“, „Nuspręsti, kas svarbiausia.“ (bare infinitive).
+ */
+export function isVerblessFragmentSentence(sentence: string, maxWords = 3): boolean {
+  const s = String(sentence || '').trim()
+  if (!s || /\?\s*$/u.test(s)) return false
+  const bare = s.replace(/[.!…]+$/u, '').trim()
+  const words = bare.split(/\s+/).filter((w) => /\p{L}/u.test(w))
+  if (!words.length) return false
+  const infinitiveStart = /(?:ti|tis)$/iu.test(words[0].replace(/[^\p{L}]/gu, ''))
+  if (ltSentenceHasPredicate(bare)) return false
+  if (infinitiveStart && words.length <= 8) return true
+  // Prepositions and particles do not make a label a sentence („Didelis žingsnis į priekį.“).
+  const content = words.filter((w) => !/^(?:į|iš|su|be|ant|po|prie|už|per|nuo|iki|ir|o|jau|dar|tik|labai|net)$/iu.test(w))
+  if (content.length > maxWords) return false
+  return !LT_ELLIPTIC_OPENER_RE.test(bare)
+}
+
+/**
+ * „X – Y“ that came out as two verbless sentences: „Bendra dovana. Protingesnis pasirinkimas.“ →
+ * „Bendra dovana yra protingesnis pasirinkimas.“; „Pledas „X“. Tai puiki dovana…“ → „Pledas „X“ yra
+ * puiki dovana…“; „Štai puiki dovana. Ąžuolo lenta „X“.“ → „Štai puiki dovana: ąžuolo lenta „X“.“
+ * (reference §22: the copula, not a fragment).
+ */
+export function joinVerblessCopulaSplits(text: string): string {
+  const parts = String(text || '')
+    .split(/(?<=[.!…])\s+/u)
+    .map((s) => s.trim())
+    .filter(Boolean)
+  if (parts.length < 2) return text
+  const out: string[] = []
+  for (let i = 0; i < parts.length; i++) {
+    const a = parts[i]
+    const b = parts[i + 1]
+    if (b && /\.$/u.test(a) && /[.!]$/u.test(b)) {
+      const aBare = a.replace(/\.$/u, '').trim()
+      const bTai = /^Tai\s+/u.test(b)
+      const bCore = b.replace(/^Tai\s+/u, '')
+      const aWords = aBare.split(/\s+/).length
+      const bWords = bCore.replace(/[.!]$/u, '').split(/\s+/).length
+      const verbless = !ltSentenceHasPredicate(aBare) && !ltSentenceHasPredicate(bCore.replace(/[.!]$/u, ''))
+      const lower = (t: string) =>
+        LT_PROPER_NOUN_START_RE.test(t) || /^[A-ZĄČĘĖĮŠŲŪŽ]{2,}/u.test(t) ? t : t.charAt(0).toLocaleLowerCase('lt-LT') + t.slice(1)
+      if (verbless && aWords <= 6 && bWords <= 10 && !LT_ADVERB_OPENER_RE.test(aBare)) {
+        if (/^Štai\s/u.test(aBare) && !bTai) {
+          out.push(`${aBare}: ${lower(bCore)}`)
+          i++
+          continue
+        }
+        if (!LT_ELLIPTIC_OPENER_RE.test(aBare) && !/,/u.test(aBare)) {
+          out.push(`${aBare} yra ${lower(bCore)}`)
+          i++
+          continue
+        }
+      }
+    }
+    out.push(a)
+  }
+  return out.join(' ')
 }
 
 /**

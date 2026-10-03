@@ -1,5 +1,5 @@
-export const KALEDU_UNIVERSAL_DESCRIPTION = `🎅 Kalėdų kampelis - viskas, ko reikia jaukioms šventėms! Dekoracijos, dovanų idėjos ir nuotaika visiems namams ✨
-🛒 Užsuk į kaledukampelis.com (nuoroda bio)
+export const KALEDU_UNIVERSAL_DESCRIPTION = `🎅 Kalėdų Kampelis – viskas, ko reikia jaukioms šventėms! Dekoracijos, dovanų idėjos ir nuotaika visiems namams ✨
+🛒 Užsuk į kaledukampelis.com (nuoroda profilyje)
 💬 Parašyk komentaruose, kokia tavo mėgstamiausia kalėdinė tradicija!
 
 #kaledukampelis
@@ -22,7 +22,7 @@ export function resolveUniversalUgcDescription(
 }
 
 export const KALEDU_UNIVERSAL_DESCRIPTION_2 = `🎄 Kalėdų nuotaika prasideda čia! Papuošk namus, rask idealias dovanas ir sukurk šventinę atmosferą ✨
-🛍️ Visa tai rasi kaledukampelis.com (nuoroda bio)
+🛍️ Visa tai rasi kaledukampelis.com (nuoroda profilyje)
 💬 O tu jau pradėjai ruoštis šventėms? Papasakok komentaruose!
 
 #kaledukampelis
@@ -34,9 +34,9 @@ export const KALEDU_UNIVERSAL_DESCRIPTION_2 = `🎄 Kalėdų nuotaika prasideda 
 #christmasdecor
 #lithuania`
 
-export const KALEDU_UNIVERSAL_DESCRIPTION_3 = `✨ Šventės arčiau, nei atrodo! Kalėdų kampelis padės sukurti jaukiausius namus ir rasti dovanas, kurios nudžiugins 🎁
-👉 Aplankyk kaledukampelis.com (nuoroda bio)
-💬 Kokia tavo svajonių kalėdinė dekoracija? Rašyk komentaruose!
+export const KALEDU_UNIVERSAL_DESCRIPTION_3 = `✨ Šventės arčiau, nei atrodo! Kalėdų Kampelis padės sukurti jaukiausius namus ir rasti dovanas, kurios nudžiugins 🎁
+👉 Aplankyk kaledukampelis.com (nuoroda profilyje)
+💬 Kokią dovaną šiemet labiausiai norėtum gauti? Rašyk komentaruose!
 
 #kaledukampelis
 #kaledos

@@ -129,9 +129,11 @@ export function collectKaleduArcIssues(slides: ArcSlide[], themeText = ''): ArcI
       const firstNamed = themeRecipients.length ? [] : mentionedKaleduRecipients(
         slides.slice(0, index).filter((s) => !s.productId).map((s) => arcSlideText(s)).join(' '),
       )
+      // Slides 1–2 set the post up: on a theme without a person they may not invent one
+      // („Tėvai džiaugiasi paprastais dalykais…“ on a film-evening post, batch30 post-24).
       const off = themeRecipients.length
         ? foreign.length > 0
-        : index === 0
+        : index <= 1 && !firstNamed.length
           ? named.length > 0
           : firstNamed.length > 0 && named.some((key) => !firstNamed.includes(key))
       if (!off) return

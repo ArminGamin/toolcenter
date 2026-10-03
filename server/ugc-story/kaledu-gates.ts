@@ -31,7 +31,8 @@ import {
     KALEDU_THEME_SUBJECTS,
     kaleduThemeDrift
 } from '../ugc-lt-normalize.js'
-import { getFallbackCloseBodyCandidates, pickKaleduSubjectHook, pickThemedKaleduFallback, pickValidatedKaleduFallback, UGC_KALEDU_FALLBACK_BUILD_BODIES, UGC_KALEDU_FALLBACK_CONTEXT_BODIES } from './fallbacks.js'
+import { kaleduPainRestartMatch } from './arc-guard.js'
+import { getFallbackCloseBodyCandidates, KALEDU_GENERIC_HOOKS, pickKaleduSubjectHook, pickThemedKaleduFallback, pickValidatedKaleduFallback, UGC_KALEDU_FALLBACK_BUILD_BODIES, UGC_KALEDU_FALLBACK_CONTEXT_BODIES } from './fallbacks.js'
 import { findKaleduProductKit } from './kaledu-kits.js'
 import { collectParaphraseSlideIssues } from './similarity.js'
 import { type UgcStorySlide } from './text.js'
@@ -210,6 +211,22 @@ export function repairKaleduProductLed(
     if (!body) continue
     repairs.push({ slide: i + 1, code: issue.code, before: textOf(slides[i]), after: body })
     slides[i] = { ...slides[i], title: '', body, productId: undefined, showProductPrice: false }
+  }
+  // A product post that opens on generic gift stress („Ar Kalėdos jau čia, o tu vis dar ieškai?
+  // Kiekvienais metais tas pats stresas…“) gets the theme's own hook — but only when one exists,
+  // so a generic hook is never swapped for another generic hook (batch30 posts 01, 14, 15).
+  if (mode.mode === 'PRODUCT_LED' && slides[0] && !slides[0].productId) {
+    const hookText = textOf(slides[0])
+    const onTopic = (mode.intent && mode.intent.copy.test(hookText)) || mode.products.some((p) => copyNamesProduct(hookText, p))
+    if (!onTopic && kaleduPainRestartMatch(hookText)) {
+      const others = slides.slice(1).map((s) => ({ title: s.title, body: s.body }))
+      const hook = pickKaleduSubjectHook(themeText, others, allowed)
+      const generic = KALEDU_GENERIC_HOOKS.some((h) => h.title === hook.title)
+      if (!generic && hook.title !== slides[0].title) {
+        repairs.push({ slide: 1, code: 'product_hook_generic', before: hookText, after: `${hook.title} ${hook.body}` })
+        slides[0] = { ...slides[0], title: hook.title, body: hook.body }
+      }
+    }
   }
   if (kaleduProductLedResolved(slides, mode)) return { slides, repairs, mode }
 

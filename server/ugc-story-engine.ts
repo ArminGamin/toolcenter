@@ -30,6 +30,7 @@ import {
     applyReservedProductResolution,
     attachKaleduSlideProducts,
     buildKaleduProductContract,
+    demoteProductTypeCapitals,
     enforceKaleduProductSlide,
     formatKaleduProductBrief,
     loadKaleduCatalog,
@@ -1031,7 +1032,11 @@ export async function generateUgcBatchStory(body: {
         }
         for (let i = 0; i < withProducts.length; i++) {
           const slide = withProducts[i]
-          withProducts[i] = { ...slide, title: stripProductIdTags(slide.title || ''), body: stripProductIdTags(slide.body || '') }
+          withProducts[i] = {
+            ...slide,
+            title: demoteProductTypeCapitals(stripProductIdTags(slide.title || '')),
+            body: demoteProductTypeCapitals(stripProductIdTags(slide.body || '')),
+          }
         }
         // Product slide contract: productId only where the copy names the product, and a named
         // product always says why it fits (not a bare „Gali rinktis X.“).
