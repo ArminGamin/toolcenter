@@ -208,11 +208,18 @@ export function collectLtCaseAgreementIssues(text: string): LtCaseAgreementIssue
         const objectToken = tokens[j]
         if (PREPOSITIONS.has(objectToken.toLocaleLowerCase('lt-LT'))) continue
         if (required === 'accusative' && looksGenitive(objectToken)) {
-          const next = tokens[j + 1]
-          if (next && looksAccusative(next) && !TEMPORAL_ACCUSATIVE_WORDS.has(next.toLocaleLowerCase('lt-LT'))) {
+          // Genitive modifiers before the object: „keramikos arbatos rinkinį“.
+          let k = j + 1
+          while (k < Math.min(j + 3, tokens.length) && looksGenitive(tokens[k]) && !looksAccusative(tokens[k]) && !/ių$/iu.test(tokens[k])) k++
+          const next = tokens[k]
+          // -ių is also the accusative of -ius nouns: „kvapo difuzorių“, „advento kalendorių“.
+          const accusativeNext = next && (looksAccusative(next) || (k > j && /ių$/iu.test(next)))
+          if (accusativeNext && !TEMPORAL_ACCUSATIVE_WORDS.has(next.toLocaleLowerCase('lt-LT'))) {
             continue
           }
         }
+        // „rinktis kvapo difuzorių“: after a genitive modifier, -ių is the -ius accusative.
+        if (required === 'accusative' && j > i + 1 && /ių$/iu.test(objectToken) && looksGenitive(tokens[j - 1])) break
         const issue = checkVerbObject(verb, objectToken, required, sentence)
         if (issue) {
           issues.push(issue)

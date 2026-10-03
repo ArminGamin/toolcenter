@@ -58,9 +58,43 @@ export function applyCasePreserving(text: string, re: RegExp, replacement: strin
 
 /** Convert residual first-person copy to the required reader-facing „tu" register. */
 export function normalizePersonRegister(text: string): string {
-  return text
+  // Leave quoted product names alone: „Mūsų istorija“ is a title, not a we-form.
+  return String(text || '')
+    .split(/(„[^“”"]{1,60}[“”"])/u)
+    .map((part) => (part.startsWith('„') ? part : normalizePersonRegisterPart(part)))
+    .join('')
+}
+
+/** We-forms the model slips into; rewriting them keeps an otherwise good chunk out of fallback. */
+const WE_TO_TU: Array<[RegExp, string]> = [
+  [/(?<!\p{L})žinome(?!\p{L})/giu, 'žinai'],
+  [/(?<!\p{L})dovanojame(?!\p{L})/giu, 'dovanoji'],
+  [/(?<!\p{L})perkame(?!\p{L})/giu, 'perki'],
+  [/(?<!\p{L})ieškome(?!\p{L})/giu, 'ieškai'],
+  [/(?<!\p{L})renkamės(?!\p{L})/giu, 'renkiesi'],
+  [/(?<!\p{L})norime(?!\p{L})/giu, 'nori'],
+  [/(?<!\p{L})matome(?!\p{L})/giu, 'matai'],
+  [/(?<!\p{L})darome(?!\p{L})/giu, 'darai'],
+  [/(?<!\p{L})galvojame(?!\p{L})/giu, 'galvoji'],
+  [/(?<!\p{L})pamirštame(?!\p{L})/giu, 'pamiršti'],
+  [/(?<!\p{L})išleidžiame(?!\p{L})/giu, 'išleidi'],
+  [/(?<!\p{L})atidedame(?!\p{L})/giu, 'atidedi'],
+  [/(?<!\p{L})įsimetame(?!\p{L})/giu, 'įsimeti'],
+  [/(?<!\p{L})jaučiamės(?!\p{L})/giu, 'jautiesi'],
+  [/(?<!\p{L})dovanokime(?!\p{L})/giu, 'dovanok'],
+  [/(?<!\p{L})leiskime(?!\p{L})/giu, 'leisk'],
+  [/(?<!\p{L})sukurkime(?!\p{L})/giu, 'sukurk'],
+  [/(?<!\p{L})pasižiūrėkime(?!\p{L})/giu, 'pasižiūrėk'],
+]
+
+function normalizePersonRegisterPart(text: string): string {
+  let out = text
+  // „Ar vis dar nežinai, ką tėčiui?“ → the missing verb is always „padovanoti“.
+  out = out.replace(/(,\s*ką)\s+(\p{L}+(?:iui|ui|ei|ai|ams|oms|ėms))\s*\?/gu, '$1 padovanoti $2?')
+  for (const [re, rep] of WE_TO_TU) out = applyCasePreserving(out, re, rep)
+  return out
     .replace(/(?<!\p{L})jaučiu(?!\p{L})/giu, 'jauti')
-    .replace(/(?<!\p{L})jaučiuosi(?!\p{L})/giu, 'jauti')
+    .replace(/(?<!\p{L})jaučiuosi(?!\p{L})/giu, 'jautiesi')
     .replace(/(?<!\p{L})noriu(?!\p{L})/giu, 'nori')
     .replace(/(?<!\p{L})suprantu(?!\p{L})/giu, 'supranti')
     .replace(/(?<!\p{L})įsitikinau(?!\p{L})/giu, 'įsitikinai')
@@ -112,8 +146,16 @@ export function repairRhetoricalTuQuestionMarks(text: string): string {
     .join(' ')
 }
 
+/** „svečiai.?“ / „dovanos?.“ / „taip,?“ → one terminal mark. Ellipsis before „?“ goes too. */
+export function collapseStackedPunctuation(text: string): string {
+  return String(text || '')
+    .replace(/\s*(?:\.{1,3}|…|[,;:])\s*\?/gu, '?')
+    .replace(/\?\s*[.,;:]+(?!\.)/gu, '?')
+    .replace(/!\s*\.(?!\.)/gu, '!')
+}
+
 export function applyLtPhrasePasses(text: string): string {
-  let out = text
+  let out = collapseStackedPunctuation(text)
   for (const [re, rep] of FORMAL_TO_TU) out = applyCasePreserving(out, re, rep)
   for (let pass = 0; pass < 2; pass++) {
     for (const [re, rep] of PHRASE_FIXES) out = applyCasePreserving(out, re, rep)
@@ -152,11 +194,112 @@ export function polishLtCaps(text: string): string {
   return lead + trimmed.replace(/^([a-ząčęėįšųūž])/u, (_, c: string) => c.toUpperCase())
 }
 
-/** Remove em/en dashes from generated LT copy; split into separate sentences. */
+/**
+ * Finite-verb heuristic for dash rewriting: the shared cue list, reflexive presents,
+ * imperatives (-k / -kis / -kite) and common 2sg/3rd-person presents and futures.
+ */
+const LT_DASH_VERB_RE =
+  /(?:^|[\s,„])(?:(?!(?:tik|kiek|tiek|niek|vienok)(?![\p{L}]))\p{L}{2,}(?:k|kis|kite|kime)|\p{L}{3,}(?:si|ėjo|ojo|avo|ins)|nori|žinai|gali|turi|reikia|yra|bus|buvo|tampa|lieka|liko|būna|eina|ateina|atrodo|kvepia|tinka|tiks|tiktų|pravers|praverčia|padeda|padės|džiugina|nustebina|nebūna|neturi|nežinai|nenori|ieškai|perki|matai|renkiesi|dovanoji|turėsi|rasi|randi|pradeda|baigiasi|užtenka|užteks|trūksta|svarbu|verta|norisi|lengva|sunku|smagu|malonu|gera)(?![\p{L}])/iu
+
+/** 2sg present after a consonant (bėgi, susiduri, perki) — broad on purpose: a false hit only keeps the split. */
+const LT_DASH_2SG_RE =
+  /(?:^|[\s,„])(?!(?:jei|nei|kai|tai|ji|visi|kiti|mano|tavo|puiki|graži|jauki|švelni|saldi|plati|brangi|maloni|patogi|rami|aiški|šauni|gili|skani|stipri|tikri|geri)(?![\p{L}]))(?:\p{L}*[bdgklmnprsvzžšč]i|jauti|meti|kerti|verti)(?![\p{L}])/iu
+
+function ltClauseHasVerb(segment: string): boolean {
+  const core = String(segment || '').trim()
+  if (!core) return false
+  return (
+    LT_FINITE_VERB_CUES.test(core) ||
+    LT_REFLEXIVE_FINITE_RE.test(core) ||
+    LT_DASH_VERB_RE.test(core) ||
+    LT_DASH_2SG_RE.test(core)
+  )
+}
+
+const LT_SUBORDINATE_START_RE = /^(?:Kai|Jei|Jeigu|Kadangi|Nors|Kol|Kuo)(?![\p{L}])/u
+const LT_CONJUNCTION_START_RE = /^(?:ir|bet|o|nes|kad|kai|jei|tačiau|todėl|arba)(?![\p{L}])/iu
+
+const LT_FINITE_VERB_CUES =
+  /\b(yra|bus|buvo|tampa|jauti|jaučia|jautiesi|gali|turi|reikia|reikėtų|rinkis|padeda|duoda|žinai|trūksta|priklauso|ieško|ieškai|veikia|baigiasi|prasideda|keičiasi|grįžta|nori|esi|galėsi|randi|atneša|suteikia|leidžia|liko|artėja|laukia|atsiranda)\b/i
+const LT_REFLEXIVE_FINITE_RE = /\b\p{L}{3,}(?:asi|osi|iasi)\b/iu
+
+/**
+ * One dash → no dash, without leaving a fragment behind (VLKK reference §22: the brand bans
+ * dashes, but „X – Y“ is a copula, not two sentences).
+ * - both sides verbless („Močiutės vakaras – ritualas“, „X – tai Y“) → „X yra Y“
+ * - verb on the left, short verbless tail („Dovanok tai, kas svarbu – laiką“) → colon
+ * - otherwise two sentences („Užpildyk testą – gauk knygą“ → „… testą. Gauk knygą“)
+ */
+function rewriteOneLtDash(left: string, right: string): string {
+  const leftTrim = left.replace(/\s+$/u, '')
+  const rightTrim = right.replace(/^\s+/u, '')
+  const sentenceStart = Math.max(leftTrim.lastIndexOf('. '), leftTrim.lastIndexOf('! '), leftTrim.lastIndexOf('? '))
+  const leftClause = sentenceStart >= 0 ? leftTrim.slice(sentenceStart + 2) : leftTrim
+  const rightEnd = rightTrim.search(/[.!?…](?:\s|$)/u)
+  const rightClause = (rightEnd >= 0 ? rightTrim.slice(0, rightEnd) : rightTrim).trim()
+  const rightWords = rightClause.split(/\s+/).filter(Boolean)
+  const leftWords = leftClause.split(/\s+/).filter(Boolean)
+  const tai = /^tai(?![\p{L}])\s*/iu.test(rightClause)
+  const rightCore = tai ? rightClause.replace(/^tai\s*/iu, '') : rightClause
+  const rightCoreWords = rightCore.split(/\s+/).filter(Boolean)
+  const leftVerb = ltClauseHasVerb(leftClause)
+  const rightVerb = ltClauseHasVerb(rightCore)
+  // „Kai žinai, ko nori – rinktis lengva“ → subordinate clause closed by a comma
+  if (LT_SUBORDINATE_START_RE.test(leftClause) && leftVerb && !tai && !/[,:;]$/u.test(leftTrim)) {
+    const lowered = LT_PROPER_NOUN_START_RE.test(rightTrim)
+      ? rightTrim
+      : rightTrim.charAt(0).toLocaleLowerCase('lt-LT') + rightTrim.slice(1)
+    return `${leftTrim}, ${lowered}`
+  }
+  if (LT_CONJUNCTION_START_RE.test(rightClause)) return `${leftTrim} ${rightTrim}`
+  if (
+    leftWords.length >= 1 &&
+    leftWords.length <= 8 &&
+    !leftVerb &&
+    rightCoreWords.length >= 1 &&
+    rightCoreWords.length <= 8 &&
+    !rightVerb &&
+    !/[,:;]$/u.test(leftTrim)
+  ) {
+    const comma = /,/.test(leftClause) ? ',' : ''
+    const rest = tai ? rightTrim.replace(/^tai\s*/iu, '') : rightTrim
+    const lowered = /^[A-ZĄČĘĖĮŠŲŪŽ][a-ząčęėįšųūž]/u.test(rest) && !LT_PROPER_NOUN_START_RE.test(rest)
+      ? rest.charAt(0).toLocaleLowerCase('lt-LT') + rest.slice(1)
+      : rest
+    return `${leftTrim}${comma} yra ${lowered}`
+  }
+  if (leftVerb && !tai && rightWords.length >= 1 && rightWords.length <= 5 && !rightVerb && !/[,:;]$/u.test(leftTrim)) {
+    const lowered = LT_PROPER_NOUN_START_RE.test(rightTrim)
+      ? rightTrim
+      : rightTrim.charAt(0).toLocaleLowerCase('lt-LT') + rightTrim.slice(1)
+    return `${leftTrim}: ${lowered}`
+  }
+  return `${leftTrim}. ${rightTrim}`
+}
+
+/** Words that keep their capital letter mid-sentence (holidays, places, quoted names). */
+export const LT_PROPER_NOUN_START_RE =
+  /^(?:„|"|Kalėd|Kūč|Naujųj|Naujieji|Naujuosius|Velyk|Advent|Lietuv|Vilni|Kaun|Klaipėd|Kalėdų\s+Senel|Senel(?:is|io|iui|į)\s+Šaltal)/u
+
+/** Remove em/en dashes (and spaced hyphens) from generated LT copy without leaving fragments. */
 export function stripLtEmDashes(text: string): string {
-  let out = text
-    .replace(/\s*—\s*/g, '. ')
-    .replace(/\s*–\s*/g, '. ')
+  let out = String(text || '').replace(/(\p{L}[„“"»)]?)\s+-\s+(?=[„"«(]?\p{L})/gu, '$1 – ')
+  for (let guard = 0; guard < 8; guard++) {
+    const m = /\s*[—–]\s*/u.exec(out)
+    if (!m) break
+    const left = out.slice(0, m.index)
+    const right = out.slice(m.index + m[0].length)
+    if (!left.trim()) {
+      out = right
+      continue
+    }
+    if (!right.trim()) {
+      out = left
+      continue
+    }
+    out = rewriteOneLtDash(left, right)
+  }
+  out = out
     .replace(/\.\s*\./g, '.')
     // Capitalize after sentence end — skip abbreviations like min. / val. / pvz.
     .replace(/(?<!\b(?:min|val|pvz|nr|el))\.\s+([a-ząčęėįšųūž])/giu, (_, c) => `. ${c.toUpperCase()}`)
@@ -197,9 +340,16 @@ export function dedupeMesOpeners(text: string, priorMesCount: number): { text: s
 
 export type NormalizeLtCopyState = { mesOpenerCount: number }
 
+/** Prompt markup the model sometimes copies into copy: „[productId=vilnonis-pledas]“. */
+export const PRODUCT_ID_TAG_RE = /\s*[[(]\s*product[_ ]?id\s*[:=]\s*[\p{L}0-9_-]+\s*[\])]/giu
+
+export function stripProductIdTags(text: string): string {
+  return String(text || '').replace(PRODUCT_ID_TAG_RE, '').replace(/\s+([.,!?])/g, '$1')
+}
+
 /** Strip CTA spam + all emoji from slide body/title (CTA lives only in cta field). */
 export function stripLtBodyJunk(text: string): string {
-  let out = String(text || '')
+  let out = stripProductIdTags(text)
   // Full CTA spam variants (emoji repeated) — including website CTA
   out = out.replace(/Apsilankyk\s*tavoknyga\.com[^.!\n]*(?:[.!]?\s*🤩*)*/giu, '')
   out = out.replace(/Pradėk\s*5\s*min\.?\s*testą([!\s?.]*🤩*)+/giu, '')

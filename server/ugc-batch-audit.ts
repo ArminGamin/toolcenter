@@ -13,6 +13,7 @@ export const UGC_AUDIT_TARGET_POSTS = Number(process.env.UGC_AUDIT_TARGET || 5) 
 
 /** Record a deterministic fallback that replaced model copy (audit + timeline). */
 export function auditFallback(entry: { slide: number; role?: string; reason: string; text: string }) {
+  if (process.env.UGC_ARC_DEBUG) console.log(`[fallback] slide ${entry.slide} ${entry.reason}`)
   const store = als.getStore()
   if (!store) return
   store.fallbacks.push(entry)

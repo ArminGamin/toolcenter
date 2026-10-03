@@ -38,6 +38,10 @@ import {
     isRepeatOfRecentSlideBody,
     rankByLedgerFreshness
 } from '../ugc-variety-ledger.js'
+import { repeatsIdeaFamily } from '../ugc-lt/idea-families.js'
+import { detectKaleduRecipient, personalizeForRecipient } from '../ugc-lt/recipient.js'
+import { KALEDU_PAIN_RESTART_RE } from './arc-guard.js'
+import { findKaleduThemeKit, themeKitLines } from './kaledu-kits.js'
 import { isDuplicateSlideCopy, isParaphraseSlideCopy, ugcSlideThemeOverlap } from './similarity.js'
 import { BODY_MAX, clipField, clipHookTitle, splitSentences, TITLE_MAX, type UgcStorySlide } from './text.js'
 
@@ -58,8 +62,10 @@ export function pickValidatedKaleduFallback(
   const priorKeys = splitSentences(priorText)
     .map((s) => normalizeSentenceKey(s))
     .filter((key) => key.split(' ').filter(Boolean).length >= 4)
+  const lateRole = role === 'build' || role === 'close' || role === 'punch'
   const passes = (body: string) => {
     if (UGC_KALEDU_DIET_LEAK_RE.test(body)) return false
+    if (lateRole && (/\?/u.test(body) || KALEDU_PAIN_RESTART_RE.test(body))) return false
     if (kaleduInventedProductMentions(body, allowed).length) return false
     if (kaleduDeterministicQa([{ body, role }], { theme: '', allowed }).length) return false
     if (isParaphraseSlideCopy('', body, prior)) return false
@@ -74,7 +80,37 @@ export function pickValidatedKaleduFallback(
       return false
     }
   }
-  return rankByLedgerFreshness(candidates).find(passes) || null
+  const ranked = rankByLedgerFreshness(candidates)
+  // First choice: a line that also brings a new idea (not "tinka žmogui" for the third time).
+  return ranked.find((body) => !repeatsIdeaFamily(body, priorText) && passes(body)) || ranked.find(passes) || null
+}
+
+/**
+ * Validated fallback that stays on the post's subject: lines personalised for the theme's
+ * recipient („tam žmogui“ → „seseriai“) are tried first, stock lines only after.
+ */
+export function pickThemedKaleduFallback(
+  role: string,
+  candidates: string[],
+  prior: Array<{ title?: string; body?: string; text?: string }> = [],
+  allowed: KaleduCatalogProduct[] = [],
+  themeText = '',
+): string | null {
+  // Hand-checked lines written for this exact theme come first — they keep the story on topic.
+  const kitLines = themeKitLines(findKaleduThemeKit(themeText), role)
+  if (kitLines.length) {
+    const picked = pickValidatedKaleduFallback(role, kitLines, prior, allowed)
+    if (picked) return picked
+  }
+  const r = detectKaleduRecipient(themeText)
+  if (r) {
+    const personal = candidates
+      .map((line) => personalizeForRecipient(line, r))
+      .filter((line): line is string => Boolean(line))
+    const picked = personal.length ? pickValidatedKaleduFallback(role, personal, prior, allowed) : null
+    if (picked) return picked
+  }
+  return pickValidatedKaleduFallback(role, candidates, prior, allowed)
 }
 
 export function buildFallbackCloseBody(
@@ -83,7 +119,7 @@ export function buildFallbackCloseBody(
 ): string {
   const candidates = getFallbackCloseBodyCandidates(topic)
   if (isChristmasGiftsNiche()) {
-    const picked = pickValidatedKaleduFallback('close', candidates, prior)
+    const picked = pickThemedKaleduFallback('close', candidates, prior, [], topic)
     if (picked) return picked
   }
   return (
@@ -283,42 +319,53 @@ export const UGC_FALLBACK_CONTEXT_BODIES = [
 ]
 
 export const UGC_KALEDU_FALLBACK_CONTEXT_BODIES = [
-  'Lentynose daug dovanų, bet vis tiek nežinai, ką rinktis. Šventė artėja, o tu vis atidedi.',
-  'Sąrašas ilgėja, kol perki tai, kas po ranka. Tada dovaną dažniau imi paskubomis, užuot rinkęs pagal žmogų.',
-  'Kiekvieną vakarą svarstai iš naujo ir pavargsti dar prieš parduotuvę. Tada renkiesi greičiausią daiktą.',
+  'Lentynose daug dovanų, bet vis tiek nežinai, ką rinktis. Šventės artėja, o tu sprendimą vis atidėlioji.',
+  'Kai sąrašas ilgėja, griebi tai, kas po ranka. Tada dovaną perki paskubomis, o ne pagal žmogų.',
+  'Kiekvieną vakarą svarstai iš naujo, kol pavargsti. Tada dovanai griebi pirmą pasitaikiusį daiktą.',
   'Kuo ilgiau atidedi dovanų paiešką, tuo sunkiau apsispręsti. Vakare jėgų rinktis lieka vis mažiau.',
-  'Kai nežinai, kam ieškai, visos lentynos atrodo vienodos. Tada laukti švenčių sunkiau.',
+  'Kai nežinai, ko ieškai, visos lentynos atrodo vienodos.',
   'Internete tiek dovanų pasiūlymų, kad akys raibsta. Po valandos naršymo vis dar nieko neišsirinkai.',
   'Jau kelias savaites galvoji apie dovaną, bet nežinai, nuo ko pradėti. Todėl sprendimą vis stumi vėliau.',
-  'Atrodo, kad tas žmogus jau viską turi. Todėl kiekviena dovanos idėja atrodo per paprasta.',
+  'Tas žmogus, regis, jau viską turi, todėl kiekviena dovanos idėja atrodo per paprasta.',
   'Laiko iki švenčių lieka vis mažiau, o sąraše dar keli vardai. Skubant lengva nupirkti bet ką.',
   'Daug išleisti nesinori, bet ir atsitiktinės dovanos nenori. Taip rinktis tampa dar sunkiau.',
 ]
 
 export const UGC_KALEDU_FALLBACK_BUILD_BODIES = [
-  'Kai žinai, kam dovana, parduotuvėje lieka mažiau spėliojimo. Greičiau randi daiktą, kuris tinka.',
+  'Kai žinai, kam perki, parduotuvėje mažiau dvejoji ir greičiau randi tinkamą daiktą.',
   'Kai žinai, kuo žmogus džiaugiasi kasdien, dovanos paieška tampa daug paprastesnė.',
-  'Pradėk nuo žmogaus, ne nuo daikto. Tada dovaną rinktis ramiau ir lieka laiko pakuotei.',
-  'Viena apgalvota dovana geriau už dešimt skubotų krepšelių. Tai pajunti ir biudžete.',
+  'Pradėk nuo žmogaus, o ne nuo daikto. Tada dovaną rinktis ramiau, o laiko lieka ir pakuotei.',
+  'Viena apgalvota dovana vertesnė už dešimt skubotų pirkinių. Ir išleidi mažiau.',
   'Pagalvok, kaip tas žmogus leidžia laisvą vakarą. Iš to dažnai ir gimsta geriausia dovanos idėja.',
-  'Užsirašyk tris dalykus, kuriuos žmogus mėgsta. Su tokiu sąrašu dovanos pasirinkimas susiaurėja per kelias minutes.',
+  'Užsirašyk tris dalykus, kuriuos žmogus mėgsta. Su tokiu sąrašu per kelias minutes lieka vos keli variantai.',
   'Dovana nebūtinai turi būti brangi. Svarbiau, kad ji tiktų žmogaus kasdienybei.',
-  'Kartais geriausia dovana yra tai, ko žmogus pats sau nenupirktų. Tokią smulkmeną jis prisimins ilgiau.',
+  'Kartais geriausia dovana yra tai, ko žmogus pats sau nenupirktų. Būtent tokią jis ir prisimins.',
   'Praktiška dovana nebūtinai nuobodi. Kai žmogus ja naudojasi kasdien, ji primena apie tave.',
   'Nereikia ieškoti tobulos dovanos. Užtenka tokios, kuri tiktų būtent tam žmogui.',
+  'Pažiūrėk, ką žmogus dažniausiai naudoja namuose. Dažnai geriausia dovana yra tas pats daiktas, tik geresnis.',
+  'Prisimink, ką žmogus minėjo per pastaruosius mėnesius. Tokios užuominos dažnai ir tampa geriausia dovanos idėja.',
+  'Gražiai supakuota dovana atrodo apgalvotai net tada, kai ji nedidelė.',
+  'Prie dovanos pridėk atviruką su keliais ranka parašytais žodžiais. Jį žmogus dažnai saugo ilgiau nei pačią dovaną.',
+  'Rinkis daiktą, kurį žmogus naudos ir po švenčių. Tada dovana neatsidurs stalčiuje.',
+  'Nusistatyk sumą iš anksto. Tada rinktis tenka ne iš visos parduotuvės, o iš kelių variantų.',
 ]
 
 export const UGC_KALEDU_FALLBACK_CLOSE_BODIES = [
-  'Kai dovana jau išrinkta, prieš šventes daug ramiau. Žinai, kad daiktas tiks žmogui.',
+  'Kai dovana jau išrinkta, prieš šventes daug ramiau. Žinai, kad ji tikrai tiks.',
   'Kai žinai, ko ieškai, dovaną išrinkti daug paprasčiau.',
-  'Parinkus dovaną ramiai, švenčių laukti lengviau. Lieka daugiau ramybės.',
-  'Gerai dovanai nebūtina kainuoti daug. Svarbiau, kam ją renkiesi.',
+  'Kai dovana išrinkta laiku, švenčių lauki ramiai.',
+  'Gera dovana nebūtinai kainuoja daug. Svarbiau, kam ją renkiesi.',
   'Net maža dovana gali pradžiuginti, jei ji tinka žmogui.',
-  'Kai dovana tinka žmogui, jos kaina nebe tokia svarbi. Toks pasirinkimas prisimenamas ilgiau.',
+  'Kai dovana tinka žmogui, jos kaina nebe tokia svarbi.',
   'Kai turi aiškią idėją, dovanų paieška trunka kelias minutes, ne kelis vakarus.',
   'Išsirinkus dovaną anksčiau, šventės prasideda be skubos. Lieka laiko ir pakuotei.',
   'Apgalvota dovana nereikalauja didelio biudžeto. Užtenka žinoti, kam ją perki.',
-  'Kai dovana išrinkta pagal žmogų, jos išpakavimas tampa smagiausia vakaro dalimi.',
+  'Kai dovana tikrai tinka žmogui, išpakuoti ją bus smagiausia vakaro dalis.',
+  'Kai dovana jau paruošta, gali ramiai mėgautis paskutinėmis dienomis prieš šventes.',
+  'Geriausia dovana yra ta, kuria žmogus naudosis dar ilgai po švenčių.',
+  'Kai matai, kad dovana pataikė, paieška atrodo verta kiekvienos minutės.',
+  'Praktiška dovana nepasimeta stalčiuje. Ji primena apie tave kiekvieną dieną.',
+  'Šiemet dovanų paieška gali būti ne skuba, o malonus pasiruošimas šventėms.',
 ]
 
 /** Exported for pool audit tests — diversified; no generic-filler self-contradictions. */
@@ -376,7 +423,7 @@ export function buildFallbackSupportBody(
   const base = role === 'context' ? contextBase : buildBase
   const candidates = anchor ? [...base.map((body) => `${anchor} ${body}`), ...base] : base
   if (isChristmasGiftsNiche()) {
-    const picked = pickValidatedKaleduFallback(role, [...base, ...(anchor ? base.map((b) => `${anchor} ${b}`) : [])], prior)
+    const picked = pickThemedKaleduFallback(role, [...base, ...(anchor ? base.map((b) => `${anchor} ${b}`) : [])], prior, [], topic)
     if (picked) return picked
   }
   const rotated = [...candidates.slice(startIndex % candidates.length), ...candidates.slice(0, startIndex % candidates.length)]
@@ -426,6 +473,13 @@ export const KALEDU_SUBJECT_HOOKS: Record<string, Array<{ title: string; body: s
     { title: 'Mamai vėl ta pati dovana?', body: 'Kasmet perki kažką panašaus. Šiemet dovana turi būti apgalvota.' },
   ],
   tėtis: [{ title: 'Ką padovanoti tėčiui?', body: 'Tėtis sako, kad jam nieko nereikia. Tada ieškoti dar sunkiau.' }],
+  sesuo: [
+    { title: 'Ką padovanoti seseriai?', body: 'Ją pažįsti geriausiai, bet idėjų vis tiek trūksta.' },
+    { title: 'Vis dar ieškai dovanos seseriai?', body: 'Norisi kažko, kas tiktų būtent jai, o ne bet kam.' },
+  ],
+  brolis: [{ title: 'Ką padovanoti broliui?', body: 'Jis sako, kad nieko nereikia, o tu vis tiek nori jį pradžiuginti.' }],
+  močiutė: [{ title: 'Ką padovanoti močiutei?', body: 'Ji džiaugiasi dėmesiu labiau nei brangiais daiktais.' }],
+  draugė: [{ title: 'Ką padovanoti draugei?', body: 'Ją pažįsti gerai, bet idėjų vis tiek trūksta.' }],
   senelis: [
     { title: 'Senelis sako, kad jam nieko nereikia?', body: 'Tada dovanos ieškai ilgiau nei bet kam kitam.' },
     { title: 'Ką padovanoti seneliui?', body: 'Jam nereikia dar vienos smulkmenos lentynai.' },
@@ -435,7 +489,10 @@ export const KALEDU_SUBJECT_HOOKS: Record<string, Array<{ title: string; body: s
     { title: 'Ką padovanoti porai?', body: 'Dovana turi tikti abiem, todėl rinktis sunkiau.' },
   ],
   vyras: [{ title: 'Ką padovanoti vyrui?', body: 'Jis viską nusiperka pats, todėl sugalvoti sunku.' }],
-  moteris: [{ title: 'Ką padovanoti jai šiemet?', body: 'Ji turi beveik viską, todėl sugalvoti sunku.' }],
+  moteris: [
+    { title: 'Ką padovanoti jai šiemet?', body: 'Moteriai, kuri turi beveik viską, sugalvoti dovaną sunku.' },
+    { title: 'Ką padovanoti moteriai šiemet?', body: 'Ji turi beveik viską, todėl sugalvoti, ką padovanoti, nėra lengva.' },
+  ],
   draugas: [{ title: 'Ką padovanoti draugui?', body: 'Jį pažįsti gerai, bet idėjų vis tiek trūksta.' }],
   kolega: [
     { title: 'Slaptasis Senelis darbe?', body: 'Reikia dovanos kolegai, kurio beveik nepažįsti.' },
@@ -451,6 +508,7 @@ export const KALEDU_SUBJECT_HOOKS: Record<string, Array<{ title: string; body: s
   ],
   'paskutinė minutė': [
     { title: 'Kalėdos jau rytoj, o dovanos dar nėra?', body: 'Laiko liko mažai, todėl rinktis reikia greitai.' },
+    { title: 'Prisiminei dovanas paskutinę minutę?', body: 'Pirmiausia patikrink, ar siuntinys dar spės atkeliauti iki švenčių.' },
   ],
   atstumas: [
     { title: 'Kaip nudžiuginti žmogų kitame mieste?', body: 'Kai negali įteikti dovanos pats, ji turi keliauti paštu.' },
@@ -482,7 +540,9 @@ export function pickKaleduSubjectHook(
       const [title, body] = key.split('\n')
       return { title, body }
     })
+  const kit = findKaleduThemeKit(themeText)
   const ranked = [
+    ...byFreshness(kit?.hooks || []),
     ...byFreshness(subjects.flatMap((label) => KALEDU_SUBJECT_HOOKS[label] || [])),
     ...byFreshness(KALEDU_GENERIC_HOOKS),
   ]

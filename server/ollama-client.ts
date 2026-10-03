@@ -65,6 +65,9 @@ export type OllamaCallStat = {
   promptEvalCount?: number
   numPredict: number
   doneReason?: string
+  evalDurationNs?: number
+  model?: string
+  numGpu?: number
 }
 
 const EVAL_RATE_FILE = path.join(CC_DATA, 'ollama-eval-rate.json')
@@ -364,6 +367,8 @@ export async function ollamaGenerateJson(
     numGpu?: number
     signal?: AbortSignal
     callType?: OllamaCallType
+    /** JSON schema for Ollama structured output (replaces plain `format: "json"`). */
+    jsonSchema?: Record<string, unknown>
     /** Shrink num_predict to what the measured tokens/sec can finish before timeoutMs. */
     timeFit?: boolean
   },
@@ -405,7 +410,7 @@ export async function ollamaGenerateJson(
   if (options?.keepAlive !== undefined) {
     body.keep_alive = options.keepAlive
   }
-  if (useJsonFormat) body.format = 'json'
+  if (useJsonFormat) body.format = options?.jsonSchema || 'json'
   if (options?.system?.trim()) {
     body.system = options.system.trim()
   }
@@ -429,6 +434,9 @@ export async function ollamaGenerateJson(
         typeof ollamaMeta.prompt_eval_count === 'number' ? ollamaMeta.prompt_eval_count : undefined,
       numPredict,
       doneReason: typeof ollamaMeta.done_reason === 'string' ? ollamaMeta.done_reason : undefined,
+      evalDurationNs: typeof ollamaMeta.eval_duration === 'number' ? ollamaMeta.eval_duration : undefined,
+      model,
+      numGpu: typeof genOptions.num_gpu === 'number' ? genOptions.num_gpu : undefined,
     })
   try {
     if (options?.timeFit) {

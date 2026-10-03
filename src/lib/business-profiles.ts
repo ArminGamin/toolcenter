@@ -2,6 +2,8 @@ export const BUSINESS_PROFILE_STORAGE_KEY = 'toolsai-business-profile-v1'
 export const DEFAULT_BUSINESS_PROFILE_ID = 'tavo-knyga'
 export const CHRISTMAS_BUSINESS_PROFILE_ID = 'christmas-gifts'
 export const BUSINESS_PROFILE_CHANGED_EVENT = 'toolsai-business-profile-changed'
+/** Last workspace picked; new windows and app restarts open on it. */
+const LAST_BUSINESS_PROFILE_KEY = 'cc.last-business-profile'
 
 export type BusinessProfile = {
   id: string
@@ -44,10 +46,12 @@ export function activeBusinessProfileId(): string {
       return legacy
     }
     try {
-      return sessionStorage.getItem(BUSINESS_PROFILE_STORAGE_KEY) || DEFAULT_BUSINESS_PROFILE_ID
+      const sessionId = sessionStorage.getItem(BUSINESS_PROFILE_STORAGE_KEY)
+      if (sessionId) return sessionId
     } catch {
-      return DEFAULT_BUSINESS_PROFILE_ID
+      /* fall through to the last-used profile */
     }
+    return localStorage.getItem(LAST_BUSINESS_PROFILE_KEY) || DEFAULT_BUSINESS_PROFILE_ID
   } catch {
     return DEFAULT_BUSINESS_PROFILE_ID
   }
@@ -55,6 +59,11 @@ export function activeBusinessProfileId(): string {
 
 export function setActiveBusinessProfileId(id: string) {
   sessionStorage.setItem(BUSINESS_PROFILE_STORAGE_KEY, id)
+  try {
+    localStorage.setItem(LAST_BUSINESS_PROFILE_KEY, id)
+  } catch {
+    /* session choice still applies */
+  }
   window.dispatchEvent(new CustomEvent(BUSINESS_PROFILE_CHANGED_EVENT, { detail: { id } }))
 }
 

@@ -486,7 +486,14 @@ export function outreachBootCheck() {
   }
 }
 
-outreachBootCheck()
+// Only logs a reminder; deferred so the vault decrypt does not slow app start.
+setTimeout(() => {
+  try {
+    outreachBootCheck()
+  } catch {
+    /* informational only */
+  }
+}, 30_000).unref?.()
 
 export function getLeadFinderExportFiles() {
   return {

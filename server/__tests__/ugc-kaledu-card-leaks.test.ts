@@ -35,14 +35,14 @@ describe('narrow card leaks', () => {
     expect(isRhetoricalContinuation('Nežinai, ką padovanoti?', 'Pradėk nuo žmogaus, ne nuo daikto.')).toBe(false)
   })
 
-  it('adds ? when the body continues the rhetorical question', () => {
+  it('keeps a statement after a question title as a statement (no forced ?)', () => {
     const card = classifyCardPunctuation({
       title: 'Nežinai, ką padovanoti?',
       body: 'Idėjų daug, bet nė viena netinka iki galo.',
     })
     expect(card.title).toBe('Nežinai, ką padovanoti?')
     expect(card.kind).toBe('rhetorical_continuation')
-    expect(card.body).toBe('Idėjų daug, bet nė viena netinka iki galo?')
+    expect(card.body).toBe('Idėjų daug, bet nė viena netinka iki galo.')
   })
 
   it('merges an orphan comparison and leaves real Kaip sentences alone', () => {

@@ -15,6 +15,7 @@ import {
     finalizeHookBody,
     finalizeHookTitle,
     isInvalidHookTitle,
+    isShipableHookBody,
     KALEDU_HOOK_BODY_OPENERS,
     stripTitleEchoFromBody
 } from '../ugc-hook-templates.js'
@@ -105,6 +106,12 @@ export function roleTextToUgcFields(
     if (!body.trim()) {
       body = clipField(stripTitleEchoFromBody(title, ensureHookBodyQuestions(cleaned)), BODY_MAX)
     }
+    if (isChristmasGiftsNiche() && !isShipableHookBody(ensureHookBodyQuestions(body))) {
+      // A stock opener under the model's own title reads like two different posts glued
+      // together. Swap the whole hook for a matching title + body pair instead.
+      const hook = buildFallbackHook(topicHint, '')
+      return { title: hook.title, body: hook.body }
+    }
     body = clipField(
       finalizeHookBody(
         topicHint,
@@ -165,6 +172,10 @@ export function slidesFromItems(
   for (let i = 0; i < items.length; i++) {
     const role = roles[i]
     const exact = targets[i]
+    if (items[i].role && items[i].role !== role) {
+      // The model labelling a later slot "hook" is the usual start of a story restart.
+      auditLog('model_role_mismatch', { slide: slideStart + i, expected: role, got: items[i].role, text: items[i].text.slice(0, 160) })
+    }
     const priorForFit = [
       ...prior.map((p) => ({ text: p.text })),
       ...built.map((s) => ({ title: s.title, body: s.body })),
@@ -197,6 +208,7 @@ export function slidesFromItems(
     const globalSlide = slideStart + i
     const snippet = `${fields.title} ${fields.body}`.trim().replace(/\s+/g, ' ').slice(0, 100)
     const rescueSlide = () => {
+      if (process.env.UGC_ARC_DEBUG) console.log(`[rescue] slide ${globalSlide} ${role}: ${snippet}`)
       const rescuePrior = prior.map((slide) => ({ text: slide.text }))
       if (role === 'hook') {
         const hook = buildFallbackHook(themeSeed.hook || topic, themeSeed.body)

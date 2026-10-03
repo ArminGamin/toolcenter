@@ -31,7 +31,7 @@ import {
 } from './launch-runtime.js'
 import { EBOOK, LAUNCH_CATALOG, listOllamaModels, ollamaExePath, resolveOllamaModel, runOllamaPull, startOllama } from './launch/ollama.js'
 import { getToolSettings, loadProfile, readProfiles, saveProfile, saveToolSettings, writeProfiles } from './launch/tool-settings.js'
-import { getRuntimeStatus, launchToolById, openFolderById, openPathOnDisk, stopAllTools, stopToolById } from './launch/tools-runtime.js'
+import { getProcessCmdlines, getRuntimeStatus, launchToolById, openFolderById, openPathOnDisk, stopAllTools, stopToolById } from './launch/tools-runtime.js'
 import { getAllSourceHealth } from './markets-health.js'
 import { ensureMarketsLive } from './markets-live.js'
 import { getId, readJsonBody, sendJson } from './middleware/http.js'
@@ -186,6 +186,8 @@ export function deleteProfile(id: string, name: string): { ok: boolean; message:
 
 export function attachLaunchMiddleware(middlewares: Connect.Server) {
   ensureMarketsLive()
+  // Warm the process scan used by /api/runtime-status (PowerShell, ~1.5s).
+  void getProcessCmdlines()
   // Ensure API token exists (encrypted vault) before serving
   getOrCreateApiToken()
 

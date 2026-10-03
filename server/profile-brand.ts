@@ -150,8 +150,28 @@ export function ensureCampaignImagesDir(profileId?: string): string {
   const brand = getProfileBrand(profileId)
   if (!brand.productCatalogFile) return brand.groupsImagesDir
   const dir = path.join(businessProfileDataDir(brand.id), 'campaign-images')
+  // Called many times per status poll; only re-sync when an input folder changed.
+  const stamp = syncStamp(brand.productCatalogFile, brand.groupsImagesDir, dir)
+  if (stamp && campaignSyncStamps.get(dir) === stamp) return dir
+  syncCampaignImages(dir, brand.productCatalogFile, brand.groupsImagesDir)
+  const after = syncStamp(brand.productCatalogFile, brand.groupsImagesDir, dir)
+  if (after) campaignSyncStamps.set(dir, after)
+  return dir
+}
+
+const campaignSyncStamps = new Map<string, string>()
+
+function syncStamp(...paths: string[]): string {
+  try {
+    return paths.map((p) => fs.statSync(p).mtimeMs).join('|')
+  } catch {
+    return ''
+  }
+}
+
+function syncCampaignImages(dir: string, catalogFile: string, imagesDir: string) {
   fs.mkdirSync(dir, { recursive: true })
-  const wanted = new Set(catalogProductFiles(brand.productCatalogFile))
+  const wanted = new Set(catalogProductFiles(catalogFile))
   for (const name of fs.readdirSync(dir)) {
     if (!wanted.has(name)) {
       try {
@@ -164,7 +184,7 @@ export function ensureCampaignImagesDir(profileId?: string): string {
   for (const name of wanted) {
     const dest = path.join(dir, name)
     if (fs.existsSync(dest)) continue
-    const src = path.join(brand.groupsImagesDir, name)
+    const src = path.join(imagesDir, name)
     if (!fs.existsSync(src)) continue
     try {
       fs.linkSync(src, dest)
@@ -172,7 +192,6 @@ export function ensureCampaignImagesDir(profileId?: string): string {
       fs.copyFileSync(src, dest)
     }
   }
-  return dir
 }
 
 export const KALEDU_SEO_TOPICS = [

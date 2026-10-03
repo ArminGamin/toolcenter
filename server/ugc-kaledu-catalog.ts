@@ -3,6 +3,7 @@ import path from 'node:path'
 import { profileDataPath } from './business-profiles.js'
 import { getProfileBrand, CHRISTMAS_PRODUCTS_DIR } from './profile-brand.js'
 import { inferKaleduBgCategory } from './ugc-kaledu-bgs.js'
+import { repeatsIdeaFamily } from './ugc-lt/idea-families.js'
 import { isNearDuplicateSentenceKey, normalizeSentenceKey } from './ugc-lt-normalize.js'
 import { rankByLedgerFreshness } from './ugc-variety-ledger.js'
 
@@ -412,6 +413,16 @@ export function productTypePhrase(product: KaleduCatalogProduct): string {
 }
 
 /** Roots that must appear in copy for it to name this SKU. */
+/** Strict head roots (shop-noun detection) plus every content word of the type phrase. */
+export function productNameRoots(product: KaleduCatalogProduct): string[] {
+  const words = ltWords(productTypePhrase(product))
+  const roots = words.map(ltNounRoot)
+  // Every content word of the product type counts as naming it on its own slide: the reveal
+  // „Gali rinktis saulėlydžio lempą“ must match even when the head is an ambiguous noun.
+  const content = roots.filter((root) => root.length >= 3 && !isGenericProductRoot(root) && !RECIPIENT_PRODUCT_ROOTS.has(root))
+  return [...new Set([...productHeadRoots(product), ...content])]
+}
+
 export function productHeadRoots(product: KaleduCatalogProduct): string[] {
   const override = HEAD_OVERRIDES[product.slug]
   if (override) return override
@@ -634,7 +645,7 @@ export function buildProductMatchTokens(product: KaleduCatalogProduct): string[]
 
 /** Copy names this exact SKU by its type head noun (any LT inflection). */
 export function copyMatchesSelectedProduct(text: string, product: KaleduCatalogProduct): boolean {
-  const heads = productHeadRoots(product)
+  const heads = productNameRoots(product)
   if (!heads.length) return false
   const roots = textRootSet(text)
   return heads.some((root) => roots.has(root))
@@ -684,6 +695,23 @@ export function enforceKaleduProductSlide<
 
 export function copyNamesProduct(text: string, product: KaleduCatalogProduct): boolean {
   return copyMatchesSelectedProduct(text, product)
+}
+
+/**
+ * Stricter than copyNamesProduct: the copy actually presents this SKU — its quoted marketing
+ * name, or every content word of its type phrase („keramikos arbatos rinkinys“). A passing
+ * „užsiplikys arbatos“ names a habit, not the product, and must not carry its picture.
+ */
+export function copyRevealsProduct(text: string, product: KaleduCatalogProduct): boolean {
+  const source = String(text || '')
+  const mkt = productMarketingName(product).toLocaleLowerCase('lt-LT')
+  if (mkt && source.toLocaleLowerCase('lt-LT').includes(mkt)) return true
+  const roots = textRootSet(source)
+  const typeRoots = ltWords(productTypePhrase(product))
+    .map(ltNounRoot)
+    .filter((root) => root.length >= 3 && !RECIPIENT_PRODUCT_ROOTS.has(root))
+  if (!typeRoots.length) return copyMatchesSelectedProduct(source, product)
+  return typeRoots.every((root) => roots.has(root))
 }
 
 const GENERIC_PRODUCT_ROOTS = ['dovan', 'jauk', 'švent', 'staig', 'idėj', 'žmog', 'vakar', 'puik', 'nam']
@@ -812,7 +840,7 @@ export function kaleduUngroundedRecommendations(
   productId = '',
 ): string[] {
   const product = slideProduct(storyAllowed, productId)
-  const slideRoots = new Set(product ? productHeadRoots(product) : [])
+  const slideRoots = new Set(product ? productNameRoots(product) : [])
   const marketing = product ? allowedMarketingNames([product]) : new Set<string>()
   const found = new Set<string>()
   for (const sentence of splitSentences(text)) {
@@ -933,13 +961,6 @@ export function productAccusativePhrase(product: KaleduCatalogProduct): string {
     .join(' ')
 }
 
-function productNominativePhrase(product: KaleduCatalogProduct): string {
-  return productTypePhrase(product)
-    .split(/\s+/)
-    .map((word) => (/^[A-ZĄČĘĖĮŠŲŪŽ]{2,}$/u.test(word) ? word : word.toLocaleLowerCase('lt-LT')))
-    .join(' ')
-}
-
 function productMarketingName(product: KaleduCatalogProduct): string {
   return product.name.match(/[„“"]([^„“"]+)[„“"]/)?.[1]?.trim() || ''
 }
@@ -949,8 +970,8 @@ export const KALEDU_GENERIC_GIFT_SENTENCES = [
   'Gali rinktis jaukią dovaną, kuri tiktų tam žmogui.',
   'Užtenka vienos apgalvotos dovanos, kuri tinka žmogui.',
   'Svarbiau ne kaina, o tai, ar dovana tiks žmogui.',
-  'Rinkis tai, ką žmogus tikrai naudos kasdien.',
-  'Pagalvok, ko žmogui trūksta namuose, ir nuo to pradėk.',
+  'Rinkis dovaną, kurią žmogus tikrai naudos kasdien.',
+  'Pagalvok, ko žmogui trūksta namuose, ir nuo to pradėk dovanos paiešką.',
   'Ieškok dovanos pagal tai, kaip žmogus leidžia laisvus vakarus.',
   'Paprasta ir praktiška dovana dažnai pradžiugina labiau nei brangi.',
   'Geriausia dovana ta, kurią žmogus naudos ne vieną kartą.',
@@ -970,13 +991,12 @@ function priorSentenceKeys(priorText: string): string[] {
 function pickFreshSentence(candidates: string[], priorText = ''): string {
   const priorKeys = priorSentenceKeys(priorText)
   const ranked = rankByLedgerFreshness(candidates)
-  for (const candidate of ranked) {
+  const fresh = ranked.filter((candidate) => {
     const key = normalizeSentenceKey(candidate)
-    if (priorKeys.includes(key)) continue
-    if (isNearDuplicateSentenceKey(key, priorKeys, 0.7)) continue
-    return candidate
-  }
-  return ranked[0] || candidates[0]
+    return !priorKeys.includes(key) && !isNearDuplicateSentenceKey(key, priorKeys, 0.7)
+  })
+  // Prefer a line that does not repeat an idea already in the post ("tinka žmogui" twice).
+  return fresh.find((candidate) => !repeatsIdeaFamily(candidate, priorText)) || fresh[0] || ranked[0] || candidates[0]
 }
 
 export function pickGenericGiftSentence(priorText = ''): string {
@@ -991,14 +1011,13 @@ export function rewriteInventedProductSentence(
   const product = allowed[0]
   if (!product) return pickGenericGiftSentence(opts.priorText)
   const acc = productAccusativePhrase(product)
-  const nom = productNominativePhrase(product)
   const mkt = productMarketingName(product)
   const tail = mkt ? ` „${mkt}“` : ''
   return pickFreshSentence(
     [
+      `Rinkis ${acc}${tail}.`,
+      `Pažiūrėk į ${acc}${tail}.`,
       `Gali rinktis ${acc}${tail}.`,
-      `Tokiam žmogui tiktų ${nom}${tail}.`,
-      `Vienas variantas yra ${nom}${tail}.`,
     ],
     opts.priorText,
   )
@@ -1080,6 +1099,37 @@ export type KaleduLifestyleIntent = {
   copy: RegExp
 }
 
+/**
+ * Why-lines for products no lifestyle intent covers. Every product slide needs a reason, not
+ * just „Gali rinktis X.“ Claims stay inside the catalog tagline/benefits.
+ */
+export const KALEDU_PRODUCT_WHY: Record<string, string[]> = {
+  'egluciu-zaisliukai-stiklas': ['Rankų pūsto stiklo žaisliukai eglutę puoš ne vienus metus.'],
+  'odinis-korteliu-deklas': ['Plonas dėklas telpa kišenėje, todėl kortelės visada po ranka.'],
+  'uzrasine-aukso-krastu': ['Tokia užrašinė tiks kasdieniams planams ir mintims.'],
+  'lietaus-debesies-drekinuvas': ['Drėkintuvas sudrėkina sausą žiemos orą ir švelniai kvepia.'],
+  'megzta-sildykle-2l': ['Megzta šildyklė ilgai išlaiko šilumą šaltais vakarais.'],
+  'raktu-pakabukas-namai': ['Mažas pakabukas su eglute primins šventes kiekvieną kartą paėmus raktus.'],
+  'slepetes-minksta-peda': ['Minkštos šlepetės sušildys kojas kiekvieną žiemos vakarą namuose.'],
+  'sniego-gaublys-ziemos-pasaka': ['Papurčius gaublį, viduje pradeda snigti, o tai džiugina ir vaikus, ir suaugusius.'],
+  'stalo-takelis-siaures-rastas': ['Šventinis takelis per kelias sekundes papuošia visą Kalėdų stalą.'],
+  'riesutu-spaudiklis-sargybinis': ['Medinis sargybinis puošia lentyną ir tikrai praverčia riešutams gliaudyti.'],
+  'egles-sijonas-sventinis-ratas': ['Aksominis sijonas paslepia eglutės stovą ir gražiai įrėmina dovanas.'],
+  'keramikinis-zibintas-ziemos-namelis': ['Šiltai šviečiantis namelis sukuria jaukumą be jokios liepsnos.'],
+  'kaledinis-megztinis-sventinis-rastas': ['Ryškus megztinis su eglutėmis tiks šventinėms nuotraukoms ir vakarėliams.'],
+  'seimos-megztiniai-kaledu-dziaugsmas': ['Derantys megztiniai tiks bendrai šeimos nuotraukai prie eglutės.'],
+  'seimos-megztiniai-siaures-rastas': ['Derantys megztiniai tiks bendrai šeimos nuotraukai prie eglutės.'],
+  'kalediniai-megztiniai-sniego-duetas': ['Derantys megztiniai tiks bendrai poros nuotraukai prie eglutės.'],
+}
+
+/** Reason lines for one product: its own lifestyle intent first, then the per-product list. */
+export function kaleduProductReasonLines(product: KaleduCatalogProduct): string[] {
+  const fromIntents = KALEDU_LIFESTYLE_INTENTS.filter((intent) => intent.slugs.includes(product.slug)).flatMap(
+    (intent) => intent.why,
+  )
+  return [...fromIntents, ...(KALEDU_PRODUCT_WHY[product.slug] || [])]
+}
+
 export const KALEDU_LIFESTYLE_INTENTS: KaleduLifestyleIntent[] = [
   {
     label: 'latte',
@@ -1093,7 +1143,7 @@ export const KALEDU_LIFESTYLE_INTENTS: KaleduLifestyleIntent[] = [
   {
     label: 'kava',
     confidence: 'HIGH',
-    theme: /kav[aąoosy]|kavos\s+mėgėj|kakav|rytin\p{L}*\s+kav/iu,
+    theme: /(?<!\p{L})kav(?:a|ą|os|ai|oje|uką|ukas)(?!\p{L})|kavos\s+mėgėj|(?<!\p{L})kakav|rytin\p{L}*\s+kav/iu,
     slugs: ['kaledinis-puodelis-kakava'],
     products: [/puodel/iu],
     context: [
@@ -1110,7 +1160,7 @@ export const KALEDU_LIFESTYLE_INTENTS: KaleduLifestyleIntent[] = [
     slugs: ['keramikos-arbatos-rinkinys-po-vakara'],
     products: [/arbat/iu],
     context: ['Jei vakare jis visada užsiplikys arbatos, dovanos idėja jau beveik aiški.'],
-    why: ['Tiks ramiam vakarui su puodeliu arbatos.'],
+    why: ['Tiks ramiam vakarui po ilgos dienos.'],
     copy: /arbat|vakar|puodel|šilt/iu,
   },
   {
@@ -1138,9 +1188,10 @@ export const KALEDU_LIFESTYLE_INTENTS: KaleduLifestyleIntent[] = [
     confidence: 'HIGH',
     theme: /šiltos\s+kojos|žiemos\s+kojin|vilnonės\s+kojin|kojin/iu,
     slugs: ['vilnones-kojines-ziemos-jaukumas'],
-    products: [/kojin/iu],
+    // vilnonės kojinės only — the Christmas gift stocking („dovanų kojinė“) is not for warm feet
+    products: [/vilnon\p{L}*\s+kojin/iu],
     context: ['Šaltomis kojomis sunku jaustis jaukiai net šiltuose namuose.'],
-    why: ['Kojoj bus šilta visą žiemą.'],
+    why: ['Kojoms bus šilta visą žiemą.'],
     copy: /koj|šilt|žiem/iu,
   },
   {
@@ -1157,8 +1208,8 @@ export const KALEDU_LIFESTYLE_INTENTS: KaleduLifestyleIntent[] = [
     confidence: 'HIGH',
     theme: /žvak(?!id)|zvak(?!id)/iu,
     slugs: ['aromaterapijos-zvake-zvakiu-vakaras'],
-    context: ['Žvakių vakaras namuose dažnai būna ramesnis už bet kokią dekoraciją.'],
-    why: ['Uždegus kvapas ir šviesa lieka visam vakarui.'],
+    context: ['Kai vakare užsidegi žvakę, namuose iškart tampa jaukiau.'],
+    why: ['Uždegta žvakė kvepia ir šviečia visą vakarą.'],
     copy: /žvak|kvap|vakar/iu,
   },
   {
@@ -1167,7 +1218,7 @@ export const KALEDU_LIFESTYLE_INTENTS: KaleduLifestyleIntent[] = [
     theme: /namų\s+kvap|kvap\p{L}*\s+nam/iu,
     slugs: ['kvapo-difuzorius-lazdelemis', 'kvapo-purskiklis-namai'],
     products: [/difuzori/iu, /purškikl/iu],
-    context: ['Namų kvapas daug pasako apie jaukumą, nors dažnai apie jį net negalvojame.'],
+    context: ['Namų kvapas daug pasako apie jaukumą, nors dažnai apie jį net nepagalvoji.'],
     why: ['Namuose kvepės jaukiai ir be jokios liepsnos.'],
     copy: /kvap|kvep|aromat|nam/iu,
   },
@@ -1207,7 +1258,7 @@ export const KALEDU_LIFESTYLE_INTENTS: KaleduLifestyleIntent[] = [
     theme: /mėnul|menul/iu,
     slugs: ['menulio-lempa-3d'],
     products: [/mėnul|menul/iu],
-    context: ['Mėnulio lempa tinka naktinei šviesai, kai nenorisi telefono ekrano.'],
+    context: ['Mėnulio lempa vakare duoda švelnią, ramią šviesą.'],
     why: ['Švelni šviesa lieka prie lovos.'],
     copy: /mėnul|menul|lemp|nakt/iu,
   },
@@ -1264,7 +1315,7 @@ export const KALEDU_LIFESTYLE_INTENTS: KaleduLifestyleIntent[] = [
     confidence: 'HIGH',
     theme: /pakavim|dovanų\s+pakav/iu,
     slugs: ['dovanu-pakavimas-sventine'],
-    context: ['Dovanų pakavimas dažnai paliekamas paskutiniam vakarui, nors tam reikia viso rinkinio.'],
+    context: ['Dovanų pakavimas dažnai paliekamas paskutiniam vakarui, kai jau trūksta laiko.'],
     why: ['Pakuoti bus paprasčiau, kai viskas jau po ranka.'],
     copy: /pakav|dėž|popier/iu,
   },
@@ -1292,8 +1343,8 @@ export const KALEDU_LIFESTYLE_INTENTS: KaleduLifestyleIntent[] = [
     theme: /telefon|įkrovim|ikrovim/iu,
     slugs: ['belaidis-ikroviklis-medis'],
     products: [/įkrovikl|ikrovikl/iu],
-    context: ['Telefonas visada po ranka, todėl įkrovimas ant stalo greitai tampa kasdienybe.'],
-    why: ['Telefonas kraunasi ten, kur ir taip guli.'],
+    context: ['Kai įkroviklis visada toje pačioje vietoje, krauti tampa paprasčiau.'],
+    why: ['Užtenka padėti ant įkroviklio, ir nereikia ieškoti laido.'],
     copy: /telefon|įkrov|krov/iu,
   },
   {
@@ -1301,7 +1352,7 @@ export const KALEDU_LIFESTYLE_INTENTS: KaleduLifestyleIntent[] = [
     confidence: 'HIGH',
     theme: /power\s*bank|kelion\p{L}*.{0,20}telefon|telefon\p{L}*.{0,20}kelion/iu,
     slugs: ['isoreine-baterija-kelione'],
-    context: ['Kelyje telefonas išsikrauna greičiau, nei spėji rasti rozetę.'],
+    context: ['Kelyje baterija išsikrauna greičiau, nei spėji rasti rozetę.'],
     why: ['Baterija kelionėje gelbsti, kai rozetės nėra.'],
     copy: /bater|telefon|kelion/iu,
   },
@@ -1331,16 +1382,16 @@ export const KALEDU_LIFESTYLE_INTENTS: KaleduLifestyleIntent[] = [
     slugs: ['nuotrauku-remelis-akimirka'],
     products: [/rėmel|remel/iu],
     context: ['Prisiminimas ant lentynos dažnai veikia geriau nei dar viena smulkmena į stalčių.'],
-    why: ['Nuotrauka turės aiškią vietą, ne telefono galerijoje.'],
+    why: ['Nuotrauka turės savo vietą namuose, o ne tik ekrane.'],
     copy: /nuotrauk|rėmel|akimirk|prisimin/iu,
   },
   {
     label: 'pora',
     confidence: 'MEDIUM',
-    theme: /\bpor(?:a|ą|os|ai|oms)\b|vakaras\s+dviese|vakarienė\s+dviese/iu,
+    theme: /(?<!(?:\d|trys|tris|dvi|kelios|keturios|penkios)\s{0,2})(?<!\p{L})por(?:a|ą|os|ai|oms)(?!\p{L})(?!\s+(?:\p{L}+\s+){0,2}kojin)|vakaras\s+dviese|vakarienė\s+dviese/iu,
     slugs: ['poros-knyga-musu-istorija', 'zaidimu-vakaro-rinkinys', 'serviravimo-lenta-vakariene'],
     context: ['Porai geriau tinka tai, ką naudos kartu, o ne du atskiri daiktai.'],
-    why: ['Tiks vakarui, kurį leisite kartu.'],
+    why: ['Tiks vakarui, kai abu nori pabūti kartu.'],
     copy: /por|dviese|kartu|vakar/iu,
   },
   {
@@ -1377,7 +1428,7 @@ export const KALEDU_LIFESTYLE_INTENTS: KaleduLifestyleIntent[] = [
     slugs: ['dzemperis-siltas-uztrauktukas'],
     products: [/džemper|dzemper/iu],
     context: ['Užsegamas džemperis su gobtuvu yra dovana, kurią dėvi ir namie, ir išėjus.'],
-    why: ['Tiks kasdien, kai reikia šilumos su gobtuvu.'],
+    why: ['Tiks kasdien, kai norisi šilumos ir patogumo.'],
     copy: /džemper|dzemper|gobtuv|užtraukt/iu,
   },
   {
@@ -1386,8 +1437,8 @@ export const KALEDU_LIFESTYLE_INTENTS: KaleduLifestyleIntent[] = [
     theme: /kardigan/iu,
     slugs: ['kardiganas-atviras-siltis'],
     products: [/kardigan/iu],
-    context: ['Kardiganą užsimeti ant marškinėlių ryte ir ant pižamos vakare.'],
-    why: ['Tiks mamai ar sau, kai norisi šilumos be užsegamo džemperio.'],
+    context: ['Kardiganą patogu užsimesti ir ryte, ir vakare namuose.'],
+    why: ['Tiks mamai ar sau, kai namuose vakare vėsu.'],
     copy: /kardigan|sag|megzt/iu,
   },
   {
@@ -1396,8 +1447,8 @@ export const KALEDU_LIFESTYLE_INTENTS: KaleduLifestyleIntent[] = [
     theme: /\bgolf/iu,
     slugs: ['golfas-aukstas-kaklas'],
     products: [/golf/iu],
-    context: ['Plonas golfas dėvimas vienas arba po megztiniu.'],
-    why: ['Tiks kaip sluoksnis po megztiniu ir vienas namie.'],
+    context: ['Plonas golfas tinka ir vienas, ir kaip šiltas sluoksnis žiemą.'],
+    why: ['Tiks kasdien, kai žiemą norisi šilto kaklo.'],
     copy: /golf|apykakl|sluoksn/iu,
   },
   {

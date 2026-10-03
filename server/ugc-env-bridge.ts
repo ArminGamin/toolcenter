@@ -2,6 +2,7 @@ import path from 'node:path'
 import { loadVault, saveVault, TOOLSAI_ROOT } from './cc-services.js'
 import { readEnvFile } from './launch-runtime.js'
 import { readPostMakerDiscordApp } from './ugc-discord-settings.js'
+import { ugcTunedGpuLayers } from './ugc-gpu-tuner.js'
 
 export const EBOOK_ROOT = path.join(
   process.env.USERPROFILE || 'C:\\Users\\kajus',
@@ -51,14 +52,15 @@ export function resolveUgcOllamaNumCtxBatch(): number {
 }
 
 /**
- * GPU layers for UGC on 8GB cards.
- * 99 = OOM/AMD timeout. 28 = too much CPU (very slow).
- * 32 = speed/VRAM sweet spot on RX 5700 XT.
+ * GPU layers for UGC (gemma3 12B Q4_K_M, 4096 ctx) on the 8GB RX 5700 XT, Ollama 0.32.
+ * Measured 2026-10-02, same prompt, tokens/s: 32 → 7.0 · 40 → 9.9 · 44 → 11.0 · 46 → 12–13.8 ·
+ * 47–48 → 8.3 (spills into shared memory) · 49 (100% GPU) → 7.7. 99 = OOM/AMD timeout.
+ * 44 keeps ~2 layers of VRAM headroom for the desktop/browser and is ~1.55× faster than 32.
  */
-export const UGC_FORCE_OLLAMA_NUM_GPU = 32
+export const UGC_FORCE_OLLAMA_NUM_GPU = 44
 
-/** Hard ceiling — vault "99" used to mean full offload; clamp for 8GB safety. */
-export const UGC_MAX_SAFE_OLLAMA_NUM_GPU = 34
+/** Hard ceiling — vault "99" used to mean full offload; above 46 the card spills and slows down. */
+export const UGC_MAX_SAFE_OLLAMA_NUM_GPU = 46
 
 export const UGC_DEFAULT_OLLAMA_NUM_GPU = String(UGC_FORCE_OLLAMA_NUM_GPU)
 
@@ -72,7 +74,8 @@ export function resolveUgcOllamaNumGpu(): number {
       return Math.min(UGC_MAX_SAFE_OLLAMA_NUM_GPU, Math.round(n))
     }
   }
-  return UGC_FORCE_OLLAMA_NUM_GPU
+  // No manual override: measured live (see ugc-gpu-tuner.ts) between 32 and 44 layers.
+  return ugcTunedGpuLayers()
 }
 
 const LEGACY_UGC_OLLAMA_MODELS = new Set([

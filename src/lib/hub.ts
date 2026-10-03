@@ -41,7 +41,7 @@ const HUB_TO_RAIL: Record<string, string> = {
   'reddit-commenter': 'redditCommenter',
 }
 
-function hubModuleLive(module: HubModuleSnapshot): boolean {
+export function hubModuleLive(module: HubModuleSnapshot): boolean {
   return isActiveAutomation(module.status) || Boolean(module.workerRunning)
 }
 

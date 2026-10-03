@@ -9,6 +9,7 @@ import { UGC_CAPTION_CTA } from '../ugc-caption-format.js'
 import { UGC_DEFAULT_CTA, ugcActiveCaptionCta, ugcActiveCta, ugcActiveHashtags } from '../ugc-cta-normalize.js'
 import { kaleduProductExportIssues } from '../ugc-kaledu-catalog.js'
 import { isAllowedKaleduCta } from '../ugc-kaledu-cta.js'
+import { collectKaleduArcIssues } from '../ugc-story/arc-guard.js'
 import { christmasFieldEmojiOk } from '../ugc-kaledu-emoji.js'
 import { isCaptionSlideDump } from '../ugc-lt-classes.js'
 import {
@@ -263,6 +264,7 @@ export function scanSlideQuality(
   themeText = '',
 ) {
   const storyIssues = collectStoryIssues(slides, themeText)
+  const arcIssues = isChristmasGiftsNiche() ? collectKaleduArcIssues(slides, themeText) : []
   const seasonalTheme = isSeasonalUgcTheme(themeText)
   let seasonMentions = 0
   return slides.map((s, i) => {
@@ -275,6 +277,7 @@ export function scanSlideQuality(
     for (const issue of storyIssues.filter((item) => item.slide === i + 1)) {
       addIssue(issue.code)
     }
+    for (const issue of arcIssues.filter((item) => item.slide === i + 1)) addIssue(`arc_${issue.code}`)
     if (LT_SCREENSHOT_STEMS.test(blob)) addIssue('screenshot_stem')
     if (isGibberishLtCopy(titleBody)) addIssue('gibberish')
     if (hasFormalRegister(blob)) addIssue('formal_jus')
@@ -429,8 +432,9 @@ export function validateUgcExportPost(post: {
       ? (post.meta.kind as 'generic' | 'product')
       : undefined
   const issues = [
+    // arc_* codes are story-flow notes for the audit, never a reason to drop a rendered post.
     ...scanSlideQuality(slides, themeText).flatMap((slide) =>
-      slide.issues.map((issue) => `slide_${slide.index}:${issue}`),
+      slide.issues.filter((issue) => !issue.startsWith('arc_')).map((issue) => `slide_${slide.index}:${issue}`),
     ),
     ...scanCaption(post.caption, slides, post.meta?.caption_source).issues.map((issue) => `caption:${issue}`),
   ]

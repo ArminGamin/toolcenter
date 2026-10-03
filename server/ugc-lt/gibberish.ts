@@ -35,8 +35,10 @@ export const LT_BAD_STEMS =
 
 /** Detect llama3.1 / OpenEuroLLM gibberish + broken structure — reject and retry. */
 export function isGibberishLtCopy(text: string): boolean {
-  const t = String(text || '').trim()
-  if (!t) return true
+  const raw = String(text || '').trim()
+  if (!raw) return true
+  // Quoted catalog names („Mūsų istorija“) are not model copy.
+  const t = raw.replace(/„[^“”"]{1,60}[“”"]/gu, '„“')
   if (/žaidžiami|nebebeg|užsispyti|kuo žaid/i.test(t)) return true
   if (LT_BAD_STEMS.test(t)) return true
   if (isChristmasGiftsNiche() && UGC_DIET_DRIFT_RE.test(t)) return true
@@ -151,7 +153,10 @@ export function looksVerblessGenitiveStump(text: string): boolean {
     const words = core.split(/\s+/).filter(Boolean)
     if (words.length < 2 || words.length > 7) continue
     const hasFiniteCue =
-      textHasFiniteVerbCue(core) || /(ti|tis)$/i.test(words.at(-1) || '')
+      textHasFiniteVerbCue(core) ||
+      /(ti|tis)$/i.test(words.at(-1) || '') ||
+      // conditional mood: „Tokiam žmogui tiktų nuotraukų rėmelis.“
+      words.some((w) => /^(?:tiktų|patiktų|pradžiugintų|nudžiugintų|džiugintų|praverstų|reikėtų|norėtų|galėtų|būtų|sušildytų|papuoštų)$/iu.test(w.replace(/[^\p{L}]/gu, '')))
     const plausiblePastTense = words.some((w) => /[a-ząčęėįšųūž]{4,}ė$/iu.test(w))
     const skip = new Set(['ir', 'be', 'nuo', 'iki', 'bei', 'ar', 'bet'])
     const content = words.filter((w) => !skip.has(w.toLocaleLowerCase('lt-LT')))

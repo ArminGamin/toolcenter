@@ -8,7 +8,7 @@ Operational guide for day-to-day use of the ToolsAI Control Center hub.
 2. The bridge serves the UI at `http://127.0.0.1:PORT` (see bridge window title).
 3. If the UI shows **Bridge offline**, restart the Control Center app — the local API is not reachable.
 
-To refresh the desktop shortcut icon after updating `public/app-icon.png`, run `powershell -ExecutionPolicy Bypass -File install-desktop-shortcut.ps1` from this folder. The script writes `toolsai-app.ico`, removes duplicate desktop shortcuts, and recreates a single shortcut on your shell Desktop. If Explorer still shows the old icon, run `ie4uinit.exe -ClearIconCache` and sign out/in.
+To refresh the desktop shortcut icon after updating `public/app-icon.png`, run `powershell -ExecutionPolicy Bypass -File install-desktop-shortcut.ps1` from this folder. The script writes `toolsai-icon.ico`, removes duplicate desktop shortcuts, and recreates a single shortcut on your shell Desktop. If Explorer still shows the old icon, run `ie4uinit.exe -ClearIconCache` and sign out/in.
 
 ## Home (Today dashboard)
 

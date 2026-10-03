@@ -15,9 +15,17 @@ export type ToolReadiness = {
   checkedAt: string
 }
 
+/** `where.exe` lookups cost ~100ms each; installed commands rarely change. */
+const commandCache = new Map<string, { ok: boolean; at: number }>()
+const COMMAND_CACHE_MS = 10 * 60_000
+
 function commandAvailable(command: string): boolean {
   if (path.isAbsolute(command)) return fs.existsSync(command)
+  const key = command.toLowerCase()
+  const cached = commandCache.get(key)
+  if (cached && Date.now() - cached.at < COMMAND_CACHE_MS) return cached.ok
   const found = spawnSync('where.exe', [command], { windowsHide: true, encoding: 'utf8' })
+  commandCache.set(key, { ok: found.status === 0, at: Date.now() })
   return found.status === 0
 }
 

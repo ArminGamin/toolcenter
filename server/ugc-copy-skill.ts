@@ -179,7 +179,10 @@ Emoji palik tik tada, jei jis aiškiai atitinka sakinio emociją. Naudok tik įp
 ✗ „dovanų paieškos stresas pranoksta šventės džiugiją" → ✓ „dovanų paieškos kelia daugiau streso nei džiaugsmo"
 ✗ „Produktas suteikia komforto patirtį." → ✓ „Tai praktiška dovana kasdienai."
 ✗ „Tai nepakartojama dovana ypatingoms akimirkoms." → ✓ „Tai dovana jaukiems vakarams kartu."
-Geriau „išrinkti dovaną" nei dirbtinis sinonimas.`
+Geriau „išrinkti dovaną" nei dirbtinis sinonimas.
+VLKK (lithuanian-grammar-vlkk.md): versk prasmę, ne struktūrą — ✗ „Kalba eina apie dovaną“ → ✓ „Kalbama apie dovaną“; ✗ „Vardan patogumo“ → ✓ „Dėl patogumo“; ✗ „atitinka reikalavimams“ → ✓ „atitinka reikalavimus“.
+Dalyviai: įvardyk kiekvieno veiksmo atlikėją. ✗ „Eidamas namo, prasidėjo lietus.“ → ✓ „Kai ėjai namo, prasidėjo lietus.“ UGC tekste rinkis aiškų „kai…“ sakinį, ne dalyvių grandinę.
+Nereikalingo „tu“ nerašyk: ✗ „Čia tu gali rasti dovanų idėjų“ → ✓ „Čia rasi dovanų idėjų“.`
 
 export const UGC_KALEDU_PRODUCT_TRUTH_SKILL = `PRODUCTS_ALLOWED yra visas šios kartos inventorius.
 A) bendra kalba leidžiama: „jauki dovana", „praktiška dovana", „dovana namams".
@@ -190,6 +193,7 @@ Prieš konkretų sakinį tyliai klausk „Ar šis daiktas tikrai yra PRODUCTS_AL
 
 export const UGC_KALEDU_STORY_EDITOR_SKILL = `ISTORIJA: prieš grąžindamas karuselę patikrink tyliai.
 1 skaidrė - kabliukas / problema. 2 - ta pati problema, ne nauja tema. 3 - naudingas atsakymas arba tikra PRODUCTS_ALLOWED prekė. 4 - išvada + CTA.
+Jei skaidrių daugiau: kiekviena papildoma skaidrė - KITAS patarimas ar prekė. Niekada naujas klausimas ar ta pati problema kitais žodžiais.
 Kiekviena skaidrė atsako „Kokią naują mintį prideda ši skaidrė?". Jei tik kartoja ankstesnę mintį - perrašyk.
 Visas skaidrių tekstas iš eilės turi skambėti kaip viena pastraipa.`
 
@@ -258,7 +262,10 @@ STORY: kiekviena skaidrė žengia hook → kontekstas → atsakymas → payoff.
 1–2 trumpi sakiniai / skaidrė, kiekvienas su veiksmažodžiu. Be URL/CTA body. Be em dash body.
 0–2 populiarūs emoji visoje karuselėje; tik jei tiksliai atitinka emociją.
 Hook: title ≤64 simb. Jei sakinys tiesiogiai klausia žiūrovo, jis turi baigtis klaustuku.
-Venk klausimų tik iš „Ar“ ir daiktavardžio: ne „Ar kalėdinis chaosas?“, o „Jau prasideda kalėdinis chaosas?“.
+Venk klausimų tik iš „Ar“ ir daiktavardžio: ne „Ar kalėdinis chaosas?“, o „Vis dar nežinai, ką padovanoti mamai?“.
+KLAUSIMAI TIK 1–2 skaidrėse. Nuo 3 skaidrės — tik teiginiai su atsakymu; problemos nekartok.
+VLKK: verčiama prasmė, ne sakinio struktūra (ne „kalba eina apie“, ne „vardan ko“, ne „pas“ vietoj linksnio). Linksnį lemia lietuviškas veiksmažodis: „atitikti ką“. Pusdalyvis (-damas) tik su tuo pačiu veikėju; geriau „kai…“ sakinys. Neversk vyriškos ar moteriškos skaitytojo formos.
+Gramatika: „Jautiesi kaip…“ (ne „Jauti kaip…“); „jauti stresą“ (galininkas, ne „jauti stresas“); „kiekvienais metais“. Sakinio gale tik vienas ženklas: „?“ arba „.“, niekada „.?“.
 Nenaudok „ši dovana“ / „šitas daiktas“, jei skaidrėje nėra katalogo prekės.
 Close: payoff (ne hook echo); ≥28 simb.; cta = užduoties eilutė su ${KALEDU_WEBSITE} (0–1 emoji).
 Kalėdos LEIDŽIAMOS. Nekeisk kalėdų į rudenį. Kiekviena skaidrė = nauja mintis. Jokio išgalvoto žodžio.
@@ -294,6 +301,7 @@ Tik „tu". TIK JSON. Close cta = eilutė su ${KALEDU_WEBSITE} (0–1 emoji). CT
 NATŪRALI LT: gramatika neužtenka. Tikras žodis netinka, jei reikšmė šiame sakinyje absurdiška. Jei lietuvis taip nepasakytų - perrašyk visą sakinį.
 PRODUCT TRUTH: konkreti prekė tik iš PRODUCTS_ALLOWED.
 STORY: hook → kontekstas → atsakymas → payoff. Kiekviena skaidrė - nauja mintis.
+Klausimai tik 1–2 skaidrėse. Nuo 3 skaidrės istorija tęsiasi, niekada neprasideda iš naujo.
 Kalėdos LEIDŽIAMOS — nekeisk į rudenį.`
 
 export const UGC_KALEDU_NATIVE_REWRITE_SYSTEM = `${UGC_KALEDU_NATIVE_EDITOR_SKILL}
@@ -316,7 +324,16 @@ export function ugcActiveCopySkill(base: string): string {
     base === UGC_BATCH_LITE_SKILL ||
     base === UGC_BATCH_MINIMAL_SKILL
   const skill = fast ? UGC_KALEDU_BATCH_FAST_SKILL : UGC_KALEDU_COPY_SKILL
-  return extra ? `${extra}\n\n${skill}` : skill
+  // Fast batch prompt: the brand block repeats the fast skill line for line (brand, NEMINĖK,
+  // CTA, mini-istorija). Keep only its unique lines — fewer prompt tokens on every call.
+  const brand = fast
+    ? (extra || '')
+        .split('\n')
+        .filter((line) => !/^(?:Rašai lietuvišką|NEMINĖK|CTA tik close|Mini-istorija)/u.test(line.trim()))
+        .join('\n')
+        .trim()
+    : extra
+  return brand ? `${brand}\n\n${skill}` : skill
 }
 
 export function ugcActiveOllamaSystemPrompt(batchMode = false): string {

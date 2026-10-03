@@ -44,7 +44,7 @@ import {
     downloadSingleSlidePng,
     exportSlideshowZip,
 } from '../../lib/ugc-slides-export'
-import { canvasToPngBlob, ensureUgcSlideFontsReady, renderUgcSlide } from '../../lib/ugc-slides-render'
+import { canvasToPngBlob, ensureUgcSlideFontsReady, renderUgcSlide, resolveUgcTemplate } from '../../lib/ugc-slides-render'
 import { resolveUniversalUgcDescription } from '../../lib/ugc-universal-description'
 import { type UgcBatchRunState } from './UgcSlidesBatchTab'
 
@@ -102,6 +102,8 @@ export function useUgcSlidesPanel({ active }: { active: boolean }) {
   const activeIndex = Math.min(draft.activeSlideIndex, Math.max(0, images.length - 1))
   const activeImage = images[activeIndex] ?? null
   const activeSlide = draft.slides[activeIndex] ?? createEmptySlideContent(draft.defaultCta)
+  // „Random“ picks one layout and keeps it until the setting changes, so preview and export match.
+  const panelTemplate = useMemo(() => resolveUgcTemplate(draft.template), [draft.template])
   const slideCount = images.length
   const dirty =
     draftSnapshot(draft) !== savedSnapshotRef.current ||
@@ -322,7 +324,7 @@ export function useUgcSlidesPanel({ active }: { active: boolean }) {
           imgHeight: img.naturalHeight,
           focalX: activeSlide.focalX,
           focalY: activeSlide.focalY,
-          template: draft.template,
+          template: panelTemplate,
           placement: draft.placement,
           title: activeSlide.title,
           body: activeSlide.body,
@@ -345,7 +347,7 @@ export function useUgcSlidesPanel({ active }: { active: boolean }) {
     activeSlide,
     activeIndex,
     slideCount,
-    draft.template,
+    panelTemplate,
     draft.placement,
     draft.defaultCta,
     slideWidth,
@@ -420,7 +422,7 @@ export function useUgcSlidesPanel({ active }: { active: boolean }) {
         render: {
           focalX: content.focalX,
           focalY: content.focalY,
-          template: draft.template,
+          template: panelTemplate,
           placement: draft.placement,
           title: content.title,
           body: content.body,

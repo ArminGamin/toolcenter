@@ -1,6 +1,7 @@
 import { readableToolAccent } from '../lib/appearance'
 import { useCallback, useRef, useState, type MouseEvent, type PointerEvent, type ReactNode } from 'react'
 import { AppLogo } from './AppLogo'
+import { UpdateButton } from './UpdateButton'
 import { ToolIcon } from '../data/icons'
 import { type RailItemId, type RailModuleId } from '../hooks/useRailOrder'
 import type { IconKey, Tool } from '../types'
@@ -321,6 +322,8 @@ export function Rail({
           </button>
         </div>
       ) : null}
+
+      <UpdateButton />
     </aside>
   )
 }

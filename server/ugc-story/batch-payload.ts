@@ -4,6 +4,7 @@ import { coerceSlidesArray, extractJsonObject } from '../json-extract.js'
 import {
     stripEnglishCopyLabels
 } from '../ugc-copy-skill.js'
+import { stripProductIdTags } from '../ugc-lt/normalize-copy.js'
 
 export type StoryBatchItem = { role: string; text: string; title: string; cta: string }
 
@@ -151,10 +152,10 @@ export function normalizeSlideTextValue(value: unknown): string {
   if (Array.isArray(value)) {
     return stripEnglishCopyLabels(
       value
-        .map((x) => String(x).replace(/\*\*/g, '').trim())
+        .map((x) => stripProductIdTags(String(x)).replace(/\*\*/g, '').trim())
         .filter(Boolean)
         .join(' '),
     )
   }
-  return stripEnglishCopyLabels(String(value ?? '').replace(/\*\*/g, '').trim())
+  return stripEnglishCopyLabels(stripProductIdTags(String(value ?? '')).replace(/\*\*/g, '').trim())
 }

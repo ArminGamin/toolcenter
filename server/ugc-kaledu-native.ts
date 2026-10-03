@@ -69,7 +69,7 @@ export function isIncompleteSubordinateHook(title: string): boolean {
 }
 
 const STIFF_HOOK_RE =
-  /^Ar\s+susiduri\s+su\s+sunkumais|^Ar\s+jauti,?\s+kad\s+kartais|^Ar\s+pastebi,?\s+kad|^Ar\s+ieškai\s+būdų/i
+  /^Ar\s+susiduri\s+su\s+sunkumais|^Ar\s+jauti,?\s+kad\s+kartais|^Ar\s+pastebi,?\s+kad|^Ar\s+ieškai\s+būdų|^Jau\s+prasideda\b/i
 
 const BAD_AR_COLON_RE = /^Ar\s+.+:\s*(ką|kas|kaip|kodėl|kur|kada|kiek|ko)(?!\p{L})/iu
 
@@ -144,7 +144,16 @@ function ltStem(word: string): string {
 }
 
 function hasRepeatedRoot(text: string): boolean {
+  // Per sentence: „…dėklą „Elegancija“. Plonas dėklas…“ is a normal reference back, not a slip.
+  return String(text || '')
+    .split(/(?<=[.!?…])\s+/u)
+    .some((sentence) => hasRepeatedRootInSentence(sentence))
+}
+
+function hasRepeatedRootInSentence(text: string): boolean {
+  // A quoted product name is fixed copy: „aromaterapijos žvakę „Žvakių vakaras““ is not a style slip.
   const words = String(text || '')
+    .replace(/„[^“”"]{1,60}[“”"]/gu, ' ')
     .toLocaleLowerCase('lt-LT')
     .split(/[^\p{L}0-9]+/u)
     .filter((w) => w.length >= 4)

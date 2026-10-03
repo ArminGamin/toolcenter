@@ -3,7 +3,7 @@ import {
     type UgcSlidesDraft,
     type UgcSlideshowSlideCopy
 } from '../../lib/ugc-slides'
-import { renderUgcSlide, type UgcTemplate } from '../../lib/ugc-slides-render'
+import { renderUgcSlide, resolveUgcTemplate, type UgcTemplate } from '../../lib/ugc-slides-render'
 
 export function mapStorySlidesToRender(
   slides: UgcSlideshowSlideCopy[],
@@ -71,7 +71,8 @@ export function renderStorySlide(
     slideTotal,
   }
   const hasCta = Boolean(copy.cta.trim())
-  let template: UgcTemplate = hasCta ? 'headline_body_cta' : draft.template
+  // The batch tab resolves „random“ once per post; resolving here is only a type-safe fallback.
+  let template: UgcTemplate = hasCta ? 'headline_body_cta' : resolveUgcTemplate(draft.template)
   let title = copy.title
   let body = copy.body
   let cta = copy.cta

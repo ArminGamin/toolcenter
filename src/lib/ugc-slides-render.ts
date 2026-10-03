@@ -163,6 +163,18 @@ export const CARD_FILL = '#FFFFFF'
 export const CARD_LINE_HEIGHT = 1.28
 
 export type UgcTemplate = 'headline_body' | 'single_statement' | 'problem_solution' | 'headline_body_cta'
+
+/** Draft-level choice: a fixed layout, or „random“ — one layout picked per post. */
+export type UgcTemplateChoice = UgcTemplate | 'random'
+
+/** Layouts the „random“ option rotates between (the CTA layout is applied to the close slide anyway). */
+export const UGC_RANDOM_TEMPLATE_POOL: UgcTemplate[] = ['headline_body', 'single_statement', 'problem_solution']
+
+/** Resolve the draft choice to a concrete layout. Call once per post so its slides match. */
+export function resolveUgcTemplate(choice: UgcTemplateChoice, random: () => number = Math.random): UgcTemplate {
+  if (choice !== 'random') return choice
+  return UGC_RANDOM_TEMPLATE_POOL[Math.floor(random() * UGC_RANDOM_TEMPLATE_POOL.length) % UGC_RANDOM_TEMPLATE_POOL.length]
+}
 export type UgcPlacement = 'top' | 'center' | 'bottom'
 
 export type TextMeasureFn = (text: string, fontSize: number, weight?: 'bold' | 'semibold') => number

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>ToolsAI</title>
+<style>
+  :root {
+    --bg: #06080c; --ink: #f1f3f7; --muted: rgba(241, 243, 247, .62);
+    --track: rgba(255, 255, 255, .08); --grid: rgba(255, 255, 255, .045);
+    --a: #7c3aed; --b: #06b6d4; --c: #ec4899; --d: #f59e0b;
+    color-scheme: dark;
+  }
+  :root[data-theme="light"] {
+    --bg: #f4f5f9; --ink: #0f172a; --muted: rgba(15, 23, 42, .6);
+    --track: rgba(15, 23, 42, .08); --grid: rgba(15, 23, 42, .05);
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: var(--bg); color: var(--ink);
+    font: 500 15px 'Segoe UI Variable Display', 'Segoe UI', system-ui, sans-serif; user-select: none; cursor: default; -webkit-app-region: drag; }
+
+  /* drifting aurora */
+  .aurora { position: fixed; inset: -20%; filter: blur(80px); opacity: .55; }
+  :root[data-theme="light"] .aurora { opacity: .35; }
+  .aurora i { position: absolute; width: 46vmax; height: 46vmax; border-radius: 50%; mix-blend-mode: screen; }
+  :root[data-theme="light"] .aurora i { mix-blend-mode: multiply; }
+  .aurora i:nth-child(1) { background: var(--a); left: 18%; top: 12%; animation: drift1 14s ease-in-out infinite alternate; }
+  .aurora i:nth-child(2) { background: var(--b); right: 14%; top: 30%; animation: drift2 17s ease-in-out infinite alternate; }
+  .aurora i:nth-child(3) { background: var(--c); left: 38%; bottom: 4%; width: 34vmax; height: 34vmax; animation: drift3 12s ease-in-out infinite alternate; }
+  @keyframes drift1 { to { transform: translate(14vw, 10vh) scale(1.15); } }
+  @keyframes drift2 { to { transform: translate(-16vw, -8vh) scale(.9); } }
+  @keyframes drift3 { to { transform: translate(-10vw, -14vh) scale(1.2); } }
+
+  /* perspective grid floor */
+  .grid { position: fixed; left: -50%; right: -50%; bottom: -10%; height: 60%;
+    background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 56px 56px; transform: perspective(520px) rotateX(62deg); transform-origin: bottom;
+    -webkit-mask-image: linear-gradient(to top, #000 10%, transparent 85%); animation: floor 3s linear infinite; }
+  @keyframes floor { to { background-position: 0 56px, 0 0; } }
+
+  canvas { position: fixed; inset: 0; }
+
+  .stage { position: relative; height: 100%; display: grid; place-items: center; transition: opacity .35s ease, transform .45s cubic-bezier(.2, .8, .2, 1); }
+  .stage.leaving { opacity: 0; transform: scale(1.06); }
+  .center { display: flex; flex-direction: column; align-items: center; animation: rise .7s cubic-bezier(.2, .8, .2, 1) both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(14px) scale(.96); } }
+
+  /* logo inside spinning conic rings */
+  .orb { position: relative; width: 168px; height: 168px; display: grid; place-items: center; }
+  .ring { position: absolute; inset: 0; border-radius: 50%;
+    background: conic-gradient(from 0deg, transparent 0 8%, var(--a), var(--b), var(--c), var(--d), transparent 70%);
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+    animation: spin 1.6s linear infinite; }
+  .ring.r2 { inset: 14px; opacity: .65; animation-duration: 2.6s; animation-direction: reverse;
+    background: conic-gradient(from 90deg, transparent 0 30%, var(--b), var(--a), transparent 80%); }
+  .glow { position: absolute; inset: 26px; border-radius: 34px; background: radial-gradient(circle, var(--a), transparent 70%);
+    filter: blur(22px); opacity: .7; animation: pulse 2.2s ease-in-out infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes pulse { 50% { opacity: .35; transform: scale(.9); } }
+  .logo { position: relative; width: 92px; height: 92px; border-radius: 24px; box-shadow: 0 18px 50px rgba(0, 0, 0, .45);
+    animation: float 3.2s ease-in-out infinite; }
+  @keyframes float { 50% { transform: translateY(-5px) rotate(-2deg); } }
+
+  h1 { margin: 30px 0 0; font-size: 34px; font-weight: 700; letter-spacing: -.02em;
+    background: linear-gradient(100deg, var(--ink) 20%, var(--b) 40%, var(--c) 50%, var(--ink) 70%);
+    background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: shimmer 3.4s ease-in-out infinite; }
+  @keyframes shimmer { from { background-position: 100% 0; } to { background-position: -50% 0; } }
+  .sub { margin-top: 4px; font-size: 13px; letter-spacing: .32em; text-transform: uppercase; color: var(--muted); }
+
+  .progress { margin-top: 34px; width: 280px; height: 4px; border-radius: 4px; background: var(--track); overflow: hidden; }
+  .fill { position: relative; height: 100%; width: 6%; border-radius: 4px; overflow: hidden;
+    background: linear-gradient(90deg, var(--a), var(--b), var(--c)); transition: width .6s cubic-bezier(.2, .8, .2, 1);
+    box-shadow: 0 0 14px var(--b); }
+  .fill::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .7), transparent);
+    animation: glint 1.2s ease-in-out infinite; }
+  @keyframes glint { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
+  .msg { margin-top: 14px; min-height: 20px; color: var(--muted); font-size: 15px; transition: opacity .2s; }
+  .msg.swap { opacity: 0; }
+
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0s !important; } }
+</style>
+</head>
+<body>
+<div class="aurora"><i></i><i></i><i></i></div>
+<div class="grid"></div>
+<canvas id="sparks"></canvas>
+<div class="stage" id="stage">
+  <div class="center">
+    <div class="orb">
+      <div class="glow"></div>
+      <div class="ring"></div>
+      <div class="ring r2"></div>
+      <img class="logo" src="../public/app-icon.png" alt="" />
+    </div>
+    <h1>ToolsAI</h1>
+    <div class="sub">Control Center</div>
+    <div class="progress"><div class="fill" id="fill"></div></div>
+    <div class="msg" id="msg">Starting…</div>
+  </div>
+</div>
+<script>
+  const params = new URLSearchParams(location.search)
+  if (params.get('theme') === 'light') document.documentElement.dataset.theme = 'light'
+
+  const msg = document.getElementById('msg')
+  const fill = document.getElementById('fill')
+  let target = 6
+  window.__splash = (text, pct) => {
+    if (typeof pct === 'number') target = Math.max(target, pct)
+    fill.style.width = target + '%'
+    if (text && text !== msg.textContent) {
+      msg.classList.add('swap')
+      setTimeout(() => { msg.textContent = text; msg.classList.remove('swap') }, 160)
+    }
+  }
+  window.__splashLeave = () => {
+    fill.style.width = '100%'
+    document.getElementById('stage').classList.add('leaving')
+  }
+  // Creep forward between real steps so the bar never looks stuck.
+  setInterval(() => {
+    const now = parseFloat(fill.style.width) || 6
+    if (now < target + 12 && now < 92) fill.style.width = (now + 0.8) + '%'
+  }, 400)
+  if (params.get('msg')) window.__splash(params.get('msg'), Number(params.get('pct')) || undefined)
+
+  // Rising sparks
+  const canvas = document.getElementById('sparks')
+  const ctx = canvas.getContext('2d')
+  const colors = ['#7c3aed', '#06b6d4', '#ec4899', '#f59e0b', '#a5b4fc']
+  let w, h, dots = [], i0 = 0
+  function size() {
+    w = canvas.width = innerWidth * devicePixelRatio
+    h = canvas.height = innerHeight * devicePixelRatio
+  }
+  size(); addEventListener('resize', size)
+  for (let i = 0; i < 70; i++) dots.push(spawn(true))
+  function spawn(anywhere) {
+    return { x: Math.random() * w, y: anywhere ? Math.random() * h : h + 10, r: (Math.random() * 1.8 + .4) * devicePixelRatio,
+      v: (Math.random() * .6 + .2) * devicePixelRatio, s: Math.random() * Math.PI * 2, c: colors[i0++ % colors.length] }
+  }
+  ;(function tick() {
+    ctx.clearRect(0, 0, w, h)
+    for (let i = 0; i < dots.length; i++) {
+      const d = dots[i]
+      d.y -= d.v; d.s += .02; d.x += Math.sin(d.s) * .3
+      if (d.y < -10) dots[i] = spawn(false)
+      ctx.globalAlpha = Math.min(1, d.y / h + .15) * .8
+      ctx.fillStyle = d.c
+      ctx.beginPath(); ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2); ctx.fill()
+    }
+    requestAnimationFrame(tick)
+  })()
+</script>
+</body>
+</html>

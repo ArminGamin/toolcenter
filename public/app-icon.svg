@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0.05" y1="0" x2="0.95" y2="1">
+      <stop offset="0" stop-color="#ff4fa3"/>
+      <stop offset="0.42" stop-color="#8b3dff"/>
+      <stop offset="1" stop-color="#1f7bff"/>
+    </linearGradient>
+    <radialGradient id="shine" cx="0.28" cy="0.12" r="0.75">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="0.78" cy="0.9" r="0.6">
+      <stop offset="0" stop-color="#22e3ff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#22e3ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="32" y="32" width="960" height="960" rx="236" fill="url(#bg)"/>
+  <rect x="32" y="32" width="960" height="960" rx="236" fill="url(#glow)"/>
+  <rect x="32" y="32" width="960" height="960" rx="236" fill="url(#shine)"/>
+  <!-- orbit ring -->
+  <ellipse cx="512" cy="512" rx="336" ry="146" transform="rotate(-30 512 512)" fill="none" stroke="#ffffff" stroke-width="64"/>
+  <!-- core, knocked out of the ring -->
+  <circle cx="512" cy="512" r="138" fill="#7a46f5"/>
+  <circle cx="512" cy="512" r="112" fill="#ffffff"/>
+  <!-- satellite -->
+  <circle cx="761" cy="312" r="80" fill="#6f4cf8"/>
+  <circle cx="761" cy="312" r="54" fill="#ffffff"/>
+</svg>

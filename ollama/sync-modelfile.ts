@@ -13,7 +13,7 @@ SYSTEM """
 ${UGC_OLLAMA_SYSTEM_PROMPT}
 """
 
-PARAMETER num_gpu 32
+PARAMETER num_gpu 44
 PARAMETER num_ctx 4096
 PARAMETER temperature 0.4
 PARAMETER top_p 0.85

@@ -79,7 +79,7 @@ export function Topbar({
   }
 
   return (
-    <header className="relative z-30 flex min-h-14 shrink-0 flex-wrap items-center gap-3 border-b border-line bg-ink/90 px-3 py-2 sm:px-6 max-[860px]:gap-x-2 max-[860px]:gap-y-2">
+    <header className="app-titlebar relative z-30 flex min-h-14 shrink-0 flex-wrap items-center gap-3 border-b border-line bg-ink/90 px-3 py-2 sm:px-6 max-[860px]:gap-x-2 max-[860px]:gap-y-2">
       <div className="flex min-w-0 flex-1 items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.14em]">
         <button
           type="button"

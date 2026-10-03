@@ -27,6 +27,11 @@ export const UGC_LT_PERSONAL_DICTIONARY = [
   'unboxing',
   'aromaterapija',
   'difuzorius',
+  'difuzoriaus',
+  'difuzoriui',
+  'difuzorių',
+  'difuzoriumi',
+  'difuzoriuje',
   'termosas',
   'LED',
 ] as const

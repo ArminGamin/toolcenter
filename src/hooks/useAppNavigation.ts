@@ -31,9 +31,35 @@ const HASH_MAP: Record<string, AppModule> = {
   oneshot: 'one-shot',
 }
 
+/** Last open page, so the app reopens where you left it. */
+const LAST_VIEW_KEY = 'cc.last-view.v1'
+const MODULES = new Set<string>([...Object.values(HASH_MAP), 'home', 'tool'])
+
+function readLastView(): { module: AppModule; toolId: string | null } | null {
+  try {
+    const saved = JSON.parse(localStorage.getItem(LAST_VIEW_KEY) || 'null') as { module?: string; toolId?: string | null } | null
+    if (!saved || !MODULES.has(saved.module || '')) return null
+    if (saved.module === 'tool' && !saved.toolId) return null
+    return { module: saved.module as AppModule, toolId: saved.module === 'tool' ? saved.toolId || null : null }
+  } catch {
+    return null
+  }
+}
+
 export function useAppNavigation(initialToolId: string | null) {
-  const [module, setModule] = useState<AppModule>(initialToolId ? 'tool' : 'home')
-  const [toolId, setToolId] = useState<string | null>(initialToolId)
+  const [initial] = useState(() =>
+    initialToolId || window.location.hash ? null : readLastView(),
+  )
+  const [module, setModule] = useState<AppModule>(initial?.module ?? (initialToolId ? 'tool' : 'home'))
+  const [toolId, setToolId] = useState<string | null>(initial?.toolId ?? initialToolId)
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(LAST_VIEW_KEY, JSON.stringify({ module, toolId }))
+    } catch {
+      /* not remembered */
+    }
+  }, [module, toolId])
 
   const applyHash = useCallback(() => {
     const hash = (window.location.hash || '').replace(/^#/, '').toLowerCase()
@@ -50,7 +76,7 @@ export function useAppNavigation(initialToolId: string | null) {
   }, [])
 
   useEffect(() => {
-    applyHash()
+    if (window.location.hash) applyHash()
     window.addEventListener('hashchange', applyHash)
     return () => window.removeEventListener('hashchange', applyHash)
   }, [applyHash])

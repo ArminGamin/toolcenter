@@ -4,7 +4,8 @@
  */
 
 import { currentBusinessProfile } from './business-profiles.js'
-import { ollamaWarmModel } from './ollama-client.js'
+import { ollamaWarmModel, onOllamaCallStat } from './ollama-client.js'
+import { noteUgcGpuCall, ugcGpuTunerBatchStart } from './ugc-gpu-tuner.js'
 import { isChristmasGiftsNiche } from './profile-brand.js'
 import {
     auditFallback,
@@ -41,7 +42,7 @@ import {
     type UgcThemeKind
 } from './ugc-kaledu-catalog.js'
 import { pickKaleduCta, pickStoryAwareKaleduCta } from './ugc-kaledu-cta.js'
-import { applyWarmPayoffPunctuation, normalizeKaleduEmojiBudget } from './ugc-kaledu-emoji.js'
+import { applyWarmPayoffPunctuation, normalizeKaleduEmojiBudget, topUpKaleduEmoji } from './ugc-kaledu-emoji.js'
 import {
     findMissingQuestionMarks,
     findRegisterErrors,
@@ -84,9 +85,11 @@ import {
 import { batchChunkError, batchNumPredict, buildBatchStoryPrompt, generateBatchChunk, isAbortError, isTimeoutError, isTruncatedJsonError } from './ugc-story/batch-llm.js'
 import { UGC_LT_CAPTION_HOOKS, UGC_STORY_ARCS, type UgcHookStyle, type UgcStoryArc } from './ugc-story/caption.js'
 import { buildFallbackChunkSlides, buildFallbackCloseBody, buildFallbackHook, buildFallbackSupportBody } from './ugc-story/fallbacks.js'
-import { buildKaleduProductLedBrief, finalKaleduShipQa, kaleduProductLedIssues, makeKaleduSlideFallback, repairKaleduProductLed, repairKaleduStoryGate, repairProductDebt, type KaleduSlideFallback, type KaleduStoryGateRepair } from './ugc-story/kaledu-gates.js'
+import { buildKaleduProductLedBrief, enforceProductSlideContract, finalKaleduShipQa, kaleduProductLedIssues, makeKaleduSlideFallback, repairKaleduProductLed, repairKaleduStoryGate, repairProductDebt, type KaleduSlideFallback, type KaleduStoryGateRepair } from './ugc-story/kaledu-gates.js'
 import { rewriteKaleduSlidesNative, rewriteTavoSlidesNative } from './ugc-story/native-rewrite.js'
 import { batchChunkSize, isPostOllamaBudgetExhausted, postOllamaBudgetForSlideCount, resetPostOllamaBudget } from './ugc-story/ollama-budget.js'
+import { stripProductIdTags } from './ugc-lt/normalize-copy.js'
+import { repairKaleduArc } from './ugc-story/arc-repair.js'
 import { finalizeBatchSlides, repairStoryOrderAndRepeats } from './ugc-story/repairs.js'
 import { collectParaphraseSlideIssues } from './ugc-story/similarity.js'
 import { qaPolishBatchSlides, slidesFromItems } from './ugc-story/slide-assembly.js'
@@ -109,6 +112,15 @@ export { ensureHookBodyQuestions, finalizeBatchSlides, repairStoryOrderAndRepeat
 export { collectParaphraseSlideIssues, isDuplicateSlideCopy, isParaphraseSlideCopy, slideCopyFingerprint, ugcSlideThemeOverlap } from './ugc-story/similarity.js'
 export { qaPolishBatchSlides } from './ugc-story/slide-assembly.js'
 export type { UgcStorySlide } from './ugc-story/text.js'
+// Adaptive GPU layers: a slow or timed-out UGC call means VRAM spilled — step down.
+onOllamaCallStat((stat) => {
+  const result = noteUgcGpuCall(stat)
+  if (result.stepped) {
+    console.warn(`[UGC GPU] slow call (${result.tokensPerSec?.toFixed(1) ?? 'timeout'} tok/s) → ${result.layers} GPU layers`)
+    auditLog('gpu_layers_step_down', result)
+  }
+})
+
 export const UGC_MIN_STORY_SLIDES = 3
 export const UGC_MAX_STORY_SLIDES = 12
 export const UGC_MAX_SENTENCES_PER_SLIDE = 5
@@ -360,7 +372,8 @@ export async function generateUgcBatchStory(body: {
         postOllamaBudgetForSlideCount(slideCount) + 3,
       )
       if (!body.skipWarm) {
-        progress('Warming Ollama model…')
+        const layers = ugcGpuTunerBatchStart()
+        progress(`Warming Ollama model… (${layers} GPU layers)`)
         auditLog('warm_start')
         await ollamaWarmModel({
           model: resolveUgcOllamaModel(),
@@ -476,6 +489,8 @@ export async function generateUgcBatchStory(body: {
       const ltState: NormalizeLtCopyState = { mesOpenerCount: 0 }
       const chunkTrace: unknown[] = []
       let rescuedSlides = 0
+      let arcRepairCount = 0
+      let arcUnresolved: string[] = []
       let generationCalls = 0
       let generationMs = 0
       let productRepairCalls = 0
@@ -755,7 +770,7 @@ export async function generateUgcBatchStory(body: {
           allowed: pickedProducts,
           getStoryMode: () => storyMode,
         })
-        const debtRepair = repairProductDebt(finalized, storyMode, pickedProducts, productDebt, seed)
+        const debtRepair = repairProductDebt(finalized, storyMode, pickedProducts, productDebt, seed, themeText)
         productRepairCalls += debtRepair.attempts
         productDebt.splice(0, productDebt.length, ...debtRepair.remainingDebt)
         const rewritten = await rewriteKaleduSlidesNative(debtRepair.slides, {
@@ -852,7 +867,7 @@ export async function generateUgcBatchStory(body: {
           semanticRepairGroups: 0,
         }
         for (let round = 0; round < 3; round++) {
-          const led = repairKaleduProductLed(withProducts, storyMode, pickedProducts, seed + round)
+          const led = repairKaleduProductLed(withProducts, storyMode, pickedProducts, seed + round, themeText)
           withProducts.splice(0, withProducts.length, ...led.slides)
           storyMode = led.mode
           shipQa = finalKaleduShipQa(withProducts, shipCtx, makeKaleduSlideFallback({
@@ -876,11 +891,21 @@ export async function generateUgcBatchStory(body: {
             pickedProducts,
           )
           withProducts.splice(0, withProducts.length, ...gate.slides)
+          // Story arc: slides 3+ may not restart the hook, re-ask, or repeat an idea/product.
+          const arc = repairKaleduArc(withProducts, makeKaleduSlideFallback({
+            themeHook: body.themeHook,
+            themeBody: body.themeBody,
+            topic: `${body.theme || topic} ${body.themeHook}`,
+            allowed: pickedProducts,
+            getStoryMode: () => storyMode,
+          }), `gate-${round + 1}`, themeText)
+          withProducts.splice(0, withProducts.length, ...arc.slides)
+          arcRepairCount += arc.repairs.length
           productLedRepairs.push(...led.repairs)
           productRepairCalls += led.repairs.length
           qaRepairs.push(...shipQa.repairs)
-          gateRepairs.push(...gate.repairs)
-          if (!shipQa.remaining.length && !gate.repairs.length && !led.repairs.length) break
+          gateRepairs.push(...gate.repairs, ...arc.repairs)
+          if (!shipQa.remaining.length && !gate.repairs.length && !led.repairs.length && !arc.repairs.length) break
         }
         const remaining = kaleduDeterministicQa(withProducts, shipCtx).filter((flag) => !isSpellNoteOnly(flag))
         const productLedLeft = kaleduProductLedIssues(withProducts, storyMode)
@@ -932,7 +957,9 @@ export async function generateUgcBatchStory(body: {
           const first = remaining[0]
           throw new Error(`Final Christmas QA failed: slide ${first.index + 1} ${first.details.join('; ')}`)
         }
-        if (productLedLeft.length) {
+        // A context slide that wandered off the product habit is a style issue — log it, keep the post.
+        for (const issue of productLedLeft.filter((i) => i.code === 'product_theme_drift')) auditLog('product_theme_drift_kept', issue)
+        if (productLedLeft.some((i) => i.code === 'missing_product_resolution')) {
           throw new Error(
             `Product-led story gate failed: ${productLedLeft.map((i) => `${i.code}${i.slide ? ` slide ${i.slide}` : ''}`).join(', ')}`,
           )
@@ -985,7 +1012,59 @@ export async function generateUgcBatchStory(body: {
             storyMode.products.length ? storyMode.products : pickedProducts,
           )
           withProducts[i] = repaired.slide
+          if (repaired.code === 'product_reference_without_product') {
+            // The generic "Net maža, apgalvota dovana…" line is a poor hook or context —
+            // use the role's own validated fallback instead.
+            const role = withProducts[i].role || (i === 0 ? 'hook' : i === withProducts.length - 1 ? 'close' : 'build')
+            const fb = makeKaleduSlideFallback({
+              themeHook: body.themeHook,
+              themeBody: body.themeBody,
+              topic: `${body.theme || topic} ${body.themeHook}`,
+              allowed: pickedProducts,
+              getStoryMode: () => storyMode,
+            })(i, withProducts, 'product_reference_without_product')
+            if (fb) {
+              withProducts[i] = { ...withProducts[i], title: role === 'hook' ? fb.title : '', body: fb.body }
+              auditFallback({ slide: i + 1, role, reason: 'product_reference_without_product', text: `${fb.title} ${fb.body}`.trim() })
+            }
+          }
         }
+        for (let i = 0; i < withProducts.length; i++) {
+          const slide = withProducts[i]
+          withProducts[i] = { ...slide, title: stripProductIdTags(slide.title || ''), body: stripProductIdTags(slide.body || '') }
+        }
+        // Product slide contract: productId only where the copy names the product, and a named
+        // product always says why it fits (not a bare „Gali rinktis X.“).
+        const contract = enforceProductSlideContract(withProducts, storyMode.products.length ? storyMode.products : pickedProducts)
+        withProducts.splice(0, withProducts.length, ...contract.slides)
+        for (const repair of contract.repairs) auditLog('product_slide_contract', repair)
+        if (contract.repairs.some((r) => r.code === 'product_id_without_product_copy')) {
+          const led = repairKaleduProductLed(withProducts, storyMode, pickedProducts, seed + 7, themeText)
+          withProducts.splice(0, withProducts.length, ...led.slides)
+          for (const repair of led.repairs) auditLog('product_slide_contract', repair)
+        }
+        // Punctuation repair above can turn a statement into a question — re-check the arc.
+        const finalArc = repairKaleduArc(withProducts, makeKaleduSlideFallback({
+          themeHook: body.themeHook,
+          themeBody: body.themeBody,
+          topic: `${body.theme || topic} ${body.themeHook}`,
+          allowed: pickedProducts,
+          getStoryMode: () => storyMode,
+        }), 'final', themeText)
+        withProducts.splice(0, withProducts.length, ...finalArc.slides)
+        arcRepairCount += finalArc.repairs.length
+        // Late fallback swaps can collide with another slide — one more story-gate pass so a
+        // paraphrase never kills the whole post at the hard gate below.
+        const lateGate = repairKaleduStoryGate(withProducts, themeText, makeKaleduSlideFallback({
+          themeHook: body.themeHook,
+          themeBody: body.themeBody,
+          topic: `${body.theme || topic} ${body.themeHook}`,
+          allowed: pickedProducts,
+          getStoryMode: () => storyMode,
+        }), pickedProducts)
+        withProducts.splice(0, withProducts.length, ...lateGate.slides)
+        for (const repair of lateGate.repairs) auditLog('late_story_gate_repair', repair)
+        arcUnresolved = finalArc.unresolved.map((issue) => `slide ${issue.slide} ${issue.code}`)
         const ctaPick = pickStoryAwareKaleduCta({
           theme: body.theme || topic,
           category: body.category,
@@ -1003,7 +1082,9 @@ export async function generateUgcBatchStory(body: {
         const emphatic = applyEmphaticPayoffPunctuation(payoff.slides)
         auditWrite('04f-warm-payoff.json', { warm: payoff.repairs, emphatic: emphatic.repairs })
         for (const repair of payoff.repairs) auditLog('warm_payoff_punctuation', repair)
-        const budgetedEmoji = normalizeKaleduEmojiBudget(emphatic.slides)
+        // Brand voice: about two Apple emojis per post — topped up only here, after every
+        // text check, so an added emoji can never trigger a slide repair.
+        const budgetedEmoji = topUpKaleduEmoji(normalizeKaleduEmojiBudget(emphatic.slides))
         withProducts.splice(0, withProducts.length, ...budgetedEmoji)
         if (
           storyMode.mode === 'PRODUCT_LED' &&
@@ -1049,6 +1130,33 @@ export async function generateUgcBatchStory(body: {
         })
       }
       progress('Shipable gate (structural)…')
+      if (isChristmasGiftsNiche()) {
+        // Last resort before the hard gate: a failing non-hook slide becomes a validated stock
+        // line (keeping the only product slide of a product-led post). Losing the whole post
+        // over one slide is worse than one plain line.
+        const lastResort = makeKaleduSlideFallback({
+          themeHook: body.themeHook,
+          themeBody: body.themeBody,
+          topic: `${body.theme || topic} ${body.themeHook}`,
+          allowed: pickedProducts,
+          getStoryMode: () => storyMode,
+        })
+        for (let attempt = 0; attempt < 3; attempt++) {
+          const failures = [...collectStoryIssues(withProducts, themeText), ...collectParaphraseSlideIssues(withProducts)]
+          const target = failures.map((f) => f.slide - 1).find((i) => i > 0 && i < withProducts.length)
+          if (target == null) break
+          const productSlides = withProducts.filter((s) => s.productId).length
+          const keepProduct = Boolean(withProducts[target].productId) && productSlides === 1
+          const base = keepProduct
+            ? withProducts[target]
+            : { ...withProducts[target], productId: undefined, productImageSrc: undefined, productVariantId: undefined, showProductPrice: false }
+          const work = withProducts.map((s, j) => (j === target ? base : s))
+          const fb = lastResort(target, work, 'last_resort')
+          if (!fb) break
+          withProducts[target] = { ...base, title: '', body: fb.body }
+          auditFallback({ slide: target + 1, role: base.role, reason: `last_resort:${failures[0].code}`, text: fb.body })
+        }
+      }
       assertShipableStoryFull(withProducts, themeText)
       const perf = summarizeModelCalls()
       console.log(
@@ -1082,6 +1190,8 @@ export async function generateUgcBatchStory(body: {
           themeHook: body.themeHook,
           category: body.category,
           rescuedSlides,
+          arcRepairs: arcRepairCount,
+          arcUnresolved,
           qaProvider: qa.provider,
           qaModel: qa.model,
           qaOk: qa.ok,

@@ -5,7 +5,10 @@ import {
 } from '../ugc-batch-audit.js'
 import {
     copyNamesProduct,
+    copyRevealsProduct,
     enforceKaleduProductSlide,
+    kaleduProductReasonLines,
+    loadKaleduCatalog,
     kaleduProductSlideVerdict,
     productTypePhrase,
     requiredKaleduProductIds,
@@ -28,7 +31,8 @@ import {
     KALEDU_THEME_SUBJECTS,
     kaleduThemeDrift
 } from '../ugc-lt-normalize.js'
-import { getFallbackCloseBodyCandidates, pickKaleduSubjectHook, pickValidatedKaleduFallback, UGC_KALEDU_FALLBACK_BUILD_BODIES, UGC_KALEDU_FALLBACK_CONTEXT_BODIES } from './fallbacks.js'
+import { getFallbackCloseBodyCandidates, pickKaleduSubjectHook, pickThemedKaleduFallback, pickValidatedKaleduFallback, UGC_KALEDU_FALLBACK_BUILD_BODIES, UGC_KALEDU_FALLBACK_CONTEXT_BODIES } from './fallbacks.js'
+import { findKaleduProductKit } from './kaledu-kits.js'
 import { collectParaphraseSlideIssues } from './similarity.js'
 import { type UgcStorySlide } from './text.js'
 
@@ -39,6 +43,79 @@ export type KaleduSlideFallback = (
 ) => { title: string; body: string } | null
 
 export type KaleduStoryGateRepair = { slide: number; code: string; before: string; after: string }
+
+/**
+ * A product slide = the product name + why it fits. Never just „Gali rinktis X.“
+ * The reason comes from the product's own catalog lines (never another product's).
+ */
+export function productRevealWithReason(product: KaleduCatalogProduct, priorText = '', seed = 0): string {
+  // Hand-checked reveal lines (name in the right case + a catalog reason) come first.
+  const kit = findKaleduProductKit(product.slug)
+  const kitLines = (kit?.reveal || []).filter((line) => !priorText.includes(line))
+  for (let k = 0; k < kitLines.length; k++) {
+    const line = kitLines[(Math.abs(seed) + k) % kitLines.length]
+    if (!kaleduDeterministicQa([{ body: line, role: 'build' }], { theme: '', allowed: [product] }).some((f) => !isSpellNoteOnly(f))) {
+      return line
+    }
+  }
+  const reveal = rewriteInventedProductSentence('', [product], { priorText })
+  const reasons = kaleduProductReasonLines(product).filter((line) => !priorText.includes(line))
+  if (!reasons.length) return reveal
+  return `${reveal} ${reasons[Math.abs(seed) % reasons.length]}`
+}
+
+/** „Gali rinktis X. Tokiam žmogui tiktų X.“ — keep the first sentence that names the product. */
+export function dropRepeatedProductSentences(body: string, product: KaleduCatalogProduct): string {
+  const sentences = String(body || '').split(/(?<=[.!?…])\s+/u).filter((part) => part.trim())
+  let named = false
+  const kept = sentences.filter((sentence) => {
+    if (!copyRevealsProduct(sentence, product)) return true
+    if (named) return false
+    named = true
+    return true
+  })
+  return kept.join(' ')
+}
+
+/**
+ * Last pass on product slides: a slide that carries productId but never names the product
+ * loses the productId (no picture under unrelated copy); a named product with a bare one-line
+ * reveal gets its reason appended when the result still passes the final QA.
+ */
+export function enforceProductSlideContract(
+  slides: UgcStorySlide[],
+  allowed: KaleduCatalogProduct[],
+): { slides: UgcStorySlide[]; repairs: KaleduStoryGateRepair[] } {
+  const repairs: KaleduStoryGateRepair[] = []
+  const out = slides.map((input, i) => {
+    let slide = input
+    const id = String(slide.productId || '').trim()
+    if (!id) return slide
+    const text = `${slide.title || ''} ${slide.body || ''}`.trim()
+    const product = [...allowed, ...loadKaleduCatalog()].find((p) => p.slug === id || p.productId === id)
+    if (!product || !copyRevealsProduct(text, product)) {
+      repairs.push({ slide: i + 1, code: 'product_id_without_product_copy', before: text, after: text })
+      return { ...slide, productId: undefined, productVariantId: undefined, productImageSrc: undefined, showProductPrice: false }
+    }
+    const deduped = dropRepeatedProductSentences(String(slide.body || ''), product)
+    if (deduped && deduped !== String(slide.body || '')) {
+      repairs.push({ slide: i + 1, code: 'product_sentence_repeated', before: text, after: `${slide.title || ''} ${deduped}`.trim() })
+      slide = { ...slide, body: deduped }
+    }
+    const sentences = String(slide.body || '').split(/(?<=[.!?…])\s+/u).filter((part) => part.trim())
+    if (sentences.length !== 1 || slide.role === 'hook') return slide
+    const priorText = slides.filter((_, j) => j !== i).map((s) => `${s.title || ''} ${s.body || ''}`).join(' ')
+    for (const reason of kaleduProductReasonLines(product)) {
+      if (priorText.includes(reason) || String(slide.body).includes(reason)) continue
+      const next = { ...slide, body: `${String(slide.body).trim()} ${reason}` }
+      if (kaleduDeterministicQa([next], { theme: '', allowed: [product] }).some((flag) => !isSpellNoteOnly(flag))) continue
+      repairs.push({ slide: i + 1, code: 'product_reason_added', before: text, after: `${next.title || ''} ${next.body}`.trim() })
+      return next
+    }
+    return slide
+  })
+  return { slides: out, repairs }
+}
 
 /** Close bodies that bridge a revealed product to the store CTA (PRODUCT_LED mode). */
 export const KALEDU_PRODUCT_LED_CLOSE_BODIES = [
@@ -80,7 +157,12 @@ export function kaleduProductLedResolved(slides: UgcStorySlide[], mode: KaleduSt
     slides.some(
       (slide) =>
         (slide.productId === id || mode.products.some((product) => (product.slug === id || product.productId === id) && (slide.productId === product.productId || slide.productId === product.slug))) &&
-        kaleduProductSlideVerdict(slide) === 'ok',
+        kaleduProductSlideVerdict(slide) === 'ok' &&
+        mode.products.some(
+          (product) =>
+            (slide.productId === product.productId || slide.productId === product.slug) &&
+            copyRevealsProduct(`${slide.title || ''} ${slide.body || ''}`, product),
+        ),
     ),
   )
 }
@@ -114,6 +196,7 @@ export function repairKaleduProductLed(
   mode: KaleduStoryMode,
   allowed: KaleduCatalogProduct[],
   seed = 0,
+  themeText = '',
 ): { slides: UgcStorySlide[]; repairs: KaleduStoryGateRepair[]; mode: KaleduStoryMode } {
   const slides = input.map((slide) => ({ ...slide }))
   const repairs: KaleduStoryGateRepair[] = []
@@ -123,7 +206,7 @@ export function repairKaleduProductLed(
     if (issue.code !== 'product_theme_drift' || !mode.intent) continue
     const i = issue.slide - 1
     const others = slides.filter((_, j) => j !== i).map((s) => ({ title: s.title, body: s.body }))
-    const body = pickValidatedKaleduFallback('context', mode.intent.context, others, allowed)
+    const body = pickThemedKaleduFallback('context', mode.intent.context, others, allowed, themeText)
     if (!body) continue
     repairs.push({ slide: i + 1, code: issue.code, before: textOf(slides[i]), after: body })
     slides[i] = { ...slides[i], title: '', body, productId: undefined, showProductPrice: false }
@@ -147,12 +230,10 @@ export function repairKaleduProductLed(
     for (const target of targets) {
       if (slides[target].productId && kaleduProductSlideVerdict(slides[target]) === 'ok') continue
       const priorText = slides.filter((_, j) => j !== target).map(textOf).join(' ')
-      const reveal = rewriteInventedProductSentence('', [product], { priorText })
-      const why = mode.intent?.why.length ? ` ${mode.intent.why[seed % mode.intent.why.length]}` : ''
       const next = {
         ...slides[target],
         title: '',
-        body: `${reveal}${why}`,
+        body: productRevealWithReason(product, priorText, seed),
         productId: product.productId || product.slug,
         showProductPrice: false,
       }
@@ -176,11 +257,12 @@ export function repairProductDebt(
   products: KaleduCatalogProduct[],
   debt: string[],
   seed = 0,
+  themeText = '',
 ): { slides: UgcStorySlide[]; remainingDebt: string[]; attempts: number; repairs: KaleduStoryGateRepair[] } {
   if (!debt.length) return { slides, remainingDebt: debt, attempts: 0, repairs: [] }
   const owed = products.filter((product) => debt.includes(product.slug) || debt.includes(product.productId))
   const narrowed: KaleduStoryMode = { ...mode, products: owed.length ? owed : mode.products }
-  const led = repairKaleduProductLed(slides, narrowed, products, seed)
+  const led = repairKaleduProductLed(slides, narrowed, products, seed, themeText)
   const remainingDebt = updateProductDebt(debt, led.slides, products)
   for (const repair of led.repairs) {
     if (repair.code !== 'missing_product_resolution') continue
@@ -357,7 +439,7 @@ export function repairKaleduStoryGate(
             {
               ...slides[target],
               title: '',
-              body: rewriteInventedProductSentence('', [product], { priorText }),
+              body: productRevealWithReason(product, priorText),
               productId: product.productId || product.slug,
             },
             { priorText },
@@ -420,30 +502,48 @@ export function makeKaleduSlideFallback(ctx: {
     const others = slides
       .filter((_, j) => j !== index)
       .map((s) => ({ title: s.title, body: s.body }))
+    const themeText = `${ctx.topic} ${ctx.themeHook} ${ctx.themeBody}`
     const storyMode = ctx.getStoryMode?.()
     const productLed = storyMode?.mode === 'PRODUCT_LED'
     if (role === 'hook') {
       return pickKaleduSubjectHook(`${ctx.topic} ${ctx.themeHook} ${ctx.themeBody}`, others, ctx.allowed)
     }
+    // The product revealed earlier in the post (if any): its own hand-checked follow-up lines
+    // keep the story on the product instead of restarting the gift search.
+    const revealedAt = slides.findIndex((s, j) => j < index && Boolean(s.productId))
+    const revealedId = revealedAt >= 0 ? String(slides[revealedAt].productId || '') : ''
+    const revealedKit = revealedId
+      ? findKaleduProductKit(
+          [...ctx.allowed, ...loadKaleduCatalog()].find((p) => p.productId === revealedId || p.slug === revealedId)?.slug || revealedId,
+        )
+      : null
     if (role === 'close' || role === 'punch') {
+      if (revealedKit?.close.length) {
+        const body = pickValidatedKaleduFallback('close', revealedKit.close, others, ctx.allowed)
+        if (body) return { title: '', body }
+      }
       const pool = productLed
         ? [...KALEDU_PRODUCT_LED_CLOSE_BODIES, ...getFallbackCloseBodyCandidates(ctx.topic)]
         : getFallbackCloseBodyCandidates(ctx.topic)
-      const body = pickValidatedKaleduFallback('close', pool, others, ctx.allowed)
+      const body = pickThemedKaleduFallback('close', pool, others, ctx.allowed, themeText)
       return body ? { title: '', body } : null
     }
+    if (role === 'build' && revealedKit?.use.length && revealedAt === index - 1 && !slide.productId) {
+      const body = pickValidatedKaleduFallback('build', revealedKit.use, others, ctx.allowed)
+      if (body) return { title: '', body }
+    }
     if (role === 'context' && productLed && storyMode?.intent) {
-      const body = pickValidatedKaleduFallback('context', storyMode.intent.context, others, ctx.allowed)
+      const body = pickThemedKaleduFallback('context', storyMode.intent.context, others, ctx.allowed, themeText)
       if (body) return { title: '', body }
     }
     const pid = String(slide.productId || '').trim()
     const product = pid ? ctx.allowed.find((p) => p.productId === pid || p.slug === pid) : undefined
     if (product) {
       const priorText = others.map((s) => `${s.title} ${s.body}`).join(' ')
-      return { title: '', body: rewriteInventedProductSentence('', [product], { priorText }) }
+      return { title: '', body: productRevealWithReason(product, priorText) }
     }
     const pool = role === 'context' ? UGC_KALEDU_FALLBACK_CONTEXT_BODIES : UGC_KALEDU_FALLBACK_BUILD_BODIES
-    const body = pickValidatedKaleduFallback(role, pool, others, ctx.allowed)
+    const body = pickThemedKaleduFallback(role, pool, others, ctx.allowed, themeText)
     return body ? { title: '', body } : null
   }
 }

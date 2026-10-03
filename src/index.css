@@ -700,3 +700,14 @@
     grid-template-columns: 170px minmax(0, 1fr);
   }
 }
+
+/* Desktop app: the top bar doubles as the window title bar. Windows draws the
+   min/max/close buttons over its right end (Window Controls Overlay). */
+html .app-titlebar {
+  -webkit-app-region: drag;
+  padding-right: max(1.5rem, calc(100vw - env(titlebar-area-x, 0px) - env(titlebar-area-width, 100vw) + 0.75rem));
+}
+
+html .app-titlebar * {
+  -webkit-app-region: no-drag;
+}

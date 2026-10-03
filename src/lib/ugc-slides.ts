@@ -1,4 +1,4 @@
-import type { UgcPlacement, UgcTemplate } from './ugc-slides-render'
+import type { UgcPlacement, UgcTemplate, UgcTemplateChoice } from './ugc-slides-render'
 import { KALEDU_UNIVERSAL_DESCRIPTION, KALEDU_UNIVERSAL_DESCRIPTIONS, normalizeUniversalDescriptions } from './ugc-universal-description'
 import { isAbortError, type UgcRequestOptions } from './ugc-fetch'
 import {
@@ -25,7 +25,7 @@ export type UgcAngle =
   | 'product_focus'
   | 'custom'
 
-export type { UgcPlacement, UgcTemplate }
+export type { UgcPlacement, UgcTemplate, UgcTemplateChoice }
 
 export type UgcSlideshowSlideCopy = {
   id: string
@@ -165,7 +165,8 @@ export function defaultUgcAngleForProfile(profileId = activeBusinessProfileId())
   return isChristmasUgcProfile(profileId) ? 'gift_ideas' : 'personalisation'
 }
 
-export const TEMPLATE_OPTIONS: { id: UgcTemplate; label: string }[] = [
+export const TEMPLATE_OPTIONS: { id: UgcTemplateChoice; label: string }[] = [
+  { id: 'random', label: 'Random (per post)' },
   { id: 'headline_body', label: 'Headline + body' },
   { id: 'single_statement', label: 'Single big statement' },
   { id: 'problem_solution', label: 'Problem → solution' },
@@ -215,7 +216,7 @@ export const SLIDE_ROLE_LABELS: Record<string, string> = {
 
 export type UgcSlidesProfileSettings = {
   angle: UgcAngle
-  template: UgcTemplate
+  template: UgcTemplateChoice
   placement: UgcPlacement
   brief: string
   defaultCta: string
@@ -677,7 +678,7 @@ function migrateV1Draft(parsed: Record<string, unknown>): UgcSlidesDraft {
   }
   return {
     angle: (parsed.angle as UgcAngle) || DEFAULT_UGC_DRAFT.angle,
-    template: (parsed.template as UgcTemplate) || DEFAULT_UGC_DRAFT.template,
+    template: (parsed.template as UgcTemplateChoice) || DEFAULT_UGC_DRAFT.template,
     placement: (parsed.placement as UgcPlacement) || DEFAULT_UGC_DRAFT.placement,
     brief: String(parsed.brief || ''),
     defaultCta: String(parsed.cta || parsed.defaultCta || DEFAULT_UGC_DRAFT.defaultCta),

@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import { APPEARANCE_KEY, readAppearance, saveAppearance, type Appearance } from '../lib/appearance'
+import { FINISH_SOUNDS, playFinishSound, readFinishSound, saveFinishSound, type FinishSound } from '../lib/finish-sound'
 
 export function AppearanceControls() {
   const menuRef = useRef<HTMLDetailsElement>(null)
   const [settings, setSettings] = useState(readAppearance)
   const [stored, setStored] = useState(true)
+  const [sound, setSound] = useState(readFinishSound)
 
   useEffect(() => {
     const close = (event: MouseEvent) => {
@@ -25,6 +27,12 @@ export function AppearanceControls() {
     const value = { ...settings, ...next }
     setStored(saveAppearance(value))
     setSettings(value)
+  }
+
+  function chooseSound(next: FinishSound) {
+    setSound(next)
+    saveFinishSound(next)
+    playFinishSound(next)
   }
 
   return (
@@ -64,6 +72,18 @@ export function AppearanceControls() {
               <button key={textSize} type="button" aria-pressed={settings.textSize === textSize} onClick={() => update({ textSize })} className={`min-h-11 rounded-xl border p-3 text-left ${settings.textSize === textSize ? 'border-brass bg-brass/10' : 'border-lineStrong hover:bg-lift'}`}>
                 <span className="block font-bold text-snow">{name}</span>
                 <span className="block text-xs text-mist">{description}</span>
+              </button>
+            ))}
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend className="mb-1 text-sm font-semibold text-snow">Sound when a task finishes</legend>
+          <p className="mb-3 text-xs text-fog">Click one to hear it.</p>
+          <div className="grid grid-cols-2 gap-2">
+            {FINISH_SOUNDS.map(({ id, name, description }) => (
+              <button key={id} type="button" aria-pressed={sound === id} onClick={() => chooseSound(id)} title={description} className={`min-h-11 rounded-xl border px-2 py-2 text-left ${sound === id ? 'border-brass bg-brass/10' : 'border-lineStrong hover:bg-lift'}`}>
+                <span className="block font-bold text-snow">{name}</span>
+                <span className="block truncate text-xs text-mist">{description}</span>
               </button>
             ))}
           </div>

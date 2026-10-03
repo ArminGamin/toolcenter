@@ -25,15 +25,27 @@ function timeAgo(iso: string) {
   return new Date(iso).toLocaleTimeString()
 }
 
+/** Kept across restarts so an old failure does not greet you on every launch. */
 const DISMISSED_KEY = 'cc.alerts.dismissedModules'
 
 function readDismissed(): Set<string> {
   try {
-    return new Set(JSON.parse(sessionStorage.getItem(DISMISSED_KEY) || '[]') as string[])
+    return new Set(JSON.parse(localStorage.getItem(DISMISSED_KEY) || '[]') as string[])
   } catch {
     return new Set()
   }
 }
+
+function saveDismissed(keys: Set<string>) {
+  try {
+    localStorage.setItem(DISMISSED_KEY, JSON.stringify([...keys].slice(-100)))
+  } catch {
+    /* ignore */
+  }
+}
+
+/** A run you stopped yourself is not a failure. */
+const isUserAbort = (m: HubModuleSnapshot) => /^aborted\b/i.test(m.message || '')
 
 /**
  * One "something failed" banner for the whole app: server alerts (timeouts,
@@ -63,7 +75,7 @@ export function AlertBanner({ modules }: { modules: HubModuleSnapshot[] }) {
   }, [load])
 
   const moduleRows: Row[] = modules
-    .filter((m) => m.status === 'error')
+    .filter((m) => m.status === 'error' && !isUserAbort(m))
     .map((m) => ({
       key: `module:${m.id}:${m.message || ''}`,
       title: `${m.label} failed`,
@@ -90,22 +102,14 @@ export function AlertBanner({ modules }: { modules: HubModuleSnapshot[] }) {
     } else {
       const next = new Set(dismissedModules).add(row.key)
       setDismissedModules(next)
-      try {
-        sessionStorage.setItem(DISMISSED_KEY, JSON.stringify([...next]))
-      } catch {
-        /* ignore */
-      }
+      saveDismissed(next)
     }
   }
 
   async function dismissAll() {
     for (const row of rows) if (!row.alertId) dismissedModules.add(row.key)
     setDismissedModules(new Set(dismissedModules))
-    try {
-      sessionStorage.setItem(DISMISSED_KEY, JSON.stringify([...dismissedModules]))
-    } catch {
-      /* ignore */
-    }
+    saveDismissed(dismissedModules)
     setAlerts([])
     setOpen(false)
     await fetch('/api/alerts', {

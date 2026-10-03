@@ -10,7 +10,7 @@ import { resolveUgcOllamaModel } from './ugc-env-bridge.js'
 const execFileAsync = promisify(execFile)
 
 const DEFAULT_FROM = 'FROM jobautomation/OpenEuroLLM-Lithuanian:latest'
-const DEFAULT_PARAMETERS = `PARAMETER num_gpu 32
+const DEFAULT_PARAMETERS = `PARAMETER num_gpu 44
 PARAMETER num_ctx 4096
 PARAMETER temperature 0.35
 PARAMETER top_p 0.8

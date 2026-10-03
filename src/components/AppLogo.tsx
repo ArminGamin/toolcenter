@@ -1,7 +1,7 @@
 import { APP_ICON_PATH, APP_SHORT_NAME } from '../lib/brand'
 
-/** Zoom past baked-in black margins in public/app-icon.png (~632×678 content in 1024²). */
-const LOGO_BLEED_SCALE = 1.62
+/** Trim the thin transparent margin around public/app-icon.png (960² squircle in 1024²). */
+const LOGO_BLEED_SCALE = 1.07
 
 type AppLogoProps = {
   size?: number

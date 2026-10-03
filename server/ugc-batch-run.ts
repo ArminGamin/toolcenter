@@ -11,6 +11,7 @@ import {
 import { clearUgcModelDeployCache, verifyUgcModelDeploy } from './ugc-ollama-status.js'
 import { redeployUgcOllamaModel } from './ugc-modelfile-sync.js'
 import { UGC_MAX_STORY_SLIDES } from './ugc-story-engine.js'
+import { ugcGpuTunerBatchStart } from './ugc-gpu-tuner.js'
 import { assertUgcSemanticQaReady } from './ugc-qa-client.js'
 import { buildBatchPostCaption } from './ugc-caption-format.js'
 import { ugcActiveCta } from './ugc-cta-normalize.js'
@@ -470,7 +471,9 @@ async function runBatchLoop(
     }
 
     touch(batch, id, 'Loading Ollama model onto GPU…', 0.08)
-    step(batch, id, 'Warming ugc-lt-gpu…')
+    // Re-probe one GPU-layer step up each batch; slow calls step back down (ugc-gpu-tuner.ts).
+    const gpuLayers = ugcGpuTunerBatchStart()
+    step(batch, id, `Warming ugc-lt-gpu… (${gpuLayers} GPU layers)`)
     const warm = await warmUgcOllamaModel()
     if (warm.failed) {
       step(batch, id, `Ollama warm-up failed after ${Math.round(warm.warmRequestMs / 1000)}s — check the alert banner. Continuing.`)

@@ -664,18 +664,18 @@ export function findIncompleteClause(text: string, role?: string, field: 'title'
 }
 
 const UNNATURAL_COLLOCATION_RE =
-  /atstumo\s+suvokim|apimtas\s+snaig|vis\s+atvėsina|prieglob(?!st)|tiltu\s+tarp|kaip\s+senos\s+istorijos|atskleist\p{L}*\s+dėmes|apimti\s+rūpesting|sušildo\s+ne\s+tik\s+kūnui|dovanoji\s+jai\s+ramybės|suskumbim|staigtyb|dovanų\s+paieškos\s+stresas\s+pranoksta|nuspręsk\s+(?!ką|kaip|ar|kur|kam|kurį|kurią|kuri|kada)\p{L}+|susivienyti\s+su|švent\p{L}*\s+bum\p{L}*|sukurti\s+jauk\p{L}*\s+moment\p{L}*|patirties\s+nei\s+tu|kupin\p{L}*\s+nerimo|(?<!\p{L})(?:ne)?būtina\s+(?:yra\s+)?būti\s+\p{L}+iai(?!\p{L})/iu
+  /(?<!\p{L})susidūrim\p{L}*|tarpusavio\s+santyki|kalėdin\p{L}*\s+detektyv|ant\s+uolų|atstumo\s+suvokim|apimtas\s+snaig|vis\s+atvėsina|prieglob(?!st)|tiltu\s+tarp|kaip\s+senos\s+istorijos|atskleist\p{L}*\s+dėmes|apimti\s+rūpesting|sušildo\s+ne\s+tik\s+kūnui|dovanoji\s+jai\s+ramybės|suskumbim|staigtyb|dovanų\s+paieškos\s+stresas\s+pranoksta|nuspręsk\s+(?!ką|kaip|ar|kur|kam|kurį|kurią|kuri|kada)\p{L}+|susivienyti\s+su|švent\p{L}*\s+bum\p{L}*|sukurti\s+jauk\p{L}*\s+moment\p{L}*|patirties\s+nei\s+tu|kupin\p{L}*\s+nerimo|(?<!\p{L})(?:ne)?būtina\s+(?:yra\s+)?būti\s+\p{L}+iai(?!\p{L})|užsuk\p{L}*\s+į\s+(?:tą\s+pat\p{L}*\s+)?(?:fotel|kėd|sof|lov)\p{L}*|visku\s+juokais|dovanotojų\s+sąraš\p{L}*|pirkimo\s+centr\p{L}*|(?<!\p{L})atsėt\p{L}*|(?<!\p{L})ima\s+viršum(?!\p{L})|pasidalink\p{L}*\s+švent\p{L}*|džiugesys[^.]{0,30}šviesus|dovanojimo\s+(?:stres|džiuges|proces)\p{L}*|paieškos\s+proces\p{L}*|jau\p{L}*\s+apmaudž\p{L}*|daro\s+varginan\p{L}*|jaust\p{L}*\s+ypating\p{L}*|susiduri\s+su\s+įtamp\p{L}*|(?<!\p{L})\p{L}+,\s+ne\s+stresas|šviesaus\s+komfort\p{L}*|abiem\s+pusėms|visoms\s+šalims|pasijausti\s+artimesn\p{L}*\s+švent\p{L}*|turės\s+savo\s+moment\p{L}*|tiks\s+(?:kiekvienai\s+)?nakčiai|papildys\s+namus|skubantis\s+pirkim\p{L}*|greičiausią\s+daikt\p{L}*|jaukumo\s+atmosfer\p{L}*|“\s+[A-ZĄČĘĖĮŠŲŪŽ][a-ząčęėįšųūž]{4,}(?=\s+\p{L})/iu
 
 const EMPTY_AI_RE =
-  /ne\s+tik\s+(?:daiktas|dovana|rankas|kūną|kūnui)[^.]{0,40}bet\s+ir|(?<!\p{L})siel(?:a|ą|ai|os|oje)(?!\p{L})|širdis\s+(?:visada\s+)?žino|širdis\s+plaka|tarsi\s+pasaka|nepakartojam\p{L}*|stebukl\p{L}*|kalėdų\s+magij|šventin\p{L}*\s+magij|šilumos\s+simbol|tikroji\s+dovana|nepamirštam\p{L}*\s+akimirk|ypating\p{L}*\s+akimirk|pasiner\p{L}*\s+į|emocij\p{L}*\s+kupin\p{L}*|kupin\p{L}*\s+pasakojim\p{L}*|pasitikėk\s+(?:emocij|intuicij|kalėdų|savimi)\p{L}*|dovanok\s+(?:ne\s+daiktą,\s*bet\s+)?(?:šilumą|artimumą|jaukumą|šviesą|jaukius\s+vakarus)/iu
+  /(?<!\p{L})magij\p{L}*|ramybės\s+oaz\p{L}*|\p{L}+\(-?(?:a|i|ė|usi)\)|ne\s+tik\s+(?:daiktas|dovana|rankas|kūną|kūnui)[^.]{0,40}bet\s+ir|(?<!\p{L})siel(?:a|ą|ai|os|oje)(?!\p{L})|širdis\s+(?:visada\s+)?žino|širdis\s+plaka|tarsi\s+pasaka|nepakartojam\p{L}*|stebukl\p{L}*|kalėdų\s+magij|šventin\p{L}*\s+magij|šilumos\s+simbol|tikroji\s+dovana|nepamirštam\p{L}*\s+akimirk|ypating\p{L}*\s+akimirk|pasiner\p{L}*\s+į|emocij\p{L}*\s+kupin\p{L}*|kupin\p{L}*\s+pasakojim\p{L}*|pasitikėk\s+(?:emocij|intuicij|kalėdų|savimi)\p{L}*|dovanok\s+(?:ne\s+daiktą,\s*bet\s+)?(?:šilumą|artimumą|jaukumą|šviesą|jaukius\s+vakarus)|ypating\p{L}*\s+akcent\p{L}*|šilumos\s+kupin\p{L}*|(?<!\p{L})iš\s+širdies|sušild\p{L}*\s+šird\p{L}*|užpild\p{L}*\s+(?:namus\s+)?šilum\p{L}*|dovanoti\s+jaukumą/iu
 
 const INVENTED_WORD_RE = /(?<!\p{L})(?:rasisi|džiugij\p{L}*|staigtyb\p{L}*|nesusiprotėj\p{L}*)(?!\p{L})/iu
 
 const FIRST_PERSON_RE =
-  /(?<!\p{L})(?:aš|man|mano|mane|žinau|galiu|noriu|manau|radau|pirkau|jaučiu|ieškau|dovanoju|renkuosi|nežinau|negaliu|supratau|pamačiau|turiu|neturiu|esu|darau|perku|randu|sakau|matau|galvoju|pamenu|mėgstu|dovanosiu)(?!\p{L})/iu
+  /(?<!\p{L})(?:aš|man|mano|mane|žinau|galiu|noriu|manau|radau|pirkau|jaučiu|jaučiuosi|ieškau|dovanoju|renkuosi|nežinau|negaliu|supratau|pamačiau|turiu|neturiu|esu|darau|perku|randu|sakau|matau|galvoju|pamenu|mėgstu|dovanosiu|atsikeliu|nerimauju|dovanojau|padovanojau|apkabinčiau|norėčiau|galėčiau|pradėjau|nupirkau|nusipirkau|išsirinkau|sužinojau|ieškojau|pamiršau|prisimenu|tikiuosi|abejoju|rinkausi|neturėjau|nežinojau|sukausi)(?!\p{L})/iu
 
 const WE_FORM_RE =
-  /(?<!\p{L})(?:mes|mūsų|mums|žinome|galime|turime|esame|norime|ieškome|renkamės|dovanojame|siūlome|\p{L}{3,}(?:amės|imės|omės))(?!\p{L})/iu
+  /(?<!\p{L})(?:mes|mūsų|mums|žinome|galime|turime|esame|norime|ieškome|renkamės|dovanojame|siūlome|įsimetame|perkame|pamirštame|renkame|galvojame|negalvojame|jaučiame|matome|darome|išleidžiame|atidedame|dovanokime|leiskime|pasižiūrėkime|\p{L}{3,}(?:amės|imės|omės))(?!\p{L})/iu
 
 const FORMAL_PLURAL_RE =
   /(?<!\p{L})(?:jūs|jūsų|jums|\p{L}{3,}(?:kite|ykite|kitės)|\p{L}{3,}(?:ate|ite|ote|atės|itės|otės))(?!\p{L})/iu
@@ -693,6 +693,28 @@ const BUTI_HALF_PARTICIPLE_RE =
 const DALINTIS_GENITIVE_RE = /(?<!\p{L})((?:pasi)?dalin\p{L}*|(?:pasi)?dalyk\p{L}*)\s+(\p{L}+(?:ės|os|ų|io))\s+\p{L}+/iu
 
 const IESKOTI_ACCUSATIVE_RE = /(?<!\p{L})(ieško\p{L}*|ieškai|ieškau)\s+(\p{L}+ą)(?!\p{L})/iu
+
+/** „jauti begalinis stresas“ — adjective + noun in the nominative after „jauti“. */
+const JAUTI_NOMINATIVE_RE =
+  /(?<!\p{L})jauti\s+\p{L}+(?:inis|ingas|us|is|as)\s+\p{L}{3,}(?:as|is|ys|us)(?=[\s.,!?]|$)/iu
+
+/** „Dovanos spaudimas jauti“ — a nominative noun cannot be the subject of „jauti“. */
+const NOUN_SUBJECT_JAUTI_RE = /(?<!\p{L})(\p{L}{4,}(?:mas|imas|ys))\s+jauti(?!\p{L})/iu
+
+/**
+ * Clear-rule calques and government errors from references/lithuanian-grammar-vlkk.md
+ * (VLKK §2–§3). Only constructions the reference marks as errors — no style preferences.
+ */
+const VLKK_CALQUE_RULES: Array<{ re: RegExp; detail: string }> = [
+  { re: /(?<!\p{L})kalba\s+eina\s+apie(?!\p{L})/iu, detail: 'kalba eina apie → kalbama apie (VLKK §2)' },
+  { re: /(?<!\p{L})vardan\s+(?:patogum|komfort|jaukum|grož|ramyb|džiaugsm)\p{L}*/iu, detail: 'vardan ko → dėl ko (VLKK §2)' },
+  { re: /(?<!\p{L})atitin\p{L}*\s+(?:\p{L}+\s+)?(?:reikalavim|lūkesč|poreik|norams|skoniui)\p{L}*(?:ams|iams|ui|iui)(?!\p{L})/iu, detail: 'atitikti kam → atitikti ką (VLKK §3)' },
+  { re: /(?<!\p{L})praš\p{L}*\s+pas\s+\p{L}+/iu, detail: 'prašyti pas ką → prašyti ką / ko (VLKK §3)' },
+]
+
+export function findVlkkCalques(text: string): string[] {
+  return VLKK_CALQUE_RULES.filter((rule) => rule.re.test(String(text || ''))).map((rule) => rule.detail)
+}
 
 /** Case government: verb/pronoun demands a case the next word does not have. */
 export function findCaseGovernmentErrors(text: string): string[] {
@@ -717,8 +739,16 @@ export function findCaseGovernmentErrors(text: string): string[] {
   if (dalintis) errors.push(`${dalintis[1]} ${dalintis[2]} (dalintis + instrumental)`)
   const ieskoti = String(text || '').match(IESKOTI_ACCUSATIVE_RE)
   if (ieskoti) errors.push(`${ieskoti[1]} ${ieskoti[2]} (ieškoti + genitive)`)
+  // „dovanos vis dar nepirkta“ — plural subject needs „nepirktos“.
+  const pluralPassive = String(text || '').match(/(?<!\p{L})dovanos\s+(?:vis\s+dar\s+|dar\s+)?(ne\p{L}{3,}ta)(?!\p{L})/iu)
+  if (pluralPassive) errors.push(`dovanos … ${pluralPassive[1]} (plural needs -tos)`)
+  const jautiNom = String(text || '').match(JAUTI_NOMINATIVE_RE)
+  if (jautiNom) errors.push(`${jautiNom[0]} (jausti + accusative)`)
+  const nounJauti = String(text || '').match(NOUN_SUBJECT_JAUTI_RE)
+  if (nounJauti) errors.push(`${nounJauti[0]} (noun subject + 2nd-person verb)`)
   return errors
 }
+
 
 const NEBUTINA_BUTI_MISUSE_RE =
   /(?<!\p{L})nebūtina\s+būti\s+(\p{L}+(?:ai|ei))(?!\p{L})/iu
@@ -738,14 +768,15 @@ export function findVerbConstructionErrors(text: string): string[] {
 
 /** Christmas copy speaks to one reader as „tu“ — no aš / mes / formal jūs forms. */
 export function findRegisterErrors(text: string): string[] {
-  const t = String(text || '')
+  // Quoted product names („Mūsų istorija“) are catalog copy, not the speaker's register.
+  const t = String(text || '').replace(/„[^“”"]{1,60}[“”"]/gu, ' ')
   return [t.match(FIRST_PERSON_RE)?.[0], t.match(WE_FORM_RE)?.[0], t.match(FORMAL_PLURAL_RE)?.[0]].filter(
     (hit): hit is string => Boolean(hit),
   )
 }
 
 const DIRECT_Q_START_RE =
-  /^(?:ar|kodėl|kaip|ką|kas|kur|kada|kuris|kuri|nežinai|vis\s+dar|nenori|ieškai|pažįsti|svarstai|galvoji|nerandi|sunku\s+išrinkti|neapsisprendi|jau\s+išrinkai|dar\s+neturi|dar\s+nieko|nori|dovana\s+\p{L}{3,16})\b/iu
+  /^(?:ar|kodėl|kaip|ką|kas|kur|kada|kuris|kuri|nežinai|vis\s+dar|nenori|ieškai|pažįsti|svarstai|galvoji|nerandi|sunku\s+išrinkti|neapsisprendi|jau\s+išrinkai|dar\s+neturi|dar\s+nieko|nori)\b|^dovana\s+\p{L}{3,16}$/iu
 
 const RHETORICAL_Q_RE =
   /^(?:(?:kasmet|vėl|dažnai|kiekvienais\s+metais)\s+perki\s+kažką|(?:vėl|vis\s+dar)\s+renkiesi|(?:dar|vis\s+dar)\s+ieškai|(?:vėl|dar|vis\s+dar)\s+nežinai|dar\s+neišrinkai|vėl\s+atidėjai|vis\s+dar\s+atidėlioji|(?:(?:dar|vis\s+dar)\s+)?reikia\s+dovanos|(?:ieškai|nori)\s+dovanos)(?!\p{L})/iu
@@ -1556,6 +1587,10 @@ export function findSentenceFragments(text: string): string[] {
     if (words.length === 1 && /[.!]$/u.test(s)) out.push(s)
     if (/^kai\s/iu.test(s) && !/[,?]/u.test(s) && words.length <= 8 && /[.!]$/u.test(s)) out.push(s)
     if (/^(?:(?:su|be|į|iš|apie|dėl|prie)\s+)?kur(?:is|i|ie|ios|iuo|iais|ią|į|iam|iai|ių|iomis)\s/iu.test(s)) out.push(s)
+    // „Idealus atsipalaiduoti po dienos.“ — adjective + infinitive, no finite verb.
+    if (/^(?:idealus|ideali|puikus|puiki|tobulas|tobula)\s+\p{L}+ti(?:s)?/iu.test(s)) out.push(s)
+    // „Dovana, kuri visada bus puiki.“ — a noun and its relative clause, no main clause.
+    if (/^(?:\p{L}+\s+)?(?:dovana|daiktas|prekė|smulkmena|idėja),\s*kur(?:is|i|ie|ios|ią|į)\s[^?]*\.$/iu.test(s) && (s.match(/,/g) || []).length === 1) out.push(s)
   }
   if (/[:\-–—]\s*$/u.test(String(text || '').trim())) out.push('dangling trailing punctuation')
   return out
@@ -1583,6 +1618,7 @@ export function kaleduDeterministicQa(slides: KaleduQaSlide[], ctx: KaleduQaCont
     if (inventedWord) add('invented_word', inventedWord)
     for (const err of findCaseGovernmentErrors(blob)) add('case_agreement', err)
     for (const err of findVerbConstructionErrors(blob)) add('verb_construction', err)
+    for (const err of findVlkkCalques(blob)) add('unnatural_collocation', err)
     const spell = checkLtSpelling(blob)
     if (spell.hardFail) add('spell_hard_fail', spell.hardFail)
     if (spell.note) add('spell_note', spell.note)
@@ -1608,6 +1644,14 @@ export function kaleduDeterministicQa(slides: KaleduQaSlide[], ctx: KaleduQaCont
         `group=${hit.repairGroupId} confidence=${hit.confidence} | ${hit.reason} | original="${hit.span}"`,
       )
     }
+    // „Ieškodama dovanos…“ assumes the reader's gender — the copy speaks to every „tu“.
+    const gendered = blob.match(/(?<!\p{L})\p{L}{3,}(?:dama|damas|damos|dami)(?!\p{L})/u)?.[0]
+    if (gendered) add('native_style', `gendered half-participle "${gendered}"`)
+    // „Jautiesi kaip užstrigęs“, „užuot rinkęs“ — a past participle that agrees with the reader.
+    const genderedPast = blob.match(
+      /(?<!\p{L})(?:jautiesi|esi|atrodai|lieki|būni|tampi|buvai|būsi|užuot|kaip|tarsi|lyg)\s+(?:\p{L}+\s+){0,2}\p{L}{3,}(?:ęs|usi)(?!\p{L})|(?<!\p{L})\p{L}{3,}ęs\s+vis\s+tiek/iu,
+    )?.[0]
+    if (genderedPast) add('native_style', `gendered participle addressed to the reader "${genderedPast}"`)
     const filler = blob.match(EMPTY_AI_RE)?.[0]
     if (filler) add('empty_ai_language', filler)
     if (productTruth) {
@@ -1643,11 +1687,12 @@ const JUDGE_CODE_MAP: Record<string, KaleduQaCode> = {
 
 export const KALEDU_QA_JUDGE_SYSTEM = `Tu esi griežtas lietuvių kalbos redaktorius. Tikrini Kalėdų Kampelio UGC skaidres.
 Pažymėk TIK aiškias klaidas:
-agreement = linksnio/giminės/skaičiaus derinimas (pvz. „Minkšta vilnos pledas“)
+agreement = linksnio/giminės/skaičiaus derinimas (pvz. „Minkšta vilnos pledas“) arba neteisingas veiksmažodžio valdymas (pvz. „atitinka reikalavimams“ → „atitinka reikalavimus“)
 person = asmuo nesutampa („žmogus jauti“)
 incomplete = nebaigtas sakinys ar antraštė
-collocation = taip lietuviai nesako
+collocation = taip lietuviai nesako, arba pažodinis vertinys („kalba eina apie“, „vardan ko“, „pas“ vietoj linksnio)
 wrong_context = tikras lietuviškas žodis, bet reikšmė sakinyje absurdiška (pvz. „Kalėdos jau čiaupo“)
+Pusdalyvis (-damas/-dama) su kitu veikėju nei pagrindinis veiksmažodis = incomplete. Stiliaus variantų (abu taisyklingi) NEžymėk — VLKK: neišgalvok draudimų.
 invented_word = neegzistuojantis ar iškraipytas žodis
 ai_filler = tuščia reklaminė poezija (siela, magija, tarsi pasaka)
 incoherent = skaidrė nesusijusi su tema ar ankstesne skaidre

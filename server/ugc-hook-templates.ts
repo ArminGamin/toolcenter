@@ -8,6 +8,7 @@ import {
   hasUnmarkedColonQuestion,
   hookBodyEchoesTitle,
   LT_QUESTION_STARTER_RE,
+  LT_PROPER_NOUN_START_RE,
   LT_QUESTION_WORD_START_RE,
   normalizeLtUgcMultiline,
   polishLtCaps,
@@ -111,7 +112,11 @@ export function finalizeHookTitle(
   const forceQuestion = looksLikeQuestionStyle(style) || isInterrogativeHookTitle(raw)
 
   let out: string
-  if (forceQuestion) {
+  const cleanRaw = raw.length >= 10 && raw.length <= 64 && !/tavoknyga|pradėk|🤩/i.test(raw)
+  if (isChristmasGiftsNiche() && cleanRaw && /\?$/u.test(raw)) {
+    // Intonation questions („Brolis vėl pasakė „nežinau“?“) are natural hooks — never wrap them in „Ar …“.
+    out = raw
+  } else if (forceQuestion) {
     const tmpl = QUESTION_TEMPLATES[Math.abs(seed) % QUESTION_TEMPLATES.length]
     if (
       isInterrogativeHookTitle(raw) &&
@@ -129,7 +134,7 @@ export function finalizeHookTitle(
       out = ensureHookQuestionMark(raw)
     } else {
       const slot = pain.replace(/\?+$/g, '').replace(/^(ar|kodėl)\s+/i, '')
-      out = tmpl(slot.charAt(0).toLowerCase() + slot.slice(1))
+      out = tmpl(LT_PROPER_NOUN_START_RE.test(slot) ? slot : slot.charAt(0).toLocaleLowerCase('lt-LT') + slot.slice(1))
     }
   } else {
     if (raw && raw.length >= 10 && raw.length <= 64 && !/tavoknyga|pradėk|🤩/i.test(raw)) {
@@ -243,10 +248,11 @@ export const KALEDU_HOOK_BODY_OPENERS = [
   'Kalėdos jau čia pat, o dovanos dar nėra?',
 ]
 
+// Each bridge must follow every opener above logically (they are combined by seed).
 export const KALEDU_HOOK_BODY_BRIDGES = [
-  'Tada lentynos atrodo vienodos, o sprendimas vis atidedamas.',
   'Būtent tada dovaną išrinkti tampa sunkiau, nei atrodo.',
-  'Todėl dažniau imi tai, kas po ranka.',
+  'Tokia paieška dažnai užtrunka ilgiau, nei tikėjaisi.',
+  'Svarbiausia nepirkti bet ko vien todėl, kad reikia.',
 ]
 
 export const UGC_HOOK_BODY_BRIDGES = HOOK_BODY_BRIDGES

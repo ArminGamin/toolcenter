@@ -3,7 +3,7 @@ import path from 'node:path'
 import { CHRISTMAS_PRODUCTS_DIR } from './profile-brand.js'
 import { loadKaleduCatalog, type KaleduCatalogProduct } from './ugc-kaledu-catalog.js'
 
-export type ProductVisualRole = 'hero' | 'lifestyle' | 'angle' | 'detail' | 'closeup' | 'unknown'
+export type ProductVisualRole = 'hero' | 'lifestyle' | 'angle' | 'detail' | 'closeup' | 'back' | 'unknown'
 
 export type ProductVisual = {
   src: string
@@ -118,7 +118,13 @@ function roleFromSrc(src: string): ProductVisualRole {
   const match = path.basename(src).match(ROLE_FILE)
   const role = match?.[1]?.toLowerCase()
   if (role === 'hero' || role === 'lifestyle' || role === 'angle' || role === 'detail' || role === 'closeup') return role
-  return 'unknown'
+  // Shop photo names: „…-nugara-…“ = back of the product, „…-sonas-…“ = side, „…-virsus-…“ = top.
+  const base = path.basename(src).toLocaleLowerCase('lt-LT')
+  if (/-(?:nugara|galas|apacia|apačia)(?:-|\.)/u.test(base)) return 'back'
+  if (/-(?:sonas|šonas)(?:-|\.)/u.test(base)) return 'angle'
+  if (/-(?:virsus|viršus)(?:-|\.)/u.test(base)) return 'detail'
+  if (/-(?:detale|detalė|arti|detail)(?:-|\.)/u.test(base)) return 'closeup'
+  return 'hero'
 }
 
 export function visualsFromImages(
@@ -183,9 +189,12 @@ export function resolveProductVisuals(productId: string): ProductVisual[] {
   const id = String(productId || '').trim()
   const product = loadKaleduCatalog().find((row) => row.slug === id || row.productId === id || row.sku === id)
   if (!product) return []
-  return visualsFromImages(id, discoverProductImages(product), (src) => fileUsable(absFromSrc(src))).filter(
+  const visuals = visualsFromImages(id, discoverProductImages(product), (src) => fileUsable(absFromSrc(src))).filter(
     (visual) => visual.usable && visual.productId === id,
   )
+  // Never show the back of a product (frame stand, box back) unless it is the only photo.
+  const front = visuals.filter((visual) => visual.role !== 'back')
+  return front.length ? front : visuals
 }
 
 /** Final render gate. Filename parsing is not consulted. */

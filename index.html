@@ -10,6 +10,45 @@
     <meta name="application-name" content="ToolsAI" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ToolsAI Control Center</title>
+    <script>
+      // Restore the durable settings copy and paint the saved theme before anything else loads.
+      ;(function () {
+        try {
+          var cache = window.ccSettingsCache && window.ccSettingsCache.snapshot
+          if (cache) for (var key in cache) if (typeof cache[key] === 'string' && localStorage.getItem(key) !== cache[key]) localStorage.setItem(key, cache[key])
+        } catch (e) {}
+        var dark = false
+        try {
+          var appearance = JSON.parse(localStorage.getItem('cc.appearance.v2') || 'null')
+          dark = appearance ? appearance.theme === 'slate' : matchMedia('(prefers-color-scheme: dark)').matches
+        } catch (e) {}
+        var root = document.documentElement
+        root.dataset.colorTheme = dark ? 'slate' : 'paper'
+        root.dataset.boot = dark ? 'dark' : 'light'
+        root.style.colorScheme = dark ? 'dark' : 'light'
+        if (dark) root.style.setProperty('--surface-page', '14 17 22')
+      })()
+    </script>
+    <style>
+      :where(html[data-boot='dark']) body { background: #0e1116; }
+      :where(html[data-boot='light']) body { background: #f3f4f7; }
+      .boot { position: fixed; inset: 0; display: grid; place-items: center; overflow: hidden; z-index: 9999;
+        animation: boot-in .3s ease both; }
+      @keyframes boot-in { from { opacity: 0; } }
+      .boot::before, .boot::after { content: ''; position: absolute; width: 46vmax; height: 46vmax; border-radius: 50%;
+        filter: blur(90px); opacity: .45; }
+      .boot::before { background: #7c3aed; left: 10%; top: 5%; animation: boot-drift 9s ease-in-out infinite alternate; }
+      .boot::after { background: #06b6d4; right: 8%; bottom: 0; animation: boot-drift 11s ease-in-out infinite alternate-reverse; }
+      html[data-boot='light'] .boot::before, html[data-boot='light'] .boot::after { opacity: .22; }
+      @keyframes boot-drift { to { transform: translate(8vw, 6vh) scale(1.1); } }
+      .boot-orb { position: relative; width: 140px; height: 140px; display: grid; place-items: center; z-index: 1; }
+      .boot-orb::before { content: ''; position: absolute; inset: 0; border-radius: 50%;
+        background: conic-gradient(from 0deg, transparent 0 8%, #7c3aed, #06b6d4, #ec4899, #f59e0b, transparent 70%);
+        -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+        animation: boot-spin 1.6s linear infinite; }
+      .boot-orb img { width: 80px; height: 80px; border-radius: 21px; box-shadow: 0 18px 50px rgba(0, 0, 0, .4); }
+      @keyframes boot-spin { to { transform: rotate(360deg); } }
+    </style>
     <link rel="preload" href="/fonts/atkinson/AtkinsonHyperlegibleNext.ttf" as="font" type="font/ttf" crossorigin />
     <link rel="preload" href="/fonts/atkinson/AtkinsonHyperlegibleMono.ttf" as="font" type="font/ttf" crossorigin />
     <link
@@ -28,7 +67,7 @@
     />
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><div class="boot" aria-label="Loading"><div class="boot-orb"><img src="/app-icon.png" alt="" /></div></div></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

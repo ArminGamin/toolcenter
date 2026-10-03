@@ -4,7 +4,7 @@ $root = (Resolve-Path (Split-Path -Parent $MyInvocation.MyCommand.Path)).Path
 Set-Location $root
 
 $pngPath = Join-Path $root 'public\app-icon.png'
-$icoPath = Join-Path $root 'toolsai-app.ico'
+$icoPath = Join-Path $root 'toolsai-icon.ico'
 $legacyIcoPath = Join-Path $root 'toolsai.ico'
 $batPath = Join-Path $root 'Start ToolsAI.bat'
 $electronExe = Join-Path $root 'node_modules\electron\dist\electron.exe'

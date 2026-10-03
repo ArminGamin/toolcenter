@@ -34,8 +34,8 @@ describe('resolveUgcOllamaNumCtx', () => {
 
 describe('resolveUgcOllamaNumGpu', () => {
   it('defaults to 32 and clamps vault 99 (8GB safety)', () => {
-    expect(UGC_FORCE_OLLAMA_NUM_GPU).toBe(32)
-    expect(resolveUgcOllamaNumGpu()).toBeLessThanOrEqual(34)
+    expect(UGC_FORCE_OLLAMA_NUM_GPU).toBe(44)
+    expect(resolveUgcOllamaNumGpu()).toBeLessThanOrEqual(46)
   })
 })
 

@@ -18,6 +18,7 @@ import { setNavTarget } from './lib/nav-target'
 import type { UnifiedSearchHit } from './lib/unified-search'
 import type { Tool } from './types'
 import { BUSINESS_PROFILE_CHANGED_EVENT } from './lib/business-profiles'
+import { useTaskFinishSound } from './lib/finish-sound'
 
 const MarketsPanel = lazy(() =>
   import('./components/MarketsPanel').then((m) => ({ default: m.MarketsPanel })),
@@ -49,6 +50,22 @@ const PipelinePanel = lazy(() =>
 const ToolPanel = lazy(() =>
   import('./components/ToolPanel').then((m) => ({ default: m.ToolPanel })),
 )
+
+/** Fetch every tool panel in the background after start-up so opening one is instant. */
+function prefetchPanels() {
+  void Promise.allSettled([
+    import('./components/MarketsPanel'),
+    import('./components/NotesPanel'),
+    import('./components/OutreachPanel'),
+    import('./components/SeoBlogPanel'),
+    import('./components/GroupPosterPanel'),
+    import('./components/RedditCommenterPanel'),
+    import('./components/UgcSlidesPanel'),
+    import('./components/OneShotPanel'),
+    import('./components/PipelinePanel'),
+    import('./components/ToolPanel'),
+  ])
+}
 
 /** Orbit tool overrides (hidden/renamed) — scoped per business profile in usePersistedTools. */
 const TOOLS_STORAGE_BASE = 'control-center-tools-v9'
@@ -106,6 +123,12 @@ export default function App() {
   const [marketsRefreshing, setMarketsRefreshing] = useState(false)
   const [marketsRefreshLabel, setMarketsRefreshLabel] = useState<string | null>(null)
   const [quickActions, setQuickActions] = useState<{ id: string; label: string }[]>([])
+  useTaskFinishSound()
+
+  useEffect(() => {
+    const id = window.setTimeout(prefetchPanels, 1500)
+    return () => window.clearTimeout(id)
+  }, [])
 
   useEffect(() => {
     const onProfileChanged = () => {
@@ -185,6 +208,11 @@ export default function App() {
   )
 
   const current = nav.toolId ? tools.find((t) => t.id === nav.toolId) : null
+  // A restored last view whose tool was since removed falls back to home.
+  const missingTool = nav.module === 'tool' && (!current || current.removed)
+  useEffect(() => {
+    if (missingTool) nav.goHome()
+  }, [missingTool]) // eslint-disable-line react-hooks/exhaustive-deps
   const onlineCount = useMemo(
     () => tools.filter((t) => !t.removed && onlineMap[t.id] && !ORBIT_ALWAYS_ONLINE.has(t.id)).length,
     [tools, onlineMap],

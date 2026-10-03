@@ -2,13 +2,14 @@
  * Lithuanian UGC copy normalizer — fixes formal „jūs“, common EuroLLM grammar slips, repeated „Mes“ openers.
  */
 
+import { textUsesThemeKit } from './ugc-story/kaledu-kits.js'
 import { isChristmasGiftsNiche } from './profile-brand.js'
 import { collectUniversalClassStoryIssues } from './ugc-lt-classes.js'
 import { UGC_DIET_DRIFT_RE, UGC_FOOD_ANCHOR_RE } from './ugc-lt/gibberish.js'
 import { BARE_HOOK_EXPANSIONS, collectSlideIssues, type UgcSlideGateIssue } from './ugc-lt/slide-checks.js'
 import { isSeasonalUgcTheme, seasonEchoCount, UGC_SEASON_ECHO_RE } from './ugc-season-context.js'
 export { isGibberishLtCopy, isOffTopicNonFoodLtCopy, LT_REFLEXIVE_FINITE_RE, textHasFiniteVerbCue, UGC_DIET_DRIFT_RE, UGC_FOOD_ANCHOR_RE, UGC_LT_RESIDUAL_WE_FORMS } from './ugc-lt/gibberish.js'
-export { isDeclarativeQuestionMark, LT_DECLARATIVE_INSIGHT_RE, LT_QUESTION_STARTER_RE, LT_QUESTION_WORD_START_RE, LT_RHETORICAL_DIRECT_QUESTION_RE, LT_RHETORICAL_PARTICIPLE_HOOK_RE, LT_RHETORICAL_QUESTION_VERB_RE, mergeStubSentences, normalizeLtUgcCopy, normalizeLtUgcMultiline, normalizePersonRegister, polishLtCaps, repairIncompleteLtSentence, sanitizeLtCopyFields, stripLtBodyJunk, stripLtEmDashes } from './ugc-lt/normalize-copy.js'
+export { isDeclarativeQuestionMark, LT_DECLARATIVE_INSIGHT_RE, LT_PROPER_NOUN_START_RE, LT_QUESTION_STARTER_RE, LT_QUESTION_WORD_START_RE, LT_RHETORICAL_DIRECT_QUESTION_RE, LT_RHETORICAL_PARTICIPLE_HOOK_RE, LT_RHETORICAL_QUESTION_VERB_RE, mergeStubSentences, normalizeLtUgcCopy, normalizeLtUgcMultiline, normalizePersonRegister, polishLtCaps, repairIncompleteLtSentence, sanitizeLtCopyFields, stripLtBodyJunk, stripLtEmDashes } from './ugc-lt/normalize-copy.js'
 export type { NormalizeLtCopyState } from './ugc-lt/normalize-copy.js'
 export { UGC_LT_CAPTION_SEO_BLOCK, UGC_LT_CLARITY_GUARDRAILS_BLOCK, UGC_LT_CLOSE_BLOCK, UGC_LT_CRAFT_BLOCK, UGC_LT_GRAMMAR_BLOCK, UGC_LT_HOOK_BLOCK, UGC_LT_LINKSNIAI_BLOCK, UGC_LT_QUALITY_RULES, UGC_LT_STRUCTURE_BLOCK, UGC_LT_THEME_ANCHOR_BLOCK, UGC_LT_TU_REGISTER_BLOCK, UGC_OLLAMA_SYSTEM_PROMPT } from './ugc-lt/prompts.js'
 export { assertShipableLtSlide, collectEngagementBaitIssues, collectSlideIssues, demoteLtTitleCase, hasFormalRegister, hasUnmarkedColonQuestion, isBareHookTitleFragment, isRhetoricalTuQuestionMissingMark, isShipableLtSlide, LT_SCREENSHOT_STEMS, textHasDeclarativeQuestionMark, textHasEngagementBait, textHasRhetoricalTuQuestionMissingMark, UGC_ENGAGEMENT_BAIT_PATTERNS } from './ugc-lt/slide-checks.js'
@@ -257,20 +258,24 @@ export const UGC_KALEDU_GIFT_ANCHOR_RE =
 export const KALEDU_THEME_SUBJECTS: Array<{ label: string; theme: RegExp; copy: RegExp }> = [
   { label: 'mama', theme: /(?<!\p{L})mam\p{L}*/iu, copy: /(?<!\p{L})mam\p{L}*/iu },
   { label: 'tėtis', theme: /tėt|tėč/iu, copy: /tėt|tėč/iu },
-  { label: 'senelis', theme: /senel|senol|močiut/iu, copy: /senel|senol|močiut/iu },
-  { label: 'pora', theme: /(?<!\p{L})por(a|ai|ą|oms|os)(?!\p{L})|partner/iu, copy: /(?<!\p{L})por\p{L}*|partner|mylim|antr(ajai|ajam)|(?<!\p{L})(abu|abiem|abi|dviem|dviese)(?!\p{L})|vienas\s+kit\p{L}*/iu },
+  { label: 'močiutė', theme: /močiut/iu, copy: /močiut/iu },
+  { label: 'senelis', theme: /(?<!slapt\p{L}{0,4}\s)senel|senol/iu, copy: /senel|senol|močiut/iu },
+  { label: 'sesuo', theme: /(?<!\p{L})(?:sesuo|seser|sesei|sesės)/iu, copy: /(?<!\p{L})(?:sesuo|seser|sesei|sesės|sesę)/iu },
+  { label: 'brolis', theme: /(?<!\p{L})brol/iu, copy: /(?<!\p{L})brol/iu },
+  { label: 'pora', theme: /(?<!(?:\d|trys|tris|dvi|kelios|keturios|penkios)\s{0,2})(?<!\p{L})por(a|ai|ą|oms|os)(?!\p{L})(?!\s+(?:\p{L}+\s+){0,2}kojin)|partner/iu, copy: /(?<!\p{L})por\p{L}*|partner|mylim|antr(ajai|ajam)|(?<!\p{L})(abu|abiem|abi|dviem|dviese)(?!\p{L})|vienas\s+kit\p{L}*/iu },
   { label: 'vyras', theme: /(?<!\p{L})vyr(as|ui|ams|ą|o)(?!\p{L})/iu, copy: /(?<!\p{L})vyr\p{L}*/iu },
   { label: 'moteris', theme: /moter/iu, copy: /moter/iu },
+  { label: 'draugė', theme: /draug(?:ė|ei|ės|ę)(?!\p{L})/iu, copy: /draug/iu },
   { label: 'draugas', theme: /draug/iu, copy: /draug/iu },
   { label: 'kolega', theme: /koleg|slapt/iu, copy: /koleg|biur|darb|slapt/iu },
   { label: 'paauglys', theme: /paaugl/iu, copy: /paaugl/iu },
   { label: 'vaikas', theme: /(?<!\p{L})vaik/iu, copy: /(?<!\p{L})vaik/iu },
-  { label: 'dekoracijos', theme: /dekor|puoš/iu, copy: /dekor|puoš|eglut|girliand|žvak|žaisliuk/iu },
+  { label: 'dekoracijos', theme: /dekor|puoš|žaisliuk|girliand|eglės\s+sijon|stalo\s+takel|sniego\s+gaubl/iu, copy: /dekor|puoš|eglut|girliand|žvak|žaisliuk/iu },
   { label: 'biudžetas', theme: /iki\s*\d+|eur|€|biudžet/iu, copy: /eur|€|biudžet|kain|brang|pig|išleist|sum/iu },
-  { label: 'paskutinė minutė', theme: /paskutin|last.?minute|rytoj/iu, copy: /paskutin|rytoj|liko|dien|skub|laik/iu },
+  { label: 'paskutinė minutė', theme: /paskutin\p{L}*\s+minut|last.?minute|kalėdos\s+jau\s+rytoj/iu, copy: /paskutin|rytoj|liko|dien|skub|laik/iu },
   { label: 'atstumas', theme: /miest|toli|atstum|siunt/iu, copy: /miest|toli|atstum|siunt|pašt|nutol/iu },
   { label: 'nauji namai', theme: /nauj\p{L}*\s+nam|įkurtuv/iu, copy: /nam|įkurtuv|but[aeuą]/iu },
-  { label: 'rinkinys', theme: /rinkin/iu, copy: /rinkin|kelet|kelis|kelių|dėžut/iu },
+  { label: 'rinkinys', theme: /dovanų\s+rinkin/iu, copy: /rinkin|kelet|kelis|kelių|dėžut/iu },
   { label: 'pledas', theme: /pled/iu, copy: /pled|jauk\p{L}*\s+vakar|šilt\p{L}*\s+vakar/iu },
   { label: 'termosas', theme: /termos/iu, copy: /termos|kelion|kelyj|kelyje|kelio/iu },
   { label: 'žvakė', theme: /žvak/iu, copy: /žvak|švies/iu },
@@ -280,6 +285,8 @@ export const KALEDU_THEME_SUBJECTS: Array<{ label: string; theme: RegExp; copy: 
 
 /** Semantic subject check: theme subject must survive into the first three slides. */
 export function kaleduThemeDrift(themeText: string, firstThree: string): string | null {
+  // A hand-checked line from this theme's own kit is on theme by definition.
+  if (textUsesThemeKit(themeText, firstThree)) return null
   const subjects = KALEDU_THEME_SUBJECTS.filter((row) => row.theme.test(themeText))
   if (subjects.length) {
     if (subjects.some((row) => row.copy.test(firstThree))) return null

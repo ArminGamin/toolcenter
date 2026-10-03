@@ -260,6 +260,26 @@ describe('stripLtEmDashes', () => {
     expect(out).toBe('Užpildyk testą. Gauk knygą.')
     expect(out).not.toMatch(/—|–/)
   })
+
+  it('turns a copula dash into „yra“ instead of leaving fragments', () => {
+    expect(stripLtEmDashes('Močiutės vakaras – ritualas.')).toBe('Močiutės vakaras yra ritualas.')
+    expect(stripLtEmDashes('Šventiška nuotaika – visai šalia.')).toBe('Šventiška nuotaika yra visai šalia.')
+    expect(stripLtEmDashes('Šeimos portretas – tai daugiau nei tik atminimas.')).toBe(
+      'Šeimos portretas yra daugiau nei tik atminimas.',
+    )
+    expect(stripLtEmDashes('Nuspręsti, kas svarbiausia – didelis žingsnis į priekį.')).toBe(
+      'Nuspręsti, kas svarbiausia, yra didelis žingsnis į priekį.',
+    )
+    expect(stripLtEmDashes('Vilnonis pledas „Žiemos šiluma“ - puiki dovana.')).toBe(
+      'Vilnonis pledas „Žiemos šiluma“ yra puiki dovana.',
+    )
+  })
+
+  it('keeps clauses whole around a dash', () => {
+    expect(stripLtEmDashes('Kai žinai, ko nori – rinktis lengva.')).toBe('Kai žinai, ko nori, rinktis lengva.')
+    expect(stripLtEmDashes('Dovanok tai, kas svarbiausia – laiką kartu.')).toBe('Dovanok tai, kas svarbiausia: laiką kartu.')
+    expect(stripLtEmDashes('Kaina 2 - 3 eurai.')).toBe('Kaina 2 - 3 eurai.')
+  })
 })
 
 describe('isGibberishLtCopy', () => {

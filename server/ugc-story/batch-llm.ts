@@ -31,8 +31,21 @@ export const ROLE_BEAT_GUIDE: Record<string, string> = {
   punch: 'Vienas stiprus, pilnas sakinys — visa mintis.',
 }
 
+/** Kalėdų Kampelis beats: the problem lives on slides 1–2 only; later slides answer it. */
+export const KALEDU_ROLE_BEAT_GUIDE: Record<string, string> = {
+  hook: 'PROBLEMA: konkreti situacija ar klausimas iš temos — sustabdo scroll. Be sprendimo, be CTA, be emoji.',
+  context:
+    'PRIEŽASTIS: kodėl dovanos paieška čia stringa — paaiškink, nekartok hook. Be sprendimo.',
+  build:
+    'ATSAKYMAS: vienas konkretus patarimas ARBA prekė iš PRODUCTS_ALLOWED ir kodėl ji tinka. Tik teiginiai — JOKIŲ klausimų. Nekartok problemos (stresas, sąrašas, laikas, „nežinai, ką dovanoti“).',
+  close:
+    'REZULTATAS: kas pasikeičia, kai dovana išrinkta. Vienas ramus teiginys, be klausimo, nekartok hook. CTA tik cta lauke.',
+  punch: 'Vienas stiprus, pilnas sakinys — visa mintis.',
+}
+
 export function roleGuideLt(role: string, index: number, defaultCta: string): string {
-  const beat = ROLE_BEAT_GUIDE[role] || UGC_ROLE_LABELS[role] || role
+  const beat =
+    (isChristmasGiftsNiche() ? KALEDU_ROLE_BEAT_GUIDE[role] : ROLE_BEAT_GUIDE[role]) || UGC_ROLE_LABELS[role] || role
   if (role === 'hook') {
     return `Skaidrė ${index} (kabliukas): ${beat} title = pirmas trumpas sakinys (≤${TITLE_MAX} simb.), text = likę sakiniai`
   }
@@ -136,13 +149,24 @@ export function buildBatchStoryPrompt(opts: {
   const varietyBlock = slideStart === 1 ? opts.varietyBlock || '' : ''
   const catalogBlock = opts.productBrief?.trim() ? `\n${opts.productBrief.trim()}\n` : ''
   const resolutionBlock = opts.productResolutionBlock?.trim() ? `\n${opts.productResolutionBlock.trim()}\n` : ''
+  // Later chunks restart the story (new hook question on slide 4) unless told plainly that
+  // the problem is already on screen and they only continue it.
+  const continuationBlock =
+    isChristmasGiftsNiche() && slideStart > 1 && priorSlides.length
+      ? `\nTĘSINYS, NE NAUJA ISTORIJA. Jau parašyta:\n${storySoFar(priorSlides)}\n\nProblema jau įvardyta. Šiose skaidrėse: JOKIŲ klausimų, nekartok problemos (stresas, sąrašas, laikas, „nežinai, ką dovanoti“), nepradėk iš naujo. Rašyk tik patarimą, prekę arba naudą. role = tiksliai ${chunkRoles.join(', ')} (ne hook). title nerašyk.\n`
+      : ''
+
+  // The topic is usually built from hook + body already — don't send the same line twice.
+  const seedLine = `${sanitizeLtSeasonCopy(themeHook)}. ${sanitizeLtSeasonCopy(themeBody)}`
+  const norm = (t: string) => t.toLocaleLowerCase('lt-LT').replace(/[^\p{L}]+/gu, ' ').trim()
+  const themeSeedLine = norm(topic).includes(norm(seedLine)) ? '' : seedLine
 
   return `${skillBlock}
 
 ${getUgcSeasonContext(new Date(), themeText)}
 ${catalogBlock}${resolutionBlock}
 TEMA: ${topic}
-${sanitizeLtSeasonCopy(themeHook)}. ${sanitizeLtSeasonCopy(themeBody)}
+${themeSeedLine}
 ${hookStyle} · ${storyArc} · ${storyAngle}
 
 Skaidrės ${slideStart}–${slideStart + chunkRoles.length - 1} / ${slideCount} (text = sakiniai per \\n; hook: title+text; close: text+cta)
@@ -152,11 +176,11 @@ ${
     ? 'Jei jau kalbėjai apie pirkimo stresą / sąrašą / paskutinę minutę — kitoje skaidrėje NAUJA mintis, ne tas pats kitais žodžiais.'
     : 'Jei jau kalbėjai apie mieguistumą / angliavandenių santykį / aiškų planą — kitoje skaidrėje NAUJA mintis, ne tas pats kitais žodžiais.'
 }
-${varietyBlock}${bannedBlock}
-${roleLines.join('\n')}
-${storySoFar(priorSlides, true)}
+${varietyBlock}${continuationBlock ? '' : bannedBlock}
+${continuationBlock}${roleLines.join('\n')}
+${continuationBlock ? '' : storySoFar(priorSlides, true)}
 ${closeBlock}
-Grąžink TIK JSON su tiksliai ${chunkRoles.length} slides. Pavyzdys: ${jsonBatchExample(chunkRoles, chunkTargets)}`
+Grąžink TIK JSON su tiksliai ${chunkRoles.length} slides${isChristmasGiftsNiche() ? ', vienoje eilutėje, be įtraukų' : ''}. Pavyzdys: ${jsonBatchExample(chunkRoles, chunkTargets)}`
 }
 
 export const UGC_LITE_NUM_PREDICT = 1200
@@ -181,7 +205,9 @@ export function isTruncatedJsonError(err: unknown): boolean {
   )
 }
 
-export const UGC_BATCH_OLLAMA_TIMEOUT_MS = 90_000
+// 150 s: a 90 s cut threw away whole chunks (→ stock fallback lines) whenever the GPU was
+// briefly slow. A slow call costs time only; a lost chunk costs quality.
+export const UGC_BATCH_OLLAMA_TIMEOUT_MS = 150_000
 
 export type LlmJsonOpts = {
   lite?: boolean
@@ -190,6 +216,39 @@ export type LlmJsonOpts = {
   batchMode?: boolean
   signal?: AbortSignal
   callType?: OllamaCallType
+  /** Structured-output schema for the batch call (see batchSlidesJsonSchema). */
+  jsonSchema?: Record<string, unknown>
+}
+
+/**
+ * Exact slide shape per position: the right role, a title only on the hook, a cta only on the
+ * close, nothing else. The model used to spend tokens on stray keys ("hook" titles on every
+ * slide, productId, nested "close" objects) — that cost time and primed story restarts.
+ */
+export function batchSlidesJsonSchema(roles: string[]): Record<string, unknown> {
+  const item = (role: string) => {
+    const properties: Record<string, unknown> = { role: { type: 'string', enum: [role] } }
+    const required = ['role']
+    if (role === 'hook') {
+      properties.title = { type: 'string' }
+      required.push('title')
+    }
+    properties.text = { type: 'string' }
+    required.push('text')
+    if (role === 'close') {
+      properties.cta = { type: 'string' }
+      required.push('cta')
+    }
+    return { type: 'object', properties, required, additionalProperties: false }
+  }
+  return {
+    type: 'object',
+    properties: {
+      slides: { type: 'array', prefixItems: roles.map(item), minItems: roles.length, maxItems: roles.length },
+    },
+    required: ['slides'],
+    additionalProperties: false,
+  }
 }
 
 export function isAbortError(err: unknown): boolean {
@@ -220,7 +279,7 @@ export async function llmJson(
       }
       // PostMaker: format:json on every batch call — stops prose rambling before JSON
       const useJsonFormat = batchMode ? true : lite ? pass === 1 : attempt < 2
-      const raw = await ollamaGenerateJson(prompt, {
+      const call = (jsonSchema?: Record<string, unknown>) => ollamaGenerateJson(prompt, {
         temperature:
           pass > 0 || attempt > 0
             ? Math.max(0.35, temperature - 0.12 * Math.max(pass, attempt))
@@ -238,7 +297,16 @@ export async function llmJson(
         signal: opts.signal,
         callType: opts.callType || (batchMode ? 'draft' : 'other'),
         timeFit: batchMode,
+        jsonSchema,
       })
+      let raw: string
+      try {
+        raw = await call(opts.jsonSchema)
+      } catch (err) {
+        // An Ollama build that cannot compile the schema must not turn every slide into fallback copy.
+        if (!opts.jsonSchema || !/schema/i.test(err instanceof Error ? err.message : String(err))) throw err
+        raw = await call(undefined)
+      }
       const text = String(raw ?? '').trim()
       if (!text) {
         throw new Error(`Ollama returned empty body (model=${resolveUgcOllamaModel()})`)
@@ -304,6 +372,7 @@ export async function generateBatchChunk(
         batchMode: true,
         numPredict: predict,
         signal,
+        jsonSchema: isChristmasGiftsNiche() ? batchSlidesJsonSchema(roles) : undefined,
       })
       return parseStoryBatchPayload(raw, roles, chunkStart)
     } catch (err) {

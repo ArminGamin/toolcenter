@@ -36,7 +36,7 @@ import {
     buildUgcSlideIndexFilename,
     type SlideshowExportSlide,
 } from '../../lib/ugc-slides-export'
-import { canvasToPngBlob, ensureUgcSlideFontsReady, renderUgcSlide } from '../../lib/ugc-slides-render'
+import { canvasToPngBlob, ensureUgcSlideFontsReady, renderUgcSlide, resolveUgcTemplate } from '../../lib/ugc-slides-render'
 import {
     fetchUgcThemePoolStatus,
     resetUgcThemePool,
@@ -290,6 +290,8 @@ export function useUgcSlidesBatchTab({
       }
 
       const copySlides = mapStorySlidesToRender(post.slides, defaultCta)
+      // „Random“ layout: one pick per post so every slide in the carousel matches.
+      const postDraft = { ...draft, template: resolveUgcTemplate(draft.template) }
       const exportSlides: SlideshowExportSlide[] = []
       for (let s = 0; s < copySlides.length; s++) {
         if (batchStoppedRef.current) return
@@ -310,7 +312,7 @@ export function useUgcSlidesBatchTab({
           canvas,
           slideImg,
           copy,
-          draft,
+          postDraft,
           slideWidth,
           slideHeight,
           s,
@@ -336,7 +338,8 @@ export function useUgcSlidesBatchTab({
           arcName: post.arcName,
           theme: post.theme.theme,
           hook: post.theme.hook,
-          template: draft.template,
+          template: postDraft.template,
+          templateChoice: draft.template,
           exportSizeId: draft.exportSizeId,
         },
         post.auditId || undefined,

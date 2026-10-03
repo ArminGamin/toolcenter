@@ -119,11 +119,8 @@ export function classifyCardPunctuation(input: {
   let body = merged.text
   let changed = hurried.grammarRepair || merged.merges > 0 || title !== String(input.title || '').trim()
   if (isRhetoricalContinuation(title, body)) {
-    const next = body.replace(/[.!?…]+$/u, '').trim() + '?'
-    if (next !== body) {
-      body = next
-      changed = true
-    }
+    // Recognised but left alone: a statement after a question title stays a statement.
+    // Forcing „…netinka iki galo?“ made ordinary sentences read as fake questions.
     return { kind: 'rhetorical_continuation', title, body, changed, merges: merged.merges }
   }
   return { kind: 'statement', title, body, changed, merges: merged.merges }

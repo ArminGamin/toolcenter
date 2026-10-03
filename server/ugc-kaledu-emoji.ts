@@ -348,8 +348,8 @@ export function normalizeTerminalEmojiPunctuation(text: string): string {
 }
 
 /**
- * Christmas-only: keep 0–2 relevant allowlisted emojis across the whole carousel.
- * Never invents emoji when the budget is unused.
+ * Christmas-only: keep about two relevant allowlisted (Apple-rendered) emojis per carousel —
+ * trim extras, and top up to two when a slide has a clear emotion to match.
  */
 export function normalizeKaleduEmojiBudget<
   T extends { title?: string; body?: string; cta?: string; role?: string },
@@ -414,5 +414,43 @@ export function normalizeKaleduEmojiBudget<
     placements = collectPlacements(next)
   }
 
+  return next
+}
+
+/** Brand voice: about two Apple emojis per post (title + body + CTA together). */
+export const KALEDU_EMOJI_TARGET = 2
+
+/**
+ * Add one fitting allowlisted emoji when the carousel has fewer than the target: hook body
+ * first, then the close, then a middle slide — only where the text has a clear emotion and the
+ * neighbouring slide does not already carry the same feeling.
+ */
+export function topUpKaleduEmoji<T extends { title?: string; body?: string; cta?: string; role?: string }>(
+  slides: T[],
+  target = KALEDU_EMOJI_TARGET,
+): T[] {
+  let next = slides
+  let placements = collectPlacements(next)
+  if (placements.length >= target) return next
+  const order = [0, next.length - 1, ...next.map((_, i) => i).filter((i) => i > 0 && i < next.length - 1)]
+  const used = new Set(placements.map((p) => stripVs(p.emoji)))
+  for (const i of order) {
+    if (placements.length >= target) break
+    const slide = next[i]
+    const body = String(slide.body || '')
+    if (!body.trim() || extractKaleduEmojis(body).length) continue
+    const intent = inferKaleduEmojiIntent(body)
+    if (intent === 'none') continue
+    const neighbourSame = placements.some((p) => Math.abs(p.slideIndex - i) === 1 && p.intent === intent)
+    if (neighbourSame) continue
+    const pool = KALEDU_EMOJIS[intent].filter((e) => !used.has(stripVs(e)))
+    if (!pool.length) continue
+    let hash = 0
+    for (const ch of body) hash = (hash * 31 + ch.charCodeAt(0)) >>> 0
+    const emoji = pool[hash % pool.length]
+    next = next.map((s, j) => (j === i ? { ...s, body: normalizeTerminalEmojiPunctuation(`${body.trim()} ${emoji}`) } : s))
+    used.add(stripVs(emoji))
+    placements = collectPlacements(next)
+  }
   return next
 }

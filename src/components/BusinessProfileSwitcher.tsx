@@ -18,6 +18,19 @@ function initials(name: string) {
     .join('')
 }
 
+/** Site logos (copied from each shop's own favicon); other profiles show initials. */
+const PROFILE_LOGOS: Record<string, string> = {
+  'tavo-knyga': '/brand/tavo-knyga.png?v=2',
+  'christmas-gifts': '/brand/christmas-gifts.png?v=3',
+}
+
+function ProfileMark({ profile }: { profile: BusinessProfile }) {
+  const [failed, setFailed] = useState(false)
+  const logo = PROFILE_LOGOS[profile.id]
+  if (!logo || failed) return <>{initials(profile.name)}</>
+  return <img src={logo} alt="" draggable={false} onError={() => setFailed(true)} className="h-full w-full object-contain" />
+}
+
 export function BusinessProfileSwitcher() {
   const [profiles, setProfiles] = useState<BusinessProfile[]>([])
   const [open, setOpen] = useState(false)
@@ -145,8 +158,8 @@ export function BusinessProfileSwitcher() {
           className="flex min-h-8 items-center gap-2 rounded-lg border border-brass/35 bg-brass/10 px-2 py-1 text-left transition hover:border-brass/60 hover:bg-brass/15"
           title="Switch business profile"
         >
-          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-brass/30 bg-well font-mono text-[9px] font-semibold text-brass">
-            {active ? initials(active.name) : '…'}
+          <span className="flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-md border border-brass/30 bg-well font-mono text-[9px] font-semibold text-brass">
+            {active ? <ProfileMark profile={active} /> : '…'}
           </span>
           <span className="max-w-36 truncate font-mono text-[10px] font-semibold text-snow max-[400px]:max-w-32">
             {active?.name || 'Loading profile'}
@@ -174,13 +187,13 @@ export function BusinessProfileSwitcher() {
                 className="flex w-full items-center gap-2.5 rounded-lg px-2 py-2 text-left transition hover:bg-lift"
               >
                 <span
-                  className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border font-mono text-[10px] font-semibold ${
+                  className={`flex h-7 w-7 shrink-0 items-center justify-center overflow-hidden rounded-lg border font-mono text-[10px] font-semibold ${
                     profile.id === activeId
                       ? 'border-brass/50 bg-brass/15 text-brass'
                       : 'border-line bg-well text-mist'
                   }`}
                 >
-                  {initials(profile.name)}
+                  <ProfileMark profile={profile} />
                 </span>
                 <span className="min-w-0 flex-1">
                   <span className="block truncate text-[12px] font-medium text-snow">{profile.name}</span>
@@ -250,8 +263,8 @@ export function BusinessProfileSwitcher() {
                     </div>
                   ) : (
                     <div className="flex items-center gap-3">
-                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-lineStrong bg-raised font-mono text-[11px] font-semibold text-brass">
-                        {initials(profile.name)}
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-lineStrong bg-raised font-mono text-[11px] font-semibold text-brass">
+                        <ProfileMark profile={profile} />
                       </span>
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-2">

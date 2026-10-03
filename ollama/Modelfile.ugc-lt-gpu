@@ -274,7 +274,7 @@ išgalvoti žodžiai (įsismuovė, hidratacijąjos, nešlamžtų, subręsta…);
 kartoti skaidres; garantijos; emoji spam (🤩!🤩!🤩).
 """
 
-PARAMETER num_gpu 32
+PARAMETER num_gpu 44
 PARAMETER num_ctx 4096
 PARAMETER temperature 0.35
 PARAMETER top_p 0.8

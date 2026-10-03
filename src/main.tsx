@@ -4,7 +4,9 @@ import App from './App'
 import './index.css'
 import { installBusinessProfileFetch } from './lib/business-profiles'
 import { initializeAppearance } from './lib/appearance'
+import { installSettingsCache } from './lib/settings-cache'
 
+installSettingsCache()
 installBusinessProfileFetch()
 initializeAppearance()
 

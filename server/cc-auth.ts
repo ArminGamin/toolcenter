@@ -5,6 +5,8 @@
  */
 
 import crypto from 'node:crypto'
+import fs from 'node:fs'
+import path from 'node:path'
 import { loadSystemVault, saveSystemVault } from './cc-services.js'
 
 const HEADER = 'x-cc-token'
@@ -19,8 +21,27 @@ const SENSITIVE_GET_PREFIXES = [
   '/api/outreach',
 ]
 
+/**
+ * The built page already carries the token in plain text; reading it from there
+ * skips the slow DPAPI vault decrypt (PowerShell) on every app start.
+ */
+function tokenFromBuiltPage(): string {
+  try {
+    const html = fs.readFileSync(path.join(process.cwd(), 'dist', 'index.html'), 'utf8')
+    const token = html.match(/__CC_AUTH__='([0-9a-f]+)'/)?.[1] || ''
+    return token.length >= 24 ? token : ''
+  } catch {
+    return ''
+  }
+}
+
 export function getOrCreateApiToken(): string {
   if (cachedToken) return cachedToken
+  const built = tokenFromBuiltPage()
+  if (built) {
+    cachedToken = built
+    return built
+  }
   const vault = loadSystemVault()
   let token = vault.CC_API_TOKEN?.trim()
   if (!token || token.length < 24) {

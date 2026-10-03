@@ -4,11 +4,11 @@
  * Owns the whole stack so nothing runs in a browser tab or a console window:
  * - rebuilds the UI when sources changed, then serves it with the bridge API
  *   (`vite preview` + server middleware) on 127.0.0.1:5173, restarting it if it crashes
- * - starts Ollama in the background when it is not running
+ * - keeps a durable copy of the UI settings (rail, tools, theme) in userData
  * - window + tray icon (closing hides to tray so running jobs keep going)
  * - Windows notifications when an automation finishes or errors
  */
-const { app, BrowserWindow, Menu, Tray, Notification, shell, nativeImage, dialog, nativeTheme } = require('electron')
+const { app, BrowserWindow, Menu, Tray, Notification, shell, nativeImage, dialog, nativeTheme, ipcMain, session } = require('electron')
 const { spawn, spawnSync } = require('node:child_process')
 const fs = require('node:fs')
 const path = require('node:path')
@@ -16,8 +16,7 @@ const path = require('node:path')
 const ROOT = path.resolve(__dirname, '..')
 const PORT = 5173
 const BASE = `http://127.0.0.1:${PORT}`
-const ICON = path.join(ROOT, 'toolsai-app.ico')
-const OLLAMA_EXE = path.join(process.env.LOCALAPPDATA || '', 'Programs', 'Ollama', 'ollama.exe')
+const ICON = path.join(ROOT, 'toolsai-icon.ico')
 const BRIDGE_ENV = {
   // Same GPU settings as the old Start ToolsAI.bat (AMD RX 5700 XT on Vulkan).
   OLLAMA_VULKAN: process.env.OLLAMA_VULKAN || '1',
@@ -33,7 +32,9 @@ let quitting = false
 let restarts = []
 let logStream = null
 
-app.setAppUserModelId('com.toolsai.controlcenter')
+// v2: a fresh id so Windows re-reads the taskbar icon from the shortcut.
+const APP_ID = 'com.toolsai.controlcenter.v2'
+app.setAppUserModelId(APP_ID)
 app.setName('ToolsAI Control Center')
 
 if (!app.requestSingleInstanceLock()) {
@@ -71,14 +72,17 @@ async function ok(url, timeoutMs = 1500) {
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 
+let nodeCmd = null
+
 /** Node executable for child processes: system Node, else Electron running as Node. */
 function nodeCommand() {
+  if (nodeCmd) return nodeCmd
   const probe = spawnSync('node', ['-v'], { windowsHide: true })
-  if (probe.status === 0) return { cmd: 'node', env: {} }
-  return { cmd: process.execPath, env: { ELECTRON_RUN_AS_NODE: '1' } }
+  nodeCmd = probe.status === 0 ? { cmd: 'node', env: {} } : { cmd: process.execPath, env: { ELECTRON_RUN_AS_NODE: '1' } }
+  return nodeCmd
 }
 
-function newestMtime(dir) {
+function newestMtime(dir, skipTests = false) {
   let newest = 0
   const stack = [dir]
   while (stack.length) {
@@ -91,6 +95,7 @@ function newestMtime(dir) {
     }
     for (const e of entries) {
       if (e.name === 'node_modules' || e.name.startsWith('.')) continue
+      if (skipTests && (e.name === '__tests__' || /.test.[cm]?[jt]sx?$/.test(e.name))) continue
       const full = path.join(current, e.name)
       if (e.isDirectory()) stack.push(full)
       else {
@@ -110,8 +115,8 @@ function buildIsStale() {
   if (!fs.existsSync(built)) return true
   const builtAt = fs.statSync(built).mtimeMs
   const sources = [
+    // server/ is loaded fresh by `vite preview` on every start; only the UI needs a rebuild.
     newestMtime(path.join(ROOT, 'src')),
-    newestMtime(path.join(ROOT, 'server')),
     newestMtime(path.join(ROOT, 'public')),
     ...['index.html', 'vite.config.ts', 'tailwind.config.js', 'package.json'].map((f) => {
       try {
@@ -124,6 +129,18 @@ function buildIsStale() {
   return Math.max(...sources) > builtAt
 }
 
+/** Server code changed since the running services started (applied by restarting them). */
+function serverIsStale() {
+  if (!bridgeStartedAt) return false
+  let configAt = 0
+  try {
+    configAt = fs.statSync(path.join(ROOT, 'vite.config.ts')).mtimeMs
+  } catch {
+    /* ignore */
+  }
+  return Math.max(newestMtime(path.join(ROOT, 'server'), true), configAt) > bridgeStartedAt
+}
+
 function readApiToken() {
   try {
     const html = fs.readFileSync(path.join(ROOT, 'dist', 'index.html'), 'utf8')
@@ -133,34 +150,125 @@ function readApiToken() {
   }
 }
 
+/* --------------------------------------------------------- settings cache */
+
+const SETTINGS_MAX_BYTES = 8 * 1024 * 1024
+let settingsCache = null
+
+function settingsFile() {
+  return path.join(app.getPath('userData'), 'settings-cache.json')
+}
+
+function readSettingsCache() {
+  if (settingsCache) return settingsCache
+  for (const file of [settingsFile(), `${settingsFile()}.bak`]) {
+    try {
+      const data = JSON.parse(fs.readFileSync(file, 'utf8'))
+      if (data && data.values && typeof data.values === 'object') {
+        settingsCache = data.values
+        return settingsCache
+      }
+    } catch {
+      /* missing or torn: try the backup */
+    }
+  }
+  settingsCache = {}
+  return settingsCache
+}
+
+function writeSettingsCache(values) {
+  const clean = {}
+  for (const [key, value] of Object.entries(values)) {
+    if (typeof value === 'string') clean[key] = value
+  }
+  const body = JSON.stringify({ savedAt: new Date().toISOString(), values: clean })
+  if (body.length > SETTINGS_MAX_BYTES) return
+  settingsCache = clean
+  const file = settingsFile()
+  try {
+    fs.mkdirSync(path.dirname(file), { recursive: true })
+    if (fs.existsSync(file)) fs.copyFileSync(file, `${file}.bak`)
+    fs.writeFileSync(`${file}.tmp`, body)
+    fs.renameSync(`${file}.tmp`, file)
+  } catch (err) {
+    log(`settings: save failed ${err}`)
+  }
+}
+
+function fromApp(event) {
+  try {
+    return Boolean(event.senderFrame?.url?.startsWith(BASE))
+  } catch {
+    return false
+  }
+}
+
+ipcMain.on('cc-settings:load', (event) => {
+  event.returnValue = fromApp(event) ? readSettingsCache() : {}
+})
+ipcMain.on('cc-settings:save', (event, values) => {
+  if (fromApp(event) && values && typeof values === 'object') writeSettingsCache(values)
+})
+
+/** Saved Light/Dark choice, so the window and splash never flash the wrong theme. */
+function savedDark() {
+  try {
+    const appearance = JSON.parse(readSettingsCache()['cc.appearance.v2'] || 'null')
+    if (appearance?.theme === 'slate') return true
+    if (appearance?.theme === 'paper') return false
+  } catch {
+    /* fall through */
+  }
+  return nativeTheme.shouldUseDarkColors
+}
+
+function flushStorage() {
+  try {
+    session.defaultSession.flushStorageData()
+  } catch {
+    /* best effort */
+  }
+}
+
 /* ------------------------------------------------------------ splash page */
 
-function splash(message) {
+let splashLoaded = null
+
+function splash(message, pct) {
   if (!win) return
-  const html = `<!doctype html><meta charset="utf-8"><title>ToolsAI</title>
-  <style>
-    :root{color-scheme:light dark}
-    body{margin:0;height:100vh;display:grid;place-items:center;font:600 15px 'Segoe UI',system-ui,sans-serif;
-      background:#f3f4f7;color:#111827}
-    @media (prefers-color-scheme:dark){body{background:#0e1116;color:#f1f3f7}}
-    .box{text-align:center} .msg{margin-top:14px;opacity:.75}
-    .bar{width:220px;height:4px;margin:18px auto 0;border-radius:4px;background:rgba(127,127,127,.25);overflow:hidden}
-    .bar i{display:block;width:40%;height:100%;background:#1d4ed8;border-radius:4px;animation:s 1.1s ease-in-out infinite}
-    @keyframes s{0%{transform:translateX(-100%)}100%{transform:translateX(260%)}}
-  </style>
-  <div class="box"><div style="font-size:22px;font-weight:700">ToolsAI Control Center</div>
-  <div class="msg">${message}</div><div class="bar"><i></i></div></div>`
-  void win.loadURL('data:text/html;charset=utf-8,' + encodeURIComponent(html))
+  if (!splashLoaded) {
+    splashLoaded = win
+      .loadFile(path.join(__dirname, 'splash.html'), {
+        query: { theme: savedDark() ? 'dark' : 'light', msg: message, pct: String(pct ?? '') },
+      })
+      .catch(() => {})
+    return
+  }
+  const call = `window.__splash?.(${JSON.stringify(message)}, ${Number(pct) || 'undefined'})`
+  void splashLoaded.then(() => win?.webContents.executeJavaScript(call, true).catch(() => {}))
+}
+
+async function leaveSplash() {
+  if (!win || !splashLoaded) return
+  try {
+    await splashLoaded
+    await win.webContents.executeJavaScript('window.__splashLeave?.()', true)
+    await sleep(300)
+  } catch {
+    /* already gone */
+  }
+  splashLoaded = null
 }
 
 /* ------------------------------------------------------------------ bridge */
 
-async function buildIfNeeded() {
-  if (!buildIsStale()) return
-  splash('Updating the app…')
+/** Rebuilds the UI. On start this only runs when no build exists; updates are applied from the Update button. */
+async function buildIfNeeded({ onlyIfMissing = false } = {}) {
+  if (onlyIfMissing ? fs.existsSync(path.join(ROOT, 'dist', 'index.html')) : !buildIsStale()) return 0
+  splash('Applying the latest update…', 20)
   log('build: sources changed, running vite build')
   const { cmd, env } = nodeCommand()
-  await new Promise((resolve) => {
+  return new Promise((resolve) => {
     const child = spawn(cmd, [path.join(ROOT, 'node_modules', 'vite', 'bin', 'vite.js'), 'build'], {
       cwd: ROOT,
       windowsHide: true,
@@ -170,24 +278,30 @@ async function buildIfNeeded() {
     child.stderr.on('data', (d) => log(`build! ${String(d).trim()}`))
     child.on('exit', (code) => {
       log(`build: exit ${code}`)
-      resolve()
+      resolve(code ?? 1)
     })
   })
 }
 
+let bridgeStartedAt = 0
+
 function startBridge() {
   const { cmd, env } = nodeCommand()
-  bridge = spawn(
+  bridgeStartedAt = Date.now()
+  const child = spawn(
     cmd,
     [path.join(ROOT, 'node_modules', 'vite', 'bin', 'vite.js'), 'preview', '--host', '127.0.0.1', '--port', String(PORT), '--strictPort'],
     { cwd: ROOT, windowsHide: true, env: { ...process.env, ...BRIDGE_ENV, ...env } },
   )
+  bridge = child
   ownsBridge = true
   log(`bridge: started pid ${bridge.pid}`)
   bridge.stdout.on('data', (d) => log(`bridge: ${String(d).trim()}`))
   bridge.stderr.on('data', (d) => log(`bridge! ${String(d).trim()}`))
   bridge.on('exit', (code) => {
     log(`bridge: exited ${code}`)
+    // Stopped on purpose (update/restart): stopBridge already cleared it.
+    if (bridge !== child) return
     bridge = null
     if (quitting) return
     // Supervisor: restart, but give up after 5 crashes in a minute.
@@ -205,17 +319,19 @@ function startBridge() {
 }
 
 async function ensureBridge() {
-  if (await ok(`${BASE}/api/runtime-status`)) {
+  if (await ok(`${BASE}/`, 800)) {
     // A dev server (npm run dev) is already serving: use it rather than fight for the port.
     log('bridge: reusing server already on port 5173')
     return
   }
-  await buildIfNeeded()
-  splash('Starting services…')
+  await buildIfNeeded({ onlyIfMissing: true })
+  splash('Starting services…', 45)
   startBridge()
-  for (let i = 0; i < 120; i++) {
-    if (await ok(`${BASE}/api/runtime-status`)) return
-    await sleep(500)
+  // The UI is served as soon as Vite is up; the API finishes loading in the background.
+  for (let i = 0; i < 600; i++) {
+    if (await ok(`${BASE}/`, 800)) return
+    if (i === 10) splash('Warming up the engine…', 70)
+    await sleep(100)
   }
   throw new Error('The background service did not start. See the log in the tray menu.')
 }
@@ -242,20 +358,50 @@ async function restartBridge() {
   }
 }
 
-/* ------------------------------------------------------------------ ollama */
+/* ----------------------------------------------------------------- updates */
 
-async function ensureOllama() {
-  if (await ok('http://127.0.0.1:11434/api/version')) return
-  if (!fs.existsSync(OLLAMA_EXE)) return
-  log('ollama: starting serve')
-  const child = spawn(OLLAMA_EXE, ['serve'], {
-    detached: true,
-    stdio: 'ignore',
-    windowsHide: true,
-    env: { ...process.env, ...BRIDGE_ENV, OLLAMA_HOST: '127.0.0.1:11434', OLLAMA_KEEP_ALIVE: '30m' },
-  })
-  child.unref()
-}
+let updating = false
+
+ipcMain.handle('cc-update:status', (event) => {
+  if (!fromApp(event)) return { available: false, ui: false, server: false }
+  const ui = buildIsStale()
+  const server = ownsBridge && serverIsStale()
+  return { available: ui || server, ui, server }
+})
+
+ipcMain.handle('cc-update:apply', async (event) => {
+  if (!fromApp(event) || !win) return { ok: false, message: 'Not allowed' }
+  if (updating) return { ok: false, message: 'An update is already running' }
+  updating = true
+  log('update: applying')
+  try {
+    splashLoaded = null
+    titleBarKey = ''
+    applyTitleBar(savedDark(), true)
+    splash('Applying the latest update…', 10)
+    const code = await buildIfNeeded()
+    if (code !== 0) throw new Error('The UI build failed. Open the logs folder from the tray menu for details.')
+    if (ownsBridge) {
+      stopBridge()
+      await sleep(600)
+      await ensureBridge()
+    }
+    splash('Opening your workspace…', 92)
+    await leaveSplash()
+    applyTitleBar(savedDark())
+    await win.loadURL(BASE + '/')
+    return { ok: true }
+  } catch (err) {
+    log(`update: failed ${err}`)
+    const message = err instanceof Error ? err.message : String(err)
+    applyTitleBar(savedDark())
+    await win.loadURL(BASE + '/').catch(() => {})
+    dialog.showErrorBox('Update failed', message)
+    return { ok: false, message }
+  } finally {
+    updating = false
+  }
+})
 
 /* ---------------------------------------------------------- notifications */
 
@@ -336,11 +482,37 @@ async function syncTitleBarTheme() {
       )
       const want = theme === 'slate' ? 'dark' : theme === 'paper' ? 'light' : 'system'
       if (nativeTheme.themeSource !== want) nativeTheme.themeSource = want
+      applyTitleBar(want === 'system' ? nativeTheme.shouldUseDarkColors : want === 'dark')
     }
   } catch {
     /* page loading */
   }
   setTimeout(syncTitleBarTheme, 2000)
+}
+
+/**
+ * Custom title bar: the page draws its own top bar and Windows only paints the
+ * min/max/close buttons over it, in the app's colours.
+ */
+const TITLE_BAR_HEIGHT = 40
+const TITLE_BAR = {
+  dark: { color: '#0e1116', symbolColor: '#cdd3de', splash: '#06080c' },
+  light: { color: '#f3f4f7', symbolColor: '#334155', splash: '#f4f5f9' },
+}
+let titleBarKey = ''
+
+function applyTitleBar(dark, onSplash = false) {
+  if (!win || win.isDestroyed() || process.platform !== 'win32') return
+  const look = dark ? TITLE_BAR.dark : TITLE_BAR.light
+  const color = onSplash ? look.splash : look.color
+  const key = `${color}|${look.symbolColor}`
+  if (key === titleBarKey) return
+  titleBarKey = key
+  try {
+    win.setTitleBarOverlay({ color, symbolColor: look.symbolColor, height: TITLE_BAR_HEIGHT })
+  } catch {
+    /* overlay unavailable */
+  }
 }
 
 /* ------------------------------------------------------------ window/tray */
@@ -360,12 +532,33 @@ function createWindow() {
     minHeight: 640,
     title: 'ToolsAI Control Center',
     icon: ICON,
-    backgroundColor: '#0e1116',
+    backgroundColor: savedDark() ? '#06080c' : '#f4f5f9',
     autoHideMenuBar: true,
+    titleBarStyle: 'hidden',
+    titleBarOverlay: {
+      color: savedDark() ? TITLE_BAR.dark.splash : TITLE_BAR.light.splash,
+      symbolColor: savedDark() ? TITLE_BAR.dark.symbolColor : TITLE_BAR.light.symbolColor,
+      height: TITLE_BAR_HEIGHT,
+    },
     show: false,
-    webPreferences: { contextIsolation: true, sandbox: true, spellcheck: true },
+    webPreferences: {
+      contextIsolation: true,
+      sandbox: true,
+      spellcheck: true,
+      preload: path.join(__dirname, 'preload.cjs'),
+    },
   })
   win.removeMenu()
+  if (process.platform === 'win32') {
+    // Taskbar button icon (otherwise Windows shows the stock electron.exe icon).
+    win.setAppDetails({
+      appId: APP_ID,
+      appIconPath: ICON,
+      appIconIndex: 0,
+      relaunchCommand: `"${process.execPath}" "${ROOT}"`,
+      relaunchDisplayName: 'ToolsAI Control Center',
+    })
+  }
   win.once('ready-to-show', () => {
     win.maximize()
     win.show()
@@ -377,7 +570,7 @@ function createWindow() {
     return { action: 'deny' }
   })
   win.webContents.on('will-navigate', (event, url) => {
-    if (!url.startsWith(BASE) && !url.startsWith('data:')) {
+    if (!url.startsWith(BASE) && !url.startsWith('data:') && !url.startsWith('file:')) {
       event.preventDefault()
       void shell.openExternal(url)
     }
@@ -399,6 +592,7 @@ function createWindow() {
   win.on('close', (event) => {
     if (quitting) return
     event.preventDefault()
+    flushStorage()
     win.hide()
     if (!hintShown) {
       hintShown = true
@@ -432,8 +626,34 @@ function createTray() {
   updateTray()
 }
 
+/**
+ * Windows takes the taskbar icon from the shortcut that carries this app's
+ * AppUserModelId; without one it falls back to the stock electron.exe icon.
+ */
+function ensureShortcuts() {
+  if (process.platform !== 'win32') return
+  const options = {
+    target: process.execPath,
+    args: `"${ROOT}"`,
+    cwd: ROOT,
+    icon: ICON,
+    iconIndex: 0,
+    appUserModelId: APP_ID,
+    description: 'ToolsAI Control Center',
+  }
+  const startMenu = path.join(app.getPath('appData'), 'Microsoft', 'Windows', 'Start Menu', 'Programs', 'ToolsAI Control Center.lnk')
+  const desktop = path.join(app.getPath('desktop'), 'ToolsAI Control Center.lnk')
+  try {
+    shell.writeShortcutLink(startMenu, fs.existsSync(startMenu) ? 'replace' : 'create', options)
+    if (fs.existsSync(desktop)) shell.writeShortcutLink(desktop, 'replace', options)
+  } catch (err) {
+    log(`shortcuts: ${err}`)
+  }
+}
+
 function quit() {
   quitting = true
+  flushStorage()
   stopBridge()
   app.quit()
 }
@@ -441,13 +661,17 @@ function quit() {
 /* -------------------------------------------------------------------- boot */
 
 async function boot() {
+  if (savedDark()) nativeTheme.themeSource = 'dark'
   createWindow()
   createTray()
-  splash('Starting…')
+  ensureShortcuts()
+  splash('Starting…', 12)
   win.show()
-  void ensureOllama()
   try {
     await ensureBridge()
+    splash('Opening your workspace…', 92)
+    await leaveSplash()
+    applyTitleBar(savedDark())
     await win.loadURL(BASE + '/')
     void syncTitleBarTheme()
     setTimeout(watchJobs, 5000)
@@ -459,6 +683,7 @@ async function boot() {
 
 app.on('before-quit', () => {
   quitting = true
+  flushStorage()
   stopBridge()
 })
 app.on('window-all-closed', () => {

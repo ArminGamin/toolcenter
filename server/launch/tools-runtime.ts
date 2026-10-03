@@ -30,9 +30,22 @@ export const execFileAsync = promisify(execFile)
 
 export let cmdlineCache = { at: 0, text: '' }
 
+let cmdlineScan: Promise<string> | null = null
+
+/**
+ * Process command lines (PowerShell CIM scan, ~1.5s). Fresh results within 2.5s
+ * are reused; older ones are served immediately while a single rescan runs.
+ */
 export async function getProcessCmdlines(): Promise<string> {
+  if (Date.now() - cmdlineCache.at < 2500) return cmdlineCache.text
+  const scan = (cmdlineScan ??= scanProcessCmdlines().finally(() => {
+    cmdlineScan = null
+  }))
+  return cmdlineCache.at ? cmdlineCache.text : scan
+}
+
+async function scanProcessCmdlines(): Promise<string> {
   const now = Date.now()
-  if (now - cmdlineCache.at < 2500) return cmdlineCache.text
   try {
     const { stdout } = await execFileAsync(
       'powershell.exe',
