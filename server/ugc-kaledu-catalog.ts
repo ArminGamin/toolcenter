@@ -1391,7 +1391,7 @@ export const KALEDU_LIFESTYLE_INTENTS: KaleduLifestyleIntent[] = [
     theme: /(?<!(?:\d|trys|tris|dvi|kelios|keturios|penkios)\s{0,2})(?<!\p{L})por(?:a|ą|os|ai|oms)(?!\p{L})(?!\s+(?:\p{L}+\s+){0,2}kojin)|vakaras\s+dviese|vakarienė\s+dviese/iu,
     slugs: ['poros-knyga-musu-istorija', 'zaidimu-vakaro-rinkinys', 'serviravimo-lenta-vakariene'],
     context: ['Porai geriau tinka tai, ką naudos kartu, o ne du atskiri daiktai.'],
-    why: ['Tiks vakarui, kai abu nori pabūti kartu.'],
+    why: ['Tai viena dovana abiem, o ne dvi atskiros.', 'Tiks vakarui, kai abu nori pabūti kartu.'],
     copy: /por|dviese|kartu|vakar/iu,
   },
   {
@@ -1418,7 +1418,7 @@ export const KALEDU_LIFESTYLE_INTENTS: KaleduLifestyleIntent[] = [
     theme: /nauji\s+nam|interjer|dekorac/iu,
     slugs: ['vaistazoliu-auginimo-rinkinys', 'nuotrauku-remelis-akimirka', 'kilimas-silta-grindys'],
     context: ['Naujiems namams tinka daiktas, kuris lieka matomas, ne į stalčių.'],
-    why: ['Papildys namus, o ne stalčių.'],
+    why: ['Liks matomoje vietoje, o ne stalčiuje.'],
     copy: /nam|interjer|dekor|sod|rėmel|kilim/iu,
   },
   {
@@ -1438,7 +1438,7 @@ export const KALEDU_LIFESTYLE_INTENTS: KaleduLifestyleIntent[] = [
     slugs: ['kardiganas-atviras-siltis'],
     products: [/kardigan/iu],
     context: ['Kardiganą patogu užsimesti ir ryte, ir vakare namuose.'],
-    why: ['Tiks mamai ar sau, kai namuose vakare vėsu.'],
+    why: ['Jis storai megztas, su medinėmis sagomis, todėl patogus nuo ryto iki vakaro.'],
     copy: /kardigan|sag|megzt/iu,
   },
   {

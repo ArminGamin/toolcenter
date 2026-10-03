@@ -16,6 +16,9 @@ export const FORMAL_TO_TU: Array<[RegExp, string]> = [
   [/\bpajuskite\b/g, 'pajusk'],
   [/\bpajautekite\b/giu, 'pajusk'],
   [/\bPajautekite\b/g, 'Pajusk'],
+  // Before the blind galite → gali: „Dovanos galite įsigyti“ would become a false subject
+  // („Dovanos gali įsigyti“). The object of these verbs is accusative (reference §3).
+  [/(?<!\p{L})dovanos galite (įsigyti|pirkti|nupirkti|rinktis|išsirinkti|supakuoti)(?!\p{L})/giu, 'dovanas gali $1'],
   [/\bgalite\b/giu, 'gali'],
   [/\bGalite\b/g, 'Gali'],
   [/\bturite\b/giu, 'turi'],

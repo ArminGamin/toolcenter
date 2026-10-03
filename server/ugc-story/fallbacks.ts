@@ -337,7 +337,7 @@ export const UGC_KALEDU_FALLBACK_BUILD_BODIES = [
   'Pradėk nuo žmogaus, o ne nuo daikto. Tada dovaną rinktis ramiau, o laiko lieka ir pakuotei.',
   'Viena apgalvota dovana vertesnė už dešimt skubotų pirkinių. Ir išleidi mažiau.',
   'Pagalvok, kaip tas žmogus leidžia laisvą vakarą. Iš to dažnai ir gimsta geriausia dovanos idėja.',
-  'Užsirašyk tris dalykus, kuriuos žmogus mėgsta. Su tokiu sąrašu per kelias minutes lieka vos keli variantai.',
+  'Užsirašyk tris dalykus, kuriuos žmogus mėgsta. Su tokiu sąrašu per kelias minutes lieka vos keli dovanos variantai.',
   'Dovana nebūtinai turi būti brangi. Svarbiau, kad ji tiktų žmogaus kasdienybei.',
   'Kartais geriausia dovana yra tai, ko žmogus pats sau nenupirktų. Būtent tokią jis ir prisimins.',
   'Praktiška dovana nebūtinai nuobodi. Kai žmogus ja naudojasi kasdien, ji primena apie tave.',
