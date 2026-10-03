@@ -1,0 +1,58 @@
+{
+  "theme": "Mėnulio lempa „Mėnulio šviesa“",
+  "hook": "Paliečiamas mėnulis naktinei šviesai ir lentynai",
+  "body": "Tikroviškas mėnulio reljefas",
+  "category": "Random theme",
+  "slide_count": 4,
+  "background_image": "COZY_HOME/black-screen-001.png, COZY_HOME/black-screen-002.png, LIGHTS/black-screen-001.png, COZY_HOME/black-screen-003.png",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Nežinai, ką padovanoti?",
+      "body": "Idėjų daug, bet nė viena netinka iki galo.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Lentynose daug dovanų, bet vis tiek nežinai, ką rinktis. Šventė artėja, o tu vis atidedi.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Štai Mėnulio lempa „Mėnulio šviesa“ - tikroviškas mėnulis jo kambaryje. Tai neįprasta, jaukus ir paliečiamas dekoracijos elementas.",
+      "productId": "menulio-lempa-3d",
+      "cta": "",
+      "visualIntent": "LIGHTS",
+      "showProductPrice": false,
+      "productVariantId": "menulio-lempa-q2-9fc77143e9",
+      "productImageSrc": "/products/menulio-lempa-q2-9fc77143e9.webp"
+    },
+    {
+      "id": "slide-4",
+      "role": "close",
+      "title": "",
+      "body": "Gerai dovanai nebūtina kainuoti daug. Svarbiau, kam ją renkiesi.",
+      "cta": "Šį ir daugiau jaukių dovanų rasi kaledukampelis.com 🎁",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    }
+  ],
+  "arc_name": "Contrarian hook · Bold claim",
+  "hook_style": "Contrarian",
+  "story_arc": "Bold claim",
+  "auditId": "post-28",
+  "caption_preview": "🎅 Kalėdų kampelis - viskas, ko reikia jaukioms šventėms! Dekoracijos, dovanų idėjos ir nuotaika visiems namams! ✨\n🛒 Užsuk į kaledukampelis.com (nuoroda bio)\n💬 Parašyk komentaruose, kokia tavo mėgstamiausia kalėdinė tradicija!\n\n#kaledukampelis\n#kaledos\n#dekoracijos\n#dovanos\n#christmas\n#christmasdecor\n#jaukumas\n#lithuania",
+  "caption_source": "universal",
+  "picked_products": [
+    "menulio-lempa-3d"
+  ]
+}

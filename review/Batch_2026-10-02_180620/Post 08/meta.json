@@ -1,0 +1,58 @@
+{
+  "theme": "Vilnonis pledas kaip Kalėdų dovana",
+  "hook": "Pledas yra dovana, su kuria sunku suklysti.",
+  "body": "Jį naudos filmų vakarais, o pakuotė jau atrodo kaip dovana.",
+  "category": "Random theme",
+  "slide_count": 4,
+  "background_image": "COZY_HOME/black-screen-001.png, COZY_HOME/black-screen-002.png, LIGHTS/black-screen-001.png, COZY_HOME/black-screen-003.png",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Ieškai jaukios dovanos?",
+      "body": "Nori, kad ji primintų šiltus vakarus namuose?",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Kiekvieną vakarą svarstai iš naujo ir pavargsti dar prieš parduotuvę. Tada renkiesi greičiausią daiktą.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Vilnonis pledas „Žiemos šiluma“. Tai puiki dovana filmų vakaro mėgėjams. Storas merinoso vilnos audinys suteiks jaukumo ir šviesaus komforto.",
+      "productId": "vilnonis-pledas-jaukumas",
+      "cta": "",
+      "visualIntent": "LIGHTS",
+      "showProductPrice": false,
+      "productVariantId": "pledas-jaukumas-q2-dcfafd9148",
+      "productImageSrc": "/products/pledas-jaukumas-q2-dcfafd9148.webp"
+    },
+    {
+      "id": "slide-4",
+      "role": "close",
+      "title": "",
+      "body": "Kai matai, kad dovana pataikė, supranti, kad paieška buvo verta laiko.",
+      "cta": "Šį ir daugiau jaukių dovanų rasi kaledukampelis.com 🎁",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    }
+  ],
+  "arc_name": "Question hook · Contrarian",
+  "hook_style": "Question",
+  "story_arc": "Contrarian",
+  "auditId": "post-08",
+  "caption_preview": "🎅 Kalėdų kampelis - viskas, ko reikia jaukioms šventėms! Dekoracijos, dovanų idėjos ir nuotaika visiems namams! ✨\n🛒 Užsuk į kaledukampelis.com (nuoroda bio)\n💬 Parašyk komentaruose, kokia tavo mėgstamiausia kalėdinė tradicija!\n\n#kaledukampelis\n#kaledos\n#dekoracijos\n#dovanos\n#christmas\n#christmasdecor\n#jaukumas\n#lithuania",
+  "caption_source": "universal",
+  "picked_products": [
+    "vilnonis-pledas-jaukumas"
+  ]
+}

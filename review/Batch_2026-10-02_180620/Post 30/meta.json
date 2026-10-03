@@ -1,0 +1,71 @@
+{
+  "theme": "Kaip nepasiklysti tarp kalėdinių nuolaidų.",
+  "hook": "Per akcijas lengva prisipirkti visko, tik ne to, ko iš tikrųjų reikia.",
+  "body": "Turėk konkretų dovanų sąrašą ir tikrink, ar kiekvienas pirkinys jame turi savo gavėją.",
+  "category": "Random theme",
+  "slide_count": 6,
+  "background_image": "COZY_HOME/black-screen-001.png, COZY_HOME/black-screen-002.png, COZY_HOME/black-screen-003.png, COZY_HOME/black-screen-004.png, COZY_HOME/black-screen-005.png, COZY_HOME/black-screen-006.png",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Vis dar be dovanos?",
+      "body": "Sąrašas ilgėja, o šventė vis arčiau.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Kiekvieną vakarą svarstai iš naujo ir pavargsti dar prieš parduotuvę. Tada renkiesi greičiausią daiktą.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Kai žinai, kuo žmogus džiaugiasi kasdien, dovanos paieška tampa daug paprastesnė.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-4",
+      "role": "build",
+      "title": "",
+      "body": "Pagalvok, kaip tas žmogus leidžia laisvą vakarą. Iš to dažnai ir gimsta geriausia dovanos idėja!",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-5",
+      "role": "build",
+      "title": "",
+      "body": "Jis vertina kokybiškas ir funkcionalias dovanas. Stilinga dovana leis jam jaustis ypatingam.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-6",
+      "role": "close",
+      "title": "",
+      "body": "Kai dovana tinka žmogui, jos kaina nebe tokia svarbi. Toks pasirinkimas prisimenamas ilgiau!",
+      "cta": "Rask dovaną be ilgo blaškymosi – kaledukampelis.com 🎁",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    }
+  ],
+  "arc_name": "Bold claim hook · Question",
+  "hook_style": "Bold claim",
+  "story_arc": "Question",
+  "auditId": "post-30",
+  "caption_preview": "🎅 Kalėdų kampelis - viskas, ko reikia jaukioms šventėms! Dekoracijos, dovanų idėjos ir nuotaika visiems namams! ✨\n🛒 Užsuk į kaledukampelis.com (nuoroda bio)\n💬 Parašyk komentaruose, kokia tavo mėgstamiausia kalėdinė tradicija!\n\n#kaledukampelis\n#kaledos\n#dekoracijos\n#dovanos\n#christmas\n#christmasdecor\n#jaukumas\n#lithuania",
+  "caption_source": "universal",
+  "picked_products": []
+}

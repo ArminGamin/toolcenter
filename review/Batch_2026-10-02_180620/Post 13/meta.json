@@ -1,0 +1,76 @@
+{
+  "theme": "Dovanų pakavimas paskutinį vakarą.",
+  "hook": "Gruodžio 24-osios vakaras nėra geriausias laikas prisiminti, kad dar nieko nesupakavai.",
+  "body": "Pakuok dovanas iškart, kai tik jos atkeliauja, ir prieš šventes turėsi vienu rūpesčiu mažiau.",
+  "category": "Random theme",
+  "slide_count": 6,
+  "background_image": "COZY_HOME/black-screen-001.png, COZY_HOME/black-screen-002.png, COZY_HOME/black-screen-003.png, COZY_HOME/black-screen-004.png, COZY_HOME/black-screen-005.png, COZY_HOME/black-screen-006.png",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Kalėdos jau rytoj, o dovanos dar nėra?",
+      "body": "Laiko liko mažai, todėl rinktis reikia greitai.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Jei žmogaus rytas prasideda nuo kavos, tai jau gera užuomina dovanai.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Šiemet supakuok dovanas iškart! Dovanų pakavimo rinkinys „Šventinė pakuotė“ padės tai atlikti greitai ir stilingai.",
+      "productId": "dovanu-pakavimas-sventine",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false,
+      "productVariantId": "dovanu-pakavimas-sventine-q2-b61917e749",
+      "productImageSrc": "/products/dovanu-pakavimas-sventine-q2-b61917e749.webp"
+    },
+    {
+      "id": "slide-4",
+      "role": "build",
+      "title": "",
+      "body": "Pagalvok, kaip tas žmogus leidžia laisvą vakarą. Iš to dažnai ir gimsta geriausia dovanos idėja!",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-5",
+      "role": "build",
+      "title": "",
+      "body": "Kai žinai, kuo žmogus džiaugiasi kasdien, dovanos paieška tampa daug paprastesnė.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-6",
+      "role": "close",
+      "title": "",
+      "body": "Kai dovana tinka žmogui, jos kaina nebe tokia svarbi. Toks pasirinkimas prisimenamas ilgiau!",
+      "cta": "Dar neišrinkai dovanos? Užsuk į kaledukampelis.com 🎁",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    }
+  ],
+  "arc_name": "Uncomfortable truth hook · Two-beat punch",
+  "hook_style": "Uncomfortable truth",
+  "story_arc": "Two-beat punch",
+  "auditId": "post-13",
+  "caption_preview": "🎄 Kalėdų nuotaika prasideda čia! Papuošk namus, rask idealias dovanas ir sukurk šventinę atmosferą! ✨\n🛍️ Visa tai rasi kaledukampelis.com (nuoroda bio)\n💬 O tu jau pradėjai ruoštis šventėms? Papasakok komentaruose!\n\n#kaledukampelis\n#kaledos\n#kaledinenuotaika\n#namudekoras\n#dovanuidejos\n#christmasvibes\n#christmasdecor\n#lithuania",
+  "caption_source": "universal",
+  "picked_products": [
+    "dovanu-pakavimas-sventine"
+  ]
+}

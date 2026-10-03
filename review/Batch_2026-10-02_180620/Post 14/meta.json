@@ -1,0 +1,67 @@
+{
+  "theme": "Saulėlydžio lempa „Auksinis vakaras“",
+  "hook": "Šilta saulėlydžio šviesa ant sienos per kelias sekundes",
+  "body": "USB — jungiasi prie powerbanko",
+  "category": "Random theme",
+  "slide_count": 5,
+  "background_image": "COZY_HOME/black-screen-001.png, COZY_HOME/black-screen-002.png, COZY_HOME/black-screen-003.png, COZY_HOME/black-screen-004.png, COZY_HOME/black-screen-005.png",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Kiekvienais metais tas pats",
+      "body": "Susiduri su įtampa prieš Kalėdas. Visada atrodo, kad laiko vis mažiau.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Kai nežinai, kam ieškai, visos lentynos atrodo vienodos. Tada laukti švenčių sunkiau.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Šiemet nustebink šiluma ir ramybe su „Auksinis vakaras“ Saulėlydžio lempa. Tai tarsi saulės nusileidimas tavo kambaryje, sukuriantis jaukumo atmosferą.",
+      "productId": "saulelydzio-lempa",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false,
+      "productVariantId": "saulelydzio-lempa-q2-2c9a039abd",
+      "productImageSrc": "/products/saulelydzio-lempa-q2-2c9a039abd.webp"
+    },
+    {
+      "id": "slide-4",
+      "role": "build",
+      "title": "",
+      "body": "Dovana nebūtinai turi būti brangi. Svarbiau, kad ji tiktų žmogaus kasdienybei.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-5",
+      "role": "close",
+      "title": "",
+      "body": "Išsirinkus dovaną anksčiau, šventės prasideda be skubos. Lieka laiko ir pakuotei.",
+      "cta": "Rask dovaną greičiau – kaledukampelis.com 🎁",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    }
+  ],
+  "arc_name": "Contrarian hook · Contrarian",
+  "hook_style": "Contrarian",
+  "story_arc": "Contrarian",
+  "auditId": "post-14",
+  "caption_preview": "✨ Šventės arčiau, nei atrodo! Kalėdų kampelis padės sukurti jaukiausius namus ir rasti dovanas, kurios nudžiugins! 🎁\n👉 Aplankyk kaledukampelis.com (nuoroda bio)\n💬 Kokia tavo svajonių kalėdinė dekoracija? Rašyk komentaruose!\n\n#kaledukampelis\n#kaledos\n#kaledudekoracijos\n#dovanos\n#sventes\n#christmas\n#christmasgifts\n#lithuania",
+  "caption_source": "universal",
+  "picked_products": [
+    "saulelydzio-lempa"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "theme": "Šiaurietiško rašto kalėdiniai megztiniai šeimai",
+  "hook": "Vienas šventinis raštas, kurį gali pasirinkti visa šeima.",
+  "body": "Vyro, moters ir vaiko megztinius derina raudona ir balta spalvos, elnių bei snaigių motyvai.",
+  "category": "Random theme",
+  "slide_count": 4,
+  "background_image": "COZY_HOME/black-screen-001.png, COZY_HOME/black-screen-002.png, COZY_HOME/black-screen-003.png, COZY_HOME/black-screen-004.png",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Kalėdiniai megztiniai. Kasmetinė tradicija",
+      "body": "Kiekvienais metais susirenki šeimą ir nori, kad būtų ypatinga nuotrauka. Bet visada kažkas pamiršta pasiimti šventinį apdarą.",
+      "cta": "",
+      "productId": "seimos-megztiniai-siaures-rastas",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false,
+      "productVariantId": "seimos-megztiniai-siaures-rastas-hero-real-v2-a4fba9f5",
+      "productImageSrc": "/products/seimos-megztiniai-siaures-rastas-hero-real-v2-a4fba9f5.webp"
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Šeimos portretas. Tai daugiau nei tik atminimas. Tai bendrumo ir artumo ženklai.",
+      "productId": "seimos-megztiniai-siaures-rastas",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false,
+      "productVariantId": "seimos-megztiniai-siaures-rastas-detail-real-v2-e93e3e46",
+      "productImageSrc": "/products/seimos-megztiniai-siaures-rastas-detail-real-v2-e93e3e46.webp"
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Kai žinai, kuo vyras džiaugiasi kasdien, dovanos paieška tampa daug paprastesnė.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-4",
+      "role": "close",
+      "title": "",
+      "body": "Net maža dovana gali pradžiuginti, jei ji tinka vyrui.",
+      "cta": "Šį ir daugiau jaukių dovanų rasi kaledukampelis.com 🎁",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    }
+  ],
+  "arc_name": "Uncomfortable truth hook · Contrarian",
+  "hook_style": "Uncomfortable truth",
+  "story_arc": "Contrarian",
+  "auditId": "post-20",
+  "caption_preview": "✨ Šventės arčiau, nei atrodo! Kalėdų kampelis padės sukurti jaukiausius namus ir rasti dovanas, kurios nudžiugins! 🎁\n👉 Aplankyk kaledukampelis.com (nuoroda bio)\n💬 Kokia tavo svajonių kalėdinė dekoracija? Rašyk komentaruose!\n\n#kaledukampelis\n#kaledos\n#kaledudekoracijos\n#dovanos\n#sventes\n#christmas\n#christmasgifts\n#lithuania",
+  "caption_source": "universal",
+  "picked_products": [
+    "seimos-megztiniai-siaures-rastas"
+  ]
+}

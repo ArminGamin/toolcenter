@@ -1,0 +1,62 @@
+{
+  "theme": "Dovana, kuri tinka visai žiemai.",
+  "hook": "Kodėl dovana turėtų tikti tik Kalėdoms?",
+  "body": "Rinkis daiktą, kuris išlieka praktiškas ir jaukus visą žiemą.",
+  "category": "Random theme",
+  "slide_count": 5,
+  "background_image": "COZY_HOME/black-screen-001.png, COZY_HOME/black-screen-002.png, COZY_HOME/black-screen-003.png, COZY_HOME/black-screen-004.png, COZY_HOME/black-screen-005.png",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Kalėdos arti, dovanos vis dar ne?",
+      "body": "Jautiesi apmaudžiai tarp šventinių lempučių ir pasirinkimų gausos? Kalėdų stresas gali būti varginantis.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Kiekvienais metais susiduri su tuo pačiu. Didžiulis dovanotojų sąrašas, o laiko vis mažiau. Pirkimo centrai pilni žmonių, ir norisi tiesiog pabėgti nuo šio chaoso.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Prisimink, ką žmogus minėjo per pastaruosius mėnesius. Tokios užuominos dažnai ir tampa geriausia dovanos idėja!",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-4",
+      "role": "build",
+      "title": "",
+      "body": "Gražiai supakuota dovana atrodo apgalvotai net tada, kai ji nedidelė.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-5",
+      "role": "close",
+      "title": "",
+      "body": "Net maža dovana gali pradžiuginti, jei ji tinka žmogui.",
+      "cta": "Mažiau paieškų, daugiau aiškių idėjų – kaledukampelis.com 🎁",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    }
+  ],
+  "arc_name": "Challenge hook · Contrarian",
+  "hook_style": "Challenge",
+  "story_arc": "Contrarian",
+  "auditId": "post-26",
+  "caption_preview": "✨ Šventės arčiau, nei atrodo! Kalėdų kampelis padės sukurti jaukiausius namus ir rasti dovanas, kurios nudžiugins! 🎁\n👉 Aplankyk kaledukampelis.com (nuoroda bio)\n💬 Kokia tavo svajonių kalėdinė dekoracija? Rašyk komentaruose!\n\n#kaledukampelis\n#kaledos\n#kaledudekoracijos\n#dovanos\n#sventes\n#christmas\n#christmasgifts\n#lithuania",
+  "caption_source": "universal",
+  "picked_products": []
+}

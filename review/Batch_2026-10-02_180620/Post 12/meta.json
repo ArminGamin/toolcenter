@@ -1,0 +1,58 @@
+{
+  "theme": "Sniego gaublys „Žiemos pasaka“",
+  "hook": "Stiklinis gaublys su miniatiūrine eglute ir nameliu",
+  "body": "Stiklas ir medis, ne plastikas",
+  "category": "Random theme",
+  "slide_count": 4,
+  "background_image": "COZY_HOME/black-screen-001.png, COZY_HOME/black-screen-002.png, COZY_HOME/black-screen-003.png, COZY_HOME/black-screen-004.png",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Dekoracijos, kurios nepabosta?",
+      "body": "Kasmet perki naujų, o po švenčių jos vėl atsiduria dėžėje.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Kuo ilgiau atidedi dovanų paiešką, tuo sunkiau apsispręsti. Vakare jėgų rinktis lieka vis mažiau.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Gali rinktis sniego gaublį „Žiemos pasaka“. Papurčius gaublį, viduje pradeda snigti, o tai džiugina ir vaikus, ir suaugusius.",
+      "productId": "sniego-gaublys-ziemos-pasaka",
+      "showProductPrice": false,
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "productVariantId": "sniego-gaublys-pasaka-q2-c757c15f20",
+      "productImageSrc": "/products/sniego-gaublys-pasaka-q2-c757c15f20.webp"
+    },
+    {
+      "id": "slide-4",
+      "role": "close",
+      "title": "",
+      "body": "Dabar gali atsipalaiduoti, dovana jau rasta! Pasidalink švente su mylimaisiais!",
+      "cta": "Šį ir daugiau jaukių dovanų rasi kaledukampelis.com 🎁",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    }
+  ],
+  "arc_name": "Challenge hook · Question",
+  "hook_style": "Challenge",
+  "story_arc": "Question",
+  "auditId": "post-12",
+  "caption_preview": "✨ Šventės arčiau, nei atrodo! Kalėdų kampelis padės sukurti jaukiausius namus ir rasti dovanas, kurios nudžiugins! 🎁\n👉 Aplankyk kaledukampelis.com (nuoroda bio)\n💬 Kokia tavo svajonių kalėdinė dekoracija? Rašyk komentaruose!\n\n#kaledukampelis\n#kaledos\n#kaledudekoracijos\n#dovanos\n#sventes\n#christmas\n#christmasgifts\n#lithuania",
+  "caption_source": "universal",
+  "picked_products": [
+    "sniego-gaublys-ziemos-pasaka"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "theme": "Poros knyga „Mūsų akimirkos“",
+  "hook": "Užpildoma knyga dviem — jūsų bendra istorija",
+  "body": "150 klausimų porai",
+  "category": "Random theme",
+  "slide_count": 5,
+  "background_image": "COZY_HOME/black-screen-001.png, COZY_HOME/black-screen-002.png, COZY_HOME/black-screen-003.png, COZY_HOME/black-screen-004.png, COZY_HOME/black-screen-005.png",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Viena dovana dviem žmonėms?",
+      "body": "Norisi, kad ja džiaugtųsi abu, o ne tik vienas.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Dovanojimo stresas kiekvienais metais vis didesnis. Dabar jau net nesusiduri su paieškos procesu. Tiesiog bėgi į priekį.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Tokiam žmogui tiktų poros knyga „Mūsų akimirkos“. Tiks vakarui, kai abu nori pabūti kartu.",
+      "productId": "poros-knyga-musu-istorija",
+      "showProductPrice": false,
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "productVariantId": "poros-knyga-q2-43484abb1b",
+      "productImageSrc": "/products/poros-knyga-q2-43484abb1b.webp"
+    },
+    {
+      "id": "slide-4",
+      "role": "build",
+      "title": "",
+      "body": "Kai žinai, kuo pora džiaugiasi kasdien, dovanos paieška tampa daug paprastesnė.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-5",
+      "role": "close",
+      "title": "",
+      "body": "Net maža dovana gali pradžiuginti, jei ji tinka porai.",
+      "cta": "Daugiau praktiškų dovanų rasi kaledukampelis.com 🎁",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    }
+  ],
+  "arc_name": "Challenge hook · Two-beat punch",
+  "hook_style": "Challenge",
+  "story_arc": "Two-beat punch",
+  "auditId": "post-19",
+  "caption_preview": "🎄 Kalėdų nuotaika prasideda čia! Papuošk namus, rask idealias dovanas ir sukurk šventinę atmosferą! ✨\n🛍️ Visa tai rasi kaledukampelis.com (nuoroda bio)\n💬 O tu jau pradėjai ruoštis šventėms? Papasakok komentaruose!\n\n#kaledukampelis\n#kaledos\n#kaledinenuotaika\n#namudekoras\n#dovanuidejos\n#christmasvibes\n#christmasdecor\n#lithuania",
+  "caption_source": "universal",
+  "picked_products": [
+    "poros-knyga-musu-istorija"
+  ]
+}

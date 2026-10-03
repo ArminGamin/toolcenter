@@ -1,0 +1,58 @@
+{
+  "theme": "Vilnonės kojinės „Šilta žiema“",
+  "hook": "Trys poros storų vilnonių kojinių — saugi dovana",
+  "body": "3 poros viename rinkinyje",
+  "category": "Random theme",
+  "slide_count": 4,
+  "background_image": "COZY_HOME/black-screen-001.png, COZY_HOME/black-screen-002.png, COZY_HOME/black-screen-003.png, COZY_HOME/black-screen-004.png",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Ką padovanoti porai?",
+      "body": "Dovana turi tikti abiem, todėl rinktis sunkiau.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Sąrašas ilgėja, kol perki tai, kas po ranka. Tada dovaną dažniau imi paskubomis, užuot rinkęs pagal porą.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Gali rinktis vilnones kojines „Šilta žiema“. Kojoms bus šilta visą žiemą.",
+      "productId": "vilnones-kojines-ziemos-jaukumas",
+      "showProductPrice": false,
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "productVariantId": "vilnones-kojines-dovanu-deze-q2-e3ab27e0a0",
+      "productImageSrc": "/products/vilnones-kojines-dovanu-deze-q2-e3ab27e0a0.webp"
+    },
+    {
+      "id": "slide-4",
+      "role": "close",
+      "title": "",
+      "body": "Geriausia dovana yra ta, kuria pora naudosis dar ilgai po švenčių.",
+      "cta": "Rask dovaną greičiau – kaledukampelis.com 🎁",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    }
+  ],
+  "arc_name": "Question hook · Bold claim",
+  "hook_style": "Question",
+  "story_arc": "Bold claim",
+  "auditId": "post-22",
+  "caption_preview": "✨ Šventės arčiau, nei atrodo! Kalėdų kampelis padės sukurti jaukiausius namus ir rasti dovanas, kurios nudžiugins! 🎁\n👉 Aplankyk kaledukampelis.com (nuoroda bio)\n💬 Kokia tavo svajonių kalėdinė dekoracija? Rašyk komentaruose!\n\n#kaledukampelis\n#kaledos\n#kaledudekoracijos\n#dovanos\n#sventes\n#christmas\n#christmasgifts\n#lithuania",
+  "caption_source": "universal",
+  "picked_products": [
+    "vilnones-kojines-ziemos-jaukumas"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "theme": "Dovana broliui, kai nežinai jo norų.",
+  "hook": "Brolis į klausimą apie dovaną vėl atsakė „nežinau“?",
+  "body": "Rinkis universalų daiktą, kuris pravers namuose, kelionėje ar kasdienybėje.",
+  "category": "Random theme",
+  "slide_count": 5,
+  "background_image": "COZY_HOME/black-screen-001.png, COZY_HOME/black-screen-002.png, COZY_HOME/black-screen-003.png, COZY_HOME/black-screen-004.png, COZY_HOME/black-screen-005.png",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Ką padovanoti broliui?",
+      "body": "Jis sako, kad nieko nereikia, o tu vis tiek nori jį pradžiuginti.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Kai žiemą daug laiko praleidi kelyje, karštas gėrimas labai praverčia.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Gali rinktis termosą „Žiemos kelionė“. Gėrimas ilgai išlieka karštas net ilgoje kelionėje.",
+      "productId": "termosas-kelionemis-500ml",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false,
+      "productVariantId": "termosas-kelionems-q2-ce0ec90266",
+      "productImageSrc": "/products/termosas-kelionems-q2-ce0ec90266.webp"
+    },
+    {
+      "id": "slide-4",
+      "role": "build",
+      "title": "",
+      "body": "Kai žinai, kuo brolis džiaugiasi kasdien, dovanos paieška tampa daug paprastesnė.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-5",
+      "role": "close",
+      "title": "",
+      "body": "Kai dovana jau išrinkta, prieš šventes daug ramiau. Žinai, kad daiktas tiks broliui.",
+      "cta": "Šį ir daugiau jaukių dovanų rasi kaledukampelis.com 🎁",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    }
+  ],
+  "arc_name": "Bold claim hook · Bold claim",
+  "hook_style": "Bold claim",
+  "story_arc": "Bold claim",
+  "auditId": "post-16",
+  "caption_preview": "✨ Šventės arčiau, nei atrodo! Kalėdų kampelis padės sukurti jaukiausius namus ir rasti dovanas, kurios nudžiugins! 🎁\n👉 Aplankyk kaledukampelis.com (nuoroda bio)\n💬 Kokia tavo svajonių kalėdinė dekoracija? Rašyk komentaruose!\n\n#kaledukampelis\n#kaledos\n#kaledudekoracijos\n#dovanos\n#sventes\n#christmas\n#christmasgifts\n#lithuania",
+  "caption_source": "universal",
+  "picked_products": [
+    "termosas-kelionemis-500ml"
+  ]
+}

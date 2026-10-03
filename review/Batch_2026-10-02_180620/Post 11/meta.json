@@ -1,0 +1,58 @@
+{
+  "theme": "Advento kalendorius „24 dienos“",
+  "hook": "24 mažos staigmenos gruodžio rytams iki Kalėdų",
+  "body": "24 langeliai, visos staigmenos viduje",
+  "category": "Random theme",
+  "slide_count": 4,
+  "background_image": "COZY_HOME/black-screen-001.png, COZY_HOME/black-screen-002.png, COZY_HOME/black-screen-003.png, COZY_HOME/black-screen-004.png",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Nežinai, ką padovanoti?",
+      "body": "Idėjų daug, bet nė viena netinka iki galo.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Kalėdinis stresas ima viršum, o dovanos vis dar neaiškios? Šiais metais apgalvok mažesnes staigroves. Didelis dėmesys smulkiam dalykui gali būti labai svarbus.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Gali rinktis advento kalendorių „24 dienos“. Kiekviena diena iki švenčių turės savo momentą.",
+      "productId": "advento-kalendorius-24",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false,
+      "productVariantId": "advento-kalendorius-24-q2-4cc8ad8fde",
+      "productImageSrc": "/products/advento-kalendorius-24-q2-4cc8ad8fde.webp"
+    },
+    {
+      "id": "slide-4",
+      "role": "close",
+      "title": "",
+      "body": "Gerai dovanai nebūtina kainuoti daug. Svarbiau, kam ją renkiesi.",
+      "cta": "Daugiau praktiškų dovanų rasi kaledukampelis.com 🎁",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    }
+  ],
+  "arc_name": "Pattern interrupt hook · Before / after",
+  "hook_style": "Pattern interrupt",
+  "story_arc": "Before / after",
+  "auditId": "post-11",
+  "caption_preview": "🎄 Kalėdų nuotaika prasideda čia! Papuošk namus, rask idealias dovanas ir sukurk šventinę atmosferą! ✨\n🛍️ Visa tai rasi kaledukampelis.com (nuoroda bio)\n💬 O tu jau pradėjai ruoštis šventėms? Papasakok komentaruose!\n\n#kaledukampelis\n#kaledos\n#kaledinenuotaika\n#namudekoras\n#dovanuidejos\n#christmasvibes\n#christmasdecor\n#lithuania",
+  "caption_source": "universal",
+  "picked_products": [
+    "advento-kalendorius-24"
+  ]
+}

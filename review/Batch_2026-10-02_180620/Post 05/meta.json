@@ -1,0 +1,62 @@
+{
+  "theme": "Kai jau atrodo per vėlu užsisakyti.",
+  "hook": "Kai apie dovanas prisimeni paskutinę minutę, pirmiausia tikrini, ar dar spės atvykti?",
+  "body": "Prieš užsakant patikrink pristatymo terminus ir svarbiausių dovanų nepalik paskutinei dienai.",
+  "category": "Random theme",
+  "slide_count": 5,
+  "background_image": "COZY_HOME/black-screen-001.png, COZY_HOME/black-screen-002.png, COZY_HOME/black-screen-003.png, COZY_HOME/black-screen-004.png, COZY_HOME/black-screen-005.png",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Kalėdos jau rytoj, o dovanos dar nėra?",
+      "body": "Laiko liko mažai, todėl rinktis reikia greitai.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Skubantis pirkimas dažnai baigiasi kompromisais. Nuspręsti, kas svarbiausia. Didelis žingsnis į priekį.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Prie dovanos pridėk atviruką su keliais žodžiais ranka. Jį žmogus dažnai pasilieka ilgiausiai.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-4",
+      "role": "build",
+      "title": "",
+      "body": "Kai žinai, kam dovana, parduotuvėje lieka mažiau spėliojimo. Greičiau randi daiktą, kuris tinka.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-5",
+      "role": "close",
+      "title": "",
+      "body": "Geriausia dovana yra ta, kuria žmogus naudosis dar ilgai po švenčių.",
+      "cta": "Dar neišrinkai dovanos? Užsuk į kaledukampelis.com 🎁",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    }
+  ],
+  "arc_name": "Challenge hook · Before / after",
+  "hook_style": "Challenge",
+  "story_arc": "Before / after",
+  "auditId": "post-05",
+  "caption_preview": "🎄 Kalėdų nuotaika prasideda čia! Papuošk namus, rask idealias dovanas ir sukurk šventinę atmosferą! ✨\n🛍️ Visa tai rasi kaledukampelis.com (nuoroda bio)\n💬 O tu jau pradėjai ruoštis šventėms? Papasakok komentaruose!\n\n#kaledukampelis\n#kaledos\n#kaledinenuotaika\n#namudekoras\n#dovanuidejos\n#christmasvibes\n#christmasdecor\n#lithuania",
+  "caption_source": "universal",
+  "picked_products": []
+}

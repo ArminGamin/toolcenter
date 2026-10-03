@@ -1,0 +1,58 @@
+{
+  "theme": "Medinė serviravimo lenta „Vakarienė dviese“",
+  "hook": "Ąžuolo lenta sūriams, duonai ir vakarienei dviese",
+  "body": "Masyvus ąžuolas, ne fanera",
+  "category": "Random theme",
+  "slide_count": 4,
+  "background_image": "COZY_HOME/black-screen-001.png, TABLE_SETTING/black-screen-001.png, TABLE_SETTING/black-screen-002.png, COZY_HOME/black-screen-002.png",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Vis dar be dovanos?",
+      "body": "Sąrašas ilgėja, o šventė vis arčiau.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Romantiškos vakarienės turi būti malonios abiem pusėms. Bet pasirūpinti visku juokais gali atimti šventinę nuotaiką.",
+      "cta": "",
+      "visualIntent": "TABLE_SETTING",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Štai puiki dovana. Ąžuolo serviravimo lenta „Vakarienė dviese“. Sūriams, duonai ir romantiškam vakaro susitikimui ji idealiai tinka.",
+      "productId": "serviravimo-lenta-vakariene",
+      "cta": "",
+      "visualIntent": "TABLE_SETTING",
+      "showProductPrice": false,
+      "productVariantId": "serviravimo-lenta-vakariene-q2-c63139921d",
+      "productImageSrc": "/products/serviravimo-lenta-vakariene-q2-c63139921d.webp"
+    },
+    {
+      "id": "slide-4",
+      "role": "close",
+      "title": "",
+      "body": "Praktiška dovana nepasimeta stalčiuje. Ji primena apie tave kiekvieną dieną.",
+      "cta": "Daugiau praktiškų dovanų rasi kaledukampelis.com 🎁",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    }
+  ],
+  "arc_name": "Contrarian hook · Question",
+  "hook_style": "Contrarian",
+  "story_arc": "Question",
+  "auditId": "post-21",
+  "caption_preview": "🎄 Kalėdų nuotaika prasideda čia! Papuošk namus, rask idealias dovanas ir sukurk šventinę atmosferą! ✨\n🛍️ Visa tai rasi kaledukampelis.com (nuoroda bio)\n💬 O tu jau pradėjai ruoštis šventėms? Papasakok komentaruose!\n\n#kaledukampelis\n#kaledos\n#kaledinenuotaika\n#namudekoras\n#dovanuidejos\n#christmasvibes\n#christmasdecor\n#lithuania",
+  "caption_source": "universal",
+  "picked_products": [
+    "serviravimo-lenta-vakariene"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "theme": "LED girlianda „Šilta šviesa“",
+  "hook": "Šilta šviesa eglutei, lentynai ar langui",
+  "body": "5 m, 50 lempučių",
+  "category": "Random theme",
+  "slide_count": 5,
+  "background_image": "COZY_HOME/black-screen-001.png, LIGHTS/black-screen-001.png, LIGHTS/black-screen-002.png, COZY_HOME/black-screen-002.png, COZY_HOME/black-screen-003.png",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Dekoracijos, kurios nepabosta?",
+      "body": "Kasmet perki naujų, o po švenčių jos vėl atsiduria dėžėje.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Dovanojimo džiugesys turėtų būti šviesus, o ne varginantis. Bet įprastiniai variantai jau atsėti ir norisi kažko ypatingo bei originalaus.",
+      "cta": "",
+      "visualIntent": "LIGHTS",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Gali rinktis LED girliandą „Šilta šviesa“. Šilta šviesa lieka ir po švenčių.",
+      "productId": "led-girlianda-siltas",
+      "cta": "",
+      "visualIntent": "LIGHTS",
+      "showProductPrice": false,
+      "productVariantId": "led-girlianda-lentyna-q2-ac567c7e43",
+      "productImageSrc": "/products/led-girlianda-lentyna-q2-ac567c7e43.webp"
+    },
+    {
+      "id": "slide-4",
+      "role": "build",
+      "title": "",
+      "body": "Praktiška dovana nebūtinai nuobodi. Kai žmogus ja naudojasi kasdien, ji primena apie tave.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-5",
+      "role": "close",
+      "title": "",
+      "body": "Kai turi aiškią idėją, dovanų paieška trunka kelias minutes, ne kelis vakarus.",
+      "cta": "Dar neišrinkai dovanos? Užsuk į kaledukampelis.com 🎁",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    }
+  ],
+  "arc_name": "Question hook · Before / after",
+  "hook_style": "Question",
+  "story_arc": "Before / after",
+  "auditId": "post-29",
+  "caption_preview": "🎄 Kalėdų nuotaika prasideda čia! Papuošk namus, rask idealias dovanas ir sukurk šventinę atmosferą! ✨\n🛍️ Visa tai rasi kaledukampelis.com (nuoroda bio)\n💬 O tu jau pradėjai ruoštis šventėms? Papasakok komentaruose!\n\n#kaledukampelis\n#kaledos\n#kaledinenuotaika\n#namudekoras\n#dovanuidejos\n#christmasvibes\n#christmasdecor\n#lithuania",
+  "caption_source": "universal",
+  "picked_products": [
+    "led-girlianda-siltas"
+  ]
+}

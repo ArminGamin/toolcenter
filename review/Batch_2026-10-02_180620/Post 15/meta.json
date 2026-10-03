@@ -1,0 +1,76 @@
+{
+  "theme": "Kvapo difuzorius „Jaukūs namai“",
+  "hook": "Namų aromatas be liepsnos: lazdelių difuzorius",
+  "body": "Veikia 10–12 savaičių",
+  "category": "Random theme",
+  "slide_count": 6,
+  "background_image": "COZY_HOME/black-screen-001.png, COZY_HOME/black-screen-002.png, COZY_HOME/black-screen-003.png, COZY_HOME/black-screen-004.png, COZY_HOME/black-screen-005.png, COZY_HOME/black-screen-006.png",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Ar kalėdos jau čia, o tu vis dar ieškai?",
+      "body": "Kiekvienais metais tas pats. Galvoje begalinis dovanų sąrašas. Jautiesi kaip užstrigęs tarp tūkstančių variantų?",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Dovanos paiešką daro varginanti, nes nori kažko ypatingo. Bet ką gi padovanoji žmogui, kurį gerai pažinęs vis tiek nežinai?",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Gali rinktis kvapo difuzorių „Jaukūs namai“. Namuose kvepės jaukiai ir be jokios liepsnos.",
+      "productId": "kvapo-difuzorius-lazdelemis",
+      "showProductPrice": false,
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "productVariantId": "difuzorius-q2-939b7a9d07",
+      "productImageSrc": "/products/difuzorius-q2-939b7a9d07.webp"
+    },
+    {
+      "id": "slide-4",
+      "role": "build",
+      "title": "",
+      "body": "Pradėk nuo žmogaus, ne nuo daikto. Tada dovaną rinktis ramiau ir lieka laiko pakuotei.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-5",
+      "role": "build",
+      "title": "",
+      "body": "Viena apgalvota dovana geriau už dešimt skubotų krepšelių. Tai pajunti ir biudžete.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-6",
+      "role": "close",
+      "title": "",
+      "body": "Kai dovana jau paruošta, gali ramiai mėgautis paskutinėmis dienomis prieš šventes.",
+      "cta": "Dar neišrinkai dovanos? Užsuk į kaledukampelis.com 🎁",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    }
+  ],
+  "arc_name": "Question hook · Question",
+  "hook_style": "Question",
+  "story_arc": "Question",
+  "auditId": "post-15",
+  "caption_preview": "🎄 Kalėdų nuotaika prasideda čia! Papuošk namus, rask idealias dovanas ir sukurk šventinę atmosferą! ✨\n🛍️ Visa tai rasi kaledukampelis.com (nuoroda bio)\n💬 O tu jau pradėjai ruoštis šventėms? Papasakok komentaruose!\n\n#kaledukampelis\n#kaledos\n#kaledinenuotaika\n#namudekoras\n#dovanuidejos\n#christmasvibes\n#christmasdecor\n#lithuania",
+  "caption_source": "universal",
+  "picked_products": [
+    "kvapo-difuzorius-lazdelemis"
+  ]
+}

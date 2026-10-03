@@ -1,0 +1,67 @@
+{
+  "theme": "Kalėdinės dekoracijos, kurios lieka gražios",
+  "hook": "Dekoracijų nereikia viso kambario.",
+  "body": "Keli gerai parinkti daiktai atrodo ramiau nei pilna dėžė blizgučių.",
+  "category": "Random theme",
+  "slide_count": 5,
+  "background_image": "COZY_HOME/black-screen-001.png, COZY_HOME/black-screen-002.png, COZY_HOME/black-screen-003.png, COZY_HOME/black-screen-004.png, COZY_HOME/black-screen-005.png",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Dekoracijos, kurios nepabosta?",
+      "body": "Kasmet perki naujų, o po švenčių jos vėl atsiduria dėžėje.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Sąrašas ilgėja, kol perki tai, kas po ranka. Tada dovaną dažniau imi paskubomis, užuot rinkęs pagal žmogų.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Gali rinktis mini sodą „Žalioji oazė“. Papildys namus, o ne stalčių.",
+      "productId": "vaistazoliu-auginimo-rinkinys",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false,
+      "productVariantId": "vaistazoliu-sodas-q2-8343cf18cb",
+      "productImageSrc": "/products/vaistazoliu-sodas-q2-8343cf18cb.webp"
+    },
+    {
+      "id": "slide-4",
+      "role": "build",
+      "title": "",
+      "body": "Nusistatyk sumą iš anksto. Tada rinktis tenka ne iš visos parduotuvės, o iš kelių variantų.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-5",
+      "role": "close",
+      "title": "",
+      "body": "Parinkus dovaną ramiai, švenčių laukti lengviau. Lieka daugiau ramybės.",
+      "cta": "Rask dovaną greičiau – kaledukampelis.com 🎁",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    }
+  ],
+  "arc_name": "Uncomfortable truth hook · Question",
+  "hook_style": "Uncomfortable truth",
+  "story_arc": "Question",
+  "auditId": "post-06",
+  "caption_preview": "✨ Šventės arčiau, nei atrodo! Kalėdų kampelis padės sukurti jaukiausius namus ir rasti dovanas, kurios nudžiugins! 🎁\n👉 Aplankyk kaledukampelis.com (nuoroda bio)\n💬 Kokia tavo svajonių kalėdinė dekoracija? Rašyk komentaruose!\n\n#kaledukampelis\n#kaledos\n#kaledudekoracijos\n#dovanos\n#sventes\n#christmas\n#christmasgifts\n#lithuania",
+  "caption_source": "universal",
+  "picked_products": [
+    "vaistazoliu-auginimo-rinkinys"
+  ]
+}

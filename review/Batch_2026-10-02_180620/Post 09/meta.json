@@ -1,0 +1,67 @@
+{
+  "theme": "Kardiganas mamai",
+  "hook": "Kardiganą užsimeti ryte ir palieki iki vakaro.",
+  "body": "Storai megztas kardiganas su medinėmis sagomis yra dovana, kurią mama dėvės kasdien.",
+  "category": "Random theme",
+  "slide_count": 5,
+  "background_image": "COZY_HOME/black-screen-001.png, COZY_HOME/black-screen-002.png, COZY_HOME/black-screen-003.png, COZY_HOME/black-screen-004.png, COZY_HOME/black-screen-005.png",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Ką padovanoti mamai šiemet?",
+      "body": "Ji sako, kad nieko nereikia. Bet tuščiomis ateiti vis tiek nesinori.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Dovanos paieškos stresą sukelia netinkamas pasiruošimas ir viltys. Dovanoji ką nors, bet ne tai, ko iš tiesų reikia tam žmogui.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Gali rinktis kardiganą „Atviras šiltis“. Tiks mamai ar sau, kai namuose vakare vėsu.",
+      "productId": "kardiganas-atviras-siltis",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false,
+      "productVariantId": "kardiganas-atviras-q3-0680dd54e7",
+      "productImageSrc": "/products/kardiganas-atviras-q3-0680dd54e7.webp"
+    },
+    {
+      "id": "slide-4",
+      "role": "build",
+      "title": "",
+      "body": "Kai žinai, kuo mama džiaugiasi kasdien, dovanos paieška tampa daug paprastesnė.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-5",
+      "role": "close",
+      "title": "",
+      "body": "Net maža dovana gali pradžiuginti, jei ji tinka mamai.",
+      "cta": "Daugiau praktiškų dovanų rasi kaledukampelis.com 🎁",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    }
+  ],
+  "arc_name": "Bold claim hook · Question",
+  "hook_style": "Bold claim",
+  "story_arc": "Question",
+  "auditId": "post-09",
+  "caption_preview": "🎄 Kalėdų nuotaika prasideda čia! Papuošk namus, rask idealias dovanas ir sukurk šventinę atmosferą! ✨\n🛍️ Visa tai rasi kaledukampelis.com (nuoroda bio)\n💬 O tu jau pradėjai ruoštis šventėms? Papasakok komentaruose!\n\n#kaledukampelis\n#kaledos\n#kaledinenuotaika\n#namudekoras\n#dovanuidejos\n#christmasvibes\n#christmasdecor\n#lithuania",
+  "caption_source": "universal",
+  "picked_products": [
+    "kardiganas-atviras-siltis"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "theme": "Kalėdinė dovana naujam pažįstamam žmogui.",
+  "hook": "Ką dovanoti, kai žmogų pažįsti visai neilgai?",
+  "body": "Rinkis neutralią ir praktišką dovaną, kuri neatrodo nei per daug asmeniška, nei atsitiktinė.",
+  "category": "Random theme",
+  "slide_count": 4,
+  "background_image": "COZY_HOME/black-screen-001.png, COZY_HOME/black-screen-002.png, COZY_HOME/black-screen-003.png, COZY_HOME/black-screen-004.png",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Vis dar be dovanos?",
+      "body": "Sąrašas ilgėja, o šventė vis arčiau.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Dovanojimas kartais vargina, nes sunku išsirinkti. Norisi nustebinti ir parodyti savo dėmesį.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Praktiška dovana nebūtinai nuobodi. Kai žmogus ja naudojasi kasdien, ji primena apie tave.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-4",
+      "role": "close",
+      "title": "",
+      "body": "Kai turi aiškią idėją, dovanų paieška trunka kelias minutes, ne kelis vakarus.",
+      "cta": "Rask dovaną greičiau – kaledukampelis.com 🎁",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    }
+  ],
+  "arc_name": "Empathy mirror hook · Bold claim",
+  "hook_style": "Empathy mirror",
+  "story_arc": "Bold claim",
+  "auditId": "post-10",
+  "caption_preview": "🎅 Kalėdų kampelis - viskas, ko reikia jaukioms šventėms! Dekoracijos, dovanų idėjos ir nuotaika visiems namams! ✨\n🛒 Užsuk į kaledukampelis.com (nuoroda bio)\n💬 Parašyk komentaruose, kokia tavo mėgstamiausia kalėdinė tradicija!\n\n#kaledukampelis\n#kaledos\n#dekoracijos\n#dovanos\n#christmas\n#christmasdecor\n#jaukumas\n#lithuania",
+  "caption_source": "universal",
+  "picked_products": []
+}

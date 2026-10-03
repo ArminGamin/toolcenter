@@ -1,0 +1,67 @@
+{
+  "theme": "Šilkinis miego rinkinys „Saldūs sapnai“",
+  "hook": "Šilko miego kaukė su scrunchie poilsiui",
+  "body": "100 % mulberry šilkas, 22 momme",
+  "category": "Random theme",
+  "slide_count": 5,
+  "background_image": "COZY_HOME/black-screen-001.png, COZY_HOME/black-screen-002.png, COZY_HOME/black-screen-003.png, COZY_HOME/black-screen-004.png, COZY_HOME/black-screen-005.png",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Viena dovana ar kelios mažos?",
+      "body": "Kartais kelios smulkmenos kartu pasako daugiau.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Internete tiek dovanų pasiūlymų, kad akys raibsta. Po valandos naršymo vis dar nieko neišsirinkai.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Gali rinktis šilkinį miego rinkinį „Saldūs sapnai“. Tiks kiekvienai nakčiai, ne tik šventėms.",
+      "productId": "silkinis-miego-rinkinys-miegas",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false,
+      "productVariantId": "silkas-miegas-q2-c0c419ec68",
+      "productImageSrc": "/products/silkas-miegas-q2-c0c419ec68.webp"
+    },
+    {
+      "id": "slide-4",
+      "role": "build",
+      "title": "",
+      "body": "Kartais geriausia dovana yra tai, ko žmogus pats sau nenupirktų. Tokią smulkmeną jis prisimins ilgiau.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-5",
+      "role": "close",
+      "title": "",
+      "body": "Kai žinai, ko ieškai, dovaną išrinkti daug paprasčiau.",
+      "cta": "Daugiau praktiškų dovanų rasi kaledukampelis.com 🎁",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    }
+  ],
+  "arc_name": "Empathy mirror hook · Before / after",
+  "hook_style": "Empathy mirror",
+  "story_arc": "Before / after",
+  "auditId": "post-17",
+  "caption_preview": "🎄 Kalėdų nuotaika prasideda čia! Papuošk namus, rask idealias dovanas ir sukurk šventinę atmosferą! ✨\n🛍️ Visa tai rasi kaledukampelis.com (nuoroda bio)\n💬 O tu jau pradėjai ruoštis šventėms? Papasakok komentaruose!\n\n#kaledukampelis\n#kaledos\n#kaledinenuotaika\n#namudekoras\n#dovanuidejos\n#christmasvibes\n#christmasdecor\n#lithuania",
+  "caption_source": "universal",
+  "picked_products": [
+    "silkinis-miego-rinkinys-miegas"
+  ]
+}

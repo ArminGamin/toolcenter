@@ -1,0 +1,58 @@
+{
+  "theme": "Mažas Kalėdų vakaro ritualas namuose.",
+  "hook": "Šventinė nuotaika dažnai prasideda ne nuo datos, o nuo mažų ritualų.",
+  "body": "Uždek žvakę, pasidaryk šilto gėrimo ir bent pusvalandžiui sulėtink tempą.",
+  "category": "Random theme",
+  "slide_count": 4,
+  "background_image": "LIGHTS/black-screen-001.png, COZY_HOME/black-screen-001.png, LIGHTS/black-screen-002.png, COZY_HOME/black-screen-002.png",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Ritualai su šviesa. Jaukumo kelias",
+      "body": "Kiekvienais metais norisi susitelkti ir pasijausti artimesniam šventei. Bet viskas skuba, o galimybės atsipalaiduoti mažėja.",
+      "cta": "",
+      "visualIntent": "LIGHTS",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Kai vakare užsidegi žvakę, namuose iškart tampa jaukiau. Uždegta žvakė kvepia ir šviečia visą vakarą.",
+      "cta": "",
+      "productId": "aromaterapijos-zvake-zvakiu-vakaras",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false,
+      "productVariantId": "zvakide-sventinis-vakaras-q2-98b41e146c",
+      "productImageSrc": "/products/zvakide-sventinis-vakaras-q2-98b41e146c.webp"
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Nereikia ieškoti tobulos dovanos. Užtenka tokios, kuri tiktų būtent tam žmogui.",
+      "cta": "",
+      "visualIntent": "LIGHTS",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-4",
+      "role": "close",
+      "title": "",
+      "body": "Dovana suteiks galimybę pasijausti ramiau ir susikoncentruoti ties svarbiausiu. Šventiška nuotaika.",
+      "cta": "Rask dovaną greičiau – kaledukampelis.com 🎁",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    }
+  ],
+  "arc_name": "Pattern interrupt hook · Bold claim",
+  "hook_style": "Pattern interrupt",
+  "story_arc": "Bold claim",
+  "auditId": "post-04",
+  "caption_preview": "🎅 Kalėdų kampelis - viskas, ko reikia jaukioms šventėms! Dekoracijos, dovanų idėjos ir nuotaika visiems namams! ✨\n🛒 Užsuk į kaledukampelis.com (nuoroda bio)\n💬 Parašyk komentaruose, kokia tavo mėgstamiausia kalėdinė tradicija!\n\n#kaledukampelis\n#kaledos\n#dekoracijos\n#dovanos\n#christmas\n#christmasdecor\n#jaukumas\n#lithuania",
+  "caption_source": "universal",
+  "picked_products": [
+    "aromaterapijos-zvake-zvakiu-vakaras"
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "theme": "Jauki dovana močiutei žiemos vakarams.",
+  "hook": "Močiutei dažnai svarbiau jaukumas negu dar viena dekoracija.",
+  "body": "Pagalvok apie dovaną, kuri pravers geriant arbatą, skaitant knygą ar leidžiant ramų vakarą namuose.",
+  "category": "Random theme",
+  "slide_count": 6,
+  "background_image": "COZY_HOME/black-screen-001.png, COZY_HOME/black-screen-002.png, COZY_HOME/black-screen-003.png, COZY_HOME/black-screen-004.png, COZY_HOME/black-screen-005.png, COZY_HOME/black-screen-006.png",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Močiutės vakaras ritualas",
+      "body": "Kiekvienais metais ji užsuka į tą patį fotelį. Svarbiau ne kaina, o tai, ar dovana tiks žmogui.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Jei vakare jis visada užsiplikys arbatos, dovanos idėja jau beveik aiški. Tiks ramiam vakarui po ilgos dienos.",
+      "cta": "",
+      "productId": "keramikos-arbatos-rinkinys-po-vakara",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false,
+      "productVariantId": "keramikos-arbata-q2-b98489ecc7",
+      "productImageSrc": "/products/keramikos-arbata-q2-b98489ecc7.webp"
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Kai žinai, kuo močiutė džiaugiasi kasdien, dovanos paieška tampa daug paprastesnė.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-4",
+      "role": "build",
+      "title": "",
+      "body": "Kartais geriausia dovana yra tai, ko močiutė pati sau nenupirktų. Tokią smulkmeną ji prisimins ilgiau.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-5",
+      "role": "build",
+      "title": "",
+      "body": "Tokiems maloniems momentams reikia ypatingo akcento. Dovanoti jaukumą lengva. Tereikia žinoti, ko ji norėtų.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-6",
+      "role": "close",
+      "title": "",
+      "body": "Kai dovana išrinkta pagal močiutę, jos išpakavimas tampa smagiausia vakaro dalimi.",
+      "cta": "Šį ir daugiau jaukių dovanų rasi kaledukampelis.com 🎁",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    }
+  ],
+  "arc_name": "Bold claim hook · Contrarian",
+  "hook_style": "Bold claim",
+  "story_arc": "Contrarian",
+  "auditId": "post-02",
+  "caption_preview": "🎅 Kalėdų kampelis - viskas, ko reikia jaukioms šventėms! Dekoracijos, dovanų idėjos ir nuotaika visiems namams! ✨\n🛒 Užsuk į kaledukampelis.com (nuoroda bio)\n💬 Parašyk komentaruose, kokia tavo mėgstamiausia kalėdinė tradicija!\n\n#kaledukampelis\n#kaledos\n#dekoracijos\n#dovanos\n#christmas\n#christmasdecor\n#jaukumas\n#lithuania",
+  "caption_source": "universal",
+  "picked_products": [
+    "keramikos-arbatos-rinkinys-po-vakara"
+  ]
+}

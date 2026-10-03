@@ -1,0 +1,71 @@
+{
+  "theme": "Dovana mamai, kuri atrodo apgalvota",
+  "hook": "Mamai norisi dovanos, kurią ji išpakuos ir iškart pajus.",
+  "body": "Jaukus namų daiktas ar kvapas dažnai pasako daugiau nei dar viena kosmetikos dėžutė.",
+  "category": "Random theme",
+  "slide_count": 6,
+  "background_image": "COZY_HOME/black-screen-001.png, COZY_HOME/black-screen-002.png, COZY_HOME/black-screen-003.png, COZY_HOME/black-screen-004.png, COZY_HOME/black-screen-005.png, COZY_HOME/black-screen-006.png",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Ką padovanoti mamai šiemet?",
+      "body": "Ji sako, kad nieko nereikia. Bet tuščiomis ateiti vis tiek nesinori.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Atrodo, kad mama jau viską turi. Todėl kiekviena dovanos idėja atrodo per paprasta.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Šįkart padovanok jai kažką iš širdies. Jaukumo ir šilumos kupiną dovanėlę.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-4",
+      "role": "build",
+      "title": "",
+      "body": "Kai žinai, kuo mama džiaugiasi kasdien, dovanos paieška tampa daug paprastesnė.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-5",
+      "role": "build",
+      "title": "",
+      "body": "Kartais geriausia dovana yra tai, ko mama pati sau nenupirktų. Tokią smulkmeną ji prisimins ilgiau.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-6",
+      "role": "close",
+      "title": "",
+      "body": "Kai dovana išrinkta pagal mamą, jos išpakavimas tampa smagiausia vakaro dalimi.",
+      "cta": "Daugiau dovanų idėjų rasi kaledukampelis.com 🎁",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    }
+  ],
+  "arc_name": "Uncomfortable truth hook · Question",
+  "hook_style": "Uncomfortable truth",
+  "story_arc": "Question",
+  "auditId": "post-27",
+  "caption_preview": "🎄 Kalėdų nuotaika prasideda čia! Papuošk namus, rask idealias dovanas ir sukurk šventinę atmosferą! ✨\n🛍️ Visa tai rasi kaledukampelis.com (nuoroda bio)\n💬 O tu jau pradėjai ruoštis šventėms? Papasakok komentaruose!\n\n#kaledukampelis\n#kaledos\n#kaledinenuotaika\n#namudekoras\n#dovanuidejos\n#christmasvibes\n#christmasdecor\n#lithuania",
+  "caption_source": "universal",
+  "picked_products": []
+}

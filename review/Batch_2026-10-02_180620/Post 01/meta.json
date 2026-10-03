@@ -1,0 +1,76 @@
+{
+  "theme": "Aromaterapijos žvakė „Žvakių vakaras“",
+  "hook": "Kedro, gintaro, cinamono kvapas namams",
+  "body": "Iki 45 val. degimo laiko",
+  "category": "Random theme",
+  "slide_count": 6,
+  "background_image": "COZY_HOME/black-screen-001.png, COZY_HOME/black-screen-002.png, LIGHTS/black-screen-001.png, COZY_HOME/black-screen-003.png, COZY_HOME/black-screen-004.png, COZY_HOME/black-screen-005.png",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Ar kalėdos jau čia, o tu vis dar ieškai?",
+      "body": "Kiekvienais metais tas pats stresas. Ką padovanoti artimiesiems? Norisi kažko ypatingo, bet laiko tiek mažai.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Lentynose daug dovanų, bet vis tiek nežinai, ką rinktis. Šventė artėja, o tu vis atidedi.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Šiemet nustebink su Aromaterapijos žvake. Tai jauki dovana, kuri užpildys namus šiluma. Kedro, gintaro ir cinamono kvapas sukurs tikrą Kalėdų atmosferą iki 45 valandų.",
+      "productId": "aromaterapijos-zvake-zvakiu-vakaras",
+      "cta": "",
+      "visualIntent": "LIGHTS",
+      "showProductPrice": false,
+      "productVariantId": "zvakide-sventinis-vakaras-q2-98b41e146c",
+      "productImageSrc": "/products/zvakide-sventinis-vakaras-q2-98b41e146c.webp"
+    },
+    {
+      "id": "slide-4",
+      "role": "build",
+      "title": "",
+      "body": "Prisimink, ką žmogus minėjo per pastaruosius mėnesius. Tokios užuominos dažnai ir tampa geriausia dovanos idėja!",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-5",
+      "role": "build",
+      "title": "",
+      "body": "Užsirašyk tris dalykus, kuriuos žmogus mėgsta. Su tokiu sąrašu dovanos pasirinkimas susiaurėja per kelias minutes.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-6",
+      "role": "close",
+      "title": "",
+      "body": "Apgalvota dovana nereikalauja didelio biudžeto. Užtenka žinoti, kam ją perki.",
+      "cta": "Dar neišrinkai dovanos? Užsuk į kaledukampelis.com 🎁",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    }
+  ],
+  "arc_name": "Question hook · Two-beat punch",
+  "hook_style": "Question",
+  "story_arc": "Two-beat punch",
+  "auditId": "post-01",
+  "caption_preview": "✨ Šventės arčiau, nei atrodo! Kalėdų kampelis padės sukurti jaukiausius namus ir rasti dovanas, kurios nudžiugins! 🎁\n👉 Aplankyk kaledukampelis.com (nuoroda bio)\n💬 Kokia tavo svajonių kalėdinė dekoracija? Rašyk komentaruose!\n\n#kaledukampelis\n#kaledos\n#kaledudekoracijos\n#dovanos\n#sventes\n#christmas\n#christmasgifts\n#lithuania",
+  "caption_source": "universal",
+  "picked_products": [
+    "aromaterapijos-zvake-zvakiu-vakaras"
+  ]
+}

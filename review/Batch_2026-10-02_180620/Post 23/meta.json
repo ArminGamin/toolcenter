@@ -1,0 +1,78 @@
+{
+  "theme": "Kalėdinės dovanos iki 50 eurų",
+  "hook": "Iki 50 eurų jau telpa dovana, kurią žmogus naudos visą žiemą.",
+  "body": "Pledas, termosas ar žvakės rinkinys dažnai atrodo brangiau, nei kainuoja.",
+  "category": "Random theme",
+  "slide_count": 6,
+  "background_image": "COZY_HOME/black-screen-001.png, COZY_HOME/black-screen-002.png, LIGHTS/black-screen-001.png, LIGHTS/black-screen-002.png, COZY_HOME/black-screen-003.png, COZY_HOME/black-screen-004.png",
+  "story_slides": [
+    {
+      "id": "slide-1",
+      "role": "hook",
+      "title": "Daug laiko praleidi kelyje?",
+      "body": "Žiemą karšta kava kelionėje labai praverčia.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-2",
+      "role": "context",
+      "title": "",
+      "body": "Kai vakare užsidegi žvakę, namuose iškart tampa jaukiau.",
+      "cta": "",
+      "productId": "aromaterapijos-zvake-zvakiu-vakaras",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false,
+      "productVariantId": "zvakide-sventinis-vakaras-q2-98b41e146c",
+      "productImageSrc": "/products/zvakide-sventinis-vakaras-q2-98b41e146c.webp"
+    },
+    {
+      "id": "slide-3",
+      "role": "build",
+      "title": "",
+      "body": "Pažiūrėk, ką žmogus dažniausiai naudoja namuose. Geresnė to paties daikto versija dažnai ir būna geriausia dovana.",
+      "cta": "",
+      "visualIntent": "LIGHTS",
+      "showProductPrice": false,
+      "productPriceLabel": "24,90 €"
+    },
+    {
+      "id": "slide-4",
+      "role": "build",
+      "title": "",
+      "body": "Užsirašyk tris dalykus, kuriuos žmogus mėgsta. Su tokiu sąrašu dovanos pasirinkimas susiaurėja per kelias minutes.",
+      "cta": "",
+      "visualIntent": "LIGHTS",
+      "showProductPrice": false,
+      "productPriceLabel": "24,90 €"
+    },
+    {
+      "id": "slide-5",
+      "role": "build",
+      "title": "",
+      "body": "Kai žinai, kam dovana, parduotuvėje lieka mažiau spėliojimo. Greičiau randi daiktą, kuris tinka.",
+      "cta": "",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    },
+    {
+      "id": "slide-6",
+      "role": "close",
+      "title": "",
+      "body": "Parinkus dovaną ramiai, švenčių laukti lengviau. Lieka daugiau ramybės.",
+      "cta": "Dar neišrinkai dovanos? Užsuk į kaledukampelis.com 🎁",
+      "visualIntent": "COZY_HOME",
+      "showProductPrice": false
+    }
+  ],
+  "arc_name": "Bold claim hook · Before / after",
+  "hook_style": "Bold claim",
+  "story_arc": "Before / after",
+  "auditId": "post-23",
+  "caption_preview": "🎄 Kalėdų nuotaika prasideda čia! Papuošk namus, rask idealias dovanas ir sukurk šventinę atmosferą! ✨\n🛍️ Visa tai rasi kaledukampelis.com (nuoroda bio)\n💬 O tu jau pradėjai ruoštis šventėms? Papasakok komentaruose!\n\n#kaledukampelis\n#kaledos\n#kaledinenuotaika\n#namudekoras\n#dovanuidejos\n#christmasvibes\n#christmasdecor\n#lithuania",
+  "caption_source": "universal",
+  "picked_products": [
+    "aromaterapijos-zvake-zvakiu-vakaras"
+  ]
+}
