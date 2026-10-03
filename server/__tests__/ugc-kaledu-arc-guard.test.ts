@@ -6,7 +6,7 @@ import { findVlkkCalques } from '../ugc-kaledu-final-qa.js'
 import { topUpKaleduEmoji } from '../ugc-kaledu-emoji.js'
 import { collapseStackedPunctuation } from '../ugc-lt/normalize-copy.js'
 import { detectKaleduRecipient, personalizeForRecipient } from '../ugc-lt/recipient.js'
-import { collectKaleduArcIssues } from '../ugc-story/arc-guard.js'
+import { collectKaleduArcIssues, kaleduPainRestartMatch } from '../ugc-story/arc-guard.js'
 import { enforceProductSlideContract } from '../ugc-story/kaledu-gates.js'
 
 const inChristmas = <T>(fn: () => T) => runWithBusinessProfile(CHRISTMAS_BUSINESS_PROFILE_ID, fn)
@@ -47,6 +47,35 @@ describe('Kalėdų arc guard', () => {
       'Dovana seseriai jaukiai žiemai.',
     )
     expect(sister[0]).toMatchObject({ slide: 1, code: 'recipient_missing' })
+  })
+
+  it('treats a negated pain word as the payoff, not a restart (batch30 post-06)', () => {
+    const issues = collectKaleduArcIssues([
+      slide('hook', 'Kasmet perki naujų, o po švenčių jos vėl atsiduria dėžėje.', 'Dekoracijos, kurios nepabosta?'),
+      slide('context', 'Kasmet dėžė su blizgučiais vis pilnėja.'),
+      slide('build', 'Užtenka kelių gerai parinktų akcentų, o ne chaoso.'),
+      slide('build', 'Švenčių laukti be streso daug smagiau.'),
+      slide('close', 'Tokie akcentai džiugins ir kitais metais.'),
+    ])
+    expect(issues.filter((i) => i.code === 'arc_restart')).toEqual([])
+    expect(kaleduPainRestartMatch('Vėl tas jausmas, kai chaosas namuose.')).toBeTruthy()
+  })
+
+  it('lets a new colleague count as the theme’s new acquaintance (batch30 post-10)', () => {
+    const issues = collectKaleduArcIssues(
+      [
+        slide('hook', 'Per asmeniška dovana gali sutrikdyti.', 'Ką padovanoti naujam kolegai?'),
+        slide('context', 'Žmogų pažįsti neseniai, todėl sunku nuspręsti.'),
+        slide('close', 'Neutrali dovana nesukels nepatogumo.'),
+      ],
+      'Kalėdinė dovana naujam pažįstamam žmogui.',
+    )
+    expect(issues.filter((i) => i.code === 'recipient_drift' || i.code === 'recipient_missing')).toEqual([])
+    const mama = collectKaleduArcIssues(
+      [slide('hook', 'Ji sako, kad nieko nereikia.', 'Ką padovanoti mamai?'), slide('context', 'x y z.'), slide('close', 'Gera dovana.')],
+      'Kalėdinė dovana naujam pažįstamam žmogui.',
+    )
+    expect(mama[0]).toMatchObject({ slide: 1, code: 'recipient_drift' })
   })
 
   it('does not read „pora dienų“ as a couple', () => {

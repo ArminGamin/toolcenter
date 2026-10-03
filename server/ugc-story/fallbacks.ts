@@ -487,6 +487,7 @@ export const KALEDU_SUBJECT_HOOKS: Record<string, Array<{ title: string; body: s
   pora: [
     { title: 'Viena dovana dviem žmonėms?', body: 'Norisi, kad ja džiaugtųsi abu, o ne tik vienas.' },
     { title: 'Ką padovanoti porai?', body: 'Dovana turi tikti abiem, todėl rinktis sunkiau.' },
+    { title: 'Dvi dovanos porai?', body: 'Viena bendra dovana gali pradžiuginti abu ir kainuoti mažiau.' },
   ],
   vyras: [{ title: 'Ką padovanoti vyrui?', body: 'Jis viską nusiperka pats, todėl sugalvoti sunku.' }],
   moteris: [

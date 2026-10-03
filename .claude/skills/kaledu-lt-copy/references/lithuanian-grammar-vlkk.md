@@ -660,5 +660,7 @@ The generator also applies a few deterministic repairs that are **naturalness** 
 - `jauti kaip / tarsi / lyg X` → `jautiesi kaip X` (reflexive *jaustis* for one's own state; dictionary usage).
 - `iki kol` → `kol` (doubled conjunction; `iki` alone or `kol` alone is normative — see §21).
 - `jauti stresas / nerimas` → `jauti stresą / nerimą` (object of *jausti* is accusative).
+- `Dovanos galite įsigyti / pirkti` → `Dovanas gali įsigyti / pirkti` (the gift is the object, accusative; the plain `galite → gali` swap alone would leave a false subject — §3).
+- Audit batch30 phrases, rewritten as whole phrases for naturalness only: `parodyti savo dėmesį` → `parodyti dėmesio`, `tai išleidžia daugiau` (no agent) → `taip dažnai išleidi daugiau`, `pasirinkimas visoms šalims` (legal register) → `pasirinkimas abiem`, `jaukumo ir šviesaus komforto` → `jaukumo ir šilumos`, `filmų vakaro mėgėjams` → `filmų vakarų mėgėjams`.
 
 If a VLKK / E. Kalba source contradicts one of these, the source wins: remove or change the repair.

@@ -752,4 +752,10 @@ export const PHRASE_FIXES: Array<[RegExp, string]> = [
   [/(?<!\p{L})kalėdos\s+artos(?!\p{L})/giu, 'Kalėdos arti'],
   [/(?<!\p{L})noro\s+pataikauti(?!\p{L})/giu, 'noro įtikti'],
   [/(?<!\p{L})(\p{L}{4,})\s?\(-?(?:a|i|ė|usi|ės|os)\)/giu, '$1'],
+  // Audit batch30 (2026-10) — naturalness repairs (reference §13 / §22), not normative rules
+  [/(?<!\p{L})parodyti\s+savo\s+dėmesį(?!\p{L})/giu, 'parodyti dėmesio'],
+  [/(?<!\p{L})(?:kartais\s+)?tai\s+išleidžia\s+daugiau(?!\p{L})/giu, 'taip dažnai išleidi daugiau'],
+  [/(?<!\p{L})pasirinkimas\s+visoms\s+šalims(?!\p{L})/giu, 'pasirinkimas abiem'],
+  [/(?<!\p{L})jaukumo\s+ir\s+šviesaus\s+komforto(?!\p{L})/giu, 'jaukumo ir šilumos'],
+  [/(?<!\p{L})filmų\s+vakaro\s+mėgėj/giu, 'filmų vakarų mėgėj'],
 ]

@@ -6,6 +6,10 @@ import { CHRISTMAS_BUSINESS_PROFILE_ID, runWithBusinessProfile } from '../busine
 import { KALEDU_LIFESTYLE_INTENTS, kaleduInventedProductMentions } from '../ugc-kaledu-catalog.js'
 import { kaleduDeterministicQa } from '../ugc-kaledu-final-qa.js'
 import { assertShipableLtSlide, normalizeLtUgcMultiline } from '../ugc-lt-normalize.js'
+import { checkLtSpelling, ensureLtSpeller, repairUnambiguousLtTypos } from '../ugc-lt-spellcheck.js'
+import { stripProductIdTags } from '../ugc-lt/normalize-copy.js'
+import { KALEDU_GENERIC_HOOKS, KALEDU_SUBJECT_HOOKS, UGC_KALEDU_FALLBACK_BUILD_BODIES } from '../ugc-story/fallbacks.js'
+import { KALEDU_SEARCH_TIP_RE } from '../ugc-story/kaledu-gates.js'
 import { kaleduProductKits, kaleduThemeKits } from '../ugc-story/kaledu-kits.js'
 
 const inChristmas = <T>(fn: () => T) => runWithBusinessProfile(CHRISTMAS_BUSINESS_PROFILE_ID, fn)
@@ -116,5 +120,53 @@ describe('catalog reason lines (audit batch30)', () => {
   it('keeps the gift as the object when galite is repaired to gali', () => {
     expect(normalizeLtUgcMultiline('Dovanos galite įsigyti atskirai.')).toContain('Dovanas gali įsigyti atskirai')
     expect(normalizeLtUgcMultiline('Jūs galite rinktis ramiai.')).not.toMatch(/galite/u)
+  })
+
+  it('rewrites the batch30 translated-sounding phrases as whole phrases', () => {
+    expect(normalizeLtUgcMultiline('Norisi parodyti savo dėmesį.')).toBe('Norisi parodyti dėmesio.')
+    expect(normalizeLtUgcMultiline('Dovanas gali pirkti atskirai, bet kartais tai išleidžia daugiau.')).toBe(
+      'Dovanas gali pirkti atskirai, bet taip dažnai išleidi daugiau.',
+    )
+    expect(normalizeLtUgcMultiline('Pledas suteiks jaukumo ir šviesaus komforto.')).toBe('Pledas suteiks jaukumo ir šilumos.')
+    expect(normalizeLtUgcMultiline('Tai puiki dovana filmų vakaro mėgėjams.')).toBe('Tai puiki dovana filmų vakarų mėgėjams.')
+  })
+
+  it('strips a bare productId leak instead of losing the slide (batch30 post-08)', () => {
+    expect(stripProductIdTags('Filmų vakarais vis dar susisupi į seną antklodę productId=vilnonis-pledas-jaukumas.')).toBe(
+      'Filmų vakarais vis dar susisupi į seną antklodę.',
+    )
+    expect(stripProductIdTags('Gali rinktis pledą [productId=vilnonis-pledas-jaukumas].')).toBe('Gali rinktis pledą.')
+  })
+})
+
+describe('spell gate repairs (batch30)', () => {
+  it('knows kampukas and fixes only one-suggestion diacritic typos', async () => {
+    await ensureLtSpeller()
+    expect(checkLtSpelling('Jaukiame kampuke telpa visa šventė.').hardFail).toBeNull()
+    expect(repairUnambiguousLtTypos('Rinkis šiltus rankšluoščiai.').text).toBe('Rinkis šiltus rankšluosčiai.')
+    // „megimas“ has several candidates (mėgimas / mezgimas) — never guessed.
+    const knit = repairUnambiguousLtTypos('Storas megimas.')
+    expect(knit.fixes).toEqual([])
+    // …and the audit lists every close candidate, not just the first („mėgimas“).
+    expect(checkLtSpelling('Storas megimas.').hardFail).toMatch(/mėgimas \/ \p{L}+/u)
+  })
+})
+
+describe('fallbacks after a product reveal (batch30 post-09)', () => {
+  it('never coaches the gift search after the product is on screen', () => {
+    for (const line of UGC_KALEDU_FALLBACK_BUILD_BODIES.filter((l) => !KALEDU_SEARCH_TIP_RE.test(l))) {
+      expect(line).not.toMatch(/paiešk|užsirašyk|pradėk nuo žmogaus/iu)
+    }
+    expect(UGC_KALEDU_FALLBACK_BUILD_BODIES.some((l) => !KALEDU_SEARCH_TIP_RE.test(l))).toBe(true)
+  })
+
+  it('every subject and generic hook passes final QA and the ship gate', () => {
+    inChristmas(() => {
+      for (const hook of [...Object.values(KALEDU_SUBJECT_HOOKS).flat(), ...KALEDU_GENERIC_HOOKS]) {
+        const label = `${hook.title} / ${hook.body}`
+        expect(kaleduDeterministicQa([{ ...hook, role: 'hook' }], { theme: '', allowed: [] }), label).toEqual([])
+        expect(() => assertShipableLtSlide({ ...hook, role: 'hook' }), label).not.toThrow()
+      }
+    })
   })
 })

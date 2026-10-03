@@ -522,7 +522,8 @@ export function makeKaleduSlideFallback(ctx: {
         const body = pickValidatedKaleduFallback('close', revealedKit.close, others, ctx.allowed)
         if (body) return { title: '', body }
       }
-      const pool = productLed
+      // Once a product is on screen, close on using it — not on „net maža dovana…“ advice.
+      const pool = productLed || revealedAt >= 0
         ? [...KALEDU_PRODUCT_LED_CLOSE_BODIES, ...getFallbackCloseBodyCandidates(ctx.topic)]
         : getFallbackCloseBodyCandidates(ctx.topic)
       const body = pickThemedKaleduFallback('close', pool, others, ctx.allowed, themeText)
@@ -542,8 +543,15 @@ export function makeKaleduSlideFallback(ctx: {
       const priorText = others.map((s) => `${s.title} ${s.body}`).join(' ')
       return { title: '', body: productRevealWithReason(product, priorText) }
     }
-    const pool = role === 'context' ? UGC_KALEDU_FALLBACK_CONTEXT_BODIES : UGC_KALEDU_FALLBACK_BUILD_BODIES
+    const stock = role === 'context' ? UGC_KALEDU_FALLBACK_CONTEXT_BODIES : UGC_KALEDU_FALLBACK_BUILD_BODIES
+    // After the reveal the story moves forward: no „how to search for a gift“ tips.
+    const afterReveal = revealedAt >= 0 && index > revealedAt
+    const pool = afterReveal ? stock.filter((line) => !KALEDU_SEARCH_TIP_RE.test(line)) : stock
     const body = pickThemedKaleduFallback(role, pool, others, ctx.allowed, themeText)
     return body ? { title: '', body } : null
   }
 }
+
+/** Stock build lines that coach the gift search — they belong before a product reveal. */
+export const KALEDU_SEARCH_TIP_RE =
+  /paiešk|ieškoti|ieškai|pradėk nuo|užsirašyk|pagalvok|prisimink|pažiūrėk|kai žinai, k|nusistatyk|rinktis tenka|dvejoji/iu

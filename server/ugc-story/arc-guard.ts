@@ -35,6 +35,38 @@ export type ArcIssue = {
 export const KALEDU_PAIN_RESTART_RE =
   /vis\s+dar\s+(?:be\s+dovan|nežin|nepirk|neturi|ieško|neišsirink|toks\s+pat|ilg)|(?:ne|vis\s+dar\s+ne)žinai,\s*(?:ką|kokią|kurią|ko|kam)|žinai\s+tą\s+jausmą|jautiesi\s+(?:kaip|tarsi|lyg)|jauti\s+(?:kaip|tarsi|lyg|spaudim|tą\s+pačią|begal)|stres|panik|paskutin\p{L}*\s+minut|laikas\s+bėga|laiko\s+(?:vis\s+)?(?:mažiau|neliko|nebėra|liko\s+mažai)|sąraš\p{L}*\s+(?:vis\s+)?(?:ilgėja|toks\s+pat|dar\s+ilgas)|(?<!\p{L})atided(?:i|ama)(?!\p{L})|atidėlioj|kalėdos\s+(?:jau\s+)?(?:artėja|arti|rytoj|čia\s+pat)|kiekvienais\s+metais\s+(?:tas\s+pats|susiduri)|galvos\s+skausm|dilem|chaos|tas\s+jausmas|vėl\s+tas|galėtum\s+anksčiau|galėjai\s+anksčiau|(?:vis\s+dar\s+)?nepirkt\p{L}*|nieko\s+nepirkta/iu
 
+/**
+ * A pain word negated or contrasted away is the payoff, not a restart:
+ * „Keli akcentai, o ne chaosas“, „dovana be streso“, „mažiau skubos“.
+ */
+const PAIN_NEGATION_BEFORE_RE = /(?:^|[\s,„])(?:ne|be|mažiau|jokio|jokios|jokių|vietoj|vietoje)\s+$/iu
+
+/** First pain / problem phrase in the text that is not negated, or null. */
+export function kaleduPainRestartMatch(text: string): string | null {
+  const source = String(text || '')
+  const re = new RegExp(KALEDU_PAIN_RESTART_RE.source, 'giu')
+  for (const m of source.matchAll(re)) {
+    if (PAIN_NEGATION_BEFORE_RE.test(source.slice(Math.max(0, (m.index ?? 0) - 24), m.index))) continue
+    return m[0]
+  }
+  return null
+}
+
+/**
+ * Recipients that may share a post with the theme's recipient: a new colleague is a new
+ * acquaintance, a family post can name its members. Anything else is still drift.
+ */
+const COMPATIBLE_RECIPIENTS: Record<string, string[]> = {
+  pažįstamas: ['kolega'],
+  kolega: ['pažįstamas'],
+  tėvai: ['mama', 'tėtis'],
+  šeima: ['tėvai', 'mama', 'tėtis', 'vaikas', 'sesuo', 'brolis', 'močiutė', 'senelis'],
+}
+
+function allowedRecipients(themeRecipients: string[]): string[] {
+  return [...new Set(themeRecipients.flatMap((key) => [key, ...(COMPATIBLE_RECIPIENTS[key] || [])]))]
+}
+
 const GENERIC_STEMS = new Set([
   'dovan', 'dovana', 'dovanos', 'dovaną', 'kalėd', 'kaled', 'švent', 'svent', 'zmog', 'žmog', 'zmogus', 'zmogu',
   'kuris', 'kuri', 'kurią', 'kuria', 'kurie', 'toki', 'tokia', 'toks', 'dazn', 'dazna', 'reiki', 'nori', 'noris',
@@ -83,6 +115,7 @@ export function collectKaleduArcIssues(slides: ArcSlide[], themeText = ''): ArcI
   // Recipient drift: a „seseriai“ post that talks about „mama“, or a product post whose hook
   // invents a recipient the theme never had. One issue per slide, checked before the arc rules.
   const themeRecipients = themeText ? mentionedKaleduRecipients(themeText) : []
+  const allowedNames = allowedRecipients(themeRecipients)
   const drifted = new Set<number>()
   if (themeText) {
     slides.forEach((slide, index) => {
@@ -90,7 +123,7 @@ export function collectKaleduArcIssues(slides: ArcSlide[], themeText = ''): ArcI
       if (slide.productId) return
       const text = arcSlideText(slide).replace(/„[^“”"]{1,60}[“”"]/gu, ' ')
       const named = mentionedKaleduRecipients(text)
-      const foreign = named.filter((key) => !themeRecipients.includes(key))
+      const foreign = named.filter((key) => !allowedNames.includes(key))
       // No recipient in the theme: the hook may not invent one, and later slides may not
       // switch between people („vyrą“ on slide 3, „mamos“ on slide 5).
       const firstNamed = themeRecipients.length ? [] : mentionedKaleduRecipients(
@@ -112,7 +145,7 @@ export function collectKaleduArcIssues(slides: ArcSlide[], themeText = ''): ArcI
       })
     })
     if (themeRecipients.length && !drifted.has(0)) {
-      const res = KALEDU_RECIPIENTS.filter((r) => themeRecipients.includes(r.key)).map((r) => r.re)
+      const res = KALEDU_RECIPIENTS.filter((r) => allowedNames.includes(r.key)).map((r) => r.re)
       const anyMention = slides.some((slide) => res.some((re) => re.test(arcSlideText(slide))))
       if (!anyMention) {
         drifted.add(0)
@@ -149,8 +182,8 @@ export function collectKaleduArcIssues(slides: ArcSlide[], themeText = ''): ArcI
       } else if (/\?/u.test(String(slide.body || ''))) {
         push('late_question', 'questions belong on the hook and context; later slides answer')
         flagged = true
-      } else if (KALEDU_PAIN_RESTART_RE.test(text)) {
-        push('arc_restart', `restates the problem: "${text.match(KALEDU_PAIN_RESTART_RE)?.[0] || ''}"`)
+      } else if (kaleduPainRestartMatch(text)) {
+        push('arc_restart', `restates the problem: "${kaleduPainRestartMatch(text)}"`)
         flagged = true
       } else {
         const echo = hookEchoScore(text, hookText)

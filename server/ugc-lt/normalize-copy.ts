@@ -340,8 +340,9 @@ export function dedupeMesOpeners(text: string, priorMesCount: number): { text: s
 
 export type NormalizeLtCopyState = { mesOpenerCount: number }
 
-/** Prompt markup the model sometimes copies into copy: „[productId=vilnonis-pledas]“. */
-export const PRODUCT_ID_TAG_RE = /\s*[[(]\s*product[_ ]?id\s*[:=]\s*[\p{L}0-9_-]+\s*[\])]/giu
+/** Prompt markup the model sometimes copies into copy: „[productId=vilnonis-pledas]“ or a bare „productId=…“. */
+export const PRODUCT_ID_TAG_RE =
+  /\s*(?:[[(]\s*product[_ ]?id\s*[:=]\s*[\p{L}0-9_-]+\s*[\])]|(?<![\p{L}0-9])product[_ ]?id\s*[:=]\s*[\p{L}0-9_-]+)/giu
 
 export function stripProductIdTags(text: string): string {
   return String(text || '').replace(PRODUCT_ID_TAG_RE, '').replace(/\s+([.,!?])/g, '$1')

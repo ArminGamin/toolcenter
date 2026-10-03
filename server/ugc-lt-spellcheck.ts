@@ -3,7 +3,8 @@
  * Catches invented / misspelled words only. High-confidence typos are `spell_hard_fail`
  * (rewrite the whole sentence once → re-check → validated fallback; the model judge cannot
  * overrule them). Weak unknowns are `spell_note` and left to the final QA judge.
- * Never auto-replaces words with suggestions.
+ * The checker never auto-replaces words; the only automatic fix is `repairUnambiguousLtTypos`
+ * (one suggestion, diacritics only), tried before a slide is thrown away for a fallback.
  */
 
 import { loadModule } from 'hunspell-asm'
@@ -34,6 +35,19 @@ export const UGC_LT_PERSONAL_DICTIONARY = [
   'difuzoriuje',
   'termosas',
   'LED',
+  // kampùkas — diminutive of kampas (LKŽ); missing from dictionary-lt
+  'kampukas',
+  'kampuko',
+  'kampukui',
+  'kampuką',
+  'kampuku',
+  'kampuke',
+  'kampukai',
+  'kampukų',
+  'kampukams',
+  'kampukus',
+  'kampukais',
+  'kampukuose',
 ] as const
 
 type Speller = { spell: (word: string) => boolean; suggest: (word: string) => string[] }
@@ -244,9 +258,33 @@ export function checkLtSpelling(text: string): LtSpellResult {
   }
   const high = unknown.filter((u) => u.confidence === 'high')
   const weak = unknown.filter((u) => u.confidence === 'weak' && !u.properNounLike)
+  // List every close candidate: „megimas“ is mezgimas in context, not the first hit „mėgimas“.
+  const candidates = (u: LtSpellUnknown) =>
+    u.suggestions.filter((s) => highConfidenceSuggestion(u.token, [s]) != null).slice(0, 3).join(' / ') || u.typoOf
   const hardFail = high.length
-    ? high.map((u) => (u.typoOf ? `"${u.token}" → ${u.typoOf}` : `"${u.token}" implausible`)).join(', ')
+    ? high.map((u) => (u.typoOf ? `"${u.token}" → ${candidates(u)}` : `"${u.token}" implausible`)).join(', ')
     : null
   const note = weak.length ? `unknown ${weak.map((u) => `"${u.token}"`).join(', ')}` : null
   return { checked: true, unknown, hardFail, note }
+}
+
+/**
+ * The one safe automatic spelling fix: Hunspell offers exactly one suggestion and it differs
+ * from the token only in Lithuanian diacritics („rankšluoščiai“ → „rankšluosčiai“). Anything
+ * with several candidates („megimas“: mėgimas / mezgimas) stays for the rewrite or fallback.
+ */
+export function repairUnambiguousLtTypos(text: string): { text: string; fixes: Array<{ from: string; to: string }> } {
+  const fixes: Array<{ from: string; to: string }> = []
+  if (!speller) return { text, fixes }
+  let out = String(text || '')
+  for (const u of checkLtSpelling(out).unknown) {
+    if (u.properNounLike || u.suggestions.length !== 1) continue
+    const [only] = u.suggestions
+    if (/\s|-/.test(only)) continue
+    if (stripLtDiacritics(only.toLocaleLowerCase('lt-LT')) !== stripLtDiacritics(u.token.toLocaleLowerCase('lt-LT'))) continue
+    const to = /^\p{Lu}/u.test(u.token) ? only.charAt(0).toLocaleUpperCase('lt-LT') + only.slice(1) : only
+    out = out.replace(new RegExp(`(?<!\\p{L})${u.token}(?!\\p{L})`, 'gu'), to)
+    fixes.push({ from: u.token, to })
+  }
+  return { text: out, fixes }
 }

@@ -1413,9 +1413,19 @@ export const KALEDU_LIFESTYLE_INTENTS: KaleduLifestyleIntent[] = [
     copy: /mieg|nakt|poils|šilk|pagalv|pižam/iu,
   },
   {
+    // Before „nauji namai“: a decorations post needs decorations, not the herb kit (batch30 post-06).
+    label: 'dekoracijos',
+    confidence: 'MEDIUM',
+    theme: /dekorac|puošmen|papuošal/iu,
+    slugs: ['egluciu-zaisliukai-stiklas', 'keramikinis-zibintas-ziemos-namelis', 'led-girlianda-siltas', 'stalo-takelis-siaures-rastas'],
+    context: ['Kasmet dėžė su blizgučiais vis pilnėja, bet namai nuo to jaukesni netampa.'],
+    why: ['Tokią puošmeną kasmet norėsis vėl ištraukti iš dėžės.'],
+    copy: /dekor|puoš|eglut|žaisliuk|girliand|žibint|takel|blizguč/iu,
+  },
+  {
     label: 'nauji namai',
     confidence: 'MEDIUM',
-    theme: /nauji\s+nam|interjer|dekorac/iu,
+    theme: /nauji\s+nam|interjer/iu,
     slugs: ['vaistazoliu-auginimo-rinkinys', 'nuotrauku-remelis-akimirka', 'kilimas-silta-grindys'],
     context: ['Naujiems namams tinka daiktas, kuris lieka matomas, ne į stalčių.'],
     why: ['Liks matomoje vietoje, o ne stalčiuje.'],

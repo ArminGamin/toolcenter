@@ -1041,7 +1041,10 @@ export async function generateUgcBatchStory(body: {
         if (contract.repairs.some((r) => r.code === 'product_id_without_product_copy')) {
           const led = repairKaleduProductLed(withProducts, storyMode, pickedProducts, seed + 7, themeText)
           withProducts.splice(0, withProducts.length, ...led.slides)
-          for (const repair of led.repairs) auditLog('product_slide_contract', repair)
+          for (const repair of led.repairs) {
+            auditLog('product_slide_contract', repair)
+            auditFallback({ slide: repair.slide, role: withProducts[repair.slide - 1]?.role, reason: `product_contract:${repair.code}`, text: repair.after })
+          }
         }
         // Punctuation repair above can turn a statement into a question — re-check the arc.
         const finalArc = repairKaleduArc(withProducts, makeKaleduSlideFallback({
@@ -1053,6 +1056,9 @@ export async function generateUgcBatchStory(body: {
         }), 'final', themeText)
         withProducts.splice(0, withProducts.length, ...finalArc.slides)
         arcRepairCount += finalArc.repairs.length
+        for (const repair of finalArc.repairs) {
+          auditFallback({ slide: repair.slide, role: withProducts[repair.slide - 1]?.role, reason: `final_arc:${repair.code}`, text: repair.after })
+        }
         // Late fallback swaps can collide with another slide — one more story-gate pass so a
         // paraphrase never kills the whole post at the hard gate below.
         const lateGate = repairKaleduStoryGate(withProducts, themeText, makeKaleduSlideFallback({
@@ -1063,7 +1069,10 @@ export async function generateUgcBatchStory(body: {
           getStoryMode: () => storyMode,
         }), pickedProducts)
         withProducts.splice(0, withProducts.length, ...lateGate.slides)
-        for (const repair of lateGate.repairs) auditLog('late_story_gate_repair', repair)
+        for (const repair of lateGate.repairs) {
+          auditLog('late_story_gate_repair', repair)
+          auditFallback({ slide: repair.slide, role: withProducts[repair.slide - 1]?.role, reason: `late_story_gate:${repair.code}`, text: repair.after })
+        }
         arcUnresolved = finalArc.unresolved.map((issue) => `slide ${issue.slide} ${issue.code}`)
         const ctaPick = pickStoryAwareKaleduCta({
           theme: body.theme || topic,

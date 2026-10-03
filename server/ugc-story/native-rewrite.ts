@@ -57,7 +57,8 @@ import {
     normalizeLtUgcMultiline,
     type NormalizeLtCopyState
 } from '../ugc-lt-normalize.js'
-import { checkLtSpelling, ensureLtSpeller, isLtSpellerReady } from '../ugc-lt-spellcheck.js'
+import { stripProductIdTags } from '../ugc-lt/normalize-copy.js'
+import { checkLtSpelling, ensureLtSpeller, isLtSpellerReady, repairUnambiguousLtTypos } from '../ugc-lt-spellcheck.js'
 import { applySemanticContextRepairs, type KaleduSlideFallback } from './kaledu-gates.js'
 import { consumePostOllamaCall } from './ollama-budget.js'
 import { type UgcStorySlide } from './text.js'
@@ -168,10 +169,12 @@ export async function rewriteKaleduSlidesNative(
   const allowed = opts.products || []
   const qaCtx = { theme: opts.theme, allowed, productTruth: true as const }
 
+  // A leaked „productId=…“ is stripped before QA — otherwise the whole slide is flagged and
+  // replaced by a stock line (audit batch30 post-08).
   const mechanically = slides.map((slide) => ({
     ...slide,
-    title: applyKaleduNativeRepairs(slide.title),
-    body: applyKaleduNativeRepairs(stripKaleduCtaLeak(slide.body)),
+    title: applyKaleduNativeRepairs(stripProductIdTags(slide.title)),
+    body: applyKaleduNativeRepairs(stripKaleduCtaLeak(stripProductIdTags(slide.body))),
   }))
 
   const audits: KaleduNativeSlideAudit[] = mechanically.map((slide, i) => {
@@ -369,7 +372,7 @@ export async function rewriteKaleduSlidesNative(
   const flags2 = mergeKaleduQaFlags(det2, judge2.flags)
   rounds.push({ round: 2, deterministic: det2, judge: judge2.flags, judgeRan: judge2.ran, merged: flags2 })
 
-  const fallbackSlides: Array<{ index: number; reason: string; mode: 'product_repair' | 'fallback' | 'kept' }> = []
+  const fallbackSlides: Array<{ index: number; reason: string; mode: 'product_repair' | 'spell_repair' | 'fallback' | 'kept' }> = []
   for (const flag of flags2) {
     const i = flag.index
     const slide = working[i]
@@ -380,6 +383,21 @@ export async function rewriteKaleduSlidesNative(
     if (spellOnly(flag) && judge2.ran && !judge2.flags.some((f) => f.index === i)) {
       fallbackSlides.push({ index: i, reason: `spell note only: ${flag.details.join('; ')}`, mode: 'kept' })
       continue
+    }
+    // A diacritics-only typo with one dictionary suggestion („rankšluoščiai“) is fixed in place,
+    // so the slide keeps its concrete idea instead of becoming a stock line.
+    if (flag.codes.includes('spell_hard_fail')) {
+      const title = repairUnambiguousLtTypos(slide.title)
+      const body = repairUnambiguousLtTypos(slide.body)
+      if (title.fixes.length || body.fixes.length) {
+        const repaired = { ...slide, title: title.text, body: body.text }
+        if (!kaleduDeterministicQa([repaired], qaCtx).some((f) => !isSpellNoteOnly(f))) {
+          working[i] = repaired
+          markAudit(i, repaired, 'repaired', flag.codes)
+          fallbackSlides.push({ index: i, reason: [...title.fixes, ...body.fixes].map((f) => `${f.from} → ${f.to}`).join(', '), mode: 'spell_repair' })
+          continue
+        }
+      }
     }
     if (flag.codes.every((code) => code === 'product_truth')) {
       const repairAllowed = slide.role === 'build' ? allowed : []
@@ -489,10 +507,12 @@ export async function rewriteTavoSlidesNative(
   const llm = opts.llm !== undefined ? opts.llm : process.env.VITEST ? null : defaultKaleduLlm(opts.signal)
   const qaCtx = { theme: opts.theme, allowed: [] as KaleduCatalogProduct[], productTruth: false as const }
 
+  // A leaked „productId=…“ is stripped before QA — otherwise the whole slide is flagged and
+  // replaced by a stock line (audit batch30 post-08).
   const mechanically = slides.map((slide) => ({
     ...slide,
-    title: applyKaleduNativeRepairs(slide.title),
-    body: applyKaleduNativeRepairs(stripKaleduCtaLeak(slide.body)),
+    title: applyKaleduNativeRepairs(stripProductIdTags(slide.title)),
+    body: applyKaleduNativeRepairs(stripKaleduCtaLeak(stripProductIdTags(slide.body))),
   }))
 
   const audits: KaleduNativeSlideAudit[] = mechanically.map((slide, i) => {
