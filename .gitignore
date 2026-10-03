@@ -55,3 +55,6 @@ ads/*/preview/
 
 # Windows profile paths (D:\jaukumas\...) become literal folder names when tests run on Linux
 /D:*
+
+# Local kit-writing scratch
+/.tmp-kits/

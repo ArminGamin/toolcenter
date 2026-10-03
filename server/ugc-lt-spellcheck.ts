@@ -48,6 +48,23 @@ export const UGC_LT_PERSONAL_DICTIONARY = [
   'kampukus',
   'kampukais',
   'kampukuose',
+  // Common fabric words the dictionary lacks: merino (indeclinable), flisas
+  'merino',
+  'flisas',
+  'fliso',
+  'flisą',
+  'flisu',
+  'flise',
+  // Catalog product words dictionary-lt lacks (kardiganas, aromaterapija, filtrėlis, plakiklis,
+  // indeclinable bordo, gua sha)
+  'kardiganas', 'kardigano', 'kardiganui', 'kardiganą', 'kardiganu', 'kardigane',
+  'kardiganai', 'kardiganų', 'kardiganams', 'kardiganus', 'kardiganais', 'kardiganuose',
+  'aromaterapijos', 'aromaterapijai', 'aromaterapiją', 'aromaterapijoje',
+  'filtrėlis', 'filtrėlio', 'filtrėliui', 'filtrėlį', 'filtrėliu', 'filtrėlyje', 'filtrėliai', 'filtrėlių',
+  'plakiklis', 'plakiklio', 'plakikliui', 'plakiklį', 'plakikliu', 'plakiklyje', 'plakikliai', 'plakiklių',
+  'bordo',
+  'gua',
+  'sha',
 ] as const
 
 type Speller = { spell: (word: string) => boolean; suggest: (word: string) => string[] }

@@ -461,8 +461,18 @@ const LT_PREDICATE_EXTRA_RE =
  */
 const LT_PRESENT_LIKE_RE = /(?<!\p{L})(?:\p{L}{2,}(?:uoja|oja|ina|ena|eta|ėga|auga|ūna)|\p{L}{2,}(?<!iaus)ia)(?!\p{L})/iu
 
+/** Adjective predicate with the copula left out after a degree word: „Ritualas nebūtinai didelis.“ */
+const LT_ADJ_PREDICATE_RE =
+  /(?<!\p{L})(?:nebūtinai|būtinai|labai|visai|tikrai|gana|ypač|pernelyg|visada|dažnai|ne)\s+\p{L}{3,}(?:as|is|us|ys|a|i|ė|ūs|ios|ūs)(?!\p{L})/iu
+
 function ltPredicateIn(text: string): boolean {
-  return ltClauseHasVerb(text) || textHasFiniteVerbCue(text) || LT_PREDICATE_EXTRA_RE.test(text) || LT_PRESENT_LIKE_RE.test(text)
+  return (
+    ltClauseHasVerb(text) ||
+    textHasFiniteVerbCue(text) ||
+    LT_PREDICATE_EXTRA_RE.test(text) ||
+    LT_PRESENT_LIKE_RE.test(text) ||
+    LT_ADJ_PREDICATE_RE.test(text)
+  )
 }
 
 export function ltSentenceHasPredicate(text: string): boolean {
@@ -488,7 +498,9 @@ export function isVerblessFragmentSentence(sentence: string, maxWords = 3): bool
   const bare = s.replace(/[.!…]+$/u, '').trim()
   const words = bare.split(/\s+/).filter((w) => /\p{L}/u.test(w))
   if (!words.length) return false
-  const infinitiveStart = /(?:ti|tis)$/iu.test(words[0].replace(/[^\p{L}]/gu, ''))
+  const first = words[0].replace(/[^\p{L}]/gu, '')
+  // Nouns end in -tis too („Tėtis“, „Viltis“): only a lowercase-able verb stem is an infinitive.
+  const infinitiveStart = /(?:ti|tis)$/iu.test(first) && !/^(?:tėtis|viltis|mirtis|šaltis|plotis|aukštis|gylis|dalis|kaltis)$/iu.test(first)
   if (ltSentenceHasPredicate(bare)) return false
   if (infinitiveStart && words.length <= 8) return true
   // Prepositions and particles do not make a label a sentence („Didelis žingsnis į priekį.“).

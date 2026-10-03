@@ -5,10 +5,12 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import { CHRISTMAS_BUSINESS_PROFILE_ID, runWithBusinessProfile } from '../business-profiles.js'
 import { demoteProductTypeCapitals, KALEDU_LIFESTYLE_INTENTS, kaleduInventedProductMentions } from '../ugc-kaledu-catalog.js'
 import { pickStoryAwareKaleduCta } from '../ugc-kaledu-cta.js'
-import { findCaseGovernmentErrors, findIncompleteClause, findSentenceFragments, kaleduDeterministicQa } from '../ugc-kaledu-final-qa.js'
-import { joinVerblessCopulaSplits } from '../ugc-lt/normalize-copy.js'
+import { findCaseGovernmentErrors, findIncompleteClause, findRegisterErrors, findSentenceFragments, kaleduDeterministicQa } from '../ugc-kaledu-final-qa.js'
+import { collectLtCaseAgreementIssues } from '../ugc-lt-case-check.js'
+import { textHasFiniteVerbCue } from '../ugc-lt/gibberish.js'
+import { isVerblessFragmentSentence, joinVerblessCopulaSplits, ltSentenceHasPredicate } from '../ugc-lt/normalize-copy.js'
 import { collectKaleduArcIssues } from '../ugc-story/arc-guard.js'
-import { assertShipableLtSlide, normalizeLtUgcMultiline } from '../ugc-lt-normalize.js'
+import { assertShipableLtSlide, collectStoryIssues, normalizeLtUgcMultiline } from '../ugc-lt-normalize.js'
 import { checkLtSpelling, ensureLtSpeller, repairUnambiguousLtTypos } from '../ugc-lt-spellcheck.js'
 import { stripProductIdTags } from '../ugc-lt/normalize-copy.js'
 import { KALEDU_GENERIC_HOOKS, KALEDU_SUBJECT_HOOKS, KALEDU_THEME_HOOKS, pickKaleduSubjectHook, UGC_KALEDU_FALLBACK_BUILD_BODIES } from '../ugc-story/fallbacks.js'
@@ -106,6 +108,83 @@ describe('shipped Kalėdų line kits', () => {
         }
       }
     })
+  })
+
+  it('has one kit per theme-pool entry, in pool order', () => {
+    const pool = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'assets/ugc-slides/theme_pool_kaledu.json'), 'utf8'))
+    const themes = (Object.values(pool.categories) as Array<Array<{ theme: string }>>).flat()
+    expect(kaleduThemeKits().map((kit) => [kit.id, kit.theme])).toEqual(themes.map((t, i) => [i + 1, t.theme]))
+  })
+
+  it('every product kit line passes final QA, and the use line opens with the product pronoun', async () => {
+    await ensureLtSpeller()
+    const pronoun = { m: 'Jis', f: 'Ji', mpl: 'Jie', fpl: 'Jos' } as const
+    inChristmas(() => {
+      for (const kit of kaleduProductKits()) {
+        for (const body of kit.use) expect(body.startsWith(`${pronoun[kit.gender]} `), `${kit.slug} use: ${body}`).toBe(true)
+        for (const body of kit.reveal) expect(body, kit.slug).toMatch(/„[^“]+“/u)
+        for (const [role, pool] of [['build', kit.reveal], ['build', kit.use], ['close', kit.close]] as const) {
+          for (const body of pool) {
+            const flags = kaleduDeterministicQa([{ role, body }], { theme: '', allowed: [], productTruth: false })
+              .filter((f) => !f.codes.every((c) => c === 'spell_note' || c === 'product_truth'))
+            expect(flags, `${kit.slug} ${role}: ${body}`).toEqual([])
+          }
+        }
+      }
+    })
+  })
+
+  it('every theme kit line survives the arc guard and story gate inside a whole story', () => {
+    const pool = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'assets/ugc-slides/theme_pool_kaledu.json'), 'utf8'))
+    const themes = (Object.values(pool.categories) as Array<Array<{ theme: string; hook?: string; body?: string }>>).flat()
+    inChristmas(() => {
+      for (const kit of kaleduThemeKits()) {
+        const src = themes[kit.id - 1]
+        const themeText = [src.theme, src.hook, src.body].join(' ')
+        const rounds = Math.max(kit.hooks.length, kit.context.length, kit.close.length)
+        for (let r = 0; r < rounds; r++) {
+          const hook = kit.hooks[r % kit.hooks.length]
+          const slides = [
+            { role: 'hook', title: hook.title, body: hook.body },
+            { role: 'context', body: kit.context[r % kit.context.length] },
+            ...kit.build.map((body) => ({ role: 'build', body })),
+            { role: 'close', body: kit.close[r % kit.close.length], cta: 'Daugiau dovanų idėjų rasi kaledukampelis.com 🎁' },
+          ]
+          expect(collectKaleduArcIssues(slides, themeText), `#${kit.id} round ${r}`).toEqual([])
+          expect(collectStoryIssues(slides as never, themeText), `#${kit.id} round ${r}`).toEqual([])
+        }
+      }
+    })
+  }, 60000)
+})
+
+describe('gate false positives found while writing the kits', () => {
+  it('does not read nouns as formal-plural verbs, but still catches the real ones', () => {
+    expect(findRegisterErrors('Per dvi savaites mergaitės spės viską.')).toEqual([])
+    expect(findRegisterErrors('Rinkitės dovanas iš anksto.').length).toBeGreaterThan(0)
+  })
+
+  it('stops the case check at a conjunction, a preposition or an infinitive', () => {
+    expect(collectLtCaseAgreementIssues('Norisi, kad dovana būtų jauki.')).toEqual([])
+    expect(collectLtCaseAgreementIssues('Gali rinktis tarp karšto gėrimo ir šilto pledo.')).toEqual([])
+    expect(collectLtCaseAgreementIssues('Norisi nusiųsti kažką jaukaus.')).toEqual([])
+  })
+
+  it('recognises future and negated verbs in one-line closes', () => {
+    expect(textHasFiniteVerbCue('Eglutė šiemet atrodys kitaip nei kasmet.')).toBe(true)
+    expect(textHasFiniteVerbCue('Raktai pagaliau neprapuls rankinės dugne.')).toBe(true)
+    expect(textHasFiniteVerbCue('Šiltas vakaras su knyga.')).toBe(false)
+  })
+
+  it('does not take a -tis noun for an infinitive, and accepts an adjective predicate', () => {
+    expect(isVerblessFragmentSentence('Tėtis visada pirmas prie eglutės.')).toBe(false)
+    expect(ltSentenceHasPredicate('Ritualas nebūtinai didelis.')).toBe(true)
+  })
+
+  it('knows the catalog product words the dictionary lacks', async () => {
+    await ensureLtSpeller()
+    expect(checkLtSpelling('Storas kardiganas, pieno plakiklis ir bordo takelis.').hardFail).toBeNull()
+    expect(checkLtSpelling('Rinkinyje yra arbatinukas ir filtrėlis aromaterapijos vakarui.').hardFail).toBeNull()
   })
 })
 

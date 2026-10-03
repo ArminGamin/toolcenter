@@ -136,10 +136,25 @@ export function looksLtGenitiveStumpEnding(token: string): boolean {
 /** Present reflexive finite verbs (-asi / -osi / -iasi) — structural, not per-verb list. */
 export const LT_REFLEXIVE_FINITE_RE = /\b\p{L}{3,}(?:asi|osi|iasi)\b/iu
 
+/**
+ * More common finite verbs for gift copy. Unicode-aware boundaries: `\b` above misses words that
+ * start or end with a Lithuanian letter („įsimena“, „parodys“). Without these, a correct one-line
+ * close („Tokia dovana pradžiugina…“) failed the verb gate and was swapped for a stock line.
+ */
+export const LT_FINITE_VERB_CUES_EXTRA =
+  /(?<!\p{L})(?:sako|pasako|rašo|žino|mėgsta|myli|randa|perka|nuperka|nusiperka|dovanoja|naudoja|naudos|gauna|mato|supranta|supras|suprasi|galvoja|galvoji|prisimena|prisimeni|prisimins|vertina|įvertins|daro|padaro|kuria|sukuria|sukurs|pradžiugina|pradžiugins|nudžiugina|nudžiugins|džiugina|džiugins|parodo|parodys|išlieka|išliks|išbūna|tarnauja|tarnaus|pataiko|pataikys|praverčia|kelia|sukelia|sukels|palengvina|praturtina|įsilieja|įsimena|įsimins|primins|saugo|saugos|gyvena|dera|kviečia|guli|užsiguli|nugula|nugulės|sutaupys|sumažina|suteiks|reiškia|patinka|patiks|atsibosta|keliauja|pajus|pajunta|nustebina|nustebins|šildo|sušildo|šviečia|kvepia|kvepės|tiktų|atrodytų|praverstų|norėtų|pradžiugintų|padės|bus|tampa|taps|pavirsta|lemia|slypi|telpa|lieka|liks|pasiteisina|atsiperka|sukasi|vertas|verta|būtų|atitinka|atitiks|džiaugsis|naudosis|mėgausis|leis|paverčia|pavers|jausis|pasijus|padarys|sukuria|kalba|reikalauja|nuvilia|dingsta|ilgėja|trumpėja|mažėja|daugėja|auga|belieka|tenka|spės|spėja|atkeliaus|atkeliauja|suspės|pataikys|patikrini|ateina|liko|vėluoja|nusišypso|sugrąžina|virsta|praeina|išgelbsti|atlaiko|papildo|suartina|suburia|nėra|nebėra|nebuvo|užtenka|užteks|pakanka|pakaks|praleidžia|praleidi|nutyla|norėsis|dėvės|dėvi|išsimiegi|išsimiega|būna|puošia|pasimeta|gelbsti|nusipelno|sustingsta|išsausėja|atrodys|prasidės|praeis|virs|turės|švies|švytės|baigsis|stovės|puoš|papuoš|ramins|pasitiks|pailsės|atgaivins|pažiūrės|išeis|sninga|truks|reikės|prapuls|gadins|užges|apjuosia|apjuos)(?!\p{L})/iu
+
+function hasVerbCue(text: string): boolean {
+  return LT_FINITE_VERB_CUES.test(text) || LT_FINITE_VERB_CUES_EXTRA.test(text) || LT_REFLEXIVE_FINITE_RE.test(text)
+}
+
 export function textHasFiniteVerbCue(text: string): boolean {
   const core = String(text || '').trim()
   if (!core) return false
-  return LT_FINITE_VERB_CUES.test(core) || LT_REFLEXIVE_FINITE_RE.test(core)
+  if (hasVerbCue(core)) return true
+  // Negated verbs carry the same predicate: „neužsiguli“, „nesukuria“, „nebereikia“.
+  const unNegated = core.replace(/(?<!\p{L})ne(?:be)?(?=\p{L}{3,})/giu, '')
+  return unNegated !== core && hasVerbCue(unNegated)
 }
 
 /** „Lengvų X ir Y.“ style — genitive list with no finite verb. */

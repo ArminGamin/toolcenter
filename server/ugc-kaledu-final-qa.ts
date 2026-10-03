@@ -681,7 +681,8 @@ const WE_FORM_RE =
   /(?<!\p{L})(?:mes|mūsų|mums|žinome|galime|turime|esame|norime|ieškome|renkamės|dovanojame|siūlome|įsimetame|perkame|pamirštame|renkame|galvojame|negalvojame|jaučiame|matome|darome|išleidžiame|atidedame|dovanokime|leiskime|pasižiūrėkime|\p{L}{3,}(?:amės|imės|omės))(?!\p{L})/iu
 
 const FORMAL_PLURAL_RE =
-  /(?<!\p{L})(?:jūs|jūsų|jums|\p{L}{3,}(?:kite|ykite|kitės)|\p{L}{3,}(?:ate|ite|ote|atės|itės|otės))(?!\p{L})/iu
+  // -aitės / -aite are nouns („savaitės“, „mergaitės“), not 2nd-person plural verbs.
+  /(?<!\p{L})(?:jūs|jūsų|jums|\p{L}{3,}(?:kite|ykite|kitės)|\p{L}{3,}(?:ate|(?<!a)ite|ote|atės|(?<!a)itės|otės))(?!\p{L})/iu
 
 const DEMONSTRATIVE_NOM_RE = /^(?:tas|ta|šis|ši|tie|tos|toks|tokia)$/u
 

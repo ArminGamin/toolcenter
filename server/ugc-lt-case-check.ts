@@ -206,7 +206,10 @@ export function collectLtCaseAgreementIssues(text: string): LtCaseAgreementIssue
 
       for (let j = i + 1; j < Math.min(i + 4, tokens.length); j++) {
         const objectToken = tokens[j]
-        if (PREPOSITIONS.has(objectToken.toLocaleLowerCase('lt-LT'))) continue
+        // „Norisi, kad dovana…“: a conjunction opens a new clause with its own subject.
+        if (/^(?:kad|jog|nes|kai|jei|jeigu|ar|bet|o|ir|kol|nors)$/iu.test(objectToken)) break
+        // „rinktis tarp karšto gėrimo“: the noun after a preposition takes the preposition's case.
+        if (PREPOSITIONS.has(objectToken.toLocaleLowerCase('lt-LT'))) break
         if (required === 'accusative' && looksGenitive(objectToken)) {
           // Genitive modifiers before the object: „keramikos arbatos rinkinį“.
           let k = j + 1
@@ -220,6 +223,9 @@ export function collectLtCaseAgreementIssues(text: string): LtCaseAgreementIssue
         }
         // „rinktis kvapo difuzorių“: after a genitive modifier, -ių is the -ius accusative.
         if (required === 'accusative' && j > i + 1 && /ių$/iu.test(objectToken) && looksGenitive(tokens[j - 1])) break
+        // „Norisi nusiųsti kažką“: after an infinitive the noun is the infinitive's object, and its
+        // case comes from that verb, not from „norisi“ (reference §3 — government of the verb).
+        if (j > i + 1 && INFINITIVE_RE.test(tokens[j - 1])) break
         const issue = checkVerbObject(verb, objectToken, required, sentence)
         if (issue) {
           issues.push(issue)

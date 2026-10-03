@@ -1,0 +1,4346 @@
+{
+  "themes": [
+    {
+      "id": 1,
+      "theme": "Kalėdinė dovana, kai nežinai, ką pirkti",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Nežinai, ką padovanoti šiemet?",
+          "body": "Idėjų daug, bet nė viena neatrodo tinkama."
+        },
+        {
+          "title": "Vėl sukiesi ratu tarp idėjų?",
+          "body": "Kartais atsakymas slypi ne parduotuvėje, o žmogaus kasdienybėje."
+        }
+      ],
+      "context": [
+        "Naršai parduotuves, bet kiekvienas daiktas atrodo atsitiktinis. Taip praeina dar vienas vakaras be sprendimo.",
+        "Kai nežinai, nuo ko pradėti, net paprastas pasirinkimas užtrunka."
+      ],
+      "build": [
+        "Pagalvok, kaip žmogus mėgsta leisti laisvą vakarą. Iš to lengviau suprasti, kas jam pravers.",
+        "Daiktas, kurį žmogus naudos kasdien, dažniausiai pataiko geriau nei netikėta smulkmena.",
+        "Užtenka vienos aiškios krypties, ir variantų lieka keli, o ne šimtai."
+      ],
+      "close": [
+        "Kai dovana atitinka žmogaus įpročius, išpakavus jos nereikia aiškinti.",
+        "Aiški kryptis sutaupo kelis vakarus, o dovana tampa tikrai naudinga."
+      ]
+    },
+    {
+      "id": 2,
+      "theme": "Dovana porai, kurią naudos kartu",
+      "recipient": "pora",
+      "hooks": [
+        {
+          "title": "Ką padovanoti porai, kad džiaugtųsi abu?",
+          "body": "Du atskiri daiktai dažnai lieka stalčiuose."
+        },
+        {
+          "title": "Viena dovana dviem žmonėms?",
+          "body": "Geriausiai veikia tai, ką jie galės daryti kartu."
+        }
+      ],
+      "context": [
+        "Kai perki dviem, lengva nupirkti po smulkmeną kiekvienam. Bet bendro vakaro tokios dovanos nesukuria.",
+        "Porai sunku įtikti, nes skonis ne visada sutampa."
+      ],
+      "build": [
+        "Pagalvok, kaip jie leidžia laiką kartu. Bendras vakaras namuose dažnai pasako daugiau nei bet koks daiktas.",
+        "Kai dovana skirta abiem, ji tampa bendru ritualu, o ne dar vienu daiktu.",
+        "Užtenka vieno dalyko, kurį porai patogu naudoti dviese."
+      ],
+      "close": [
+        "Dovana, kurią pora naudoja kartu, primena apie tave kiekvieną bendrą vakarą.",
+        "Viena bendra dovana dažnai pradžiugina abu labiau nei dvi atskiros."
+      ]
+    },
+    {
+      "id": 3,
+      "theme": "Praktiška dovana tėčiui",
+      "recipient": "tėtis",
+      "hooks": [
+        {
+          "title": "Tėtis sako, kad jam nieko nereikia?",
+          "body": "Tada verta ieškoti daikto, kurį jis naudos kasdien."
+        },
+        {
+          "title": "Ką padovanoti tėčiui, kuris viską turi?",
+          "body": "Praktiška dovana jam dažnai patinka labiau nei staigmena."
+        }
+      ],
+      "context": [
+        "Tėtis retai pasako, ko norėtų. Todėl dovana dažnai būna atsitiktinė.",
+        "Dar vienas niekutis jam greitai atsibosta."
+      ],
+      "build": [
+        "Pastebėk, ką tėtis naudoja kasdien. Geresnė to paties daikto versija dažnai pataiko tiksliausiai.",
+        "Jam svarbiau, kad daiktas veiktų ir tarnautų ilgai, nei kaip jis atrodo.",
+        "Dovana, kuri palengvina kasdienį darbą, tėčiui primins apie tave kiekvieną kartą."
+      ],
+      "close": [
+        "Kai dovana tėčiui tikrai praverčia, jis ja naudojasi be jokių kalbų.",
+        "Praktiška dovana tėčiui tampa kasdienybės dalimi ir neužsiguli stalčiuje."
+      ]
+    },
+    {
+      "id": 4,
+      "theme": "Dovana mamai, kuri atrodo apgalvota",
+      "recipient": "mama",
+      "hooks": [
+        {
+          "title": "Ką padovanoti mamai šiemet?",
+          "body": "Norisi dovanos, kurią ji išpakuos ir iškart supras, kad pagalvojai."
+        },
+        {
+          "title": "Mamai vėl ta pati dovana?",
+          "body": "Šiemet verta pradėti nuo to, kas jai kuria jaukumą namuose."
+        }
+      ],
+      "context": [
+        "Mama sako, kad jai nieko nereikia. Todėl dovana dažnai tampa paskutine eilute sąraše.",
+        "Dar viena dėžutė su smulkmenomis mamai jau nieko naujo nepasako."
+      ],
+      "build": [
+        "Pagalvok, kaip mama leidžia vakarus. Jaukus daiktas namams dažnai pasako daugiau nei dar viena smulkmena.",
+        "Mamai svarbu ne kaina, o tai, kad dovana parinkta būtent jai.",
+        "Malonus kvapas ar šilta šviesa namuose mamai primins apie tave kiekvieną vakarą."
+      ],
+      "close": [
+        "Kai dovana parinkta pagal mamos įpročius, ji tampa kasdienybės dalimi.",
+        "Apgalvota dovana mamai pradžiugina labiau nei įspūdinga, bet atsitiktinė."
+      ]
+    },
+    {
+      "id": 5,
+      "theme": "Maža dovana, kuri atrodo daug prabangiau.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Mažas biudžetas, bet norisi gražios dovanos?",
+          "body": "Ne kaina lemia, kaip dovana atrodo išpakuota."
+        },
+        {
+          "title": "Kaip nedidelė dovana atrodo prabangiai?",
+          "body": "Paslaptis dažniausiai slypi detalėse, o ne sumoje."
+        }
+      ],
+      "context": [
+        "Nedidelė suma dažnai verčia griebti pirmą pigų daiktą. Tada dovana atrodo paimta paskubomis.",
+        "Už nedidelę sumą gražią dovaną rasti atrodo sunku."
+      ],
+      "build": [
+        "Gražiai supakuotas daiktas atrodo daug solidžiau.",
+        "Viena kokybiška smulkmena atrodo solidžiau nei kelios pigios.",
+        "Ramios spalvos ir natūralios medžiagos visada atrodo apgalvotai."
+      ],
+      "close": [
+        "Gražiai parinkta smulkmena pradžiugina ne mažiau nei didelė dovana.",
+        "Kai dovana atrodo apgalvota, niekas nežiūri į jos dydį."
+      ]
+    },
+    {
+      "id": 6,
+      "theme": "Kalėdinė dovana žmogui, kuris viską turi.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Ką dovanoti žmogui, kuris viską turi?",
+          "body": "Atrodo, kad bet kokia idėja jam bus per paprasta."
+        },
+        {
+          "title": "Jam tikrai nieko nereikia?",
+          "body": "Dažniausiai trūksta ne daiktų, o jaukių kasdienių akimirkų."
+        }
+      ],
+      "context": [
+        "Kai žmogus viską nusiperka pats, kiekviena idėja atrodo per paprasta.",
+        "Jo namuose daiktų netrūksta, todėl nesinori pridėti dar vieno."
+      ],
+      "build": [
+        "Tokiam žmogui labiau tinka tai, ką jis naudos, o ne tai, ką padės į spintą.",
+        "Patogumas namuose ir jaukus vakaras dažnai vertingesni už dar vieną daiktą.",
+        "Pastebėk, kas jam kasdien teikia malonumą. Būtent ten ir slypi geriausia idėja."
+      ],
+      "close": [
+        "Dovana, kuri praturtina kasdienybę, pradžiugina net tą, kuris viską turi.",
+        "Kai dovana tampa kasdieniu malonumu, ji neužsiguli stalčiuje."
+      ]
+    },
+    {
+      "id": 7,
+      "theme": "Dovana, kuri nenugulės stalčiuje.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Bijai, kad dovana atsidurs stalčiuje?",
+          "body": "Taip nutinka dažniau, nei norėtųsi."
+        },
+        {
+          "title": "Kaip išvengti dovanos, kurios niekas nenaudoja?",
+          "body": "Atsakymas paprastas, bet dažnai pamirštamas."
+        }
+      ],
+      "context": [
+        "Dalis dovanų po švenčių nė karto nepanaudojamos. Jos tiesiog guli spintoje.",
+        "Graži, bet nereikalinga dovana greitai pamirštama."
+      ],
+      "build": [
+        "Daiktas su aiškia paskirtimi natūraliai įsilieja į kasdienybę.",
+        "Pagalvok, ką žmogus daro kasdien. Tai, kas tą veiklą palengvina, tikrai bus naudojama.",
+        "Paprasta ir praktiška dovana dažnai išbūna ilgiau nei įspūdinga."
+      ],
+      "close": [
+        "Kai dovana naudojama kasdien, ji primena apie tave kiekvieną kartą.",
+        "Praktiška dovana neužsiguli, o tampa įprasta namų dalimi."
+      ]
+    },
+    {
+      "id": 8,
+      "theme": "Dovana jaukiam vakarui namuose.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Ieškai dovanos jaukiam vakarui?",
+          "body": "Kartais geriausia dovana yra tiesiog šiltesnis vakaras."
+        },
+        {
+          "title": "Ar dovana gali būti visas vakaras?",
+          "body": "Gali, jei ji padeda įsitaisyti ir pailsėti."
+        }
+      ],
+      "context": [
+        "Žiemos vakarai ilgi, o namuose dažnai trūksta šilumos ir ramybės.",
+        "Po darbo dienos norisi tiesiog įsitaisyti ir niekur neskubėti."
+      ],
+      "build": [
+        "Minkštumas, šilta šviesa ir malonus kvapas gali tapti mažu žiemos ritualu.",
+        "Dovana, kuri kviečia sulėtinti tempą, dažnai pradžiugina labiau nei įspūdinga.",
+        "Pagalvok, kaip žmogus mėgsta ilsėtis. Jaukus vakaras prasideda nuo jo įpročių."
+      ],
+      "close": [
+        "Tokia dovana namuose kuria jaukumą kiekvieną žiemos vakarą.",
+        "Jaukus vakaras namuose dovaną paverčia mėgstamu įpročiu."
+      ]
+    },
+    {
+      "id": 9,
+      "theme": "Kalėdinė dovana žmogui iš kito miesto.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Kaip nudžiuginti žmogų kitame mieste?",
+          "body": "Norisi nusiųsti kažką šiltesnio už žinutę."
+        },
+        {
+          "title": "Dovana keliaus paštu?",
+          "body": "Tada ji turi būti ir jauki, ir patogi siųsti."
+        }
+      ],
+      "context": [
+        "Kai negali įteikti dovanos asmeniškai, ji turi pasakyti viską be tavęs.",
+        "Atstumas sunkina pasirinkimą, nes nematai, kaip žmogus gyvena dabar."
+      ],
+      "build": [
+        "Dovana, kuri primena namus ir jaukų vakarą, sumažina atstumą.",
+        "Patogu siųsti tai, kas nedūžta ir nereikalauja tikslaus dydžio.",
+        "Prie siuntinio pridėk kelis ranka parašytus žodžius. Jie dažnai brangesni už pačią dovaną."
+      ],
+      "close": [
+        "Toks siuntinys parodo, kad apie žmogų galvoji net per atstumą.",
+        "Jauki dovana iš toli primena apie tave visą žiemą."
+      ]
+    },
+    {
+      "id": 10,
+      "theme": "Dovana be dydžių ir sudėtingo pasirinkimo.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Nenori spėlioti dydžio ar spalvos?",
+          "body": "Tokios dovanos dažnai būna rizikingiausios."
+        },
+        {
+          "title": "Bijai nepataikyti su dydžiu?",
+          "body": "Yra dovanų, kurioms jo visai nereikia."
+        }
+      ],
+      "context": [
+        "Drabužiai ir avalynė kelia daug klausimų, kai gerai nežinai žmogaus.",
+        "Netinkamas dydis reiškia grąžinimą ir nusivylimą."
+      ],
+      "build": [
+        "Daiktai namų jaukumui neturi dydžių, todėl rizikos beveik nėra.",
+        "Universali dovana tinka beveik visiems ir nereikalauja spėlioti.",
+        "Neutralios spalvos ir paprasta forma dera prie daugumos namų."
+      ],
+      "close": [
+        "Kai nereikia spėlioti dydžio, dovana pataiko iš pirmo karto.",
+        "Paprasta ir universali dovana nekelia rūpesčių nei tau, nei gavėjui."
+      ]
+    },
+    {
+      "id": 11,
+      "theme": "Dovana žmogui, kuris vertina ramybę.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Žmogus mėgsta ramius vakarus?",
+          "body": "Jam nereikia ryškios ar triukšmingos dovanos."
+        },
+        {
+          "title": "Kas tiks žmogui, kuris vertina tylą?",
+          "body": "Tai, kas padeda sulėtinti tempą."
+        }
+      ],
+      "context": [
+        "Prieš šventes aplink daug triukšmo, o ramybės ir taip trūksta.",
+        "Ryški dovana tokiam žmogui gali atrodyti per daug."
+      ],
+      "build": [
+        "Dovana, kuri padeda susikurti ramų vakarą, jam vertingesnė už įspūdingą daiktą.",
+        "Švelni šviesa, malonus kvapas ir minkštumas kuria ramią nuotaiką.",
+        "Pagalvok, kaip jis ilsisi. Iš to aišku, kas jam tiks."
+      ],
+      "close": [
+        "Tokia dovana kiekvieną vakarą primins apie tave.",
+        "Ramybę kurianti dovana dažnai pradžiugina labiau nei įspūdinga."
+      ]
+    },
+    {
+      "id": 12,
+      "theme": "Dovana, kuri tinka visai žiemai.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Kodėl dovana turėtų tikti tik Kalėdoms?",
+          "body": "Žiema ilga, o šventės praeina greitai."
+        },
+        {
+          "title": "Ieškai dovanos ilgiau nei vienam vakarui?",
+          "body": "Geriausios dovanos pravers iki pat pavasario."
+        }
+      ],
+      "context": [
+        "Daug šventinių dovanų po sausio pirmosios iškeliauja į dėžę.",
+        "Žiemos vakarai ilgi, o šventinė nuotaika praeina greitai."
+      ],
+      "build": [
+        "Šilumą ir jaukumą kuriantys daiktai pravers visą žiemą, ne tik per šventes.",
+        "Praktiška dovana išlieka naudinga ir po Naujųjų metų.",
+        "Pagalvok, ko žmogui trūksta šaltais vakarais. Tai ir bus geriausia kryptis."
+      ],
+      "close": [
+        "Dovana, kuri tinka visai žiemai, primins apie tave kiekvieną šaltą vakarą.",
+        "Kai dovana pravers visą žiemą, ji vertesnė nei šventinė smulkmena."
+      ]
+    },
+    {
+      "id": 13,
+      "theme": "Kalėdinės dovanos vyrui",
+      "recipient": "vyras",
+      "hooks": [
+        {
+          "title": "Ką padovanoti vyrui šiemet?",
+          "body": "Jis sako, kad nieko nereikia, o tu vis tiek nori pradžiuginti."
+        },
+        {
+          "title": "Vėl nežinai, ką dovanoti vyrui?",
+          "body": "Pradėk nuo to, ką jis veikia laisvalaikiu."
+        }
+      ],
+      "context": [
+        "Vyras daiktus dažniausiai nusiperka pats, kai tik jų prireikia.",
+        "Bet kokia dovana jam iš pradžių atrodo per paprasta."
+      ],
+      "build": [
+        "Pagalvok, ar vyrui labiau tinka praktiškas daiktas, ar jaukus vakaras namuose.",
+        "Kokybiškas kasdienis daiktas jam dažnai tarnauja ilgiau nei madingas.",
+        "Pastebėk, ką jis naudoja kiekvieną dieną. Geresnė versija dažnai pataiko tiksliausiai."
+      ],
+      "close": [
+        "Kai dovana vyrui tikrai praverčia, jis ją naudoja kasdien.",
+        "Apgalvota dovana vyrui pasako daugiau nei brangi, bet atsitiktinė."
+      ]
+    },
+    {
+      "id": 14,
+      "theme": "Kalėdinės dovanos moteriai",
+      "recipient": "moteris",
+      "hooks": [
+        {
+          "title": "Ką padovanoti moteriai šiemet?",
+          "body": "Dovana jai nebūtinai turi būti dar viena dėžutė su smulkmenomis."
+        },
+        {
+          "title": "Ieškai dovanos, kuri tiktų jai?",
+          "body": "Pradėk nuo to, kaip ji mėgsta leisti vakarus."
+        }
+      ],
+      "context": [
+        "Moteriai, kuri turi beveik viską, sugalvoti dovaną nėra lengva.",
+        "Standartinės dovanos dažnai kartojasi kasmet."
+      ],
+      "build": [
+        "Jei ji mėgsta namus, jaukus daiktas dažnai tinka geriau nei dar viena smulkmena.",
+        "Moteriai svarbu, kad dovana būtų parinkta būtent jai.",
+        "Šilta šviesa ar malonus kvapas namuose primins apie tave kiekvieną vakarą."
+      ],
+      "close": [
+        "Apgalvota dovana moteriai pasako daugiau nei brangi.",
+        "Kai dovana atitinka jos įpročius, ji tampa mėgstamu daiktu."
+      ]
+    },
+    {
+      "id": 15,
+      "theme": "Dovana draugei, kai biudžetas nedidelis",
+      "recipient": "draugė",
+      "hooks": [
+        {
+          "title": "Ką padovanoti draugei už nedidelę sumą?",
+          "body": "Gera dovana nebūtinai turi būti brangi."
+        },
+        {
+          "title": "Biudžetas nedidelis, o norisi pradžiuginti draugę?",
+          "body": "Tada svarbiausia, kad dovana tiktų būtent jai."
+        }
+      ],
+      "context": [
+        "Nedidelė suma dažnai verčia rinktis tarp kelių pigių smulkmenų.",
+        "Draugę pažįsti gerai, bet idėjų vis tiek trūksta."
+      ],
+      "build": [
+        "Draugei svarbiausia dėmesys, todėl verta pagalvoti apie jos kasdienybę.",
+        "Viena jauki smulkmena atrodo apgalvočiau nei kelios atsitiktinės.",
+        "Prie dovanos pridėk kelis ranka parašytus žodžius. Draugė juos saugos ilgai."
+      ],
+      "close": [
+        "Draugei svarbiausia, kad dovana būtų parinkta su dėmesiu.",
+        "Kai smulkmena atitinka jos skonį, draugė ja džiaugsis visą žiemą."
+      ]
+    },
+    {
+      "id": 16,
+      "theme": "Dovana kolegai ar Slaptajam Seneliui",
+      "recipient": "kolega",
+      "hooks": [
+        {
+          "title": "Slaptasis Senelis darbe?",
+          "body": "Reikia dovanos kolegai, kurio beveik nepažįsti."
+        },
+        {
+          "title": "Ką padovanoti kolegai?",
+          "body": "Norisi kažko malonaus, bet ne per daug asmeniško."
+        }
+      ],
+      "context": [
+        "Apie kolegą žinai nedaug, todėl lengva nepataikyti su skoniu.",
+        "Slaptasis Senelis palieka mažai laiko ir dar mažiau užuominų."
+      ],
+      "build": [
+        "Universalus ir gražiai supakuotas daiktas tinka beveik kiekvienam kolegai.",
+        "Praktiška smulkmena darbo stalui ar jaukiam vakarui namuose nekelia rizikos.",
+        "Geriau rinktis neutralias spalvas ir paprastą formą."
+      ],
+      "close": [
+        "Tokia dovana kolegai bus maloni ir tikrai nesukels nepatogumo.",
+        "Neutrali, bet apgalvota dovana kolegai parodo dėmesį be per didelio asmeniškumo."
+      ]
+    },
+    {
+      "id": 17,
+      "theme": "Kalėdinė dovana paaugliui be spėliojimo.",
+      "recipient": "paauglys",
+      "hooks": [
+        {
+          "title": "Ką padovanoti paaugliui?",
+          "body": "Jam sunku įtikti, o klausti nesinori."
+        },
+        {
+          "title": "Kaip parinkti dovaną paaugliui?",
+          "body": "Pradėk nuo to, ką jis iš tikrųjų naudoja."
+        }
+      ],
+      "context": [
+        "Paauglių skonis keičiasi greitai, todėl lengva nepataikyti.",
+        "Tai, kas atrodo įdomu suaugusiajam, paaugliui dažnai neįdomu."
+      ],
+      "build": [
+        "Praktiškas ir šiuolaikiškas daiktas paaugliui tinka geriau nei dekoracija.",
+        "Pastebėk, kaip paauglys leidžia laisvalaikį. Iš to aišku, kas jam pravers.",
+        "Kasdien naudojamas daiktas paaugliui atrodo vertingiau nei įspūdingas, bet nereikalingas."
+      ],
+      "close": [
+        "Kai dovana paaugliui praverčia kasdien, ji tikrai neužsiguli.",
+        "Paauglys įvertins dovaną, kuri tinka jo kasdienybei."
+      ]
+    },
+    {
+      "id": 18,
+      "theme": "Jauki dovana močiutei žiemos vakarams.",
+      "recipient": "močiutė",
+      "hooks": [
+        {
+          "title": "Ką padovanoti močiutei?",
+          "body": "Ji džiaugiasi dėmesiu labiau nei brangiais daiktais."
+        },
+        {
+          "title": "Močiutei vėl dekoracija?",
+          "body": "Jai dažnai svarbiau jaukumas nei dar vienas papuošimas."
+        }
+      ],
+      "context": [
+        "Močiutė sako, kad jai nieko nereikia, ir dovana vėl tampa smulkmena.",
+        "Ilgi žiemos vakarai močiutei dažnai būna vieniši."
+      ],
+      "build": [
+        "Pagalvok, kaip močiutė leidžia vakarus. Jaukumas namuose jai svarbesnis už madą.",
+        "Daiktas, kuris pravers skaitant ar ilsintis, močiutei bus naudingas kasdien.",
+        "Šilta ir minkšta dovana močiutei primins apie tave kiekvieną vakarą."
+      ],
+      "close": [
+        "Kai dovana kuria jaukumą, močiutė ja džiaugiasi visą žiemą.",
+        "Apgalvota dovana močiutei parodo, kad prisimeni jos mažus įpročius."
+      ]
+    },
+    {
+      "id": 19,
+      "theme": "Praktiška dovana seneliui be nereikalingų smulkmenų.",
+      "recipient": "senelis",
+      "hooks": [
+        {
+          "title": "Ką padovanoti seneliui?",
+          "body": "Jam nereikia dar vienos smulkmenos."
+        },
+        {
+          "title": "Senelis sako, kad jam nieko nereikia?",
+          "body": "Tada verta ieškoti paprasto ir praktiško daikto."
+        }
+      ],
+      "context": [
+        "Seneliui dažnai tenka dovana, kurios jis niekada nenaudoja.",
+        "Senelis vertina paprastumą, o ne madingus daiktus."
+      ],
+      "build": [
+        "Pastebėk, ką senelis daro kasdien. Tai, kas palengvina įprastą veiklą, jam pravers labiausiai.",
+        "Kokybiškas ir paprastas daiktas seneliui tarnaus ilgai.",
+        "Šiltas ir patogus daiktas seneliui tinka geriau nei dekoracija."
+      ],
+      "close": [
+        "Kai dovana seneliui praverčia kasdien, jis ją prisimena ilgai.",
+        "Praktiška dovana seneliui parodo, kad pagalvojai apie jo kasdienybę."
+      ]
+    },
+    {
+      "id": 20,
+      "theme": "Dovana seseriai jaukiai žiemai.",
+      "recipient": "sesuo",
+      "hooks": [
+        {
+          "title": "Ką padovanoti seseriai?",
+          "body": "Ją pažįsti geriausiai, bet idėjų vis tiek trūksta."
+        },
+        {
+          "title": "Seseriai vėl ta pati dovana?",
+          "body": "Šiemet verta pagalvoti apie jaukumą namuose."
+        }
+      ],
+      "context": [
+        "Seseriai dažnai perki tai, ką ir pernai. Taip dovana tampa įpročiu, o ne staigmena.",
+        "Sesuo turi savo skonį, ir jį lengva nuvilti."
+      ],
+      "build": [
+        "Jaukus daiktas namams seseriai gali būti ir gražus, ir praktiškas.",
+        "Pagalvok, kaip sesuo mėgsta leisti žiemos vakarus.",
+        "Seseriai dažnai labiausiai patinka tai, ko ji pati sau nenupirktų."
+      ],
+      "close": [
+        "Kai dovana tinka sesers kasdienybei, ji naudojama visą žiemą.",
+        "Apgalvota dovana seseriai parodo, kad gerai ją pažįsti."
+      ]
+    },
+    {
+      "id": 21,
+      "theme": "Dovana broliui, kai nežinai jo norų.",
+      "recipient": "brolis",
+      "hooks": [
+        {
+          "title": "Ką padovanoti broliui?",
+          "body": "Jis sako, kad nieko nereikia, o tu vis tiek nori jį pradžiuginti."
+        },
+        {
+          "title": "Brolis vėl sako, kad nieko nenori?",
+          "body": "Tada geriausia ieškoti universalaus daikto."
+        }
+      ],
+      "context": [
+        "Brolis retai pasako, ko nori, todėl dovana dažnai tampa spėliojimu.",
+        "Jo pomėgiai keičiasi, ir lengva nepataikyti."
+      ],
+      "build": [
+        "Universalus daiktas, kuris pravers namuose ar kelyje, broliui tiks bet kokiu atveju.",
+        "Pastebėk, ką brolis naudoja kasdien. Geresnė to versija dažnai pataiko.",
+        "Praktiška dovana broliui vertingesnė nei juokinga smulkmena."
+      ],
+      "close": [
+        "Kai dovana broliui praverčia kasdien, jis ją tikrai prisimins.",
+        "Universali ir praktiška dovana broliui pataiko net nežinant jo norų."
+      ]
+    },
+    {
+      "id": 22,
+      "theme": "Dovana draugui, gyvenančiam užsienyje.",
+      "recipient": "draugas",
+      "hooks": [
+        {
+          "title": "Draugas gyvena užsienyje?",
+          "body": "Norisi, kad dovana primintų namus."
+        },
+        {
+          "title": "Kaip nudžiuginti draugą per atstumą?",
+          "body": "Dovana turi pasakyti tai, ko neparašysi žinutėje."
+        }
+      ],
+      "context": [
+        "Per Kalėdas susitikti nepavyks, todėl dovana tampa dar svarbesnė.",
+        "Siuntinys keliauja ilgai, todėl rinktis reikia iš anksto."
+      ],
+      "build": [
+        "Jaukus daiktas iš namų draugui primins šventes Lietuvoje.",
+        "Patogu siųsti tai, kas lengva ir nedūžta.",
+        "Prie dovanos pridėk kelis ranka parašytus žodžius. Draugas juos saugos ilgai."
+      ],
+      "close": [
+        "Tokia dovana leis draugui pajusti šventes, net jei jis toli.",
+        "Jauki dovana iš namų draugui tampa mažu šventės gabalėliu."
+      ]
+    },
+    {
+      "id": 23,
+      "theme": "Nedidelė dovana visam biuro kolektyvui.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Reikia dovanos visam biurui?",
+          "body": "Norisi kažko malonaus, bet ne per daug asmeniško."
+        },
+        {
+          "title": "Kaip pradžiuginti visą kolektyvą?",
+          "body": "Dovana turi tikti visiems iš karto."
+        }
+      ],
+      "context": [
+        "Kiekvieno skonis skirtingas, o biudžetas vienam žmogui nedidelis.",
+        "Asmeniška dovana biure gali sukelti nepatogumą."
+      ],
+      "build": [
+        "Universalus jaukus daiktas tinka beveik kiekvienam ir nereikalauja spėlioti.",
+        "Kai visiems tenka vienodos dovanos, niekas nesijaučia nuskriaustas.",
+        "Bendra dovana virtuvėlei ar poilsio kampui džiugina visus kartu."
+      ],
+      "close": [
+        "Tokia dovana kolektyvui suteikia šventinės nuotaikos be jokio nepatogumo.",
+        "Kai dovana tinka visiems, biure ji kuria bendrą šventinę nuotaiką."
+      ]
+    },
+    {
+      "id": 24,
+      "theme": "Kalėdinė dovana naujam pažįstamam žmogui.",
+      "recipient": "pažįstamas",
+      "hooks": [
+        {
+          "title": "Ką dovanoti žmogui, kurį pažįsti neseniai?",
+          "body": "Per asmeniška dovana gali sutrikdyti."
+        },
+        {
+          "title": "Dovana naujam pažįstamam?",
+          "body": "Norisi parodyti dėmesio, bet neperlenkti lazdos."
+        }
+      ],
+      "context": [
+        "Žmogų pažįsti neseniai, todėl sunku nuspręsti, kas jam tiks.",
+        "Per brangi dovana gali sukelti nepatogumą, o per pigi atrodys abejingai."
+      ],
+      "build": [
+        "Neutrali ir praktiška dovana tinka bet kuriems namams.",
+        "Jaukus daiktas be asmeniškų užuominų naujam pažįstamam atrodo apgalvotai.",
+        "Paprasta forma ir ramios spalvos dera prie bet kokio skonio."
+      ],
+      "close": [
+        "Neutrali, bet apgalvota dovana leis pajusti, kad pagalvojai, ir nesukels nepatogumo.",
+        "Tokia dovana pradžiugina ir nesukelia nepatogumo."
+      ]
+    },
+    {
+      "id": 25,
+      "theme": "Kalėdinės dovanos iki 20 eurų",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Ar dovana iki 20 eurų gali atrodyti gražiai?",
+          "body": "Gali, jei atkreipi dėmesį į detales."
+        },
+        {
+          "title": "Turi tik 20 eurų vienai dovanai?",
+          "body": "To pakanka, kad dovana atrodytų apgalvota."
+        }
+      ],
+      "context": [
+        "Su nedideliu biudžetu lengva griebti pirmą pasitaikiusią smulkmeną.",
+        "Pigi dovana dažnai atrodo paimta paskutinę minutę."
+      ],
+      "build": [
+        "Tvarkingai supakuotas daiktas atrodo paruoštas dovanai, o ne paimtas paskubomis.",
+        "Vienas gražus daiktas atrodo solidžiau nei keli pigūs.",
+        "Prie dovanos pridėti keli ranka parašyti žodžiai padaro ją asmeniškesnę."
+      ],
+      "close": [
+        "Kai smulkmena paruošta su dėmesiu, ji džiugina ne mažiau nei didelė dovana.",
+        "Net nedidelė dovana gali atrodyti šventiškai, jei ją paruoši su dėmesiu."
+      ]
+    },
+    {
+      "id": 26,
+      "theme": "Kalėdinės dovanos iki 50 eurų",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Ką padovanoti iki 50 eurų?",
+          "body": "Tokiai sumai jau telpa dovana visai žiemai."
+        },
+        {
+          "title": "Turi 50 eurų ir nori solidžios dovanos?",
+          "body": "Tiek pakanka daiktui, kuris tarnaus ne vieną mėnesį."
+        }
+      ],
+      "context": [
+        "Su didesniu biudžetu atsiranda daugiau variantų, ir rinktis darosi net sunkiau.",
+        "Norisi, kad už tokią sumą dovana tikrai praverstų."
+      ],
+      "build": [
+        "Už tokią sumą verta ieškoti daikto, kurį žmogus naudos kiekvieną žiemos vakarą.",
+        "Kokybiškos medžiagos ir tvarkinga apdaila iškart rodo, kad dovana apgalvota.",
+        "Vienas geras daiktas atrodo vertingiau nei keli smulkesni."
+      ],
+      "close": [
+        "Gerai parinkta dovana pravers visą žiemą ir džiugins ilgai.",
+        "Kai daiktas naudojamas kasdien, jis greitai atsiperka."
+      ]
+    },
+    {
+      "id": 27,
+      "theme": "Paskutinės minutės Kalėdų dovanos",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Kalėdos jau čia, o dovanos dar nėra?",
+          "body": "Laiko liko nedaug, todėl rinktis reikia greitai."
+        },
+        {
+          "title": "Prisiminei dovanas paskutinę akimirką?",
+          "body": "Pirmiausia patikrink, ar siuntinys spės atkeliauti."
+        }
+      ],
+      "context": [
+        "Paskutinę savaitę parduotuvės perpildytos, o geri variantai jau išpirkti.",
+        "Skubant lengva nupirkti bet ką, kad tik nebūtum tuščiomis rankomis."
+      ],
+      "build": [
+        "Daiktas, kurį jau gali supakuoti ir išsiųsti, šiandien vertingesnis už idealią idėją.",
+        "Universalios, jaukios dovanos tinka beveik visiems, todėl sprendimas užtrunka minutes.",
+        "Pasitikrink pristatymo terminus prieš užsakant."
+      ],
+      "close": [
+        "Net paskubomis išrinkta dovana gali atrodyti apgalvotai, jei tinka žmogaus kasdienybei.",
+        "Kai dovana jau pakeliui, šventėmis gali mėgautis ramiai."
+      ]
+    },
+    {
+      "id": 28,
+      "theme": "Kalėdinė dovana iki 30 eurų.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Ar dovana iki 30 eurų gali neatrodyti pigiai?",
+          "body": "Gali, jei ji atrodo jaukiai ir apgalvotai."
+        },
+        {
+          "title": "Kaip su 30 eurų nustebinti?",
+          "body": "Lemia ne suma, o tai, kaip dovana atrodo ir kam ji tarnauja."
+        }
+      ],
+      "context": [
+        "Mažas biudžetas dažnai verčia griebti pirmą pasitaikiusį daiktą.",
+        "Bijai, kad nedidelė dovana atrodys per kukliai."
+      ],
+      "build": [
+        "Jaukus ir estetiškas daiktas atrodo apgalvotai nepriklausomai nuo sumos.",
+        "Gražiai supakuota smulkmena atrodo paruošta su meile.",
+        "Praktiška smulkmena, kurią žmogus naudos kasdien, įspūdį palieka ilgiau."
+      ],
+      "close": [
+        "Kai dovana atrodo jaukiai ir praktiškai, apie jos sumą niekas negalvoja.",
+        "Ir už nedaug rasi daiktą, kuris džiugins visą žiemą."
+      ]
+    },
+    {
+      "id": 29,
+      "theme": "Kalėdinė dovana iki 40 eurų.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Turi 40 eurų ir nori solidesnės dovanos?",
+          "body": "Tiek pakanka praktiškam ir gražiam daiktui."
+        },
+        {
+          "title": "Ką padovanoti artimam žmogui iki 40 eurų?",
+          "body": "Norisi, kad dovana būtų ir graži, ir naudinga."
+        }
+      ],
+      "context": [
+        "Su tokiu biudžetu norisi daugiau nei smulkmenos, bet ir išlaidauti nesinori.",
+        "Variantų daug, o atrodo, kad visi panašūs."
+      ],
+      "build": [
+        "Kokybiškas kasdienis daiktas atrodo solidžiai ir tarnauja ilgai.",
+        "Pagalvok, kuo artimas žmogus naudojasi kiekvieną dieną.",
+        "Šilumą ir jaukumą kuriantys daiktai tokiai dovanai tinka geriausiai."
+      ],
+      "close": [
+        "Gerai parinkta dovana artimam žmogui primins apie tave kiekvieną dieną.",
+        "Praktiška ir graži dovana atrodo solidžiai ir džiugina ilgai."
+      ]
+    },
+    {
+      "id": 30,
+      "theme": "Kaip neišleisti per daug dovanoms.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Kalėdinės išlaidos vėl auga?",
+          "body": "Kai dovanų daug, suma greitai išsprūsta iš rankų."
+        },
+        {
+          "title": "Kaip neišleisti per daug dovanoms?",
+          "body": "Užtenka paprasto plano dar prieš einant į parduotuvę."
+        }
+      ],
+      "context": [
+        "Kiekviena atskirai nedidelė dovana kartu sudaro didelę sumą.",
+        "Impulsyvūs pirkiniai prieš šventes greitai ištuština sąskaitą."
+      ],
+      "build": [
+        "Iš anksto nusistatyk sumą kiekvienam žmogui ir tik tada pradėk ieškoti.",
+        "Viena apgalvota dovana atstoja kelias skubotas.",
+        "Prieš perkant paklausk savęs, ar žmogus tikrai tuo naudosis."
+      ],
+      "close": [
+        "Su aiškiu planu po švenčių nereikia gailėtis išlaidų.",
+        "Apgalvotos dovanos pradžiugina labiau nei krūva skubotų pirkinių."
+      ]
+    },
+    {
+      "id": 31,
+      "theme": "Viena gera dovana vietoje kelių smulkmenų.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Kelios smulkmenos ar viena gera dovana?",
+          "body": "Dažniausiai laimi viena, bet apgalvota."
+        },
+        {
+          "title": "Vėl perki krūvą smulkmenų?",
+          "body": "Jos kartu kainuoja daugiau nei viena gera dovana."
+        }
+      ],
+      "context": [
+        "Kelios atsitiktinės smulkmenos greitai pasimeta ir pasimiršta.",
+        "Smulkmenos atrodo saugus pasirinkimas, bet retai pataiko."
+      ],
+      "build": [
+        "Vienas daiktas su aiškia paskirtimi atrodo labiau apgalvotas nei keli be jos.",
+        "Kai susitelki į vieną dovaną, lengviau atkreipti dėmesį į kokybę.",
+        "Gerai parinktas daiktas tampa kasdieniu palydovu, o ne dar viena smulkmena."
+      ],
+      "close": [
+        "Apgalvotas daiktas įsimena ilgiau nei visa saujelė niekučių.",
+        "Apgalvota dovana kalba už save ir nereikalauja priedų."
+      ]
+    },
+    {
+      "id": 32,
+      "theme": "Nebrangios dovanos, kurios atrodo apgalvotos.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Ar nebrangi dovana gali atrodyti apgalvotai?",
+          "body": "Gali, jei joje matyti dėmesys."
+        },
+        {
+          "title": "Mažas biudžetas, bet norisi įspūdžio?",
+          "body": "Įspūdį kuria detalės, o ne suma."
+        }
+      ],
+      "context": [
+        "Mažas biudžetas dažnai verčia griebti tai, kas pigiausia.",
+        "Bijai, kad nebrangi dovana atrodys atsitiktinė."
+      ],
+      "build": [
+        "Jaukumas ir praktiškumas dažnai palieka didesnį įspūdį nei daikto vertė.",
+        "Tvarkingai supakuotas daiktas iškart atrodo paruoštas dovanai.",
+        "Pagalvok, kas žmogui praverstų kasdien. Tai ir yra tikras dėmesys."
+      ],
+      "close": [
+        "Kai dovana parinkta su dėmesiu, jos vertė nebeturi reikšmės.",
+        "Apgalvota smulkmena pradžiugina ne mažiau nei įspūdinga dovana."
+      ]
+    },
+    {
+      "id": 33,
+      "theme": "Kaip paskirstyti kalėdinių dovanų biudžetą.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Sąraše jau dešimt žmonių, kuriems reikia dovanų?",
+          "body": "Tada išlaidos ima gąsdinti dar prieš pradedant."
+        },
+        {
+          "title": "Kaip paskirstyti sumą visoms dovanoms?",
+          "body": "Paprasta sistema sutaupo ir pinigų, ir nervų."
+        }
+      ],
+      "context": [
+        "Kai dovanų daug, biudžetas išsisklaido dar prieš perkant svarbiausias.",
+        "Be plano lengva per daug išleisti pirmiesiems žmonėms sąraše."
+      ],
+      "build": [
+        "Suskirstyk žmones pagal artumą ir kiekvienai grupei skirk atskirą sumą.",
+        "Artimiausiems palik didžiąją dalį, o kitiems užteks simbolinių dovanų.",
+        "Užsirašyk sumas iš anksto, kad parduotuvėje nereikėtų spręsti iš naujo."
+      ],
+      "close": [
+        "Su aiškiu planu dovanų užtenka visiems, o sąskaita lieka rami.",
+        "Paskirstytos išlaidos leidžia džiaugtis šventėmis be gailesčio."
+      ]
+    },
+    {
+      "id": 34,
+      "theme": "Dovana porai vietoje dviejų atskirų.",
+      "recipient": "pora",
+      "hooks": [
+        {
+          "title": "Dvi dovanos porai?",
+          "body": "Viena bendra dovana gali pradžiuginti abu ir kainuoti mažiau."
+        },
+        {
+          "title": "Ar porai tikrai reikia dviejų dovanų?",
+          "body": "Dažnai viena bendra džiugina labiau."
+        }
+      ],
+      "context": [
+        "Dvi atskiros dovanos reiškia dvigubas išlaidas. Ir abi dažnai išrenkamos paskubomis.",
+        "Atskiros dovanos porai dažnai būna dvi smulkmenos vietoje vienos geros."
+      ],
+      "build": [
+        "Bendra dovana namams porai praverčia kaskart, kai jie leidžia laiką drauge.",
+        "Pagalvok, ką pora mėgsta veikti dviese. Iš to gimsta geriausia bendra idėja.",
+        "Viena kokybiška dovana abiem atrodo solidžiau nei du atskiri daiktai."
+      ],
+      "close": [
+        "Viena bendra dovana porai sutaupo išlaidų ir sukuria bendras akimirkas.",
+        "Kai dovana skirta abiem, ji tampa bendru vakarų ritualu."
+      ]
+    },
+    {
+      "id": 35,
+      "theme": "Kaip sutaupyti neperkant bet ko.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Ar pigiausias daiktas tikrai sutaupo?",
+          "body": "Ne, jei po švenčių jo niekas nenaudos."
+        },
+        {
+          "title": "Kaip sutaupyti ir nepirkti bet ko?",
+          "body": "Taupumas prasideda nuo klausimo, ar daiktas reikalingas."
+        }
+      ],
+      "context": [
+        "Pigūs atsitiktiniai pirkiniai susideda į nemažą sumą.",
+        "Nereikalinga dovana yra išmesti pinigai, net jei ji buvo pigi."
+      ],
+      "build": [
+        "Mažiau dovanų, bet su aiškia paskirtimi, dažnai išeina pigiau ir naudingiau.",
+        "Prieš perkant paklausk savęs, ar žmogus tai naudos bent kartą per savaitę.",
+        "Vienas kokybiškas daiktas tarnauja ilgiau nei keli pigūs."
+      ],
+      "close": [
+        "Apgalvota dovana sutaupo pinigų, nes nenugula stalčiuje.",
+        "Kai perki tik tai, kas pravers, sutaupai be jokių pastangų."
+      ]
+    },
+    {
+      "id": 36,
+      "theme": "Nežinojau, ką pirkti, kol pamačiau",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Ilgai sukaisi ratu, kol pamatei tą vieną daiktą?",
+          "body": "Kartais dovana išsirenka pati."
+        },
+        {
+          "title": "Kada dovaną atpažįsti iš pirmo žvilgsnio?",
+          "body": "Kai pamatai daiktą ir iškart supranti, kam jis skirtas."
+        }
+      ],
+      "context": [
+        "Gali naršyti kelias valandas ir vis tiek nieko neišsirinkti.",
+        "Ilgas idėjų sąrašas dažnai tik dar labiau sujaukia galvą."
+      ],
+      "build": [
+        "Kartais dovaną išrenka ne ilgas sąrašas, o vienas aiškus vaizdas.",
+        "Kai iškart įsivaizduoji, kaip žmogus juo naudojasi, sprendimas jau priimtas.",
+        "Pasitikėk pirmuoju jausmu, jei daiktas iškart primena konkretų žmogų."
+      ],
+      "close": [
+        "Dovana, kurią pamačius iškart prisimeni žmogų, dažniausiai ir pataiko.",
+        "Kartais užtenka vieno žvilgsnio, kad dovana būtų rasta."
+      ]
+    },
+    {
+      "id": 37,
+      "theme": "Kalėdinio apsipirkimo chaosas",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Pirkinių sąrašas vis ilgėja?",
+          "body": "O laiko iki švenčių lieka vis mažiau."
+        },
+        {
+          "title": "Kalėdinis apsipirkimas virto chaosu?",
+          "body": "Pilnos parduotuvės ir begalinės eilės išsekina greičiau, nei tikiesi."
+        }
+      ],
+      "context": [
+        "Prekybos centrai perpildyti, o kiekviena eilė atima dar valandą.",
+        "Kai sąraše daug žmonių, lengva pasimesti tarp idėjų."
+      ],
+      "build": [
+        "Sutrauk sąrašą iki kelių jaukių, universalių dovanų. Taip baigsi daug greičiau.",
+        "Užsisakyk iš namų ir išvenk eilių bei spūsčių.",
+        "Viena kryptis visiems, pavyzdžiui jaukumas namuose, sutaupo valandas."
+      ],
+      "close": [
+        "Kai sąrašas trumpas ir aiškus, apsipirkimas baigiasi per vieną vakarą.",
+        "Mažiau eilių reiškia daugiau laiko šventėms ir artimiesiems."
+      ]
+    },
+    {
+      "id": 38,
+      "theme": "Dovana, kurią atidarysi Kalėdų rytą",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Ar Kalėdų rytas jau paruoštas?",
+          "body": "Geriausia, kai dovanos laukia po eglute iš anksto."
+        },
+        {
+          "title": "Kaip atrodo ramus Kalėdų rytas?",
+          "body": "Jame nėra skubėjimo paskutinę naktį."
+        }
+      ],
+      "context": [
+        "Kūčių naktį dažnai tenka dar kažką supakuoti ir rašyti atvirukus.",
+        "Kai dovanos neparuoštos, rytas prasideda nuo skubėjimo."
+      ],
+      "build": [
+        "Dovana, kurią tereikia padėti po eglute, sutaupo visą gruodžio vakarą.",
+        "Paruošk dovanas savaitę prieš šventes, ir rytas bus ramus.",
+        "Jau supakuota dovana leidžia Kalėdų rytą skirti artimiesiems."
+      ],
+      "close": [
+        "Kai dovanos jau po eglute, belieka džiaugtis artimųjų reakcija.",
+        "Laikas su artimaisiais tampa svarbiausia šventės dalimi."
+      ]
+    },
+    {
+      "id": 39,
+      "theme": "Baimė, kad dovana žmogui nepatiks.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "O kas, jei dovana nepatiks?",
+          "body": "Ši mintis aplanko beveik kiekvieną prieš šventes."
+        },
+        {
+          "title": "Bijai nepataikyti su dovana?",
+          "body": "Tai normalu, ypač kai žmogų pažįsti nelabai gerai."
+        }
+      ],
+      "context": [
+        "Kuo labiau stengiesi, tuo didesnė baimė suklysti.",
+        "Specifinė dovana gali pataikyti puikiai arba visai nepataikyti."
+      ],
+      "build": [
+        "Kai abejoji, universalus ir praktiškas daiktas yra saugesnis už specifinį.",
+        "Pasidomėk, ar dovaną bus galima grąžinti. Tai nuima nemažai įtampos.",
+        "Jaukūs daiktai namams patinka daugumai, nes nekelia klausimų dėl skonio."
+      ],
+      "close": [
+        "Universali ir apgalvota dovana dažniausiai pataiko net nežinant visų pomėgių.",
+        "Kai dovana parinkta su dėmesiu, ji retai nuvilia."
+      ]
+    },
+    {
+      "id": 40,
+      "theme": "Kai jau atrodo per vėlu užsisakyti.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Atrodo, kad jau per vėlu užsisakyti?",
+          "body": "Dažnai dar spėji, jei patikrini kelis dalykus."
+        },
+        {
+          "title": "Prisiminei dovanas paskutinę minutę?",
+          "body": "Pirmiausia pažiūrėk, ar siuntinys dar spės atkeliauti."
+        }
+      ],
+      "context": [
+        "Gruodžio viduryje siuntos vėluoja dažniau nei įprastai.",
+        "Kai iki švenčių liko kelios dienos, kiekvienas užsakymas atrodo rizikingas."
+      ],
+      "build": [
+        "Prieš užsakant patikrink pristatymo terminus. Tai užtrunka minutę, bet sutaupo daug nervų.",
+        "Rinktis verta tai, kas jau sandėlyje ir keliauja greitai.",
+        "Svarbiausias dovanas užsisakyk pirmiausia, o smulkmenas palik vėliau."
+      ],
+      "close": [
+        "Laiku patikrinti terminai reiškia, kad dovana suspės iki švenčių.",
+        "Net vėlyvas užsakymas gali atkeliauti laiku, jei pasirinkimas aiškus."
+      ]
+    },
+    {
+      "id": 41,
+      "theme": "Kalėdinių siuntų laukimo stresas.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Ar dovana atkeliaus laiku?",
+          "body": "Šis klausimas prieš Kalėdas neduoda ramybės."
+        },
+        {
+          "title": "Kiekvieną dieną tikrini siuntos būseną?",
+          "body": "Gruodį laukimas tampa atskiru išbandymu."
+        }
+      ],
+      "context": [
+        "Prieš šventes kurjeriai perkrauti, o vėlavimai įprasti.",
+        "Kai dovana dar kelyje, sunku galvoti apie ką nors kita."
+      ],
+      "build": [
+        "Užsisakyk anksčiau ir palik kelių dienų atsargą vėlavimams.",
+        "Rinktis verta parduotuves, kurios aiškiai nurodo išsiuntimo laiką.",
+        "Pirmiausia užsakyk tai, ko vėliau rasti nepavyktų."
+      ],
+      "close": [
+        "Kai siunta atkeliauja su atsarga, šventės prasideda be įtampos.",
+        "Laiku užsakyta dovana leidžia gruodį skirti artimiesiems, o ne laukimui."
+      ]
+    },
+    {
+      "id": 42,
+      "theme": "Dovanų pakavimas paskutinį vakarą.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Dovanos nupirktos, bet dar nesupakuotos?",
+          "body": "Paskutinį vakarą tai užtrunka ilgiau, nei tikiesi."
+        },
+        {
+          "title": "Kūčių vakarą dar supakuoji dovanas?",
+          "body": "Tada laiko šventei lieka vis mažiau."
+        }
+      ],
+      "context": [
+        "Kūčių vakarą trūksta ir popieriaus, ir juostelių, ir laiko.",
+        "Kai viską tenka supakuoti per vieną vakarą, nuotaika dingsta."
+      ],
+      "build": [
+        "Supakuok kiekvieną dovaną iškart, kai tik ji atkeliauja.",
+        "Pasiruošk popierių, juosteles ir korteles iš anksto vienoje vietoje.",
+        "Gražiai suvyniota dovana atrodo apgalvotai net tada, kai ji nedidelė."
+      ],
+      "close": [
+        "Paruoštos dovanos leidžia šventes pasitikti ramiai.",
+        "Laiku suvyniotos dovanos reiškia ramų vakarą prieš šventes."
+      ]
+    },
+    {
+      "id": 43,
+      "theme": "Kai nežinai, ar dovaną galima grąžinti.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "O jeigu dovana netiks?",
+          "body": "Ši mintis kirba kiekvieną kartą perkant kitam."
+        },
+        {
+          "title": "Ar dovaną bus galima grąžinti?",
+          "body": "Verta tai išsiaiškinti dar prieš užsakant."
+        }
+      ],
+      "context": [
+        "Dydis, spalva ar skonis gali nepataikyti, o grąžinimo sąlygos dažnai neaiškios.",
+        "Neaiškios sąlygos prideda abejonių prie ir taip sunkaus pasirinkimo."
+      ],
+      "build": [
+        "Prieš užsakant patikrink grąžinimo sąlygas, ypač jei dar abejoji.",
+        "Daiktai be dydžių ir sudėtingų pasirinkimų rečiau keliauja atgal.",
+        "Pridėk prie dovanos čekį ar kortelę su grąžinimo informacija."
+      ],
+      "close": [
+        "Kai grąžinimo sąlygos aiškios, dovanoti gali daug ramiau.",
+        "Aiškios sąlygos leidžia dovanoti be abejonių."
+      ]
+    },
+    {
+      "id": 44,
+      "theme": "Per daug pasirinkimų ir nė vieno sprendimo.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Atidarei dešimt parduotuvių ir nieko neišsirinkai?",
+          "body": "Pasirinkimų gausa dažnai tik trukdo apsispręsti."
+        },
+        {
+          "title": "Per daug variantų ir nė vieno sprendimo?",
+          "body": "Taip atrodo dauguma gruodžio vakarų."
+        }
+      ],
+      "context": [
+        "Kuo daugiau variantų, tuo sunkiau išsirinkti vieną.",
+        "Po valandos naršymo visi daiktai atrodo vienodi."
+      ],
+      "build": [
+        "Pirmiausia nuspręsk, kam perki ir kiek gali išleisti. Tada variantų lieka keli.",
+        "Pasirink vieną kryptį, pavyzdžiui jaukumą namuose, ir ieškok tik joje.",
+        "Užverk visus skirtukus, išskyrus tris geriausius variantus."
+      ],
+      "close": [
+        "Aiškūs kriterijai paverčia ilgą naršymą trumpu pasirinkimu.",
+        "Kai variantų lieka keli, sprendimas atsiranda per kelias minutes."
+      ]
+    },
+    {
+      "id": 45,
+      "theme": "Kai reikia dovanų keliems žmonėms vienu metu.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Reikia penkių skirtingų dovanų vienu metu?",
+          "body": "Atrodo kaip penki atskiri rūpesčiai."
+        },
+        {
+          "title": "Reikia dovanų keliems žmonėms iš karto?",
+          "body": "Be plano tai greitai tampa varginančiu darbu."
+        }
+      ],
+      "context": [
+        "Kiekvienam žmogui ieškoti atskirai užima kelis vakarus.",
+        "Kai dovanų daug, lengva ką nors pamiršti ar nupirkti tą patį du kartus."
+      ],
+      "build": [
+        "Susirašyk gavėjus ir prie kiekvieno iškart pasižymėk vieną pagrindinę idėją.",
+        "Viena tema visiems, pavyzdžiui jaukus vakaras, leidžia pirkti greičiau ir vienoje vietoje.",
+        "Pradėk nuo artimiausių žmonių, o simbolines dovanas palik pabaigai."
+      ],
+      "close": [
+        "Su aiškiu sąrašu visas dovanas gali išrinkti per vieną vakarą.",
+        "Kai kiekvienas gavėjas turi savo idėją, niekas nelieka be dovanos."
+      ]
+    },
+    {
+      "id": 46,
+      "theme": "Kaip nepasiklysti tarp kalėdinių nuolaidų.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Akcijos vilioja pirkti viską iš eilės?",
+          "body": "Lengva prisipirkti visko, tik ne to, ko reikia."
+        },
+        {
+          "title": "Kaip nepasiklysti tarp nuolaidų?",
+          "body": "Padeda paprastas sąrašas ir viena taisyklė."
+        }
+      ],
+      "context": [
+        "Nuolaidos sukuria jausmą, kad reikia pirkti dabar.",
+        "Akcijų metu prisiperki daiktų, kurie neturi gavėjo."
+      ],
+      "build": [
+        "Turėk konkretų dovanų sąrašą ir tikrink, ar kiekvienas pirkinys turi savo gavėją.",
+        "Nuolaida verta dėmesio tik tada, kai daiktas jau buvo tavo sąraše.",
+        "Prieš apmokant pažiūrėk, ar aišku, kam tas daiktas skirtas."
+      ],
+      "close": [
+        "Su aiškiu sąrašu nuolaidos padeda sutaupyti, o ne išlaidauti.",
+        "Kai kiekvienas pirkinys turi gavėją, akcijos tampa privalumu, o ne spąstais."
+      ]
+    },
+    {
+      "id": 47,
+      "theme": "Jauki Kalėdų atmosfera namuose",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Kada namuose prasideda Kalėdos?",
+          "body": "Dažnai ne nuo eglutės, o nuo šviesos ir kvapo."
+        },
+        {
+          "title": "Namai dar neatrodo šventiškai?",
+          "body": "Kartais užtenka kelių smulkmenų, kad viskas pasikeistų."
+        }
+      ],
+      "context": [
+        "Gruodį vakarai tamsūs, o namai dažnai atrodo kaip bet kuriuo kitu metų laiku.",
+        "Didelės dekoracijos reikalauja laiko, kurio prieš šventes trūksta."
+      ],
+      "build": [
+        "Šilta šviesa vakare pakeičia kambario nuotaiką greičiau nei bet koks remontas.",
+        "Malonus kvapas namuose kuria šventinę nuotaiką dar prieš atvykstant svečiams.",
+        "Užtenka vieno jaukaus kampo, kad visi namai atrodytų šventiškesni."
+      ],
+      "close": [
+        "Kai namuose šilta ir šviesu, šventinė nuotaika ateina pati.",
+        "Jaukumas namuose tampa geriausia Kalėdų laukimo dalimi."
+      ]
+    },
+    {
+      "id": 48,
+      "theme": "Kalėdinės dekoracijos, kurios lieka gražios",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Dekoracijos, kurios nepabosta?",
+          "body": "Kasmet perki naujų, o po švenčių jos vėl atsiduria dėžėje."
+        },
+        {
+          "title": "Ar reikia dekoruoti visą kambarį?",
+          "body": "Dažnai keli gerai parinkti akcentai atrodo geriau."
+        }
+      ],
+      "context": [
+        "Kasmet dėžė su blizgučiais vis pilnėja, bet namai nuo to jaukesni netampa.",
+        "Per daug dekoracijų greitai atrodo kaip netvarka."
+      ],
+      "build": [
+        "Keli kokybiški akcentai atrodo ramiau nei pilna dėžė blizgučių.",
+        "Natūralios medžiagos ir šilti atspalviai išlieka gražūs ir kitais metais.",
+        "Geriau mažiau, bet tai, kas dera prie tavo namų."
+      ],
+      "close": [
+        "Kokybiški akcentai džiugina ne vieną sezoną.",
+        "Kai dekoracijų nedaug, kiekviena iš jų atrodo išskirtinai."
+      ]
+    },
+    {
+      "id": 49,
+      "theme": "Kalėdų atgalinis skaičiavimas",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Kiek dienų liko iki Kalėdų?",
+          "body": "Mažiau, nei atrodo, todėl verta pradėti dabar."
+        },
+        {
+          "title": "Gruodis bėga greičiau, nei tikėjaisi?",
+          "body": "Dovanas geriausia susidėlioti, kol dar yra laiko."
+        }
+      ],
+      "context": [
+        "Gruodžio dienos prabėga tarp darbų, ir šventės užklumpa netikėtai.",
+        "Kol atidėlioji, gerų variantų lieka vis mažiau."
+      ],
+      "build": [
+        "Pirk po vieną dovaną per savaitę, ir gruodžio pabaiga bus rami.",
+        "Kiekviena diena iki švenčių gali turėti savo mažą ritualą.",
+        "Užsirašyk paskutinę dieną, kada dar spėsi užsisakyti."
+      ],
+      "close": [
+        "Kai dovanos paruoštos laiku, atgalinis skaičiavimas tampa malonumu.",
+        "Laiku pradėtas pasiruošimas leidžia mėgautis kiekviena gruodžio diena."
+      ]
+    },
+    {
+      "id": 50,
+      "theme": "Dovanos išpakavimas ir reakcija",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Kokia reakcija yra geriausia dovanai?",
+          "body": "Geriausia, kai žmogus atidaro dėžutę ir akimirkai nutyla."
+        },
+        {
+          "title": "Laukiama akimirka po eglute?",
+          "body": "Išpakavimas dažnai pasako daugiau nei bet kokie žodžiai."
+        }
+      ],
+      "context": [
+        "Atsitiktinė dovana sulaukia mandagios šypsenos ir tiek.",
+        "Kartais matai, kad dovana nepataikė, ir tai jauti visą vakarą."
+      ],
+      "build": [
+        "Tikrą reakciją dažniau sukelia jaukus, apgalvotas daiktas nei brangus, bet atsitiktinis.",
+        "Daiktas, kurį žmogus iškart nori išbandyti, yra geriausias ženklas.",
+        "Gražiai supakuota dovana prailgina malonią laukimo akimirką."
+      ],
+      "close": [
+        "Kai dovana pataiko, reakcija pasako viską be žodžių.",
+        "Ta akimirka, kai žmogus nusišypso, ir yra tikroji šventė."
+      ]
+    },
+    {
+      "id": 51,
+      "theme": "Lėtas žiemos vakaras be telefono.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Kada paskutinį kartą vakarą praleidai be ekrano?",
+          "body": "Be skubėjimo, be pranešimų ir be begalinio naršymo."
+        },
+        {
+          "title": "Ar ilgai ištvertum be ekrano?",
+          "body": "Vienas lėtas vakaras gali atgaivinti labiau nei savaitgalis."
+        }
+      ],
+      "context": [
+        "Vakarai dažnai prabėga naršant, ir poilsio jausmas taip ir neateina.",
+        "Ekranas šviečia iki pat vėlumos, o galva taip ir nepailsi."
+      ],
+      "build": [
+        "Pritemdyta šviesa ir šiltas gėrimas padeda sulėtinti tempą.",
+        "Padėk ekraną į kitą kambarį bent vienam vakarui.",
+        "Minkštas kampas ant sofos ir lėtas pokalbis kartais atstoja visą atostogų dieną."
+      ],
+      "close": [
+        "Toks poilsis sugrąžina daugiau jėgų nei savaitgalis prie ekrano.",
+        "Lėti vakarai tampa mažu žiemos ritualu, kurio norisi vėl."
+      ]
+    },
+    {
+      "id": 52,
+      "theme": "Mažas Kalėdų vakaro ritualas namuose.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Nuo ko prasideda šventinė nuotaika?",
+          "body": "Dažnai ne nuo datos, o nuo mažų ritualų."
+        },
+        {
+          "title": "Turi savo Kalėdų vakaro ritualą?",
+          "body": "Jei ne, šiemet pats metas jį susikurti."
+        }
+      ],
+      "context": [
+        "Prieš šventes dienos tokios pilnos, kad vakare nebelieka jėgų niekam.",
+        "Šventinė nuotaika neateina pati, kai visas gruodis praeina skubant."
+      ],
+      "build": [
+        "Bent pusvalandis lėto vakaro padeda sulėtinti tempą.",
+        "Pritemdyta šviesa, šiltas gėrimas ir mėgstama muzika jau sukuria ritualą.",
+        "Ritualas nebūtinai didelis. Svarbu, kad jis kartotųsi kiekvieną vakarą."
+      ],
+      "close": [
+        "Mažas vakaro ritualas tampa geriausia Kalėdų laukimo dalimi.",
+        "Kai vakarai turi savo ritmą, šventinė nuotaika ateina pati."
+      ]
+    },
+    {
+      "id": 53,
+      "theme": "Jaukus filmų vakaras prieš Kalėdas.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Filmų vakaras namuose?",
+          "body": "Kartais Kalėdų nuotaikai trūksta tik vieno gero vakaro."
+        },
+        {
+          "title": "Koks tavo mėgstamiausias kalėdinis filmas?",
+          "body": "Žiūrėti jį jaukiai įsitaisius dar smagiau."
+        }
+      ],
+      "context": [
+        "Dažnai filmas tampa fonu, o vakaras taip ir nebūna jaukus.",
+        "Šaltas kambarys ir pranešimai ekrane sugadina net geriausią filmą."
+      ],
+      "build": [
+        "Pritemdyta šviesa, karštas gėrimas ir minkštas kampas ant sofos sukuria tikrą kino vakarą.",
+        "Išjunk pranešimus ir leisk filmui užpildyti visą vakarą.",
+        "Vienas toks vakaras per savaitę greitai virsta tradicija, kurios laukia visi."
+      ],
+      "close": [
+        "Toks vakaras virsta maža žiemos tradicija.",
+        "Jaukus filmų vakaras įsimena ilgiau nei pats filmas."
+      ]
+    },
+    {
+      "id": 54,
+      "theme": "Namų kampelis žiemos vakarams.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Ar turi savo jaukų kampelį namuose?",
+          "body": "Vietą, kur norisi įsitaisyti kiekvieną žiemos vakarą."
+        },
+        {
+          "title": "Reikia dekoruoti visus namus, kad būtų jaukiau?",
+          "body": "Užtenka vieno gerai įrengto kampelio."
+        }
+      ],
+      "context": [
+        "Kai namuose nėra jaukios vietos, vakarai prabėga prie ekrano.",
+        "Didelis remontas prieš šventes neįmanomas, o jaukumo norisi dabar."
+      ],
+      "build": [
+        "Minkštas audinys, šilta šviesa ir keli sezoniniai akcentai pakeičia visą kambario nuotaiką.",
+        "Pasirink vieną kampą prie lango ar sofos ir padaryk jį savo poilsio vieta.",
+        "Kampelis turi kviesti prisėsti, todėl svarbiausia patogumas."
+      ],
+      "close": [
+        "Vienas jaukus kampelis gali tapti mėgstamiausia namų vieta visą žiemą.",
+        "Kai turi savo kampelį, žiemos vakarai tampa laukiama dienos dalimi."
+      ]
+    },
+    {
+      "id": 55,
+      "theme": "Kalėdinis vakaras dviese be didelių planų.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Jaukus vakaras dviese be rezervacijos?",
+          "body": "Kartais geriausi planai yra patys paprasčiausi."
+        },
+        {
+          "title": "Šventinis vakaras dviese be didelio plano?",
+          "body": "Užtenka šilto gėrimo ir neskubaus pokalbio."
+        }
+      ],
+      "context": [
+        "Prieš šventes dienotvarkė pilna, o laiko vienas kitam lieka mažai.",
+        "Restoranai perpildyti, o laisvų staliukų nebėra."
+      ],
+      "build": [
+        "Paprastas stalo vakaras su šiltu gėrimu kartais pranoksta restoraną.",
+        "Išjunk ekranus ir skirk vakarą pokalbiui.",
+        "Vakarienė namuose dviese gali būti jaukesnė nei bet kur kitur."
+      ],
+      "close": [
+        "Toks vakaras dviese tampa geriausia šventinio laikotarpio dalimi.",
+        "Paprastas vakaras kartu įsimena ilgiau nei brangus planas."
+      ]
+    },
+    {
+      "id": 56,
+      "theme": "Kaip namus padaryti šiltesnius ir jaukesnius.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Kaip padaryti namus jaukesnius žiemą?",
+          "body": "Kai tamsu jau popietę, jaukumo namuose reikia labiau nei bet kada."
+        },
+        {
+          "title": "Namuose šalta ir nejauku?",
+          "body": "Keli paprasti sprendimai pakeičia daugiau nei remontas."
+        }
+      ],
+      "context": [
+        "Žiemą tamsu jau popietę, ir namai atrodo niūriau.",
+        "Šalti kambariai skatina vakarus leisti prie ekrano."
+      ],
+      "build": [
+        "Minkšti audiniai ir šilti atspalviai iškart sušildo erdvę.",
+        "Kelios šiltos šviesos vietoje vienos ryškios pakeičia visą kambario nuotaiką.",
+        "Malonus kvapas daro namus jaukesnius dar prieš įeinant."
+      ],
+      "close": [
+        "Keli maži pokyčiai paverčia namus šilta vieta visai žiemai.",
+        "Jaukūs namai padeda žiemą išgyventi lengviau."
+      ]
+    },
+    {
+      "id": 57,
+      "theme": "Sekmadienio vakaras prieš šventinę savaitę.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Paskutinis ramus vakaras prieš šventes?",
+          "body": "Verta jį išnaudoti sau, o ne sąrašams."
+        },
+        {
+          "title": "Ar turi planą sekmadienio vakarui?",
+          "body": "Prieš šventinę savaitę ramus vakaras yra būtinas."
+        }
+      ],
+      "context": [
+        "Kitą savaitę lauks pirkiniai, svečiai ir šimtas darbų.",
+        "Prieš šventes lengva pamiršti apie poilsį."
+      ],
+      "build": [
+        "Pasidaryk šilto gėrimo, įsisuk į minkštą užklotą ir skirk valandą sau.",
+        "Ramus vakaras padeda pasitikti įtemptą savaitę su daugiau jėgų.",
+        "Vakarą gali skirti ir artimam žmogui, be skubėjimo ir ekranų."
+      ],
+      "close": [
+        "Toks poilsis suteikia jėgų visiems artėjantiems darbams.",
+        "Kai pradedi savaitę pailsėjus, šventės tampa malonumu, o ne darbu."
+      ]
+    },
+    {
+      "id": 58,
+      "theme": "Jaukus vakaras su šeima be ekranų.",
+      "recipient": "šeima",
+      "hooks": [
+        {
+          "title": "Visa šeima vakare prie savo ekranų?",
+          "body": "Kalėdų laukimas nebūtinai turi taip atrodyti."
+        },
+        {
+          "title": "Kaip suburti šeimą prie vieno stalo?",
+          "body": "Užtenka vieno vakaro be ekranų ir bendros veiklos."
+        }
+      ],
+      "context": [
+        "Net būnant namie kartu, kiekvienas žiūri į savo ekraną.",
+        "Vakarai bėga, o bendro laiko šeimoje vis mažiau."
+      ],
+      "build": [
+        "Stalo vakaras ar tiesiog ilgesnis pokalbis suburia šeimą geriau nei bet kas.",
+        "Paskelbk vieną vakarą per savaitę be ekranų.",
+        "Bendra veikla prie stalo vaikams įsimena ilgiau nei dar vienas filmas."
+      ],
+      "close": [
+        "Toks vakaras su šeima virsta tradicija, kurios laukia visi.",
+        "Bendras laikas be ekranų yra geriausia dovana per šventes."
+      ]
+    },
+    {
+      "id": 59,
+      "theme": "Vilnonis pledas kaip Kalėdų dovana",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Ieškai dovanos, su kuria sunku suklysti?",
+          "body": "Yra dovanų, kurios tinka beveik kiekvienam ir pravers visą žiemą."
+        },
+        {
+          "title": "Šalti vakarai ant sofos?",
+          "body": "Tada šilta dovana praverčia labiausiai."
+        }
+      ],
+      "context": [
+        "Žiemos vakarais namuose dažnai vėsu, ypač ant sofos prie filmo.",
+        "Ne kiekviena dovana tinka visiems, o spėlioti nesinori."
+      ],
+      "build": [
+        "Šilta ir minkšta dovana praverčia kiekvieną žiemos vakarą, nesvarbu, kam ji skirta.",
+        "Natūrali vilna šildo ir leidžia odai kvėpuoti.",
+        "Gražiai sulankstyta ir supakuota dovana atrodo paruošta iš karto."
+      ],
+      "close": [
+        "Šilta dovana kiekvieną filmų vakarą primins apie tave.",
+        "Kokybiška dovana tarnauja ilgai ir nenusibosta po pirmo sezono."
+      ]
+    },
+    {
+      "id": 60,
+      "theme": "Žvakė Kalėdų vakarui",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Ieškai dovanos Kalėdų vakarui?",
+          "body": "Šviesa ir kvapas namuose išlieka ilgiau nei saldumynai."
+        },
+        {
+          "title": "Kas sukuria Kalėdų vakaro nuotaiką?",
+          "body": "Dažnai tai mažytė liepsnelė ir malonus kvapas."
+        }
+      ],
+      "context": [
+        "Vakarai tamsūs, o namuose trūksta šilumos ir jaukumo.",
+        "Dovana kaimynei ar kolegei turi būti maloni, bet ne per asmeniška."
+      ],
+      "build": [
+        "Šilta šviesa ir švelnus kvapas iš karto paverčia vakarą jaukesniu.",
+        "Medinis dagtis tyliai traška ir kuria ramią nuotaiką.",
+        "Tokia dovana tinka ir mamai, ir kolegai, ir kaimynei."
+      ],
+      "close": [
+        "Kiekvieną vakarą tokia dovana primins apie tave šviesa ir kvapu.",
+        "Jaukus kvapas ir šilta šviesa tampa mažu kasdieniu malonumu."
+      ]
+    },
+    {
+      "id": 61,
+      "theme": "Dovana, kurią pora naudos namuose",
+      "recipient": "pora",
+      "hooks": [
+        {
+          "title": "Ką padovanoti porai, kad naudotų kartu?",
+          "body": "Geriausia, kai dovana kviečia praleisti vakarą drauge."
+        },
+        {
+          "title": "Porai dar vienas daiktas į stalčių?",
+          "body": "Geriau tai, kas namuose bus naudojama abiejų."
+        }
+      ],
+      "context": [
+        "Porai dažnai dovanojamos dvi smulkmenos, kurios niekaip nesusijusios.",
+        "Bendrų vakarų namuose prieš šventes vis mažiau."
+      ],
+      "build": [
+        "Pagalvok, kaip pora leidžia vakarus namuose. Iš to aišku, kas praverstų abiem.",
+        "Bendras vakaras prie stalo porai vertingesnis už brangų daiktą.",
+        "Klausimai vakarienei ar bendras stalo vakaras suartina labiau nei dar viena dekoracija."
+      ],
+      "close": [
+        "Bendra dovana virsta mėgstamu jų ritualu.",
+        "Kai dovana naudojama dviese, ji primena apie tave kiekvieną bendrą vakarą."
+      ]
+    },
+    {
+      "id": 62,
+      "theme": "Termosas kelionėms žiemą",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Daug laiko praleidi kelyje?",
+          "body": "Žiemą karštas gėrimas kelyje labai praverčia."
+        },
+        {
+          "title": "Rytas prasideda automobilyje ar autobuse?",
+          "body": "Tada šiltas gėrimas po ranka tampa būtinybe."
+        }
+      ],
+      "context": [
+        "Žiemą rytai tamsūs ir šalti, o kelias į darbą ilgas.",
+        "Gėrimas iš degalinės brangus ir greitai atšąla."
+      ],
+      "build": [
+        "Karštas gėrimas, kuris išlieka šiltas kelias valandas, praverčia ir darbe, ir miške.",
+        "Praktiška dovana žmogui, kuris daug važinėja, naudojama kasdien.",
+        "Tokia dovana tinka ir vairuotojui, ir pasivaikščiojimų mėgėjui."
+      ],
+      "close": [
+        "Kiekvieną šaltą rytą tokia dovana primins apie tave.",
+        "Praktiška dovana kelyje tampa kasdieniu palydovu visą žiemą."
+      ]
+    },
+    {
+      "id": 63,
+      "theme": "Pledas kaip dovana šaltam žiemos vakarui.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Kokia dovana tinka šaltam vakarui?",
+          "body": "Tokia, kurios paskirtis aiški iš pirmo žvilgsnio."
+        },
+        {
+          "title": "Žiemos vakarai vėl šalti?",
+          "body": "Kartais užtenka minkštumo ir šilumos ant sofos."
+        }
+      ],
+      "context": [
+        "Šaltais vakarais net šildomame kambaryje norisi daugiau šilumos.",
+        "Ant sofos prie filmo šalta, o keltis nesinori."
+      ],
+      "build": [
+        "Minkšta ir šilta dovana kviečia įsitaisyti ir pailsėti.",
+        "Tokia dovana pravers ir skaitant, ir žiūrint filmą, ir tiesiog ilsintis.",
+        "Neutralios spalvos dera prie bet kokio interjero."
+      ],
+      "close": [
+        "Šilta dovana kiekvieną šaltą vakarą paverčia jaukesniu.",
+        "Kai šalta, tokia dovana būna po ranka ir primena apie tave."
+      ]
+    },
+    {
+      "id": 64,
+      "theme": "Termosas žmogui, kuris visur skuba.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Pažįsti žmogų, kurio gėrimas visada atšąla?",
+          "body": "Jis tiesiog nespėja išgerti, nes vėl kažkur skuba."
+        },
+        {
+          "title": "Rytai praeina bėgte?",
+          "body": "Tada karštas gėrimas po ranka labai praverčia."
+        }
+      ],
+      "context": [
+        "Ant stalo paliktas gėrimas atšąla, dar nespėjus atsigerti.",
+        "Ryte tenka rinktis tarp karšto gėrimo ir išėjimo laiku."
+      ],
+      "build": [
+        "Gėrimas, kuris išlieka karštas kelias valandas, leidžia neskubėti jo išgerti.",
+        "Tokia dovana pravers darbe, kelyje ir pasivaikščiojime.",
+        "Praktiška dovana skubančiam žmogui yra ta, kurią jis ima kasdien."
+      ],
+      "close": [
+        "Kiekvieną skubų rytą tokia dovana primins apie tave.",
+        "Karštas gėrimas po ranka padaro skubias dienas malonesnes."
+      ]
+    },
+    {
+      "id": 65,
+      "theme": "Žvakė kaip maža, bet jauki dovana.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Nenori ateiti tuščiomis rankomis?",
+          "body": "Bet ir didelės dovanos šį kartą nereikia."
+        },
+        {
+          "title": "Maža dovana, kuri sukuria nuotaiką?",
+          "body": "Šviesa ir kvapas tam visai pakanka."
+        }
+      ],
+      "context": [
+        "Kai einama į svečius, maža dovana būtina, bet idėjų trūksta.",
+        "Dar viena dėžutė saldumynų jau atrodo kaip formalumas."
+      ],
+      "build": [
+        "Šilta šviesa ir malonus kvapas sukuria jaukumą bet kuriuose namuose.",
+        "Net smulkmena atrodo apgalvotai, jei ją parinkai su mintimi apie žmogų.",
+        "Tokią dovaną lengva įteikti beveik bet kam."
+      ],
+      "close": [
+        "Maža dovana, kuri kuria jaukumą, įsimena labiau nei brangi.",
+        "Kiekvieną vakarą tokia smulkmena primins apie tave."
+      ]
+    },
+    {
+      "id": 66,
+      "theme": "Stalo žaidimas šeimos Kalėdų vakarui.",
+      "recipient": "šeima",
+      "hooks": [
+        {
+          "title": "Kalėdų vakaras visiems prie vieno stalo?",
+          "body": "Geriausi vakarai prasideda, kai visi padeda ekranus."
+        },
+        {
+          "title": "Ką veikti šeimai šventiniais vakarais?",
+          "body": "Bendra veikla suartina labiau nei dar vienas filmas."
+        }
+      ],
+      "context": [
+        "Šventiniais vakarais visi kartu, bet kiekvienas sau.",
+        "Pokalbiai prie stalo greitai baigiasi, ir visi išsiskirsto prie ekranų."
+      ],
+      "build": [
+        "Bendra veikla prie stalo suburia visą šeimą, nuo vaikų iki senelių.",
+        "Žaisti kartu smagu net tiems, kurie sako, kad nemėgsta.",
+        "Tokia dovana tampa priežastimi daugiau laiko praleisti kartu."
+      ],
+      "close": [
+        "Bendras vakaras prie stalo tampa šeimos tradicija.",
+        "Juokas prie stalo įsimena ilgiau nei bet kuris daiktas."
+      ]
+    },
+    {
+      "id": 67,
+      "theme": "Dekoracija kaip dovana naujiems namams.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Ką padovanoti į naujus namus?",
+          "body": "Dar nežinai jų skonio, todėl rinktis sunkiau."
+        },
+        {
+          "title": "Artimieji neseniai įsikėlė?",
+          "body": "Dovana namams dabar prasmingesnė nei bet kada."
+        }
+      ],
+      "context": [
+        "Naujuose namuose dar daug tuščių vietų, bet skonis ne visada aiškus.",
+        "Didelę dekoraciją nauji šeimininkai gali norėti išsirinkti patys."
+      ],
+      "build": [
+        "Subtili dekoracija tinka prie daugumos interjerų ir nekelia rizikos.",
+        "Natūralios medžiagos ir neutralios spalvos dera prie bet kokio stiliaus.",
+        "Šventinis akcentas naujuose namuose primena, kad čia kuriamos naujos tradicijos."
+      ],
+      "close": [
+        "Tokia dovana tampa pirmąja naujų namų švenčių tradicija.",
+        "Subtili dekoracija lieka matomoje vietoje ir primena apie tave."
+      ]
+    },
+    {
+      "id": 68,
+      "theme": "Dovanų rinkinys, kai sunku išsirinkti vieną daiktą.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Viena dovana atrodo per maža?",
+          "body": "O kelių atskirų rinktis nesinori."
+        },
+        {
+          "title": "Ar kelios smulkmenos gali atstoti vieną dovaną?",
+          "body": "Kartais taip net geriau nei viena didelė."
+        }
+      ],
+      "context": [
+        "Viena smulkmena atrodo kukliai, o atskirų dovanų paieška užtrunka.",
+        "Vienos dovanos išrinkti nepavyksta, nes visos atrodo panašios."
+      ],
+      "build": [
+        "Kelios suderintos smulkmenos vienoje dėžutėje atrodo kaip pilnesnė dovana.",
+        "Svarbiausia, kad visi daiktai turėtų bendrą temą, pavyzdžiui jaukų vakarą.",
+        "Paruošta dovanų dėžutė sutaupo laiko, ir nieko nereikia derinti."
+      ],
+      "close": [
+        "Gerai suderinta dovana atrodo apgalvotai ir džiugina kiekviena smulkmena.",
+        "Kai viskas jau sudėta į vieną dėžutę, dovaną gali įteikti iškart."
+      ]
+    },
+    {
+      "id": 69,
+      "theme": "Pledas ir žvakė vienam jaukiam vakarui.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Ar dovana gali tapti jaukiu vakaru?",
+          "body": "Šiluma ir švelni šviesa tam visai pakanka."
+        },
+        {
+          "title": "Kaip padovanoti jaukų vakarą?",
+          "body": "Užtenka dviejų dalykų, kurie vienas kitą papildo."
+        }
+      ],
+      "context": [
+        "Ilgais žiemos vakarais namuose dažnai vėsu ir per šviesu.",
+        "Po įtemptos dienos sunku atsipalaiduoti."
+      ],
+      "build": [
+        "Šiluma ant sofos ir švelni šviesa sukuria ramią nuotaiką be jokių pastangų.",
+        "Du vienas kitą papildantys daiktai atrodo kaip apgalvota visuma.",
+        "Tokia dovana tinka beveik kiekvienam, kas mėgsta būti namie."
+      ],
+      "close": [
+        "Tokia dovana žiemos vakarus padaro jaukesnius.",
+        "Jaukus vakaras namuose įsimena ilgiau nei bet kuri brangi dovana."
+      ]
+    },
+    {
+      "id": 70,
+      "theme": "Termosas žiemos pasivaikščiojimams ir kelionėms.",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Mėgsti žiemos pasivaikščiojimus?",
+          "body": "Šaltą dieną karštas gėrimas kuprinėje išgelbsti visą išvyką."
+        },
+        {
+          "title": "Ar žmogus daug laiko praleidžia lauke?",
+          "body": "Tada karštas gėrimas po ranka yra geriausia dovana."
+        }
+      ],
+      "context": [
+        "Žiemą lauke šalta, o šilta vieta pakeliui ne visada atsiranda.",
+        "Ilgame kelyje šaltas gėrimas greitai nuvilia."
+      ],
+      "build": [
+        "Gėrimas, kuris išlieka karštas kelias valandas, praverčia miške, kalnuose ir kelyje.",
+        "Tokia dovana tinka žmogui, kuris mėgsta būti lauke ar daug važinėja.",
+        "Praktiška ir patvari dovana atlaiko ir šaltį, ir ilgas išvykas."
+      ],
+      "close": [
+        "Kiekvienoje žiemos išvykoje tokia dovana primins apie tave.",
+        "Šiltas gurkšnis lauke paverčia šaltą dieną malonia išvyka."
+      ]
+    },
+    {
+      "id": 71,
+      "theme": "Megztinis kaip Kalėdų dovana",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Dovana, kurios nenorėsi nusivilkti?",
+          "body": "Kai šalta, šiltas drabužis tampa mėgstamiausiu."
+        },
+        {
+          "title": "Ieškai šiltos dovanos jam ar jai?",
+          "body": "Laisvo kirpimo drabužis tinka abiem ir nereikalauja tikslaus dydžio."
+        }
+      ],
+      "context": [
+        "Žiemą namuose vėsu, o šilti drabužiai dėvimi kasdien.",
+        "Drabužį dovanoti baisu, nes bijai nepataikyti su dydžiu."
+      ],
+      "build": [
+        "Laisvas kirpimas atleidžia dydžio klaidas ir tinka įvairioms figūroms.",
+        "Merino vilna šildo, bet nekaitina ir leidžia odai kvėpuoti.",
+        "Neutralios spalvos dera prie beveik visų drabužių."
+      ],
+      "close": [
+        "Tokia dovana žiemą tarnauja beveik kasdien.",
+        "Kai dovaną dėvi kasdien, ji primena apie tave visą žiemą."
+      ]
+    },
+    {
+      "id": 72,
+      "theme": "Džemperis su gobtuvu žiemai",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Dovana, kurią dėvės kasdien?",
+          "body": "Užsegamas drabužis su gobtuvu tinka ir namie, ir išbėgus."
+        },
+        {
+          "title": "Reikia šilto drabužio trumpam išbėgimui?",
+          "body": "Kartais striukės per daug, o be nieko per šalta."
+        }
+      ],
+      "context": [
+        "Žiemą trumpam išbėgus į parduotuvę nesinori vilktis storos striukės.",
+        "Namuose vakare vėsu, bet sunkūs drabužiai nepatogūs."
+      ],
+      "build": [
+        "Užsegamą drabužį su gobtuvu greitai užsimeti ir lengvai nusivelki.",
+        "Minkštas flisas šildo, bet išlieka lengvas.",
+        "Gobtuvas ir užtrauktukas dera ir prie sportiško, ir prie klasikinio stiliaus."
+      ],
+      "close": [
+        "Patogus kasdienis drabužis tampa mėgstamiausiu visą žiemą.",
+        "Kai drabužis patogus, jis kasdien keliauja nuo kėdės tiesiai ant pečių."
+      ]
+    },
+    {
+      "id": 73,
+      "theme": "Kardiganas mamai",
+      "recipient": "mama",
+      "hooks": [
+        {
+          "title": "Ką padovanoti mamai šiemet?",
+          "body": "Kartais geriausia dovana yra ta, kurią ji dėvės kasdien."
+        },
+        {
+          "title": "Mamai vakarais šalta namuose?",
+          "body": "Šiltas drabužis, kurį lengva užsimesti, jai praverstų kasdien."
+        }
+      ],
+      "context": [
+        "Mama vakarais dažnai šąla, bet sau nieko šilto nenusiperka.",
+        "Dar viena smulkmena mamai nepasako tiek, kiek kasdien naudojamas daiktas."
+      ],
+      "build": [
+        "Storai megztas drabužis su medinėmis sagomis atrodo jaukiai ir tarnauja ilgai.",
+        "Užsegamą drabužį patogu užsimesti ryte ir nusimesti vakare.",
+        "Mamai svarbu, kad dovana būtų ir graži, ir praktiška."
+      ],
+      "close": [
+        "Mama ją dėvės nuo ryto iki vakaro, ne tik per šventes.",
+        "Kiekvieną vėsų vakarą mama prisimins, kas jai padovanojo šilumą."
+      ]
+    },
+    {
+      "id": 74,
+      "theme": "Pižama visai šeimai Kalėdoms",
+      "recipient": "šeima",
+      "hooks": [
+        {
+          "title": "Šventinė nuotrauka visai šeimai?",
+          "body": "Derantys drabužiai Kūčių vakarui iškart sukuria nuotaiką."
+        },
+        {
+          "title": "Ar šeima turi savo Kalėdų tradiciją?",
+          "body": "Bendri šventiniai drabužiai gali ja tapti jau šiemet."
+        }
+      ],
+      "context": [
+        "Šventės prabėga, o bendrų nuotraukų lieka vos kelios.",
+        "Kiekvienas šeimoje turi savo stilių, todėl bendrą dovaną rasti sunku."
+      ],
+      "build": [
+        "Bendra šventinė apranga greitai virsta smagia namų tradicija.",
+        "Megzta medžiaga šildo ir tinka kiekvienai šaltai nakčiai.",
+        "Viena dovana visiems namams sutaupo laiko ir sukuria bendrą akimirką."
+      ],
+      "close": [
+        "Bendra šventinė nuotrauka šeimai įsimena ilgiau nei bet kuri dovana.",
+        "Tokia tradicija šeimoje kartojasi kasmet ir džiugina visus."
+      ]
+    },
+    {
+      "id": 75,
+      "theme": "Plonas golfas žiemai",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Kaklas šąla net po striuke?",
+          "body": "Plonas drabužis aukšta apykakle tai išsprendžia."
+        },
+        {
+          "title": "Ieškai praktiško žiemos drabužio?",
+          "body": "Kartais geriausias yra tas, kurį galima dėvėti po bet kuo."
+        }
+      ],
+      "context": [
+        "Žiemą storas drabužis per šiltas patalpose, o plonas per šaltas lauke.",
+        "Kaklas šąla net po šilta striuke."
+      ],
+      "build": [
+        "Plonas drabužis aukšta apykakle dėvimas vienas arba kaip papildomas sluoksnis.",
+        "Merino vilna šildo, bet nekaitina patalpose.",
+        "Neutrali spalva dera prie švarko, striukės ir kasdienių drabužių."
+      ],
+      "close": [
+        "Praktiškas sluoksnis žiemą praverčia kiekvieną dieną.",
+        "Šiltas kaklas žiemą reiškia daug geresnę dieną."
+      ]
+    },
+    {
+      "id": 76,
+      "theme": "Moteriškas kalėdinis megztinis su eglutėmis",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Nori, kad drabužis atrodytų tikrai šventiškai?",
+          "body": "Kartais užtenka vieno ryškaus rašto."
+        },
+        {
+          "title": "Šventinė nuotrauka be kalėdinio drabužio?",
+          "body": "Atrodo, kad kažko vis tiek trūksta."
+        }
+      ],
+      "context": [
+        "Kasmet planuoji šventinį drabužį, bet vis atidedi.",
+        "Paprasti drabužiai nuotraukose atrodo kaip bet kurią kitą dieną."
+      ],
+      "build": [
+        "Raudona, balta ir žalia su eglutėmis bei elniais iškart sukuria šventinę nuotaiką.",
+        "Toks drabužis tinka šventiniam vakarėliui ir vakarui namuose.",
+        "Ryškios spalvos išryškina šventinę nuotaiką kiekviename kadre."
+      ],
+      "close": [
+        "Šventinis drabužis kasmet vėl grįžta kaip maža tradicija.",
+        "Kalėdinis raštas paverčia paprastą vakarą šventiniu."
+      ]
+    },
+    {
+      "id": 77,
+      "theme": "Derantys kalėdiniai megztiniai visai šeimai",
+      "recipient": "šeima",
+      "hooks": [
+        {
+          "title": "Šeimos nuotrauka prie eglutės?",
+          "body": "Derantys drabužiai iškart sukuria šventinę nuotaiką."
+        },
+        {
+          "title": "Kaip šiemet atrodys šeimos nuotrauka?",
+          "body": "Bendras raštas visiems ją paverčia šventine."
+        }
+      ],
+      "context": [
+        "Šeimos nuotraukos kasmet panašios, o šventinės nuotaikos jose trūksta.",
+        "Kiekvienas apsirengia savaip, ir bendros nuotaikos nelieka."
+      ],
+      "build": [
+        "Vyro, moters ir vaiko drabužiai su tuo pačiu raštu atrodo kaip viena istorija.",
+        "Raudonas Kalėdų Senelio ir snaigių raštas iškart primena šventes.",
+        "Bendra tradicija šeimai svarbesnė nei bet kuri atskira dovana."
+      ],
+      "close": [
+        "Tokia akimirka lieka prisiminimu ilgiems metams.",
+        "Toks bendras ritualas kasmet sugrąžina šventinę nuotaiką."
+      ]
+    },
+    {
+      "id": 78,
+      "theme": "Derantys kalėdiniai megztiniai porai su sniego seniais",
+      "recipient": "pora",
+      "hooks": [
+        {
+          "title": "Šventinė nuotrauka porai?",
+          "body": "Užtenka vieno bendro motyvo, kad ji atrodytų ypatingai."
+        },
+        {
+          "title": "Ką padovanoti porai šių Kalėdų proga?",
+          "body": "Dovana, kurią abu dėvės vienu metu, suartina labiausiai."
+        }
+      ],
+      "context": [
+        "Poros nuotraukos švenčių metu dažnai atrodo kaip bet kurią kitą dieną.",
+        "Porai dovanojamos dvi atskiros smulkmenos retai sukuria bendrą akimirką."
+      ],
+      "build": [
+        "Vyro ir moters drabužiai su sniego senio raštu iškart rodo, kad tai pora.",
+        "Raudona ir žalia spalvos iškart primena Kalėdas.",
+        "Bendra dovana porai sukuria bendrą tradiciją."
+      ],
+      "close": [
+        "Derantys drabužiai porai kasmet sugrąžina šventinę nuotaiką.",
+        "Poros nuotrauka su bendru motyvu tampa mėgstamiausiu šventės prisiminimu."
+      ]
+    },
+    {
+      "id": 79,
+      "theme": "Šiaurietiško rašto kalėdiniai megztiniai šeimai",
+      "recipient": "šeima",
+      "hooks": [
+        {
+          "title": "Vienas raštas visai šeimai?",
+          "body": "Taip šeimos nuotrauka iškart atrodo šventiškai."
+        },
+        {
+          "title": "Ieškai bendros dovanos visai šeimai?",
+          "body": "Tokios, kurią visi galės dėvėti per šventes kartu."
+        }
+      ],
+      "context": [
+        "Kai kiekvienam šeimos nariui perki atskirą dovaną, bendros tradicijos nelieka.",
+        "Šventinėse nuotraukose dažnai trūksta bendros nuotaikos."
+      ],
+      "build": [
+        "Raudona ir balta su elniais bei snaigėmis primena tikras šiaurietiškas Kalėdas.",
+        "Vyro, moters ir vaiko drabužiai su tuo pačiu raštu sujungia visą šeimą.",
+        "Šiaurietiškas raštas nepabosta ir tinka ne vienoms Kalėdoms."
+      ],
+      "close": [
+        "Bendras raštas šeimai tampa kasmetine švenčių tradicija.",
+        "Kiekviena šeimos nuotrauka prie eglutės tampa ypatingesne."
+      ]
+    },
+    {
+      "id": 80,
+      "theme": "Aromaterapijos žvakė „Žvakių vakaras“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Kedras, gintaras ir cinamonas namuose?",
+          "body": "Toks kvapas iškart primena žiemos vakarus."
+        },
+        {
+          "title": "Ieškai dovanos ilgiems žiemos vakarams?",
+          "body": "Šviesa ir kvapas tam tinka geriausiai."
+        }
+      ],
+      "context": [
+        "Žiemos vakarai ilgi, o namuose trūksta šilumos.",
+        "Ne kiekvienas kvapas namams patinka visiems."
+      ],
+      "build": [
+        "Kedro, gintaro ir cinamono derinys kuria šiltą, šventinę nuotaiką.",
+        "Iki 45 valandų šviesos užtenka daugybei žiemos vakarų.",
+        "Švelnus kvapas namuose sklinda dar ilgai po to, kai vakaras baigiasi."
+      ],
+      "close": [
+        "Kiekvieną vakarą tokia dovana primins apie tave šiltu kvapu.",
+        "Šiltas kvapas namuose tampa mėgstamu žiemos ritualu."
+      ]
+    },
+    {
+      "id": 81,
+      "theme": "Vilnonis pledas „Žiemos šiluma“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Laukia filmų vakaras prie židinio?",
+          "body": "Jam trūksta tik šilumos, į kurią norisi įsisupti."
+        },
+        {
+          "title": "Ar žinai dovaną, kuri šildo visą žiemą?",
+          "body": "Natūrali vilna kvėpuoja ir šildo net šalčiausią vakarą."
+        }
+      ],
+      "context": [
+        "Šaltais vakarais ant sofos norisi daugiau šilumos.",
+        "Sintetinės medžiagos šildo, bet greitai ima erzinti."
+      ],
+      "build": [
+        "Merino vilna šildo, bet nesukelia karščio.",
+        "Storas audimas leidžia susisupti ir pamiršti apie šaltį.",
+        "Tokia dovana pravers prie židinio, ant sofos ir lovoje."
+      ],
+      "close": [
+        "Šilta vilna kiekvieną žiemos vakarą paverčia jaukesniu.",
+        "Kokybiška vilna tarnauja ilgai ir primena apie tave ne vieną žiemą."
+      ]
+    },
+    {
+      "id": 82,
+      "theme": "Šilkinis miego rinkinys „Saldūs sapnai“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Ar gerai išsimiegi gruodį?",
+          "body": "Prieš šventes poilsio dažnai pritrūksta labiausiai."
+        },
+        {
+          "title": "Ieškai dovanos, kuri padėtų pailsėti?",
+          "body": "Švelnus šilkas naktį yra visai kitas pojūtis."
+        }
+      ],
+      "context": [
+        "Gruodį vakarai ilgi, o poilsio vis mažiau.",
+        "Šviesa pro langą ir mintys apie šventes trukdo užmigti."
+      ],
+      "build": [
+        "Šilko kaukė užstoja šviesą ir padeda greičiau atsipalaiduoti.",
+        "Šilkas neglamžo plaukų ir yra švelnus odai.",
+        "Gražiai supakuota poilsio dovana tinka beveik kiekvienam, kas vertina poilsį."
+      ],
+      "close": [
+        "Geresnis poilsis tampa dovana, kuria naudojamasi kiekvieną naktį.",
+        "Ramesnės naktys primins apie tave visą žiemą."
+      ]
+    },
+    {
+      "id": 83,
+      "theme": "Viskio rinkinys „Vakaro ritualas“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Žmogus mėgsta lėtus vakarus?",
+          "body": "Tada jam tiks dovana jo vakaro ritualui."
+        },
+        {
+          "title": "Ką padovanoti, kai žmogus vertina gerą gėrimą?",
+          "body": "Dovaną, kuri vakarą paverčia mažu ritualu."
+        }
+      ],
+      "context": [
+        "Gėrimas, praskiestas tirpstančiu ledu, praranda skonį.",
+        "Paprasta taurė nesuteikia vakarui to išskirtinumo, kurio norisi."
+      ],
+      "build": [
+        "Natūralaus granito akmenys vėsina gėrimą, bet jo neatskiedžia.",
+        "Sunkus stiklas rankoje suteikia vakarui solidumo.",
+        "Tokia dovana skirta žmogui, kuris mėgsta neskubėti."
+      ],
+      "close": [
+        "Kiekvieną ramų vakarą tokia dovana primins apie tave.",
+        "Praktiška ir graži dovana stovi matomoje vietoje ir tarnauja ilgai."
+      ]
+    },
+    {
+      "id": 84,
+      "theme": "Mini sodas „Žalioji oazė“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Žaluma ant palangės žiemą?",
+          "body": "Bazilikas, mėtos ir rozmarinas sudygsta per dvi savaites."
+        },
+        {
+          "title": "Ieškai gyvos dovanos žmogui, kuris mėgsta virtuvę?",
+          "body": "Žaluma virtuvėje džiugina ir praverčia kasdien."
+        }
+      ],
+      "context": [
+        "Žiemą trūksta žalumos, o šviežių žolelių parduotuvėje ne visada rasi.",
+        "Dar viena dekoracija greitai atsibosta, o gyva žaluma džiugina kasdien."
+      ],
+      "build": [
+        "Žolelės sudygsta per 7 iki 14 dienų, todėl rezultatas matomas greitai.",
+        "Šviežios žolelės pravers kiekvieną kartą gaminant.",
+        "Tokia dovana lieka matomoje vietoje, o ne stalčiuje."
+      ],
+      "close": [
+        "Kiekvieną kartą skinant šviežią lapelį, dovana primins apie tave.",
+        "Gyvi augalai namuose primins apie tave iki pat pavasario."
+      ]
+    },
+    {
+      "id": 85,
+      "theme": "Poros knyga „Mūsų akimirkos“",
+      "recipient": "pora",
+      "hooks": [
+        {
+          "title": "Ką padovanoti porai, kuri turi viską?",
+          "body": "Bendrą istoriją, kurią jie užrašys patys."
+        },
+        {
+          "title": "Porai dar vienas daiktas?",
+          "body": "Geriau vakaras, kurio metu jie sužinos vienas apie kitą daugiau."
+        }
+      ],
+      "context": [
+        "Kartu gyvenant bendrų pokalbių vis mažiau, o kasdienybė užima viską.",
+        "Porai dovanos dažnai būna dvi atskiros smulkmenos."
+      ],
+      "build": [
+        "150 klausimų porai padeda prisiminti, kaip viskas prasidėjo.",
+        "Užpildomi puslapiai virsta bendra istorija, kurią smagu skaityti po metų.",
+        "Bendri atsakymai į klausimus suartina labiau nei bet kokia smulkmena."
+      ],
+      "close": [
+        "Bendrai užrašyta istorija porai tampa brangiausiu prisiminimu.",
+        "Kiekvienas atsakytas klausimas porai primena, kodėl jie kartu."
+      ]
+    },
+    {
+      "id": 86,
+      "theme": "Kvapo difuzorius „Jaukūs namai“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Kuo kvepia tavo namai?",
+          "body": "Malonus kvapas sukuria jaukumą greičiau nei bet kokia dekoracija."
+        },
+        {
+          "title": "Nori jaukaus kvapo be liepsnos?",
+          "body": "Tada verta ieškoti kvapo, kuris sklinda pats."
+        }
+      ],
+      "context": [
+        "Atvira liepsna namuose ne visada saugi, ypač kai namuose yra gyvūnų.",
+        "Kvapai namuose greitai išsisklaido ir pasimiršta."
+      ],
+      "build": [
+        "Lazdelės sugeria kvapą ir skleidžia jį tolygiai kelias savaites.",
+        "Kvapas sklinda 10 iki 12 savaičių be jokios priežiūros.",
+        "Tokia dovana atrodo gražiai ir prieškambaryje, ir svetainėje."
+      ],
+      "close": [
+        "Jaukus kvapas namuose primins apie tave kelias savaites.",
+        "Saugus kvapas be liepsnos tampa nuolatine jaukumo dalimi."
+      ]
+    },
+    {
+      "id": 87,
+      "theme": "Vilnonės kojinės „Šilta žiema“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Šąla kojos net namuose?",
+          "body": "Tada šilta dovana praverčia kiekvieną žiemos vakarą."
+        },
+        {
+          "title": "Ieškai dovanos, su kuria nesuklysi?",
+          "body": "Šilta vilna tinka beveik kiekvienam."
+        }
+      ],
+      "context": [
+        "Žiemą grindys šaltos, o kojos šąla net sėdint ant sofos.",
+        "Plonos medvilnės neužtenka, kai lauke spaudžia šaltis."
+      ],
+      "build": [
+        "Stora vilna šildo kojas visą vakarą ir neleidžia joms sušalti.",
+        "Kelių vienetų užtenka visai savaitei.",
+        "Praktiška dovana nekelia klausimų dėl skonio ar stiliaus."
+      ],
+      "close": [
+        "Kai kojos šiltos, ir vakaras atrodo jaukesnis.",
+        "Tokia dovana primins apie tave kaskart, kai lauke spaus šaltis."
+      ]
+    },
+    {
+      "id": 88,
+      "theme": "Termosas „Žiemos kelionė“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Karštas gėrimas visą dieną?",
+          "body": "Ilgame kelyje tai svarbiau, nei atrodo."
+        },
+        {
+          "title": "Daug važinėji žiemą?",
+          "body": "Tada karštas gėrimas kelyje praverčia labiausiai."
+        }
+      ],
+      "context": [
+        "Ilgame kelyje šaltas gėrimas nuvilia, o sustoti ne visada yra kur.",
+        "Žiemą rytai šalti, o darbo diena ilga."
+      ],
+      "build": [
+        "Gėrimas išlieka karštas 12 valandų, o vėsus net parą.",
+        "500 mililitrų užtenka visai darbo dienai.",
+        "Sandarus dangtelis neleidžia išsilieti kuprinėje."
+      ],
+      "close": [
+        "Kiekviename kelyje tokia dovana primins apie tave.",
+        "Karštas gėrimas po ranka paverčia šaltą dieną malonesne."
+      ]
+    },
+    {
+      "id": 89,
+      "theme": "Žaidimų rinkinys „Jaukus vakaras“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Ką veikti vakare prie stalo?",
+          "body": "Kortos, užduotys ir klausimai suburia visus."
+        },
+        {
+          "title": "Svečiai susirinko, o pokalbis stringa?",
+          "body": "Bendra veikla prie stalo greitai praskaidrina nuotaiką."
+        }
+      ],
+      "context": [
+        "Svečiams susirinkus, vakaras dažnai baigiasi prie ekranų.",
+        "Vienoda vakaro programa greitai nusibosta."
+      ],
+      "build": [
+        "Trys skirtingos veiklos vienoje dėžutėje tinka įvairiems vakarams.",
+        "Klausimai padeda geriau pažinti net artimus žmones.",
+        "Tokios veiklos sudomina ir jaunus, ir vyresnius."
+      ],
+      "close": [
+        "Bendras juokas prie stalo įsimena ilgiau nei bet koks filmas.",
+        "Tokia dovana kiekvieną vakarą su svečiais paverčia linksmesniu."
+      ]
+    },
+    {
+      "id": 90,
+      "theme": "Namų kino projektorius „Kino vakaras“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Filmas ant visos sienos?",
+          "body": "Kino vakaras namuose atrodo visai kitaip."
+        },
+        {
+          "title": "Ieškai dovanos, kuri nustebintų iškart?",
+          "body": "Tokios, kurią norisi išbandyti vos išėmus iš dėžės."
+        }
+      ],
+      "context": [
+        "Mažas ekranas nesukuria kino jausmo.",
+        "Išeiti į kiną žiemą ne visada norisi."
+      ],
+      "build": [
+        "Vaizdas iki 120 colių ant sienos paverčia svetainę kino sale.",
+        "Tokia dovana tinka filmų vakarams su draugais ar artimaisiais.",
+        "Užtenka baltos sienos ir užtemdyto kambario."
+      ],
+      "close": [
+        "Kiekvienas filmų vakaras su tokia dovana tampa mažu įvykiu.",
+        "Kino vakaras namuose primins apie tave kiekvieną savaitgalį."
+      ]
+    },
+    {
+      "id": 91,
+      "theme": "Keramikos arbatos rinkinys „Arbatos metas“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Vakaras neįsivaizduojamas be šilto gėrimo?",
+          "body": "Tada dovanos idėja jau beveik aiški."
+        },
+        {
+          "title": "Ieškai jaukios rankų darbo dovanos?",
+          "body": "Keramika namuose atrodo šilčiau nei bet kas kitas."
+        }
+      ],
+      "context": [
+        "Šiltas gėrimas vakare yra mažas ritualas, bet jam dažnai trūksta jaukumo.",
+        "Namuose ir taip netrūksta paprastų indų."
+      ],
+      "build": [
+        "Rankų darbo keramika kiekvieną daiktą padaro šiek tiek kitokį.",
+        "Viskas, ko reikia ramiam vakarui, sudėta į vieną dovaną.",
+        "Tokia dovana tinka žmogui, kuris mėgsta neskubėti vakarais."
+      ],
+      "close": [
+        "Kiekvienas vakaro gurkšnis primins apie tave.",
+        "Rankų darbo dovana tampa mėgstamu kasdieniu ritualu."
+      ]
+    },
+    {
+      "id": 92,
+      "theme": "Vonios rinkinys „Ramybės vakaras“",
+      "recipient": "mama",
+      "hooks": [
+        {
+          "title": "Ką padovanoti mamai ar draugei?",
+          "body": "Dovaną, kuri leidžia vakarą skirti sau."
+        },
+        {
+          "title": "Kada paskutinį kartą skyrei vakarą sau?",
+          "body": "Prieš šventes tokių vakarų beveik nebūna."
+        }
+      ],
+      "context": [
+        "Prieš šventes mama ar draugė rūpinasi visais, tik ne savimi.",
+        "Laiko sau gruodį lieka vis mažiau."
+      ],
+      "build": [
+        "Aliejus ir džiovintos gėlės paverčia paprastą vonią mažu ritualu.",
+        "Dovana jau paruošta, todėl ją gali įteikti iškart.",
+        "Tokia dovana mamai ar draugei primena, kad ir joms reikia poilsio."
+      ],
+      "close": [
+        "Vakaras sau yra geriausia dovana prieš šventes.",
+        "Kiekvienas ramus vakaras primins apie tave ir tavo rūpestį."
+      ]
+    },
+    {
+      "id": 93,
+      "theme": "Stikliniai eglutės žaisliukai „Šventinis spindesys“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Eglutės papuošimai, kurie išlieka metams?",
+          "body": "Rankų pūstas stiklas atrodo visai kitaip nei plastikas."
+        },
+        {
+          "title": "Kasmet perki naujų papuošimų?",
+          "body": "Kokybiški gali puošti eglutę ne vienus metus."
+        }
+      ],
+      "context": [
+        "Plastikiniai papuošimai po kelių sezonų praranda spalvą.",
+        "Kasmet dėžė su papuošimais pilnėja, bet eglutė neatrodo gražesnė."
+      ],
+      "build": [
+        "Rankų pūstas stiklas kiekvieną rutuliuką padaro šiek tiek kitokį.",
+        "Šeši rutuliukai vienoje dėžutėje papuošia visą eglutės pusę.",
+        "Stiklas atspindi šviesą, ir eglutė vakare spindi."
+      ],
+      "close": [
+        "Kokybiški papuošimai kasmet vėl grįžta ant eglutės kaip maža tradicija.",
+        "Tokie papuošimai džiugins dar daug Kalėdų."
+      ]
+    },
+    {
+      "id": 94,
+      "theme": "Puodelis „Karšta kakava“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Karšta kakava žiemos vakarą?",
+          "body": "Ji skanesnė, kai geriama iš mėgstamo indo."
+        },
+        {
+          "title": "Ieškai mažos, bet jaukios dovanos?",
+          "body": "Kasdien naudojamas daiktas džiugina ilgiausiai."
+        }
+      ],
+      "context": [
+        "Kasdien naudojami indai greitai praranda savo žavesį.",
+        "Žiemos vakarais karštas gėrimas tampa ritualu, bet jam trūksta jaukumo."
+      ],
+      "build": [
+        "Didelis 350 mililitrų indas talpina tiek, kiek reikia ilgam vakarui.",
+        "Švelni spalva ir šventinis piešinys tinka bet kokiai virtuvei.",
+        "Tokia dovana naudojama kasdien, ne tik per šventes."
+      ],
+      "close": [
+        "Kiekvieną rytą tokia dovana primins apie tave.",
+        "Mėgstamas indas paverčia paprastą gėrimą mažu malonumu."
+      ]
+    },
+    {
+      "id": 95,
+      "theme": "Odinis kortelių dėklas „Elegancija“",
+      "recipient": "tėtis",
+      "hooks": [
+        {
+          "title": "Ką padovanoti tėčiui ar kolegai?",
+          "body": "Dovaną, kurią jis nešiosis kasdien."
+        },
+        {
+          "title": "Ieškai solidžios, bet nedidelės dovanos?",
+          "body": "Natūrali oda atrodo elegantiškai ir tarnauja ilgai."
+        }
+      ],
+      "context": [
+        "Kortelės kišenėje dažnai išsibarsto ir dėvisi.",
+        "Vyriškai dovanai dažnai trūksta idėjų."
+      ],
+      "build": [
+        "Plonas odinis daiktas telpa net į priekinę kišenę.",
+        "Natūrali oda su laiku atrodo tik gražiau.",
+        "Plona ir solidi smulkmena dera prie tėčio kasdienio stiliaus."
+      ],
+      "close": [
+        "Kasdien naudojamas daiktas primins apie tave kiekvieną kartą.",
+        "Solidi smulkmena tėčiui ar kolegai tarnaus ne vienus metus."
+      ]
+    },
+    {
+      "id": 96,
+      "theme": "LED girlianda „Šilta šviesa“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Šilta šviesa eglutei ar langui?",
+          "body": "Kartais užtenka jos, kad visi namai atrodytų šventiškai."
+        },
+        {
+          "title": "Namai vakare atrodo niūriai?",
+          "body": "Šilta šviesa pakeičia nuotaiką per kelias sekundes."
+        }
+      ],
+      "context": [
+        "Gruodį tamsu jau popietę, o lubų šviesa per ryški.",
+        "Šaltos šviesos namuose sukuria biuro nuotaiką."
+      ],
+      "build": [
+        "Penki metrai šiltos šviesos tinka eglutei, palangei ar veidrodžiui.",
+        "Šilti atspalviai ramina ir kuria jaukumą.",
+        "Šviesa lieka gera idėja ir po švenčių."
+      ],
+      "close": [
+        "Šilta šviesa namuose tampa kasdieniu jaukumo šaltiniu.",
+        "Kiekvieną tamsų vakarą tokia dovana primins apie tave."
+      ]
+    },
+    {
+      "id": 97,
+      "theme": "Užrašinė „Auksiniai puslapiai“",
+      "recipient": "kolega",
+      "hooks": [
+        {
+          "title": "Ką padovanoti kolegai?",
+          "body": "Kažką gražaus, kas pravers darbe kasdien."
+        },
+        {
+          "title": "Ieškai elegantiškos smulkmenos darbui?",
+          "body": "Lininiai viršeliai ir auksiniai kraštai atrodo solidžiai."
+        }
+      ],
+      "context": [
+        "Kolegai sunku rasti dovaną, kuri būtų ir asmeniška, ir neįpareigojanti.",
+        "Mintys ant atsitiktinių lapelių greitai pasimeta."
+      ],
+      "build": [
+        "Linas ir auksas kartu atrodo prabangiai, bet neperkrautai.",
+        "Ranka rašyti planai ir mintys įsimena geriau.",
+        "Tokia dovana kolegai tinka ir darbui, ir asmeniniams užrašams."
+      ],
+      "close": [
+        "Graži smulkmena darbo stale primins apie tave kiekvieną dieną.",
+        "Kasdien naudojama dovana kolegai pasako daugiau nei dar viena saldumynų dėžutė."
+      ]
+    },
+    {
+      "id": 98,
+      "theme": "Belaidis įkroviklis „Natūrali elegancija“",
+      "recipient": "tėtis",
+      "hooks": [
+        {
+          "title": "Ką padovanoti tėčiui, kuris mėgsta technologijas?",
+          "body": "Praktišką daiktą, kuris kasdien stovi ant stalo."
+        },
+        {
+          "title": "Laidai vėl susipainiojo?",
+          "body": "Kartais užtenka paprasto sprendimo ant naktinio staliuko."
+        }
+      ],
+      "context": [
+        "Laidai nuolat pasimeta, o ekranas išsikrauna pačiu netinkamiausiu metu.",
+        "Elektronikos dovana dažnai atrodo šalta ir neasmeniška."
+      ],
+      "build": [
+        "Medinė apdaila atrodo jaukiai ir dera prie namų interjero.",
+        "Užtenka padėti ant pagrindo, ir krovimas prasideda be laidų.",
+        "Tokia dovana tinka tėčiui, vaikinui ar bet kam, kas nemėgsta laidų."
+      ],
+      "close": [
+        "Tvarka ant staliuko tėčiui primins apie tave kiekvieną rytą.",
+        "Tvarkingas staliukas be laidų tampa mažu kasdieniu patogumu."
+      ]
+    },
+    {
+      "id": 99,
+      "theme": "Vaikų žaidimas „Šventės paslaptis“",
+      "recipient": "vaikas",
+      "hooks": [
+        {
+          "title": "Ką padovanoti vaikui per Kalėdas?",
+          "body": "Kažką, kas suburia visus prie eglutės."
+        },
+        {
+          "title": "Vaikams nusibodo ekranai?",
+          "body": "Medinė veikla prie eglutės juos sudomina greičiau, nei tikiesi."
+        }
+      ],
+      "context": [
+        "Vaikams daiktai greitai nusibosta, ir dovana atsiduria kampe.",
+        "Plastikinės smulkmenos lūžta dar prieš Naujuosius metus."
+      ],
+      "build": [
+        "Tvirtas medis ištveria daug daugiau nei plastikas.",
+        "Bendras laikas prie eglutės vaikams įsimena ilgiau nei pati dovana.",
+        "Natūralus medis yra saugus ir malonus liesti."
+      ],
+      "close": [
+        "Šventinis vakaras su vaikais prie eglutės virsta smagia tradicija.",
+        "Medinė dovana vaikui džiugins ne vienas Kalėdas."
+      ]
+    },
+    {
+      "id": 100,
+      "theme": "Žvakių lempa „Vakaro šviesa“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Kvapas be liepsnos?",
+          "body": "Tada jaukumą gali palikti net išėjus iš kambario."
+        },
+        {
+          "title": "Bijai palikti atvirą ugnį kambaryje?",
+          "body": "Yra būdas mėgautis kvapu visiškai saugiai."
+        }
+      ],
+      "context": [
+        "Atvira liepsna namuose kelia nerimą, ypač užmigus ar išėjus.",
+        "Kvapas namuose dingsta, vos tik užgesini liepsną."
+      ],
+      "build": [
+        "Šiluma iš viršaus tirpdo vašką, ir kvapas sklinda be dūmų.",
+        "Laikmatis ir pritemdymas leidžia šviesą pritaikyti vakarui.",
+        "Tokia dovana saugi net ten, kur yra gyvūnų."
+      ],
+      "close": [
+        "Saugus kvapas ir šilta šviesa tampa mėgstamu vakaro ritualu.",
+        "Kiekvieną vakarą tokia dovana primins apie tave be jokios rizikos."
+      ]
+    },
+    {
+      "id": 101,
+      "theme": "Rožė stikliniame gaubte „Amžina rožė“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Romantiška dovana, kuri nenuvysta?",
+          "body": "Tikros gėlės po savaitės nuvysta, o norisi, kad dovana liktų."
+        },
+        {
+          "title": "Ieškai dovanos antrajai pusei?",
+          "body": "Kartais užtenka vieno gražaus akcento su šilta šviesa."
+        }
+      ],
+      "context": [
+        "Skintos gėlės džiugina vos kelias dienas.",
+        "Romantiška dovana dažnai būna arba per banali, arba per brangi."
+      ],
+      "build": [
+        "Gėlė po stiklu išlieka graži be jokios priežiūros.",
+        "Šilta šviesa pagrinde vakare sukuria jaukią nuotaiką.",
+        "Tokia dovana stovi matomoje vietoje ir kasdien primena apie jausmus."
+      ],
+      "close": [
+        "Gėlė, kuri nenuvysta, primins apie tave ne vieną mėnesį.",
+        "Šviesa po stiklu tampa mažu kasdieniu romantikos ženklu."
+      ]
+    },
+    {
+      "id": 102,
+      "theme": "Mėnulio lempa „Mėnulio šviesa“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Mėnulis ant naktinio staliuko?",
+          "body": "Švelni šviesa su tikrovišku reljefu atrodo įspūdingai."
+        },
+        {
+          "title": "Ieškai neįprastos dovanos?",
+          "body": "Tokios, kurią norisi paliesti vos pamačius."
+        }
+      ],
+      "context": [
+        "Ryški lubų šviesa vakare vargina akis.",
+        "Naktinė šviesa dažnai būna nuobodi ir beveidė."
+      ],
+      "build": [
+        "Paliečiamas valdymas leidžia keisti šviesą vienu prisilietimu.",
+        "Švelnus švytėjimas tinka prie lovos ir svetainėje.",
+        "Iš arti matosi kiekvienas krateris ir įduba."
+      ],
+      "close": [
+        "Švelni šviesa kiekvieną vakarą primins apie tave.",
+        "Neįprasta dovana tampa mėgstamu kambario akcentu."
+      ]
+    },
+    {
+      "id": 103,
+      "theme": "Saulėlydžio lempa „Auksinis vakaras“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Saulėlydis kambaryje net žiemą?",
+          "body": "Šilta šviesa ant sienos pakeičia nuotaiką per kelias sekundes."
+        },
+        {
+          "title": "Žiemą trūksta saulės?",
+          "body": "Šiltas švytėjimas ant sienos ją primena kiekvieną vakarą."
+        }
+      ],
+      "context": [
+        "Žiemą saulės beveik nematyti, o vakarai prasideda vos po pietų.",
+        "Pilka šviesa namuose slegia nuotaiką."
+      ],
+      "build": [
+        "Užtenka įjungti, ir ant sienos atsiranda šiltas saulėlydžio atspalvis.",
+        "USB jungtis leidžia ją įjungti beveik bet kur.",
+        "Tokia šviesa tinka nuotraukoms ir ramiam vakarui."
+      ],
+      "close": [
+        "Šiltas saulėlydis kambaryje primins apie tave kiekvieną žiemos vakarą.",
+        "Vienas mygtukas paverčia pilką vakarą šiltu."
+      ]
+    },
+    {
+      "id": 104,
+      "theme": "Drėkintuvas „Lietaus debesis“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Žiemą namuose per sausas oras?",
+          "body": "Šildymas išdžiovina orą greičiau, nei tikiesi."
+        },
+        {
+          "title": "Ieškai praktiškos, bet žavios dovanos?",
+          "body": "Krintantys lašeliai ir švelnus kvapas nustebina iš pirmo žvilgsnio."
+        }
+      ],
+      "context": [
+        "Šildymo sezono metu oras namuose išsausėja.",
+        "Sausas oras vargina odą ir trukdo gerai išsimiegoti."
+      ],
+      "build": [
+        "Oro drėkinimas padeda lengviau kvėpuoti ir geriau pailsėti.",
+        "300 mililitrų užtenka 8 iki 12 valandų.",
+        "Lašelių vaizdas veikia raminančiai."
+      ],
+      "close": [
+        "Drėgnesnis oras namuose primins apie tave kiekvieną rytą.",
+        "Praktiška ir graži dovana namuose praverčia visą žiemą."
+      ]
+    },
+    {
+      "id": 105,
+      "theme": "Megzta šildyklė „Lovos šiluma“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Šąla kojos lovoje?",
+          "body": "Senas geras šilumos šaltinis vis dar veikia geriausiai."
+        },
+        {
+          "title": "Ieškai jaukios dovanos šaltiems vakarams?",
+          "body": "Kartais paprasčiausi sprendimai būna patys šilčiausi."
+        }
+      ],
+      "context": [
+        "Žiemą lova vakare šalta, o šildymas ne visada padeda.",
+        "Vakare šalta, todėl sunku atsipalaiduoti."
+      ],
+      "build": [
+        "Du litrai šilto vandens šildo ilgai ir tolygiai.",
+        "Megztas apvalkalas saugo nuo karščio ir atrodo jaukiai.",
+        "Tokia dovana pravers ir lovoje, ir ant sofos."
+      ],
+      "close": [
+        "Jauki šiluma po užklotu tampa mėgstamu žiemos ritualu.",
+        "Paprasta dovana šildo ilgiau nei bet kokie žodžiai."
+      ]
+    },
+    {
+      "id": 106,
+      "theme": "Galaktikos projektorius „Žvaigždžių kelionė“",
+      "recipient": "vaikas",
+      "hooks": [
+        {
+          "title": "Žvaigždėtas dangus ant lubų?",
+          "body": "Tinka ir vaikų kambariui, ir romantiškam vakarui."
+        },
+        {
+          "title": "Ieškai dovanos, kuri sužavi iš pirmo karto?",
+          "body": "Žvaigždės ir ūkas ant lubų nustebina ir vaikus, ir porą."
+        }
+      ],
+      "context": [
+        "Vaikams sunku užmigti, o įprasta naktinė šviesa atrodo nuobodžiai.",
+        "Porai norisi ypatingo vakaro, bet išeiti iš namų nesinori."
+      ],
+      "build": [
+        "Kambarys akimirksniu virsta planetariumu.",
+        "Vaikams tai ramus ritualas prieš užmiegant, o porai jaukus vakaras.",
+        "Užtenka įjungti, ir lubos virsta nakties dangumi."
+      ],
+      "close": [
+        "Žvaigždėtas kambarys primins apie tave kiekvieną vakarą.",
+        "Kiekvienas vakaras po žvaigždėmis tampa mažu nuotykiu."
+      ]
+    },
+    {
+      "id": 107,
+      "theme": "Pieno plakiklis „Kreminės putos“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Ar nori putotos kakavos kiekvieną rytą?",
+          "body": "Tai lengva pakeisti per dvidešimt sekundžių."
+        },
+        {
+          "title": "Mėgsti putotą gėrimą namie?",
+          "body": "Putos kaip iš gėrimų baro gali atsirasti ir virtuvėje."
+        }
+      ],
+      "context": [
+        "Ryte nėra laiko gaminti sudėtingų gėrimų.",
+        "Putos namuose dažnai nepavyksta be specialios įrangos."
+      ],
+      "build": [
+        "Per 20 sekundžių susidaro švelnios ir tirštos putos.",
+        "USB įkrovimas leidžia apsieiti be papildomų elementų.",
+        "Tinka kakavai, pienui ir mėgstamiems rytiniams gėrimams."
+      ],
+      "close": [
+        "Kiekvienas rytas su putomis primins apie tave.",
+        "Maža smulkmena paverčia įprastą rytą malonesniu."
+      ]
+    },
+    {
+      "id": 108,
+      "theme": "Mini masažuoklis „Akimirka sau“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Kaklas ir nugara vėl įsitempę?",
+          "body": "Ilgos dienos prie kompiuterio palieka savo pėdsaką."
+        },
+        {
+          "title": "Ieškai dovanos, kuri padeda atsipalaiduoti?",
+          "body": "Kartais užtenka kelių minučių po darbo."
+        }
+      ],
+      "context": [
+        "Po dienos prie kompiuterio pečiai sustingsta.",
+        "Masažo seansui dažnai nėra nei laiko, nei pinigų."
+      ],
+      "build": [
+        "Keturios galvutės tinka skirtingoms kūno vietoms.",
+        "Kompaktiškas dydis leidžia jį pasiimti ir į darbą.",
+        "Kelios minutės vakare padeda atpalaiduoti įsitempusius raumenis."
+      ],
+      "close": [
+        "Kiekvieną įtemptą vakarą tokia dovana primins apie tave.",
+        "Atpalaiduoti pečiai padaro vakarą daug malonesnį."
+      ]
+    },
+    {
+      "id": 109,
+      "theme": "Šilkinis pagalvės užvalkalas „Švelni naktis“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Ryte plaukai vėl susivėlę?",
+          "body": "Kartais priežastis slypi ne plaukuose, o ant ko guli naktį."
+        },
+        {
+          "title": "Ieškai dovanos, kurią naudos kiekvieną naktį?",
+          "body": "Švelnus šilkas po galva yra mažas kasdienis prabangos jausmas."
+        }
+      ],
+      "context": [
+        "Medvilnė trina plaukus ir odą visą naktį.",
+        "Rytinė šukuosena dažnai sugriūva dar prieš išeinant iš namų."
+      ],
+      "build": [
+        "Šilkas sumažina trintį, todėl plaukai rytą mažiau susivėlę.",
+        "Švelnus paviršius malonus odai ir neglamžo veido.",
+        "50 kartų 70 centimetrų dydis tinka standartinei pagalvei."
+      ],
+      "close": [
+        "Kiekvieną rytą tokia dovana primins apie tave.",
+        "Maža prabanga naktį padaro rytą lengvesnį."
+      ]
+    },
+    {
+      "id": 110,
+      "theme": "Gua Sha rinkinys „Rožinė ramybė“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Ieškai dovanos vakarui sau?",
+          "body": "Keli ramūs momentai prie veidrodžio kartais atpalaiduoja labiau nei bet kas."
+        },
+        {
+          "title": "Kaip padovanoti kelias ramias minutes?",
+          "body": "Kartais užtenka mažo vakaro ritualo prie veidrodžio."
+        }
+      ],
+      "context": [
+        "Vakarais rūpinimuisi savimi laiko beveik nelieka.",
+        "Prieš šventes oda pavargsta taip pat kaip ir žmogus."
+      ],
+      "build": [
+        "Volas ir akmuo veidui padeda atsipalaiduoti po ilgos dienos.",
+        "Švelnus veido masažas vakare atpalaiduoja ir nuramina.",
+        "Graži dėžutė leidžia dovaną įteikti iškart."
+      ],
+      "close": [
+        "Kiekvieną vakarą ši akimirka sau primins apie tave.",
+        "Laikas sau virsta mažu kasdieniu ritualu."
+      ]
+    },
+    {
+      "id": 111,
+      "theme": "Kilimas „Žiemos jaukumas“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Grindys žiemą šaltos?",
+          "body": "Šiltas akcentas po kojomis iškart pakeičia kambario nuotaiką."
+        },
+        {
+          "title": "Ieškai šventinio akcento namams?",
+          "body": "Eglutės ir snaigės po kojomis sukuria Kalėdų nuotaiką."
+        }
+      ],
+      "context": [
+        "Žiemą grindys šaltos, ypač ryte išlipus iš lovos.",
+        "Dekoracijos dažnai kabo aukštai, o apačioje namai lieka niūrūs."
+      ],
+      "build": [
+        "Šiaurietiškas raštas su eglutėmis tinka visai žiemai.",
+        "Skalbiamas audinys reiškia, kad dovana nebijo kasdienio naudojimo.",
+        "Minkštas paviršius kviečia vaikščioti basomis."
+      ],
+      "close": [
+        "Šiltas žingsnis ryte primins apie tave visą žiemą.",
+        "Šventinis raštas po kojomis tampa mėgstamu namų akcentu."
+      ]
+    },
+    {
+      "id": 112,
+      "theme": "Raktų pakabukas „Mažoji eglutė“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Maža dovana iki 10 eurų?",
+          "body": "Kartais kasdien naudojama smulkmena reiškia daugiau nei didelė dovana."
+        },
+        {
+          "title": "Ieškai smulkmenos, kuri primintų šventes?",
+          "body": "Raktai kišenėje būna kiekvieną dieną."
+        }
+      ],
+      "context": [
+        "Mažoms dovanoms dažnai trūksta prasmės.",
+        "Simbolinė dovana neretai atrodo kaip formalumas."
+      ],
+      "build": [
+        "Oda ir žalvario eglutė atrodo solidžiai net mažame daikte.",
+        "Raktus žmogus paima kelis kartus per dieną.",
+        "Tokią smulkmeną lengva pridėti prie didesnės dovanos."
+      ],
+      "close": [
+        "Kiekvieną kartą paėmus raktus, maža eglutė primins apie tave.",
+        "Smulkmena, kuri visada kišenėje, įsimena ilgiau nei bet kas."
+      ]
+    },
+    {
+      "id": 113,
+      "theme": "Išorinė baterija „Visada su savimi“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Ekranas vėl išsikrovė pačiu blogiausiu metu?",
+          "body": "Kelyje rozetės visada trūksta."
+        },
+        {
+          "title": "Ieškai praktiškos dovanos kasdieniam naudojimui?",
+          "body": "Kišeninis įkrovimo šaltinis praverčia visiems."
+        }
+      ],
+      "context": [
+        "Kelyje rozetės beveik niekada nebūna po ranka.",
+        "Be įkrauto ekrano kelyje sunku ir susisiekti, ir rasti kelią."
+      ],
+      "build": [
+        "Didelė talpa leidžia kelis kartus visiškai įkrauti ekraną.",
+        "Kišeninis dydis leidžia nešiotis visur.",
+        "Tokia dovana tinka studentui, vairuotojui ir dažnai keliaujančiam."
+      ],
+      "close": [
+        "Įkrautas ekranas kelyje primins apie tave ne kartą.",
+        "Praktiška dovana kasdien gelbsti netikėtose situacijose."
+      ]
+    },
+    {
+      "id": 114,
+      "theme": "Belaidės ausinės „Kasdienė muzika“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Muzika kelyje ar sporto salėje?",
+          "body": "Laidai visada susipainioja pačiu netinkamiausiu metu."
+        },
+        {
+          "title": "Ieškai dovanos, kurią išpakuos ir iškart išbandys?",
+          "body": "Tokia dovana patinka beveik kiekvienam."
+        }
+      ],
+      "context": [
+        "Laidai painiojasi kišenėje ir kliūva už rankų.",
+        "Kelyje ar sporto salėje laidinė muzika vargina."
+      ],
+      "build": [
+        "Belaidis ryšys leidžia judėti laisvai.",
+        "Kompaktiška dėžutė saugo ir įkrauna vienu metu.",
+        "Muzika be laidų daro kasdienius kelius malonesnius."
+      ],
+      "close": [
+        "Mėgstama muzika kiekvieną dieną primins apie tave.",
+        "Kasdien naudojama dovana tampa nuolatiniu palydovu."
+      ]
+    },
+    {
+      "id": 115,
+      "theme": "Šlepetės „Debesų minkštumas“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Šąla kojos ant grindų?",
+          "body": "Ypač ryte, kai visi namai dar šalti."
+        },
+        {
+          "title": "Ieškai dovanos, kuri tinka namų žmogui?",
+          "body": "Minkštumas po kojomis kiekvieną vakarą džiugina labiausiai."
+        }
+      ],
+      "context": [
+        "Žiemą grindys šaltos, o basomis vaikščioti nesinori.",
+        "Seni namų batai greitai susidėvi ir praranda formą."
+      ],
+      "build": [
+        "Atminties putos prisitaiko prie pėdos ir išlieka minkštos.",
+        "Šiltas vidus neleidžia kojoms sušalti net ant plytelių.",
+        "Tokia dovana tinka kiekvienam, kas mėgsta būti namie."
+      ],
+      "close": [
+        "Kai pėdoms šilta, ir vakarai atrodo jaukesni.",
+        "Paprasta dovana namams džiugina kiekvieną dieną."
+      ]
+    },
+    {
+      "id": 116,
+      "theme": "Telefono stovas „Patogus kampelis“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Filmai ir vaizdo skambučiai ant stalo?",
+          "body": "Ekranas visada krenta veidu žemyn."
+        },
+        {
+          "title": "Ieškai praktiškos smulkmenos namams?",
+          "body": "Kartais mažas daiktas palengvina daugiausiai."
+        }
+      ],
+      "context": [
+        "Žiūrint filmą virtuvėje ekranas nuolat nuslysta.",
+        "Vaizdo skambučio metu tenka laikyti ekraną rankoje."
+      ],
+      "build": [
+        "Tvirtas pagrindas laiko ekraną ir stačiai, ir gulsčiai.",
+        "Laisvos rankos leidžia gaminti ir žiūrėti vienu metu.",
+        "Tokia smulkmena pravers virtuvėje, darbe ir lovoje."
+      ],
+      "close": [
+        "Kiekvienas filmas ar skambutis primins apie tave.",
+        "Tokia smulkmena kasdien sutaupo daugiau nervų, nei atrodo."
+      ]
+    },
+    {
+      "id": 117,
+      "theme": "Nuotraukų rėmelis „Akimirka“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Mėgstamiausia nuotrauka vis dar tik ekrane?",
+          "body": "Ji nusipelno vietos sienoje ar ant stalo."
+        },
+        {
+          "title": "Ieškai dovanos su prisiminimu?",
+          "body": "Viena atspausdinta akimirka kartais pasako daugiau nei šimtas nuotraukų ekrane."
+        }
+      ],
+      "context": [
+        "Tūkstančiai nuotraukų guli ekrane, ir nė viena nematoma.",
+        "Prisiminimai be vietos namuose greitai pasimiršta."
+      ],
+      "build": [
+        "Medinis pagrindas tinka prie daugumos interjerų.",
+        "Atspausdinta akimirka namuose matoma kasdien.",
+        "Prie dovanos pridėk jau įdėtą bendrą nuotrauką."
+      ],
+      "close": [
+        "Kiekvieną kartą pažvelgus, akimirka primins apie tave.",
+        "Bendras prisiminimas namuose džiugina labiau nei bet kokia dekoracija."
+      ]
+    },
+    {
+      "id": 118,
+      "theme": "Dovanų pakavimo rinkinys „Šventinė pakuotė“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Dovanos yra, o popieriaus ir juostelių nėra?",
+          "body": "Paskutinę akimirką tenka bėgti į parduotuvę."
+        },
+        {
+          "title": "Kaip dovanos atrodys po eglute?",
+          "body": "Tvarkingai supakuotos jos atrodo daug šventiškiau."
+        }
+      ],
+      "context": [
+        "Popierius, juostelės ir kortelės dažnai perkami atskirai ir paskutinę minutę.",
+        "Skirtingi popieriai po eglute atrodo chaotiškai."
+      ],
+      "build": [
+        "Popierius, juostelės ir kortelės viename derinyje sutaupo laiko.",
+        "Suderintos spalvos visas dovanas paverčia vientisa kompozicija.",
+        "Kortelės leidžia prie kiekvienos dovanos pridėti kelis žodžius."
+      ],
+      "close": [
+        "Vienoda šventinė apdaila visas dovanas paverčia tikru reginiu.",
+        "Vienodai papuoštos dovanos sukuria tikrą šventinę nuotaiką."
+      ]
+    },
+    {
+      "id": 119,
+      "theme": "Medinė serviravimo lenta „Vakarienė dviese“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Vakarienė dviese namuose?",
+          "body": "Kartais jai trūksta tik gražaus serviravimo."
+        },
+        {
+          "title": "Sūrių vakaras su draugais?",
+          "body": "Gražiai patiekti užkandžiai pakeičia visą vakaro nuotaiką."
+        }
+      ],
+      "context": [
+        "Užkandžiai lėkštėse atrodo kasdieniškai.",
+        "Vakarienė namuose dažnai neatrodo kaip šventė."
+      ],
+      "build": [
+        "Masyvus ąžuolas atrodo solidžiai ir tarnauja daugelį metų.",
+        "Sūriai, duona ir vaisiai ant medžio atrodo kaip restorane.",
+        "Natūralus medis tinka ir kasdienei vakarienei, ir šventiniam stalui."
+      ],
+      "close": [
+        "Kiekviena vakarienė dviese primins apie tave.",
+        "Paprasta vakarienė namuose virsta mažu įvykiu."
+      ]
+    },
+    {
+      "id": 120,
+      "theme": "Kambario kvapo purškiklis „Jaukūs namai“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Svečiai jau prie durų?",
+          "body": "Kvapas namuose gali pasikeisti per kelias sekundes."
+        },
+        {
+          "title": "Vanilė ir kedras namuose?",
+          "body": "Toks kvapas iškart kuria jaukumą."
+        }
+      ],
+      "context": [
+        "Prieš svečių atvykimą neužtenka laiko viskam.",
+        "Kai kurie kvapai namuose užsibūna, o malonūs dingsta greitai."
+      ],
+      "build": [
+        "Užtenka vieno purškimo, ir kambarys kvepia jaukiai.",
+        "Saugus kvapas be liepsnos tinka bet kuriam kambariui.",
+        "Mažas buteliukas telpa ir į rankinę."
+      ],
+      "close": [
+        "Jaukus kvapas namuose primins apie tave kiekvieną kartą.",
+        "Malonus kvapas tampa paskutiniu jaukumo štrichu prieš svečius."
+      ]
+    },
+    {
+      "id": 121,
+      "theme": "Advento kalendorius „24 dienos“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Kaip laukti Kalėdų kiekvieną dieną?",
+          "body": "Mažos staigmenos gruodžio rytais paverčia laukimą švente."
+        },
+        {
+          "title": "24 langeliai iki Kalėdų?",
+          "body": "Kiekvienas rytas prasideda nuo mažos staigmenos."
+        }
+      ],
+      "context": [
+        "Gruodis prabėga tarp darbų, ir šventinė nuotaika ateina tik paskutinę dieną.",
+        "Laukimas be ritualo atrodo ilgas ir nuobodus."
+      ],
+      "build": [
+        "Kiekviena diena turi savo atidarymo akimirką.",
+        "Toks ritualas džiugina ir jaunus, ir vyresnius.",
+        "Visos staigmenos jau viduje, todėl nieko nereikia pildyti."
+      ],
+      "close": [
+        "Gruodžio rytai virsta mažu kasdieniu džiaugsmu.",
+        "Laukimas su kasdiene staigmena primins apie tave visą gruodį."
+      ]
+    },
+    {
+      "id": 122,
+      "theme": "Kalėdų dovanų kojinė „Šventinė staigmena“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Ar turi kur sudėti mažas staigmenas?",
+          "body": "Tradicija prie židinio ar eglutės kasmet laukiama iš naujo."
+        },
+        {
+          "title": "Maža dovana iki 15 eurų?",
+          "body": "Kartais ji pati virsta kasmetine tradicija."
+        }
+      ],
+      "context": [
+        "Mažos staigmenos dažnai pasimeta tarp didelių dovanų.",
+        "Plona sintetinė dekoracija po kelių metų atrodo apgailėtinai."
+      ],
+      "build": [
+        "Megzta medžiaga atrodo jaukiai ir tarnauja daugelį metų.",
+        "Į ją telpa saldumynai, mažos dovanėlės ir rašteliai.",
+        "Kiekvieną Kalėdų rytą ji vėl laukia prie eglutės."
+      ],
+      "close": [
+        "Kasmet ta pati jauki tradicija primins apie tave.",
+        "Kiekviena maža dovanėlė sukelia didelę šypseną."
+      ]
+    },
+    {
+      "id": 123,
+      "theme": "Sniego gaublys „Žiemos pasaka“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Žiemos pasaka ant palangės?",
+          "body": "Papurtei, ir viduje pradeda snigti."
+        },
+        {
+          "title": "Ieškai dovanos, kuri sužavi bet kokio amžiaus žmogų?",
+          "body": "Stiklas, medis ir krintantis sniegas tai padaro akimirksniu."
+        }
+      ],
+      "context": [
+        "Plastikinės dekoracijos greitai atsibosta.",
+        "Norisi kažko, kas primintų vaikystės Kalėdas."
+      ],
+      "build": [
+        "Miniatiūrinė eglutė ir namelis po stiklu atrodo kaip tikra pasaka.",
+        "Tikras stiklas ir medis, ne plastikas, todėl dovana atrodo solidžiai.",
+        "Užtenka papurtyti, ir sniegas sukasi kelias minutes."
+      ],
+      "close": [
+        "Kiekvieną kartą papurčius, dovana primins apie tave.",
+        "Tokia dekoracija džiugina kiekvieną gruodį iš naujo."
+      ]
+    },
+    {
+      "id": 124,
+      "theme": "Šventinis stalo takelis „Šiaurės raštas“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Nori šventinio stalo be didelių pastangų?",
+          "body": "Kartais užtenka vieno audinio per visą stalą."
+        },
+        {
+          "title": "Kūčių stalas dar neatrodo šventiškai?",
+          "body": "Raudoni ir šilti atspalviai tai pakeičia akimirksniu."
+        }
+      ],
+      "context": [
+        "Paprasta staltiesė stalo nepaverčia šventiniu.",
+        "Papuošti visą stalą prieš šventes nėra laiko."
+      ],
+      "build": [
+        "180 centimetrų ilgis tinka net ilgam šventiniam stalui.",
+        "Šiaurietiškas raštas dera prie baltų indų ir eglišakių.",
+        "Užtenka patiesti, ir stalas atrodo paruoštas šventei."
+      ],
+      "close": [
+        "Kiekvienas šventinis stalas primins apie tave.",
+        "Šventinis stalas su artimaisiais tampa geriausiu šventės prisiminimu."
+      ]
+    },
+    {
+      "id": 125,
+      "theme": "Medinis riešutų spaudiklis „Sargybinis“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Klasikinis Kalėdų personažas namuose?",
+          "body": "Medinis sargybinis yra ir dekoracija, ir ritualas."
+        },
+        {
+          "title": "Riešutai prie Kūčių stalo?",
+          "body": "Juos gliaudyti smagiau su tikru pagalbininku."
+        }
+      ],
+      "context": [
+        "Kalėdų dekoracijos dažnai būna tik gražios, bet niekam nenaudingos.",
+        "Riešutus gliaudyti be tinkamo įrankio nepatogu."
+      ],
+      "build": [
+        "Rankomis dažytas medis atrodo kaip iš senos pasakos.",
+        "Jis puošia namus ir praverčia prie šventinio stalo.",
+        "Tokia dekoracija kasmet grįžta į šventinį stalą."
+      ],
+      "close": [
+        "Kasmet ištrauktas sargybinis primins apie tave.",
+        "Tradicinis personažas namuose tampa švenčių tradicijos dalimi."
+      ]
+    },
+    {
+      "id": 126,
+      "theme": "Eglės sijonas „Šventinis ratas“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Eglutės stovas gadina vaizdą?",
+          "body": "Kartais užtenka vieno minkšto akcento po šakomis."
+        },
+        {
+          "title": "Kaip papuošti eglutę iki pat grindų?",
+          "body": "Aksomas po eglute paslepia stovą ir įrėmina dovanas."
+        }
+      ],
+      "context": [
+        "Plastikinis ar metalinis stovas atrodo nešventiškai.",
+        "Dovanos po eglute guli ant plikų grindų."
+      ],
+      "build": [
+        "Minkštas aksomas atrodo prabangiai ir šiltai.",
+        "Raudona spalva dera prie bet kokių papuošimų.",
+        "Užtenka apgaubti stovą, ir eglutė atrodo užbaigta."
+      ],
+      "close": [
+        "Kiekvienos Kalėdos su tokiu akcentu primins apie tave.",
+        "Užbaigta eglutė virsta gražiausia namų vieta."
+      ]
+    },
+    {
+      "id": 127,
+      "theme": "Keramikinis žibintas „Žiemos namelis“",
+      "recipient": "",
+      "hooks": [
+        {
+          "title": "Šviečiantis namelis ant palangės?",
+          "body": "Šiltas švytėjimas vakare kuria jaukumą."
+        },
+        {
+          "title": "Ieškai dekoracijos, kuri šviečia?",
+          "body": "Keramika ir šilta šviesa kartu atrodo kaip žiemos pasaka."
+        }
+      ],
+      "context": [
+        "Žiemos vakarai tamsūs, o dekoracijos tamsoje beveik nematomos.",
+        "Atvira liepsna ne visada tinka namuose."
+      ],
+      "build": [
+        "Tvirta medžiaga ir tvarkinga forma tarnauja ne vieną sezoną.",
+        "Šviesa be liepsnos saugi net palikus kambarį.",
+        "Mažas namelis puikiai tinka palangei, komodai ar stalui."
+      ],
+      "close": [
+        "Kiekvieną tamsų vakarą tokia dovana primins apie tave.",
+        "Šilta šviesa be liepsnos tampa mėgstamu vakaro akcentu."
+      ]
+    }
+  ],
+  "products": [
+    {
+      "slug": "kardiganas-atviras-siltis",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis kardiganą „Atviras šiltis“. Jis storai megztas ir turi medines sagas.",
+        "Tiks storai megztas kardiganas „Atviras šiltis“. Užsimeti jį ryte ir nenusivelki iki vakaro."
+      ],
+      "use": [
+        "Jis šiltas, bet nevaržo judesių, todėl jį norisi dėvėti kasdien.",
+        "Jis tinka ir darbui, ir ramiam vakarui namuose."
+      ],
+      "close": [
+        "Vėsūs rytai namuose bus kur kas malonesni.",
+        "Kiekvienas vėsus vakaras namuose praeis šilčiau."
+      ]
+    },
+    {
+      "slug": "aromaterapijos-zvake-zvakiu-vakaras",
+      "gender": "f",
+      "reveal": [
+        "Gali rinktis aromaterapijos žvakę „Žvakių vakaras“. Kedro, gintaro ir cinamono kvapas tinka ilgiems žiemos vakarams.",
+        "Tiks aromaterapijos žvakė „Žvakių vakaras“. Ji dega iki 45 valandų, todėl užteks ne vienam vakarui."
+      ],
+      "use": [
+        "Ji kvepia kedru, gintaru ir cinamonu, o kambarys iškart atrodo jaukesnis.",
+        "Ji dega iki 45 valandų, todėl užteks ne vienam vakarui."
+      ],
+      "close": [
+        "Ilgi žiemos vakarai namuose bus dar jaukesni.",
+        "Užtenka vieno degtuko, kad vakaras namuose atrodytų visai kitaip."
+      ]
+    },
+    {
+      "slug": "vilnonis-pledas-jaukumas",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis vilnonį pledą „Žiemos šiluma“. Merinoso vilna kvėpuoja ir šildo net šalčiausią vakarą.",
+        "Tiks storas vilnonis pledas „Žiemos šiluma“. Jį smagu užsimesti per filmų vakarą ant sofos ar prie židinio."
+      ],
+      "use": [
+        "Jis pravers per kiekvieną filmų vakarą ant sofos.",
+        "Jis šiltas, bet nekaitina, nes merinoso vilna kvėpuoja."
+      ],
+      "close": [
+        "Filmų vakarai ant sofos bus dar jaukesni.",
+        "Šalčiausias žiemos vakaras namuose praeis šilčiau."
+      ]
+    },
+    {
+      "slug": "silkinis-miego-rinkinys-miegas",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis šilkinį miego rinkinį „Saldūs sapnai“. Jame yra šilko miego kaukė ir šilkinė plaukų gumytė.",
+        "Tiks šilkinis miego rinkinys „Saldūs sapnai“. Kaukė ir gumytė pagamintos iš natūralaus šilko."
+      ],
+      "use": [
+        "Jis padeda greičiau užmigti, nes kaukė užtemdo šviesą.",
+        "Jis švelnus odai, o šilkinė gumytė nepalieka plaukuose žymių."
+      ],
+      "close": [
+        "Rytai po ramios nakties bus daug lengvesni.",
+        "Gera naktis prasideda nuo tamsos ir švelnaus audinio."
+      ]
+    },
+    {
+      "slug": "viskio-akmenu-ir-stiklo-rinkinys",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis viskio rinkinį „Vakaro ritualas“. Granito akmenys vėsina gėrimą ir jo neskiedžia.",
+        "Tiks viskio rinkinys „Vakaro ritualas“. Jame yra granito akmenų ir sunkių stiklų lėtam vakarui."
+      ],
+      "use": [
+        "Jis vėsina gėrimą be ledo, todėl skonis lieka toks pat.",
+        "Jis skirtas lėtam vakarui, kai niekur nereikia skubėti."
+      ],
+      "close": [
+        "Penktadienio vakarai namuose bus lėtesni ir ramesni.",
+        "Vakaras po darbo prasidės lėtai ir ramiai."
+      ]
+    },
+    {
+      "slug": "vaistazoliu-auginimo-rinkinys",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis mini sodą „Žalioji oazė“. Ant palangės išaugs bazilikas, mėtos ir rozmarinas.",
+        "Tiks mini sodas „Žalioji oazė“. Sėklos sudygsta per vieną ar dvi savaites."
+      ],
+      "use": [
+        "Jis greitai parodo rezultatą, nes sėklos sudygsta per vieną ar dvi savaites.",
+        "Jis telpa ant palangės, o žalumos užteks ir vakarienei."
+      ],
+      "close": [
+        "Žiemą ant palangės bus kažkas gyvo ir žalio.",
+        "Šviežias bazilikas ar mėta prie vakarienės visada pravers."
+      ]
+    },
+    {
+      "slug": "poros-knyga-musu-istorija",
+      "gender": "f",
+      "reveal": [
+        "Gali rinktis poros knygą „Mūsų akimirkos“. Joje yra 150 klausimų dviem žmonėms.",
+        "Tiks poros knyga „Mūsų akimirkos“. Tai knyga, kurią pildo du žmonės kartu."
+      ],
+      "use": [
+        "Ji turi 150 klausimų, todėl jų užteks daugybei vakarų.",
+        "Ji sugrąžina mažus dalykus, kuriuos kasdien lengva pamiršti."
+      ],
+      "close": [
+        "Po kelių metų bus smagu perskaityti savo atsakymus dar kartą.",
+        "Bendri prisiminimai lieka ne tik nuotraukose, bet ir popieriuje."
+      ]
+    },
+    {
+      "slug": "kvapo-difuzorius-lazdelemis",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis kvapo difuzorių „Jaukūs namai“. Jis kvepia be liepsnos ir veikia nuo 10 iki 12 savaičių.",
+        "Tiks lazdelių difuzorius „Jaukūs namai“. Kambarys kvepia be liepsnos ir be jokio rūpesčio."
+      ],
+      "use": [
+        "Jis veikia nuo 10 iki 12 savaičių, todėl kvapo užteks beveik visai žiemai.",
+        "Jis kvepia be liepsnos, tad jį galima ramiai palikti kambaryje."
+      ],
+      "close": [
+        "Grįžus namo pirmiausia pasitiks malonus kvapas.",
+        "Kvapas namuose išliks ilgai be jokio rūpesčio."
+      ]
+    },
+    {
+      "slug": "vilnones-kojines-ziemos-jaukumas",
+      "gender": "fpl",
+      "reveal": [
+        "Gali rinktis vilnones kojines „Šilta žiema“. Rinkinyje yra trys poros storų vilnonių kojinių.",
+        "Tiks vilnonės kojinės „Šilta žiema“. Rinkinyje yra trys storos poros, tad užteks visai žiemai."
+      ],
+      "use": [
+        "Jos storos ir šiltos, todėl kojos nešąla net ant šaltų grindų.",
+        "Jos tinka ir namams, ir žiemos pasivaikščiojimams."
+      ],
+      "close": [
+        "Šaltos grindys žiemą nebebus problema.",
+        "Trijų porų užteks visai žiemai."
+      ]
+    },
+    {
+      "slug": "termosas-kelionemis-500ml",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis termosą „Žiemos kelionė“. Jis išlaiko gėrimą karštą 12 valandų, o šaltą net parą.",
+        "Tiks 500 ml termosas „Žiemos kelionė“. Karšta arbata jame išlieka iki 12 valandų."
+      ],
+      "use": [
+        "Jis telpa į kuprinę ir išlaiko gėrimą karštą visą dieną.",
+        "Jis pravers ir žiemos pasivaikščiojimui, ir ilgai darbo dienai."
+      ],
+      "close": [
+        "Karštas gurkšnis šaltą dieną visada pravers.",
+        "Žiemos pasivaikščiojimai bus ilgesni ir šiltesni."
+      ]
+    },
+    {
+      "slug": "zaidimu-vakaro-rinkinys",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis žaidimų rinkinį „Jaukus vakaras“. Viename dėkle yra trys žaidimai su kortomis, užduotimis ir klausimais.",
+        "Tiks žaidimų rinkinys „Jaukus vakaras“. Jame yra kortų, užduočių ir klausimų vakarui prie stalo."
+      ],
+      "use": [
+        "Jis tinka bet kuriam vakarui prie stalo.",
+        "Jis kompaktiškas, tad jį lengva pasiimti ir į svečius."
+      ],
+      "close": [
+        "Vakaras prie stalo truks ilgiau, nei planuota.",
+        "Ekranai liks nuošalyje, o pokalbiai tik įsibėgės."
+      ]
+    },
+    {
+      "slug": "namu-kino-projektorius",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis namų kino projektorių „Kino vakaras“. Jis rodo iki 120 colių vaizdą ant sienos.",
+        "Tiks namų kino projektorius „Kino vakaras“. Filmus žiūri tiesiai ant sienos, kaip kine."
+      ],
+      "use": [
+        "Jis rodo iki 120 colių vaizdą, tad tinka ir bendram vakarui.",
+        "Jis nustebina vos išėmus iš dėžės."
+      ],
+      "close": [
+        "Filmų vakarai namuose bus kaip tikrame kine.",
+        "Balta siena svetainėje virs didžiausiu ekranu namuose."
+      ]
+    },
+    {
+      "slug": "keramikos-arbatos-rinkinys-po-vakara",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis keramikos arbatos rinkinį „Arbatos metas“. Jame yra arbatinukas, puodelis ir filtrėlis.",
+        "Tiks rankų darbo arbatos rinkinys „Arbatos metas“. Kiekvienas rinkinys šiek tiek skiriasi, nes keramika yra rankų darbo."
+      ],
+      "use": [
+        "Jis padeda vakare sustoti bent pusvalandžiui.",
+        "Jis gražiai atrodo ant stalo net tada, kai juo nesinaudoji."
+      ],
+      "close": [
+        "Vakaro pertraukėlė virs mažu kasdieniu ritualu.",
+        "Pusvalandis tik sau taps kasdieniu įpročiu."
+      ]
+    },
+    {
+      "slug": "sventinis-vonios-rinkinys",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis vonios rinkinį „Ramybės vakaras“. Jame yra aliejus, muilas ir džiovintos gėlės.",
+        "Tiks vonios rinkinys „Ramybės vakaras“. Jis jau paruoštas dovanoti iškart."
+      ],
+      "use": [
+        "Jis skirtas vakarui, kai norisi pabūti tik su savimi.",
+        "Jis gražiai atrodo jau dėžutėje, todėl dovanoti galima iškart."
+      ],
+      "close": [
+        "Vienas ramus vakaras vonioje atgaivins visą savaitę.",
+        "Po ilgos dienos bus laiko tik sau."
+      ]
+    },
+    {
+      "slug": "egluciu-zaisliukai-stiklas",
+      "gender": "mpl",
+      "reveal": [
+        "Gali rinktis stiklinius eglutės žaisliukus „Šventinis spindesys“. Komplekte yra šeši rankų pūsto stiklo rutuliukai.",
+        "Tiks stikliniai eglutės žaisliukai „Šventinis spindesys“. Kiekvieną rutuliuką meistrai pūtė rankomis."
+      ],
+      "use": [
+        "Jie gražiai atspindi šviesą ir puošia eglutę ne vienerius metus.",
+        "Jie pagaminti rankomis, todėl kiekvienas šiek tiek skiriasi."
+      ],
+      "close": [
+        "Eglutė šiemet atrodys kitaip nei kasmet.",
+        "Šie rutuliukai puoš eglutę dar ne vienerias Kalėdas."
+      ]
+    },
+    {
+      "slug": "kaledinis-puodelis-kakava",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis kalėdinį puodelį „Karšta kakava“. Į jį telpa 350 ml, tad kakavos užteks ilgam vakarui.",
+        "Tiks kreminis puodelis „Karšta kakava“. Jis didelis, į jį telpa net 350 ml."
+      ],
+      "use": [
+        "Jis tinka kakavai ir bet kuriam karštam gėrimui.",
+        "Jis didelis, todėl papildyti reikės rečiau."
+      ],
+      "close": [
+        "Rytinė kakava taps mažu žiemos ritualu.",
+        "Šaltas vakaras su karštu gėrimu rankose praeis greičiau."
+      ]
+    },
+    {
+      "slug": "odinis-korteliu-deklas",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis odinį kortelių dėklą „Elegancija“. Jis plonas ir pagamintas iš natūralios odos.",
+        "Tiks plonas kortelių dėklas „Elegancija“. Natūrali oda su laiku tik gražėja."
+      ],
+      "use": [
+        "Jis plonas, todėl telpa net į priekinę kišenę.",
+        "Jis pagamintas iš natūralios odos, todėl tarnaus ilgai."
+      ],
+      "close": [
+        "Kortelės pagaliau turės savo vietą.",
+        "Kasdienis daiktas primins apie šias Kalėdas kiekvieną kartą."
+      ]
+    },
+    {
+      "slug": "led-girlianda-siltas",
+      "gender": "f",
+      "reveal": [
+        "Gali rinktis LED girliandą „Šilta šviesa“. Ji yra penkių metrų ilgio ir turi 50 lempučių.",
+        "Tiks LED girlianda „Šilta šviesa“. Jos šilta šviesa tinka eglutei, langui ar židiniui."
+      ],
+      "use": [
+        "Ji gražiai apjuosia eglutę ar langą.",
+        "Ji ilga, net penkių metrų, tad apjuos ir didelę eglutę."
+      ],
+      "close": [
+        "Vakarais svetainėje užteks vien šiltų taškelių šviesos.",
+        "Langas gruodžio vakarą švies ir praeiviams."
+      ]
+    },
+    {
+      "slug": "uzrasine-aukso-krastu",
+      "gender": "f",
+      "reveal": [
+        "Gali rinktis užrašinę „Auksiniai puslapiai“. Ji turi lininius viršelius ir auksinius lapų kraštus.",
+        "Tiks užrašinė „Auksiniai puslapiai“. Lininiai viršeliai ir auksiniai kraštai atrodo solidžiai."
+      ],
+      "use": [
+        "Ji skirta darbo susitikimams, idėjoms ir dienos planams.",
+        "Ji gražiai atrodo ant darbo stalo ir telpa į rankinę."
+      ],
+      "close": [
+        "Nauji metai prasidės nuo tuščio ir gražaus puslapio.",
+        "Nauji planai turės gražią vietą."
+      ]
+    },
+    {
+      "slug": "belaidis-ikroviklis-medis",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis belaidį įkroviklį „Natūrali elegancija“. Jis turi medinę apdailą ir kartu yra stovas telefonui.",
+        "Tiks belaidis įkroviklis „Natūrali elegancija“. Telefonas kraunasi tiesiog padėtas ant medinio stovo."
+      ],
+      "use": [
+        "Jis atrodo kaip medinis stalo aksesuaras, o ne dar vienas laidas.",
+        "Jis stovi ant stalo, todėl pranešimus matai iš karto."
+      ],
+      "close": [
+        "Rytais nebereikės ieškoti laido.",
+        "Darbo stalas atrodys tvarkingiau ir šilčiau."
+      ]
+    },
+    {
+      "slug": "vaiku-kaledinis-zaidimas",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis vaikų žaidimą „Šventės paslaptis“. Jis pagamintas iš medžio, ne iš plastiko.",
+        "Tiks medinis žaidimas „Šventės paslaptis“. Jį smagu žaisti kartu prie eglutės."
+      ],
+      "use": [
+        "Jis pagamintas iš medžio, todėl tarnaus ne vienerius metus.",
+        "Jis tinka žaisti kartu, kol visi laukia Kalėdų."
+      ],
+      "close": [
+        "Kalėdų laukimas prie eglutės bus linksmesnis.",
+        "Vakaras prie eglutės baigsis juoku, o ne ekranu."
+      ]
+    },
+    {
+      "slug": "zvakiu-sildymo-lempa",
+      "gender": "f",
+      "reveal": [
+        "Gali rinktis žvakių lempą „Vakaro šviesa“. Žvakė kvepia be liepsnos, o lempa turi laikmatį ir pritemdymą.",
+        "Tiks žvakių lempa „Vakaro šviesa“. Ji turi laikmatį ir pritemdymą."
+      ],
+      "use": [
+        "Ji kvepia be liepsnos, todėl ją saugu palikti kambaryje.",
+        "Ji turi laikmatį, tad išsijungs pati, kai užmigsi."
+      ],
+      "close": [
+        "Vakaras kvepės jaukiai be jokios liepsnos.",
+        "Nebereikės tikrinti, ar viskas užgesinta."
+      ]
+    },
+    {
+      "slug": "amzinoji-roze-gaubte",
+      "gender": "f",
+      "reveal": [
+        "Gali rinktis rožę stikliniame gaubte „Amžina rožė“. Pagrinde šviečia šilta LED šviesa.",
+        "Tiks rožė stikliniame gaubte „Amžina rožė“. Jai nereikia vandens ir ji nenuvysta."
+      ],
+      "use": [
+        "Ji nenuvysta po savaitės, todėl stovės visą žiemą.",
+        "Ji vakare šviečia šilta šviesa iš pagrindo."
+      ],
+      "close": [
+        "Gėlė iš šių Kalėdų stovės ant komodos ir pavasarį.",
+        "Vakarais ant komodos švytės maža šilta gėlė."
+      ]
+    },
+    {
+      "slug": "menulio-lempa-3d",
+      "gender": "f",
+      "reveal": [
+        "Gali rinktis mėnulio lempą „Mėnulio šviesa“. Jos paviršius atkartoja tikrą mėnulio reljefą.",
+        "Tiks mėnulio lempa „Mėnulio šviesa“. Ji įsijungia palietus ir tinka naktinei šviesai."
+      ],
+      "use": [
+        "Ji įsijungia vienu prisilietimu ir švelniai apšviečia kambarį naktį.",
+        "Ji atrodo kaip tikras mėnulis ant naktinės spintelės."
+      ],
+      "close": [
+        "Vakarais kambaryje švies mažas mėnulis.",
+        "Naktį nebereikės ieškoti jungiklio tamsoje."
+      ]
+    },
+    {
+      "slug": "saulelydzio-lempa",
+      "gender": "f",
+      "reveal": [
+        "Gali rinktis saulėlydžio lempą „Auksinis vakaras“. Per kelias sekundes ant sienos atsiranda šilta saulėlydžio šviesa.",
+        "Tiks saulėlydžio lempa „Auksinis vakaras“. Ji jungiasi per USB, tad tinka bet kur."
+      ],
+      "use": [
+        "Ji jungiasi per USB, todėl tinka ir svetainei, ir darbo kampui.",
+        "Ji nudažo sieną šiltu saulėlydžio atspalviu."
+      ],
+      "close": [
+        "Pilki gruodžio vakarai atrodys šiltesni.",
+        "Saulėlydis namuose bus kasdien, net ir gruodį."
+      ]
+    },
+    {
+      "slug": "lietaus-debesies-drekinuvas",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis drėkintuvą „Lietaus debesis“. Jis drėkina orą, skleidžia kvapą, o lašeliai krinta kaip lietus.",
+        "Tiks drėkintuvas „Lietaus debesis“. Su 300 ml vandens jis veikia nuo 8 iki 12 valandų."
+      ],
+      "use": [
+        "Jis veikia nuo 8 iki 12 valandų, tad užteks visai nakčiai.",
+        "Jis drėkina orą, kai šildymo sezonu kambaryje sausa."
+      ],
+      "close": [
+        "Šildymo sezonu oras kambaryje bus ne toks sausas.",
+        "Krintantys lašeliai ramins geriau nei bet koks ekranas."
+      ]
+    },
+    {
+      "slug": "megzta-sildykle-2l",
+      "gender": "f",
+      "reveal": [
+        "Gali rinktis megztą šildyklę „Lovos šiluma“. Jos talpa yra 2 litrai, todėl šiluma laikosi ilgai.",
+        "Tiks klasikinė šildyklė „Lovos šiluma“. Ji turi megztą apvalkalą ir ilgai išlaiko šilumą."
+      ],
+      "use": [
+        "Ji ilgai laiko šilumą, todėl šalta lova sušyla greitai.",
+        "Ji minkšta liesti dėl megzto apvalkalo."
+      ],
+      "close": [
+        "Žiemos vakarą lova pasitiks jau šilta.",
+        "Užmigti šaltą vakarą bus daug lengviau."
+      ]
+    },
+    {
+      "slug": "galaktikos-projektorius-zvaigzdziu-kelione",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis galaktikos projektorių „Žvaigždžių kelionė“. Ant lubų atsiranda žvaigždės ir ūkas.",
+        "Tiks galaktikos projektorius „Žvaigždžių kelionė“. Jis tinka vaikų kambariui ir romantiškam vakarui."
+      ],
+      "use": [
+        "Jis paverčia lubas žvaigždėtu dangumi.",
+        "Jis padeda nurimti prieš užmiegant, kai lubose šviečia žvaigždės."
+      ],
+      "close": [
+        "Vakarais lubose švies visas žvaigždėtas dangus.",
+        "Užmigti po žvaigždėmis bus galima kiekvieną vakarą."
+      ]
+    },
+    {
+      "slug": "pieno-plakiklis-usb",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis pieno plakiklį „Kreminės putos“. Per 20 sekundžių jis išplaka purias pieno putas.",
+        "Tiks pieno plakiklis „Kreminės putos“. Jis kraunasi per USB ir telpa stalčiuje."
+      ],
+      "use": [
+        "Jis išplaka putas kakavai per 20 sekundžių.",
+        "Jis kraunasi per USB, todėl visada paruoštas naudoti."
+      ],
+      "close": [
+        "Namų rytas prasidės nuo purių putų.",
+        "Kakava su putomis taps mažu kasdieniu malonumu."
+      ]
+    },
+    {
+      "slug": "mini-masazo-pistoletas",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis mini masažuoklį „Akimirka sau“. Keturios galvutės tinka kaklui, nugarai ir kitoms zonoms.",
+        "Tiks kompaktiškas masažuoklis „Akimirka sau“. Jis telpa rankinėje ir pravers po ilgos dienos."
+      ],
+      "use": [
+        "Jis turi keturias galvutes skirtingoms zonoms.",
+        "Jis atpalaiduoja kaklą ir nugarą po ilgos dienos prie kompiuterio."
+      ],
+      "close": [
+        "Po ilgos darbo dienos nugara pailsės greičiau.",
+        "Dešimt minučių sau taps mėgstamiausia vakaro dalimi."
+      ]
+    },
+    {
+      "slug": "silkinis-pagalves-uzvalkalas",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis šilkinį pagalvės užvalkalą „Švelni naktis“. Ant šilko plaukai mažiau susivelia.",
+        "Tiks šilkinis pagalvės užvalkalas „Švelni naktis“. Šilkas švelnus odai ir vėsus liesti."
+      ],
+      "use": [
+        "Jis vėsus ir švelnus, todėl ant jo malonu užmigti.",
+        "Jis atrodo prabangiai ant bet kokios lovos."
+      ],
+      "close": [
+        "Rytais plaukai bus mažiau susivėlę.",
+        "Gultis į lovą bus dar maloniau."
+      ]
+    },
+    {
+      "slug": "gua-sha-rinkinys-roze",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis gua sha rinkinį „Rožinė ramybė“. Jame yra veido volas ir gua sha akmuo.",
+        "Tiks gua sha rinkinys „Rožinė ramybė“. Jis jau gražioje dėžutėje, tad tinka dovanoti iškart."
+      ],
+      "use": [
+        "Jis tinka vakaro veido priežiūrai po ilgos dienos.",
+        "Jis padeda skirti kelias minutes sau kiekvieną vakarą."
+      ],
+      "close": [
+        "Vakaro ritualas prie veidrodžio taps maloniausia dienos dalimi.",
+        "Kelios minutės sau vakare bus kasdienė pertraukėlė."
+      ]
+    },
+    {
+      "slug": "kilimas-silta-grindys",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis kilimą „Žiemos jaukumas“. Jį puošia šiaurietiškas raštas su eglutėmis ir snaigėmis.",
+        "Tiks šventinis kilimas „Žiemos jaukumas“. Jį galima skalbti, tad nebaisu ir per šventes."
+      ],
+      "use": [
+        "Jis skalbiamas, todėl nereikia bijoti išlietų gėrimų.",
+        "Jis puošia prieškambarį ar svetainę visą žiemą."
+      ],
+      "close": [
+        "Šventinė nuotaika prasidės jau nuo slenksčio.",
+        "Svetainė atrodys šventiškai net be didelių dekoracijų."
+      ]
+    },
+    {
+      "slug": "raktu-pakabukas-namai",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis raktų pakabuką „Mažoji eglutė“. Jį sudaro oda ir maža žalvario eglutė.",
+        "Tiks odinis raktų pakabukas „Mažoji eglutė“. Tai maža dovana iki 10 eurų."
+      ],
+      "use": [
+        "Jis bus kartu su raktais kiekvieną dieną.",
+        "Jis tinka ir namų, ir automobilio raktams."
+      ],
+      "close": [
+        "Maža žalvario eglutė primins apie šias Kalėdas visus metus.",
+        "Raktai pagaliau neprapuls rankinės dugne."
+      ]
+    },
+    {
+      "slug": "isoreine-baterija-kelione",
+      "gender": "f",
+      "reveal": [
+        "Gali rinktis išorinę bateriją „Visada su savimi“. Ji telpa kišenėje, bet turi didelę talpą.",
+        "Tiks kišeninė išorinė baterija „Visada su savimi“. Telefonas neišsikraus nei išvykoje, nei kasdien."
+      ],
+      "use": [
+        "Ji telpa kišenėje, todėl visada būna po ranka.",
+        "Ji išgelbsti ilgoje išvykoje ir paprastą darbo dieną."
+      ],
+      "close": [
+        "Žemas įkrovos lygis nebegadins dienos.",
+        "Ekranas nebeužges pačiu netinkamiausiu metu."
+      ]
+    },
+    {
+      "slug": "ausines-kisenines",
+      "gender": "fpl",
+      "reveal": [
+        "Gali rinktis belaides ausines „Kasdienė muzika“. Jos belaidės ir turi patogų dėklą.",
+        "Tiks belaidės ausinės „Kasdienė muzika“. Jas norisi išbandyti vos išpakavus."
+      ],
+      "use": [
+        "Jos telpa kišenėje, todėl muzika visada būna kartu.",
+        "Jos pravers ir kelyje į darbą, ir sporto salėje."
+      ],
+      "close": [
+        "Rytinis kelias į darbą bus su mėgstama muzika.",
+        "Kišenėje pagaliau nebebus susipainiojusių laidų."
+      ]
+    },
+    {
+      "slug": "slepetes-minksta-peda",
+      "gender": "fpl",
+      "reveal": [
+        "Gali rinktis šlepetes „Debesų minkštumas“. Jų pade yra atminties putos.",
+        "Tiks namų šlepetės „Debesų minkštumas“. Atminties putos prisitaiko prie pėdos."
+      ],
+      "use": [
+        "Jos minkštos, nes atminties putos prisitaiko prie pėdos.",
+        "Jos tinka ilgiems žiemos vakarams namuose."
+      ],
+      "close": [
+        "Grįžus namo kojos iškart pailsės.",
+        "Kiekvienas žiemos vakaras namuose prasidės nuo minkšto žingsnio."
+      ]
+    },
+    {
+      "slug": "telefono-stovas-stalas",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis telefono stovą „Patogus kampelis“. Jis laiko telefoną ir stačiai, ir gulsčiai.",
+        "Tiks telefono stovas „Patogus kampelis“. Jis pravers filmams ir vaizdo skambučiams."
+      ],
+      "use": [
+        "Jis atlaisvina rankas per vaizdo skambučius.",
+        "Jis stovi ant stalo ir laiko ekraną stačiai ar gulsčiai."
+      ],
+      "close": [
+        "Ilgi vaizdo skambučiai bus daug patogesni.",
+        "Rankos virtuvėje liks laisvos."
+      ]
+    },
+    {
+      "slug": "nuotrauku-remelis-akimirka",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis nuotraukų rėmelį „Akimirka“. Jis pagamintas iš medžio ir tinka mėgstamiausiai nuotraukai.",
+        "Tiks medinis nuotraukų rėmelis „Akimirka“. Mėgstamiausia nuotrauka pagaliau atsidurs ant lentynos."
+      ],
+      "use": [
+        "Jis pagamintas iš medžio, ne iš plastiko.",
+        "Jis tinka ir komodai, ir darbo stalui."
+      ],
+      "close": [
+        "Mėgstamiausia nuotrauka pagaliau išeis iš ekrano.",
+        "Kambarys su viena mėgstama nuotrauka atrodys visai kitaip."
+      ]
+    },
+    {
+      "slug": "dovanu-pakavimas-sventine",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis dovanų pakavimo rinkinį „Šventinė pakuotė“. Jame yra popieriaus, juostelių ir kortelių visoms dovanoms.",
+        "Tiks pakavimo rinkinys „Šventinė pakuotė“. Viename rinkinyje rasi popierių, juosteles ir korteles."
+      ],
+      "use": [
+        "Jis turi viską, ko reikia visoms Kalėdų dovanoms.",
+        "Jis sutaupo laiko, nes nereikia ieškoti juostelių po visus namus."
+      ],
+      "close": [
+        "Visos dovanos po eglute atrodys kaip vienas komplektas.",
+        "Dovanų ruošimas virs smagiu vakaru prie stalo."
+      ]
+    },
+    {
+      "slug": "serviravimo-lenta-vakariene",
+      "gender": "f",
+      "reveal": [
+        "Gali rinktis serviravimo lentą „Vakarienė dviese“. Ji pagaminta iš masyvaus ąžuolo, ne iš faneros.",
+        "Tiks ąžuolinė serviravimo lenta „Vakarienė dviese“. Ant ąžuolo gražiai atrodo sūriai, duona ir užkandžiai."
+      ],
+      "use": [
+        "Ji gražiai sutalpina sūrius, duoną ir vakaro užkandžius.",
+        "Ji pagaminta iš masyvaus ąžuolo, todėl tarnaus ilgai."
+      ],
+      "close": [
+        "Paprasta vakarienė namuose atrodys kaip restorane.",
+        "Sūris ir duona ant stalo virs maža švente."
+      ]
+    },
+    {
+      "slug": "kvapo-purskiklis-namai",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis kambario kvapo purškiklį „Jaukūs namai“. Vanilės ir kedro kvapas pasklinda per kelias sekundes.",
+        "Tiks kvapo purškiklis „Jaukūs namai“. Užtenka vieno purkštelėjimo, kad kambarys kvepėtų vanile ir kedru."
+      ],
+      "use": [
+        "Jis kvepia vanile ir kedru, o kvapas pasklinda per kelias sekundes.",
+        "Jis pravers, kai namus reikia paruošti per kelias minutes."
+      ],
+      "close": [
+        "Grįžus namo pasitiks vanilės ir kedro kvapas.",
+        "Prieš šventes užteks vieno purkštelėjimo."
+      ]
+    },
+    {
+      "slug": "advento-kalendorius-24",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis advento kalendorių „24 dienos“. Jame yra 24 langeliai su staigmenomis kiekvienam gruodžio rytui.",
+        "Tiks advento kalendorius „24 dienos“. Visos 24 staigmenos jau yra viduje."
+      ],
+      "use": [
+        "Jis turi 24 langelius, todėl kiekvienas gruodžio rytas turi savo staigmeną.",
+        "Jis paruoštas iš karto, nes visos staigmenos jau yra viduje."
+      ],
+      "close": [
+        "Kiekvienas gruodžio rytas prasidės nuo mažos staigmenos.",
+        "Laukti Kalėdų bus daug smagiau."
+      ]
+    },
+    {
+      "slug": "kaledu-dovanu-kojine-staigmena",
+      "gender": "f",
+      "reveal": [
+        "Gali rinktis Kalėdų dovanų kojinę „Šventinė staigmena“. Ji yra megzta, o ne iš plono poliesterio.",
+        "Tiks megzta dovanų kojinė „Šventinė staigmena“. Tai šventinė smulkmena iki 15 eurų."
+      ],
+      "use": [
+        "Ji kabo prie židinio ar eglutės ir laukia mažų dovanėlių.",
+        "Ji yra megzta, todėl tarnaus ne vienerias Kalėdas."
+      ],
+      "close": [
+        "Mažos dovanėlės turės savo vietą prie eglutės.",
+        "Kalėdų rytą visi pirmiausia pažiūrės, kas viduje."
+      ]
+    },
+    {
+      "slug": "sniego-gaublys-ziemos-pasaka",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis sniego gaublį „Žiemos pasaka“. Viduje yra miniatiūrinė eglutė ir namelis.",
+        "Tiks stiklinis sniego gaublys „Žiemos pasaka“. Jis pagamintas iš stiklo ir medžio."
+      ],
+      "use": [
+        "Jis pagamintas iš stiklo ir medžio, ne iš plastiko.",
+        "Jis puikiai atrodo ant palangės ar komodos visą žiemą."
+      ],
+      "close": [
+        "Pakratai ir viduje vėl sninga.",
+        "Palangė žiemą atrodys šventiškai."
+      ]
+    },
+    {
+      "slug": "stalo-takelis-siaures-rastas",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis stalo takelį „Šiaurės raštas“. Kreminė ir bordo spalvos tinka šventiniam stalui.",
+        "Tiks šventinis stalo takelis „Šiaurės raštas“. Jis yra 180 cm ilgio, tad tinka ir ilgam stalui."
+      ],
+      "use": [
+        "Jis puošia stalą net tada, kai ant jo nieko nėra.",
+        "Jis tinka ir Kūčioms, ir Kalėdų pietums."
+      ],
+      "close": [
+        "Šventinis stalas atrodys paruoštas dar prieš patiekiant valgius.",
+        "Net paprasta vakarienė atrodys šventiškai."
+      ]
+    },
+    {
+      "slug": "riesutu-spaudiklis-sargybinis",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis medinį riešutų spaudiklį „Sargybinis“. Jis dažytas rankomis ir puošia namus visą žiemą.",
+        "Tiks medinis riešutų spaudiklis „Sargybinis“. Tai ir dekoracija, ir šventinis ritualas."
+      ],
+      "use": [
+        "Jis puošia komodą, o per šventes skaldo riešutus.",
+        "Jis dažytas rankomis, todėl kiekvienas šiek tiek skiriasi."
+      ],
+      "close": [
+        "Riešutų skaldymas prie stalo taps šventine tradicija.",
+        "Svetainė gruodį atrodys kaip iš senos pasakos."
+      ]
+    },
+    {
+      "slug": "egles-sijonas-sventinis-ratas",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis eglės sijoną „Šventinis ratas“. Jis paslepia eglutės stovą po minkštu aksomu.",
+        "Tiks aksominis eglės sijonas „Šventinis ratas“. Aksomas minkštas liesti ir gražiai atrodo po dovanomis."
+      ],
+      "use": [
+        "Jis paslepia eglutės stovą, todėl apačia atrodo tvarkingai.",
+        "Jis minkštas liesti, o dovanos ant jo atrodo dar gražiau."
+      ],
+      "close": [
+        "Dovanos po eglute atrodys kaip iš atviruko.",
+        "Eglutė atrodys užbaigta iki pat apačios."
+      ]
+    },
+    {
+      "slug": "keramikinis-zibintas-ziemos-namelis",
+      "gender": "m",
+      "reveal": [
+        "Gali rinktis keramikinį žibintą „Žiemos namelis“. Keramikinis namelis šviečia šilta LED šviesa.",
+        "Tiks keramikinis žibintas „Žiemos namelis“. Jis švyti šiltai ir puošia vakarą ant palangės."
+      ],
+      "use": [
+        "Jis šviečia šilta šviesa be jokios liepsnos.",
+        "Jis tinka ant palangės, komodos ar šventinio stalo."
+      ],
+      "close": [
+        "Vakarais ant palangės švies mažas namelis.",
+        "Tamsūs gruodžio vakarai atrodys jaukiau."
+      ]
+    }
+  ]
+}

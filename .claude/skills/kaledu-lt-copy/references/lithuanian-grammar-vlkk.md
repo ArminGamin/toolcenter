@@ -667,7 +667,13 @@ The fixed expression is `(pa)imti viršų` (accusative) — "to prevail, to take
 
 Source: VLKK consultation *Ar vartotinas pasakymas „paimti viršų“?* — https://vlkk.lt/konsultacijos/12806-2017-08-25-12-55-32 (citing *Lietuvių kalbos žodynas* and *Frazeologijos žodynas*, 2001, p. 842)
 
-Not yet verified (treat as naturalness only, never a gate): abstract `ties` (`susikoncentruoti ties kuo` → prefer `susitelkti į ką`).
+## Comma before a single `ir` between two clauses is optional
+
+Homogeneous parts joined by a single (non-repeated) `ir, bei, ar, arba, nei` take no comma. In a **compound sentence**, clauses joined by a single `ir, nei, ar, arba` **may** take a comma when the writer wants to show that the second clause stands apart in meaning and intonation (a consequence, a turn): `Sesuo turi savo skonį, ir jį lengva nuvilti.` / `Sesuo turi savo skonį ir jį lengva nuvilti.` Both are normative. Never report either form as an error, and do not add or strip that comma automatically.
+
+Sources: VLKK, *Lietuvių kalbos skyrybos taisyklės (suvestinė redakcija)* — https://www.vlkk.lt/vlkk-nutarimai/suvestines-nutarimu-redakcijos/lietuviu-kalbos-skyrybos-taisykles-suvestine-redakcija ; VLKK, *Lietuvių kalbos skyryba. Taisyklės, komentarai, patarimai* (2020) — https://www.vlkk.lt/media/public/file/Leidiniai/Liet_k_skyryba.pdf
+
+Not yet verified (treat as naturalness only, never a gate): `tarnauti kaip kas` / `stovėti kaip dekoracija` for a role (the instrumental `būti stovu`, `tarnauti stovu` is safe; the kits avoid the `kaip` form). Abstract `ties` (`susikoncentruoti ties kuo` → prefer `susitelkti į ką`).
 
 ---
 
