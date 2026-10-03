@@ -52,3 +52,6 @@ debug-*.log
 .cursor/*.log
 ads/*/out/
 ads/*/preview/
+
+# Windows profile paths (D:\jaukumas\...) become literal folder names when tests run on Linux
+/D:*
